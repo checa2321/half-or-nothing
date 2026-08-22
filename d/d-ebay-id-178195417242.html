@@ -28,7 +28,7 @@
 <meta property="og:image" content="https://i.ebayimg.com/images/g/PIAAAeSwiCJqicIB/s-l500.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://i.ebayimg.com/images/g/PIAAAeSwiCJqicIB/s-l500.jpg">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Fendi Shiny Light Brown Shield Ladies Sunglasses FE40135I 39E 140 FE40135I 39E","description":"54% off -- was $495.00, now $228.99 at Ebay.","image":"https://i.ebayimg.com/images/g/PIAAAeSwiCJqicIB/s-l500.jpg","offers":{"@type":"Offer","price":"228.99","priceCurrency":"USD","availability":"https://schema.org/InStock","url":"https://halfornothing.com/d/d-ebay-id-178195417242.html","priceValidUntil":"2026-08-23T02:25:25Z"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Deals","item":"https://halfornothing.com/"},{"@type":"ListItem","position":2,"name":"Fashion & Accessories","item":"https://halfornothing.com/fashion.html"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Fendi Shiny Light Brown Shield Ladies Sunglasses FE40135I 39E 140 FE40135I 39E","description":"54% off -- was $495.00, now $228.99 at Ebay.","image":"https://i.ebayimg.com/images/g/PIAAAeSwiCJqicIB/s-l500.jpg","offers":{"@type":"Offer","price":"228.99","priceCurrency":"USD","availability":"https://schema.org/InStock","url":"https://halfornothing.com/d/d-ebay-id-178195417242.html","priceValidUntil":"2026-08-23T02:55:15Z"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Deals","item":"https://halfornothing.com/"},{"@type":"ListItem","position":2,"name":"Fashion & Accessories","item":"https://halfornothing.com/fashion.html"}]}</script>
 <style>
 :root{
   --signal:#D93A12; --signal-dark:#B8331A; --gate:#00a863; --gate-soft:#5C9B81;
@@ -857,9 +857,25 @@ html{scroll-behavior:smooth}
 .crumbs a{color:var(--muted);text-decoration:none}
 .crumbs a:hover{color:var(--signal)}
 .crumbs b{color:var(--ink);font-weight:600}
-.subnav{margin:8px 0 0;font-size:13px}
-.subnav a{color:var(--gate);font-weight:600;text-decoration:none;margin-right:16px}
-.subnav a:hover{color:var(--signal)}
+/* Pill-style subnav rows -- Shop / Shop by price / Shop by type. Same
+   border-radius:999px pill language as #dealSort ("Highest discount") and
+   the category filter button, so this reads as the same control family
+   instead of a plain link list a fast-scanning eye slides right past. Price
+   and type get their own accent (--signal red, --gate green -- both already
+   load-bearing colors on the page: --signal is the %-off badge, --gate is
+   this row's own original link color) so the two rows are visually distinct
+   from each other, not just distinct in label text. Added 2026-08-22. */
+.subnav{margin:10px 0 0;font-size:13px;display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.subnav-label{font-weight:800;color:var(--muted);text-transform:uppercase;
+              letter-spacing:.03em;font-size:11.5px;margin-right:2px}
+.subnav a{display:inline-block;font-weight:700;text-decoration:none;border-radius:999px;
+          padding:7px 14px;border:1.5px solid var(--rule);color:var(--ink-soft);
+          background:var(--card)}
+.subnav a:hover{transform:translateY(-1px)}
+.subnav-price a{border-color:var(--signal);color:var(--signal-dark)}
+.subnav-price a:hover,.subnav-price a.active{background:var(--signal);color:#fff}
+.subnav-type a{border-color:var(--gate);color:var(--gate)}
+.subnav-type a:hover,.subnav-type a.active{background:var(--gate);color:#fff}
 .footer-cats{font-size:12.5px;line-height:2;color:var(--muted);max-width:80ch}
 .footer-cats a{color:var(--muted);font-weight:500}
 .footer-cats a:hover{color:var(--signal)}
@@ -979,7 +995,7 @@ html{scroll-behavior:smooth}
 
 </div></header>
 <main class="wrap">
-<nav class='crumbs' aria-label='Breadcrumb'><a href='/index.html'>All deals</a> <span>&rsaquo;</span> <a href='/fashion.html'>Fashion &amp; Accessories</a> <span>&rsaquo;</span> <b>Deal</b></nav><article class='deal-page'><div class='deal-page-media'><img src='https://i.ebayimg.com/images/g/PIAAAeSwiCJqicIB/s-l500.jpg' alt='Fendi Shiny Light Brown Shield Ladies Sunglasses FE40135I 39E 140 FE40135I 39E' loading='eager' decoding='async' referrerpolicy='no-referrer'></div><div class='deal-page-body'><h1>Fendi Shiny Light Brown Shield Ladies Sunglasses FE40135I 39E 140 FE40135I 39E</h1><p class='deal-status deal-status-live'>Live now &middot; verified within the last 6 hours.</p><p class='deal-page-price'><b>$228.99</b><s>$495.00</s><span class='deal-page-pct'>54% off</span></p><a class='deal-cta' href='https://www.ebay.com/itm/178195417242?_skw=sunglasses&amp;hash=item297d46489a%3Ag%3APIAAAeSwiCJqicIB&amp;amdata=enc%3AAQALAAAA8ACCtXRWQnOEpyOqnQQ8KGaWTJbK1BKmAKGzaUfJqBMx6eKo5Dkgfka2HhcE5fooNu1GrrzzhPo9vq%2FjZt1T2UPGuuDxQe3FmcjVIjgNM7uW7u1UZCzxZ3sV57yve8IsK78YfAtEHNxIqskIJClevla5Xm5Gf6VsSnEDihzm6JLMl%2B%2BwayuQOgt3d6vcnFlRBfO5s4eh%2FS4BeCFl93LAiq6x6FOESRewT92imaWBYkTlk%2BsdI1KrjWYnCpZafGkoYL6mlY63dzI3okp%2FAf1c4SepHIjDkjPGJPYufG7nc3OgXflsJVWCI0qYdkEc2gcILw%3D%3D&amp;campid=5339186549&amp;toolid=10001&amp;mkevt=1&amp;mkcid=1&amp;mkrid=711-53200-19255-0&amp;siteid=0&amp;customid=hond' target='_blank' rel='noopener sponsored'>Get this deal at Ebay &rarr;</a></div></article>
+<nav class='crumbs' aria-label='Breadcrumb'><a href='/index.html'>All deals</a> <span>&rsaquo;</span> <a href='/fashion.html'>Fashion &amp; Accessories</a> <span>&rsaquo;</span> <b>Deal</b></nav><article class='deal-page'><div class='deal-page-media'><img src='https://i.ebayimg.com/images/g/PIAAAeSwiCJqicIB/s-l500.jpg' alt='Fendi Shiny Light Brown Shield Ladies Sunglasses FE40135I 39E 140 FE40135I 39E' loading='eager' decoding='async' referrerpolicy='no-referrer'></div><div class='deal-page-body'><h1>Fendi Shiny Light Brown Shield Ladies Sunglasses FE40135I 39E 140 FE40135I 39E</h1><p class='deal-status deal-status-live'>Live now &middot; verified within the last 6 hours.</p><p class='deal-page-price'><b>$228.99</b><s>$495.00</s><span class='deal-page-pct'>54% off</span></p><a class='deal-cta' href='https://www.ebay.com/itm/178195417242?_skw=sunglasses&amp;hash=item297d46489a%3Ag%3APIAAAeSwiCJqicIB&amp;amdata=enc%3AAQALAAAA8ACCtXRWQnOEpyOqnQQ8KGaWTJbK1BKmAKGzaUfJqBMx6eKo5Dkgfka2HhcE5fooNu1GrrzzhPo9vq%2FjZt1T2UPGuuDxQe3FmcjVIjgNM7uW7u1UZCzxZ3sV57yve8IsK78YfAtEHNxIqskIJClevla5plGP6J7IKAYwZJ%2BjSF0cogTkDsBFcpkp1t09o1qDRRQZB8W7Rlo8buv7N02C%2BgEsAuOhoILSnxxs3VO5DDgyH9gWILZL3rDaBHaP1Xh17vu3QCemju%2F8PW9eUzMffmw9IEswCp%2BG9leQdlvNXK3htW1VgrVBKOcKRqoM1f9B2g%3D%3D&amp;campid=5339186549&amp;toolid=10001&amp;mkevt=1&amp;mkcid=1&amp;mkrid=711-53200-19255-0&amp;siteid=0&amp;customid=hond' target='_blank' rel='noopener sponsored'>Get this deal at Ebay &rarr;</a></div></article>
 <footer class="site"><div class="footer-grid">
 <div class="footer-main">
 <details class="disclosure">

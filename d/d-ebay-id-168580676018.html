@@ -28,7 +28,7 @@
 <meta property="og:image" content="https://i.ebayimg.com/images/g/1C0AAeSwahlqbhCL/s-l500.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://i.ebayimg.com/images/g/1C0AAeSwahlqbhCL/s-l500.jpg">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Chopard Red Gradient Square Ladies Sunglasses SCHG32V 0AFD 57 SCHG32V 0AFD 57","description":"85% off -- was $1800.00, now $264.99 at Ebay.","image":"https://i.ebayimg.com/images/g/1C0AAeSwahlqbhCL/s-l500.jpg","offers":{"@type":"Offer","price":"264.99","priceCurrency":"USD","availability":"https://schema.org/InStock","url":"https://halfornothing.com/d/d-ebay-id-168580676018.html","priceValidUntil":"2026-08-23T02:25:25Z"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Deals","item":"https://halfornothing.com/"},{"@type":"ListItem","position":2,"name":"Fashion & Accessories","item":"https://halfornothing.com/fashion.html"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Chopard Red Gradient Square Ladies Sunglasses SCHG32V 0AFD 57 SCHG32V 0AFD 57","description":"85% off -- was $1800.00, now $264.99 at Ebay.","image":"https://i.ebayimg.com/images/g/1C0AAeSwahlqbhCL/s-l500.jpg","offers":{"@type":"Offer","price":"264.99","priceCurrency":"USD","availability":"https://schema.org/InStock","url":"https://halfornothing.com/d/d-ebay-id-168580676018.html","priceValidUntil":"2026-08-23T02:55:15Z"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Deals","item":"https://halfornothing.com/"},{"@type":"ListItem","position":2,"name":"Fashion & Accessories","item":"https://halfornothing.com/fashion.html"}]}</script>
 <style>
 :root{
   --signal:#D93A12; --signal-dark:#B8331A; --gate:#00a863; --gate-soft:#5C9B81;
@@ -857,9 +857,25 @@ html{scroll-behavior:smooth}
 .crumbs a{color:var(--muted);text-decoration:none}
 .crumbs a:hover{color:var(--signal)}
 .crumbs b{color:var(--ink);font-weight:600}
-.subnav{margin:8px 0 0;font-size:13px}
-.subnav a{color:var(--gate);font-weight:600;text-decoration:none;margin-right:16px}
-.subnav a:hover{color:var(--signal)}
+/* Pill-style subnav rows -- Shop / Shop by price / Shop by type. Same
+   border-radius:999px pill language as #dealSort ("Highest discount") and
+   the category filter button, so this reads as the same control family
+   instead of a plain link list a fast-scanning eye slides right past. Price
+   and type get their own accent (--signal red, --gate green -- both already
+   load-bearing colors on the page: --signal is the %-off badge, --gate is
+   this row's own original link color) so the two rows are visually distinct
+   from each other, not just distinct in label text. Added 2026-08-22. */
+.subnav{margin:10px 0 0;font-size:13px;display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.subnav-label{font-weight:800;color:var(--muted);text-transform:uppercase;
+              letter-spacing:.03em;font-size:11.5px;margin-right:2px}
+.subnav a{display:inline-block;font-weight:700;text-decoration:none;border-radius:999px;
+          padding:7px 14px;border:1.5px solid var(--rule);color:var(--ink-soft);
+          background:var(--card)}
+.subnav a:hover{transform:translateY(-1px)}
+.subnav-price a{border-color:var(--signal);color:var(--signal-dark)}
+.subnav-price a:hover,.subnav-price a.active{background:var(--signal);color:#fff}
+.subnav-type a{border-color:var(--gate);color:var(--gate)}
+.subnav-type a:hover,.subnav-type a.active{background:var(--gate);color:#fff}
 .footer-cats{font-size:12.5px;line-height:2;color:var(--muted);max-width:80ch}
 .footer-cats a{color:var(--muted);font-weight:500}
 .footer-cats a:hover{color:var(--signal)}
@@ -979,7 +995,7 @@ html{scroll-behavior:smooth}
 
 </div></header>
 <main class="wrap">
-<nav class='crumbs' aria-label='Breadcrumb'><a href='/index.html'>All deals</a> <span>&rsaquo;</span> <a href='/fashion.html'>Fashion &amp; Accessories</a> <span>&rsaquo;</span> <b>Deal</b></nav><article class='deal-page'><div class='deal-page-media'><img src='https://i.ebayimg.com/images/g/1C0AAeSwahlqbhCL/s-l500.jpg' alt='Chopard Red Gradient Square Ladies Sunglasses SCHG32V 0AFD 57 SCHG32V 0AFD 57' loading='eager' decoding='async' referrerpolicy='no-referrer'></div><div class='deal-page-body'><h1>Chopard Red Gradient Square Ladies Sunglasses SCHG32V 0AFD 57 SCHG32V 0AFD 57</h1><p class='deal-status deal-status-live'>Live now &middot; verified within the last 6 hours.</p><p class='deal-page-price'><b>$264.99</b><s>$1800.00</s><span class='deal-page-pct'>85% off</span></p><a class='deal-cta' href='https://www.ebay.com/itm/168580676018?_skw=sunglasses&amp;hash=item274030f9b2%3Ag%3A1C0AAeSwahlqbhCL&amp;amdata=enc%3AAQALAAAA8ACCtXRWQnOEpyOqnQQ8KGa%2F8RiYhZ58O4TByYyH8aIguSRSqKiDLrhbHzn%2BYiA9lyhMfRGD42A4kfQiH%2Fsh1d1qXxV3vdBFkQbGyRvV426EeHit9lHFmoIKxirSMzIz2bIhkYZxIB5sOJIjjtewbk2IR0r6aKSQSxoNMqHvTnHvHP2gh%2F0ajCdmt6Mjpo%2BRMpTr7ZxO%2BJHYU6DLRbJhpPauY%2FVRKsTQZ886AMeBDiFGi3DrsNezy5soJZWzfj%2FJeREqXVseumT75pPLdVe5bvL82BGw4C64OchqfR6vniKtF6Hi6jbW4lYA%2F9UHD3vcyA%3D%3D&amp;campid=5339186549&amp;toolid=10001&amp;mkevt=1&amp;mkcid=1&amp;mkrid=711-53200-19255-0&amp;siteid=0&amp;customid=hond' target='_blank' rel='noopener sponsored'>Get this deal at Ebay &rarr;</a></div></article>
+<nav class='crumbs' aria-label='Breadcrumb'><a href='/index.html'>All deals</a> <span>&rsaquo;</span> <a href='/fashion.html'>Fashion &amp; Accessories</a> <span>&rsaquo;</span> <b>Deal</b></nav><article class='deal-page'><div class='deal-page-media'><img src='https://i.ebayimg.com/images/g/1C0AAeSwahlqbhCL/s-l500.jpg' alt='Chopard Red Gradient Square Ladies Sunglasses SCHG32V 0AFD 57 SCHG32V 0AFD 57' loading='eager' decoding='async' referrerpolicy='no-referrer'></div><div class='deal-page-body'><h1>Chopard Red Gradient Square Ladies Sunglasses SCHG32V 0AFD 57 SCHG32V 0AFD 57</h1><p class='deal-status deal-status-live'>Live now &middot; verified within the last 6 hours.</p><p class='deal-page-price'><b>$264.99</b><s>$1800.00</s><span class='deal-page-pct'>85% off</span></p><a class='deal-cta' href='https://www.ebay.com/itm/168580676018?_skw=sunglasses&amp;hash=item274030f9b2%3Ag%3A1C0AAeSwahlqbhCL&amp;amdata=enc%3AAQALAAAA8ACCtXRWQnOEpyOqnQQ8KGa%2F8RiYhZ58O4TByYyH8aIguSRSqKiDLrhbHzn%2BYiA9lyhMfRGD42A4kfQiH%2Fsh1d1qXxV3vdBFkQbGyRvV426EeHit9lHFmoIKxirSMzIz2bIhkYZxIB5sOJIjjtewbk2KAmTramfvKk6CvEXnmOJFfxnddSieB6ipTl6EcHr14sgkyZV4j0IImiGNEU%2FWoAFQSTbioUp62tCoaMv%2BMxwdiXf1VUzslpLHk9WcUBvF%2FEv6HA8rFp5bynG11oKgQ%2B4caFDoKYf%2FAH9OIEe28NO%2BpcPmIOyBpM8334CDPuTmKg%3D%3D&amp;campid=5339186549&amp;toolid=10001&amp;mkevt=1&amp;mkcid=1&amp;mkrid=711-53200-19255-0&amp;siteid=0&amp;customid=hond' target='_blank' rel='noopener sponsored'>Get this deal at Ebay &rarr;</a></div></article>
 <footer class="site"><div class="footer-grid">
 <div class="footer-main">
 <details class="disclosure">

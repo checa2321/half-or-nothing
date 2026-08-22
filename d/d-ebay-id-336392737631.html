@@ -28,7 +28,7 @@
 <meta property="og:image" content="https://i.ebayimg.com/images/g/gg0AAeSweblpam9e/s-l500.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://i.ebayimg.com/images/g/gg0AAeSweblpam9e/s-l500.jpg">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Invicta Men's Pro Diver Airlock Chronograph Quartz Strap 51mm Watch","description":"89% off -- was $395.00, now $44.99 at Ebay.","image":"https://i.ebayimg.com/images/g/gg0AAeSweblpam9e/s-l500.jpg","offers":{"@type":"Offer","price":"44.99","priceCurrency":"USD","availability":"https://schema.org/InStock","url":"https://halfornothing.com/d/d-ebay-id-336392737631.html","priceValidUntil":"2026-08-23T02:25:25Z"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Deals","item":"https://halfornothing.com/"},{"@type":"ListItem","position":2,"name":"Jewelry & Watches","item":"https://halfornothing.com/jewelry-watches.html"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Invicta Men's Pro Diver Airlock Chronograph Quartz Strap 51mm Watch","description":"89% off -- was $395.00, now $44.99 at Ebay.","image":"https://i.ebayimg.com/images/g/gg0AAeSweblpam9e/s-l500.jpg","offers":{"@type":"Offer","price":"44.99","priceCurrency":"USD","availability":"https://schema.org/InStock","url":"https://halfornothing.com/d/d-ebay-id-336392737631.html","priceValidUntil":"2026-08-23T02:55:15Z"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Deals","item":"https://halfornothing.com/"},{"@type":"ListItem","position":2,"name":"Jewelry & Watches","item":"https://halfornothing.com/jewelry-watches.html"}]}</script>
 <style>
 :root{
   --signal:#D93A12; --signal-dark:#B8331A; --gate:#00a863; --gate-soft:#5C9B81;
@@ -857,9 +857,25 @@ html{scroll-behavior:smooth}
 .crumbs a{color:var(--muted);text-decoration:none}
 .crumbs a:hover{color:var(--signal)}
 .crumbs b{color:var(--ink);font-weight:600}
-.subnav{margin:8px 0 0;font-size:13px}
-.subnav a{color:var(--gate);font-weight:600;text-decoration:none;margin-right:16px}
-.subnav a:hover{color:var(--signal)}
+/* Pill-style subnav rows -- Shop / Shop by price / Shop by type. Same
+   border-radius:999px pill language as #dealSort ("Highest discount") and
+   the category filter button, so this reads as the same control family
+   instead of a plain link list a fast-scanning eye slides right past. Price
+   and type get their own accent (--signal red, --gate green -- both already
+   load-bearing colors on the page: --signal is the %-off badge, --gate is
+   this row's own original link color) so the two rows are visually distinct
+   from each other, not just distinct in label text. Added 2026-08-22. */
+.subnav{margin:10px 0 0;font-size:13px;display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.subnav-label{font-weight:800;color:var(--muted);text-transform:uppercase;
+              letter-spacing:.03em;font-size:11.5px;margin-right:2px}
+.subnav a{display:inline-block;font-weight:700;text-decoration:none;border-radius:999px;
+          padding:7px 14px;border:1.5px solid var(--rule);color:var(--ink-soft);
+          background:var(--card)}
+.subnav a:hover{transform:translateY(-1px)}
+.subnav-price a{border-color:var(--signal);color:var(--signal-dark)}
+.subnav-price a:hover,.subnav-price a.active{background:var(--signal);color:#fff}
+.subnav-type a{border-color:var(--gate);color:var(--gate)}
+.subnav-type a:hover,.subnav-type a.active{background:var(--gate);color:#fff}
 .footer-cats{font-size:12.5px;line-height:2;color:var(--muted);max-width:80ch}
 .footer-cats a{color:var(--muted);font-weight:500}
 .footer-cats a:hover{color:var(--signal)}

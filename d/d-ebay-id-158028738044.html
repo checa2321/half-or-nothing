@@ -28,7 +28,7 @@
 <meta property="og:image" content="https://i.ebayimg.com/images/g/t1cAAeSw9fJqh8c-/s-l500.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://i.ebayimg.com/images/g/t1cAAeSw9fJqh8c-/s-l500.jpg">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Burberry Dark Grey Pilot Men's Sunglasses BE4417U 300187 58 BE4417U 300187 58","description":"72% off -- was $522.00, now $145.67 at Ebay.","image":"https://i.ebayimg.com/images/g/t1cAAeSw9fJqh8c-/s-l500.jpg","offers":{"@type":"Offer","price":"145.67","priceCurrency":"USD","availability":"https://schema.org/InStock","url":"https://halfornothing.com/d/d-ebay-id-158028738044.html","priceValidUntil":"2026-08-23T02:25:25Z"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Deals","item":"https://halfornothing.com/"},{"@type":"ListItem","position":2,"name":"Fashion & Accessories","item":"https://halfornothing.com/fashion.html"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Burberry Dark Grey Pilot Men's Sunglasses BE4417U 300187 58 BE4417U 300187 58","description":"72% off -- was $522.00, now $145.67 at Ebay.","image":"https://i.ebayimg.com/images/g/t1cAAeSw9fJqh8c-/s-l500.jpg","offers":{"@type":"Offer","price":"145.67","priceCurrency":"USD","availability":"https://schema.org/InStock","url":"https://halfornothing.com/d/d-ebay-id-158028738044.html","priceValidUntil":"2026-08-23T02:55:15Z"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Deals","item":"https://halfornothing.com/"},{"@type":"ListItem","position":2,"name":"Fashion & Accessories","item":"https://halfornothing.com/fashion.html"}]}</script>
 <style>
 :root{
   --signal:#D93A12; --signal-dark:#B8331A; --gate:#00a863; --gate-soft:#5C9B81;
@@ -857,9 +857,25 @@ html{scroll-behavior:smooth}
 .crumbs a{color:var(--muted);text-decoration:none}
 .crumbs a:hover{color:var(--signal)}
 .crumbs b{color:var(--ink);font-weight:600}
-.subnav{margin:8px 0 0;font-size:13px}
-.subnav a{color:var(--gate);font-weight:600;text-decoration:none;margin-right:16px}
-.subnav a:hover{color:var(--signal)}
+/* Pill-style subnav rows -- Shop / Shop by price / Shop by type. Same
+   border-radius:999px pill language as #dealSort ("Highest discount") and
+   the category filter button, so this reads as the same control family
+   instead of a plain link list a fast-scanning eye slides right past. Price
+   and type get their own accent (--signal red, --gate green -- both already
+   load-bearing colors on the page: --signal is the %-off badge, --gate is
+   this row's own original link color) so the two rows are visually distinct
+   from each other, not just distinct in label text. Added 2026-08-22. */
+.subnav{margin:10px 0 0;font-size:13px;display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.subnav-label{font-weight:800;color:var(--muted);text-transform:uppercase;
+              letter-spacing:.03em;font-size:11.5px;margin-right:2px}
+.subnav a{display:inline-block;font-weight:700;text-decoration:none;border-radius:999px;
+          padding:7px 14px;border:1.5px solid var(--rule);color:var(--ink-soft);
+          background:var(--card)}
+.subnav a:hover{transform:translateY(-1px)}
+.subnav-price a{border-color:var(--signal);color:var(--signal-dark)}
+.subnav-price a:hover,.subnav-price a.active{background:var(--signal);color:#fff}
+.subnav-type a{border-color:var(--gate);color:var(--gate)}
+.subnav-type a:hover,.subnav-type a.active{background:var(--gate);color:#fff}
 .footer-cats{font-size:12.5px;line-height:2;color:var(--muted);max-width:80ch}
 .footer-cats a{color:var(--muted);font-weight:500}
 .footer-cats a:hover{color:var(--signal)}
@@ -979,7 +995,7 @@ html{scroll-behavior:smooth}
 
 </div></header>
 <main class="wrap">
-<nav class='crumbs' aria-label='Breadcrumb'><a href='/index.html'>All deals</a> <span>&rsaquo;</span> <a href='/fashion.html'>Fashion &amp; Accessories</a> <span>&rsaquo;</span> <b>Deal</b></nav><article class='deal-page'><div class='deal-page-media'><img src='https://i.ebayimg.com/images/g/t1cAAeSw9fJqh8c-/s-l500.jpg' alt='Burberry Dark Grey Pilot Men&#x27;s Sunglasses BE4417U 300187 58 BE4417U 300187 58' loading='eager' decoding='async' referrerpolicy='no-referrer'></div><div class='deal-page-body'><h1>Burberry Dark Grey Pilot Men&#x27;s Sunglasses BE4417U 300187 58 BE4417U 300187 58</h1><p class='deal-status deal-status-live'>Live now &middot; verified within the last 6 hours.</p><p class='deal-page-price'><b>$145.67</b><s>$522.00</s><span class='deal-page-pct'>72% off</span></p><a class='deal-cta' href='https://www.ebay.com/itm/158028738044?_skw=sunglasses&amp;hash=item24cb3f2dfc%3Ag%3At1cAAeSw9fJqh8c-&amp;amdata=enc%3AAQALAAAA8ACCtXRWQnOEpyOqnQQ8KGY4p66Pce7wngQqUrMxz0WPx%2BnLqYihh4cnJzu%2BJA3qLecoDMunU1pd8bEKQbVnkiy6oZqQR95nNoGuRPT%2Bps5ehiRn9%2FYUkgjI2%2B8cdhLad%2B0xEtHSK28YU6lP%2BeZYCO9br2%2FN8emE9Nx%2FhLjyRCT%2Btge%2FPmJrZHlz4T94kC%2B5pcamXDamP0jE%2BjBiy5vm7xvaoCtxRyt5ATeOcdtKqeuZDsbdZhbVhTiFyCRinQ4fnw9E%2Bin5ylpy8TA6yjgUIh221UNQQhKPADbc%2FgbZ6LTviHEnulMYa7pex2s7cu6s9g%3D%3D&amp;campid=5339186549&amp;toolid=10001&amp;mkevt=1&amp;mkcid=1&amp;mkrid=711-53200-19255-0&amp;siteid=0&amp;customid=hond' target='_blank' rel='noopener sponsored'>Get this deal at Ebay &rarr;</a></div></article>
+<nav class='crumbs' aria-label='Breadcrumb'><a href='/index.html'>All deals</a> <span>&rsaquo;</span> <a href='/fashion.html'>Fashion &amp; Accessories</a> <span>&rsaquo;</span> <b>Deal</b></nav><article class='deal-page'><div class='deal-page-media'><img src='https://i.ebayimg.com/images/g/t1cAAeSw9fJqh8c-/s-l500.jpg' alt='Burberry Dark Grey Pilot Men&#x27;s Sunglasses BE4417U 300187 58 BE4417U 300187 58' loading='eager' decoding='async' referrerpolicy='no-referrer'></div><div class='deal-page-body'><h1>Burberry Dark Grey Pilot Men&#x27;s Sunglasses BE4417U 300187 58 BE4417U 300187 58</h1><p class='deal-status deal-status-live'>Live now &middot; verified within the last 6 hours.</p><p class='deal-page-price'><b>$145.67</b><s>$522.00</s><span class='deal-page-pct'>72% off</span></p><a class='deal-cta' href='https://www.ebay.com/itm/158028738044?_skw=sunglasses&amp;hash=item24cb3f2dfc%3Ag%3At1cAAeSw9fJqh8c-&amp;amdata=enc%3AAQALAAAA8ACCtXRWQnOEpyOqnQQ8KGY4p66Pce7wngQqUrMxz0WPx%2BnLqYihh4cnJzu%2BJA3qLecoDMunU1pd8bEKQbVnkiy6oZqQR95nNoGuRPT%2Bps5ehiRn9%2FYUkgjI2%2B8cdhLad%2B0xEtHSK28YU6lP%2BeZYCO8LehfbpwjHZxLssIVycisd8Zu8DS5aHpa4tZn8OTdJubpyv%2BgJXC10EAETd5DTDrHKkCg57Ih0SFlmJQfS1ftkc1gI11%2BamMpZCdzrJf1lNQye0me65ElTdpFFfnSCi%2BVaQBDAaIU8DQTRBR%2BX5fszBDDsxezOw0c32w20wjfWVQ%3D%3D&amp;campid=5339186549&amp;toolid=10001&amp;mkevt=1&amp;mkcid=1&amp;mkrid=711-53200-19255-0&amp;siteid=0&amp;customid=hond' target='_blank' rel='noopener sponsored'>Get this deal at Ebay &rarr;</a></div></article>
 <footer class="site"><div class="footer-grid">
 <div class="footer-main">
 <details class="disclosure">
