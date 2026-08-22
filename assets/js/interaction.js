@@ -747,6 +747,7 @@
   if (feedUrl && window.fetch) {
     var wantCat = grid.getAttribute('data-feed-cat');
     var wantSub = grid.getAttribute('data-feed-subcat');
+    var wantType = grid.getAttribute('data-feed-type');
     var priceMinAttr = grid.getAttribute('data-feed-price-min');
     var priceMaxAttr = grid.getAttribute('data-feed-price-max');
     var wantPriceMin = priceMinAttr === null ? null : parseFloat(priceMinAttr);
@@ -768,6 +769,7 @@
           if (have[d.id]) return;
           if (wantCat && d.category !== wantCat) return;
           if (wantSub && d.subcategory !== wantSub) return;
+          if (wantType && d.fashion_type !== wantType) return;
           if (wantPriceMin !== null && !(d.price > wantPriceMin)) return;
           if (wantPriceMax !== null && !(d.price <= wantPriceMax)) return;
           frag.appendChild(buildCard(d));
