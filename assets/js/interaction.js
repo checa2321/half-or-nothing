@@ -747,6 +747,10 @@
   if (feedUrl && window.fetch) {
     var wantCat = grid.getAttribute('data-feed-cat');
     var wantSub = grid.getAttribute('data-feed-subcat');
+    var priceMinAttr = grid.getAttribute('data-feed-price-min');
+    var priceMaxAttr = grid.getAttribute('data-feed-price-max');
+    var wantPriceMin = priceMinAttr === null ? null : parseFloat(priceMinAttr);
+    var wantPriceMax = priceMaxAttr === null ? null : parseFloat(priceMaxAttr);
     fetch(feedUrl, {cache: 'no-cache'})
       .then(function(r){ return r.ok ? r.json() : Promise.reject(r.status); })
       .then(function(feed){
@@ -764,6 +768,8 @@
           if (have[d.id]) return;
           if (wantCat && d.category !== wantCat) return;
           if (wantSub && d.subcategory !== wantSub) return;
+          if (wantPriceMin !== null && !(d.price > wantPriceMin)) return;
+          if (wantPriceMax !== null && !(d.price <= wantPriceMax)) return;
           frag.appendChild(buildCard(d));
           added++;
         });
