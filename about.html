@@ -66,7 +66,23 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
 .topnav .links a{color:var(--muted);text-decoration:none}
 .topnav .links a:hover{color:var(--ink)}
 .topnav .links a[aria-current]{color:var(--signal);font-weight:700}
-@media(max-width:640px){.topnav .links{display:none}}
+/* ---- #navBtn: the <=640px hamburger toggle for .links above. Hidden at
+   desktop widths; .links itself flips from a horizontal row to a full-width
+   dropdown panel exactly where it used to just disappear. ---- */
+#navBtn{display:none;align-items:center;justify-content:center;width:44px;height:44px;
+        flex-shrink:0;background:var(--card);border:1px solid var(--rule);border-radius:6px;
+        color:var(--ink);cursor:pointer;padding:0}
+#navBtn:hover{border-color:var(--signal);color:var(--signal)}
+#navBtn svg{width:20px;height:20px}
+@media(max-width:640px){
+  #navBtn{display:inline-flex}
+  .topnav .links{display:none;position:absolute;top:100%;left:0;right:0;z-index:50;
+                 flex-direction:column;gap:0;background:var(--card);
+                 border-bottom:1px solid var(--rule);box-shadow:0 10px 30px rgba(0,0,0,.16)}
+  .topnav .links.open{display:flex;animation:menufade .12s ease}
+  .topnav .links a{padding:14px 28px;border-top:1px solid var(--rule);font-size:15px}
+  .topnav .links a:first-child{border-top:none}
+}
 /* Phone: the search moved into the nav, and at 375px the full wordmark plus a
    usable field do not both fit (measured: logo 172px + padding left 24px of
    375). The mark alone still identifies the site, and the wordmark is repeated
@@ -742,17 +758,35 @@ footer.site .disclosure{margin:14px 0}
 .prose strong{font-weight:700}
 .prose a{color:var(--gate);text-underline-offset:3px;font-weight:600}
 .prose .stat{font-family:var(--mono);font-variant-numeric:tabular-nums}
+.prose figure.post-img{margin:22px 0;padding:14px;background:var(--card);
+                       border:1px solid var(--rule);border-radius:10px;text-align:center}
+.prose figure.post-img img{max-width:280px;width:100%;height:auto;border-radius:6px;display:block;margin:0 auto}
+.prose figure.post-img figcaption{margin-top:10px;font-size:.85rem;color:var(--ink-soft)}
 
 /* ---- blog index ---- */
 .blog-list{max-width:68ch;margin:8px 0 40px}
-.blog-row{padding:20px 0;border-top:1px solid var(--rule)}
+.blog-row{padding:20px 0;border-top:1px solid var(--rule);display:flex;gap:18px;align-items:flex-start}
 .blog-row:last-child{border-bottom:1px solid var(--rule)}
+.blog-row-cover{flex-shrink:0;display:block;width:140px;height:88px;border-radius:8px;
+                 overflow:hidden;border:1px solid var(--rule)}
+.blog-row-cover img{width:100%;height:100%;object-fit:cover;display:block}
+.blog-row-body{min-width:0}
 .blog-row-title{display:block;font-size:1.1rem;font-weight:700;color:var(--ink);
                  text-decoration:none;letter-spacing:-.01em}
 .blog-row-title:hover{color:var(--signal)}
 .blog-row-desc{margin:6px 0 0;color:var(--ink-soft)}
 .blog-row-date{margin:6px 0 0;font:500 11px/1 var(--mono);letter-spacing:.06em;
                 text-transform:uppercase;color:var(--muted)}
+
+/* ---- blog author profile ---- */
+.author-head{display:flex;gap:16px;align-items:center;margin:8px 0 20px}
+.author-avatar{width:64px;height:64px;border-radius:50%;object-fit:cover;flex-shrink:0;
+                border:1px solid var(--rule)}
+.author-avatar-initials{display:flex;align-items:center;justify-content:center;
+                         background:var(--signal);color:#fff;font-weight:800;
+                         font-size:1.3rem;letter-spacing:.02em}
+.author-head h1{margin:0;font-size:clamp(1.6rem,4vw,2.1rem)}
+.author-bio{max-width:64ch;color:var(--ink-soft);margin:0 0 34px}
 
 a:focus-visible,button:focus-visible{outline:2px solid var(--signal);outline-offset:2px;border-radius:6px}
 
@@ -987,7 +1021,7 @@ html{scroll-behavior:smooth}
 <svg class="logomark" viewBox="0 0 32 32" aria-hidden="true"><path d="M2 2h26L2 28z" fill="currentColor"/><path d="M30 4v26H4z" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round"/></svg>
 <span class="lg-half">HALF</span><span class="lg-or">or</span><span class="lg-nothing">NOTHING</span></a>
 <form class='herosearch' role='search' action='/index.html' method='get'><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' aria-hidden='true'><circle cx='11' cy='11' r='7'></circle><line x1='21' y1='21' x2='16.65' y2='16.65'></line></svg><input type='search' name='q' aria-label='Search deals' autocomplete='off'></form>
-<div class="links"><a href="/index.html">Deals</a><a href="/brands.html">Brands</a><a href="/amazon-picks.html">Amazon Picks</a><a href="/blog.html">Blog</a><a href="/about.html" aria-current="page">About</a><a href="/privacy.html">Privacy</a><a href="/contact.html">Contact</a></div>
+<button type="button" id="navBtn" aria-expanded="false" aria-controls="navLinks" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button><div class="links" id="navLinks"><a href="/index.html">Deals</a><a href="/brands.html">Brands</a><a href="/amazon-picks.html">Amazon Picks</a><a href="/blog.html">Blog</a><a href="/about.html" aria-current="page">About</a><a href="/privacy.html">Privacy</a><a href="/contact.html">Contact</a></div>
 </div></nav>
 <header class="mast"><span class="mast-ghost" id="mastGhost" aria-hidden="true">&#189;</span><div class="wrap">
 <h1 class="brand"><span class="half">Half</span> <span class="brand-or">or</span> <span class="brand-nothing">Nothing</span></h1>

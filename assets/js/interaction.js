@@ -1,7 +1,7 @@
 (function(){
   var SOCIAL_CUSTOM_ID = 'honsocial';
   function closeAll(){
-    var open = document.querySelectorAll('.over-menu.active,.megamenu.open,.catfilter-panel.open,.has-sub.open,.mega-left>li.open,.herosearch-suggest.open');
+    var open = document.querySelectorAll('.over-menu.active,.megamenu.open,.catfilter-panel.open,.has-sub.open,.mega-left>li.open,.herosearch-suggest.open,#navLinks.open');
     Array.prototype.forEach.call(open, function(el){
       el.classList.remove('active');
       el.classList.remove('open');
@@ -10,6 +10,12 @@
       var trig = el.querySelector(':scope > [aria-expanded]');
       if (trig) trig.setAttribute('aria-expanded', 'false');
     });
+    // #navBtn is a sibling of #navLinks, not its child, so the :scope lookup
+    // above never finds it -- same layout as #megaBtn/#megaPanel, which
+    // sidesteps the issue by skipping aria-expanded entirely. This one uses
+    // it (a hamburger toggle should), so it gets its own reset line.
+    var navBtn = document.getElementById('navBtn');
+    if (navBtn) navBtn.setAttribute('aria-expanded', 'false');
   }
   document.addEventListener('click', closeAll);
   // Escape closes whatever is open, the behaviour every menu widget is
@@ -143,6 +149,21 @@
     megaPanel.addEventListener('click', function(e){ e.stopPropagation(); });
     // mega-menu links are plain hrefs to the per-category pages -- real,
     // crawlable navigation; no JS needed beyond open/close.
+  }
+
+  // ---- top-nav mobile menu (<=640px; see #navBtn in html_output.py) ----
+  var navBtn = document.getElementById('navBtn');
+  var navLinks = document.getElementById('navLinks');
+  if (navBtn && navLinks) {
+    navBtn.addEventListener('click', function(e){
+      e.stopPropagation();
+      var was = navLinks.classList.contains('open');
+      closeAll();
+      if (!was) { navLinks.classList.add('open'); navBtn.setAttribute('aria-expanded', 'true'); }
+    });
+    navLinks.addEventListener('click', function(e){ e.stopPropagation(); });
+    // Links are plain hrefs to real pages -- navigating away closes the
+    // panel for free, no extra handler needed.
   }
 
   // ---- shared: Amazon-style suggestion dropdown under a search box ----
