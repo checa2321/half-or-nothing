@@ -8865,8 +8865,8 @@
   <url>
     <loc>https://halfornothing.com/d/d-ebay-id-178251755889.html</loc>
     <lastmod>2026-08-25</lastmod>
-    <changefreq>hourly</changefreq>
-    <priority>0.6</priority>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
   </url>
   <url>
     <loc>https://halfornothing.com/d/d-ebay-id-178253878815.html</loc>
@@ -12549,8 +12549,8 @@
   <url>
     <loc>https://halfornothing.com/d/d-ebay-id-297521897516.html</loc>
     <lastmod>2026-08-25</lastmod>
-    <changefreq>hourly</changefreq>
-    <priority>0.6</priority>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
   </url>
   <url>
     <loc>https://halfornothing.com/d/d-ebay-id-297756640443.html</loc>
@@ -16195,6 +16195,12 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://halfornothing.com/blog/designer-eyewear-90-percent-off-ebay.html</loc>
+    <lastmod>2026-08-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://halfornothing.com/blog/what-our-price-tracking-actually-proves.html</loc>
     <lastmod>2026-08-25</lastmod>
     <changefreq>monthly</changefreq>
@@ -16202,6 +16208,12 @@
   </url>
   <url>
     <loc>https://halfornothing.com/blog/author/checarlos-cruz.html</loc>
+    <lastmod>2026-08-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://halfornothing.com/blog/author/dan-nazario.html</loc>
     <lastmod>2026-08-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
