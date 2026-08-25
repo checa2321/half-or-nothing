@@ -93,7 +93,16 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
 #navBtn{display:none;align-items:center;justify-content:center;width:44px;height:44px;
         flex-shrink:0;background:var(--card);border:1px solid var(--rule);border-radius:6px;
         color:var(--ink);cursor:pointer;padding:0}
-#navBtn:hover{border-color:var(--signal);color:var(--signal)}
+/* hover:hover excludes touch: a bare :hover rule on a click-toggle trigger
+   makes iOS Safari/WebKit treat the first tap as a hover-simulation and only
+   fire the real click on a second tap -- confirmed on a real phone 2026-08-25
+   (see the four @media(hover:hover)-gated rules in this file). */
+@media(hover:hover){#navBtn:hover{border-color:var(--signal);color:var(--signal)}}
+/* :active is unconditional (not hover:hover-gated): it fires immediately on
+   touchstart with no click delay, so tap still gets the same red flash the
+   old bare :hover rule gave it -- gating :hover alone removed that feedback
+   on touch entirely (Che caught this on his phone 2026-08-25). */
+#navBtn:active{border-color:var(--signal);color:var(--signal)}
 #navBtn svg{width:20px;height:20px}
 @media(max-width:640px){
   #navBtn{display:inline-flex}
@@ -111,6 +120,8 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
 @media(max-width:560px){
   .topnav .inner{gap:12px}
   .lg-half,.lg-or,.lg-nothing{display:none}
+  /* icon-only logo needs a touch target >= 24x24; the mark itself is 23x23 */
+  .topnav .logo{padding:2px}
   /* 44px minimum on the two controls a thumb actually aims at */
   .topnav .herosearch{max-width:none}
   .topnav .herosearch input{padding:13px 0}
@@ -285,7 +296,8 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
 .catfilter-wrap{position:relative}
 #catFilterBtn{font:500 13px/1 var(--display);color:var(--ink);background:var(--card);
               border:1px solid var(--rule);border-radius:999px;padding:10px 16px;cursor:pointer}
-#catFilterBtn:hover{border-color:var(--signal)}
+@media(hover:hover){#catFilterBtn:hover{border-color:var(--signal)}}
+#catFilterBtn:active{border-color:var(--signal)}
 .catfilter-panel{display:none;position:absolute;top:calc(100% + 6px);left:0;z-index:40;
                  background:var(--card);border:1px solid var(--rule);border-radius:6px;
                  box-shadow:0 8px 24px rgba(0,0,0,.15);width:290px}
@@ -328,7 +340,8 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
 #picksCatBtn{font:600 10.5px/1 var(--mono);letter-spacing:.05em;text-transform:uppercase;
              color:var(--muted);background:var(--card);border:1px solid var(--rule);
              border-radius:999px;padding:6px 11px;cursor:pointer}
-#picksCatBtn:hover{border-color:var(--signal);color:var(--signal)}
+@media(hover:hover){#picksCatBtn:hover{border-color:var(--signal);color:var(--signal)}}
+#picksCatBtn:active{border-color:var(--signal);color:var(--signal)}
 /* z-index bumped past the deals-page panel's 40: the Lasso embeds in the
    grid directly below this panel render as iframes, which can create their
    own stacking context that ignores a same-level z-index and paints over a
@@ -375,7 +388,8 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
 .picks-meta span{font:600 10.5px/1 var(--mono);letter-spacing:.05em;text-transform:uppercase;
                  color:var(--muted);background:var(--card);border:1px solid var(--rule);
                  border-radius:999px;padding:6px 11px}
-.picks-see-all{font:700 12.5px/1 var(--display);color:var(--signal);text-decoration:none}
+.picks-see-all{font:700 12.5px/1 var(--display);color:var(--signal);text-decoration:none;
+               display:inline-block;padding:7px 0}
 .picks-see-all:hover{text-decoration:underline}
 /* amazon-picks.html: same .pick/.pick-lasso cards as the homepage rail, just
    wrapped for a grid since there's no viewport to scroll-snap into. */
@@ -482,7 +496,8 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
             pointer-events:none;font-variant-numeric:tabular-nums;z-index:0}
 .pick-lasso-cat{position:absolute;top:14px;right:14px;z-index:2;max-width:150px;
             font:700 9px/1.2 var(--mono);letter-spacing:.06em;text-transform:uppercase;
-            color:#fff;background:linear-gradient(135deg,var(--pk-a,#52525B),var(--pk-b,#27272A));
+            color:#fff;background:linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),
+            linear-gradient(135deg,var(--pk-a,#52525B),var(--pk-b,#27272A));
             border-radius:999px;padding:5px 10px;overflow:hidden;text-overflow:ellipsis;
             white-space:nowrap}
 .pick-lasso .lasso-embed{position:relative;z-index:1}
@@ -600,7 +615,8 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
 .mast .megamenu-wrap{display:inline-block}
 #megaBtn{font:600 13px/1 var(--display);color:var(--ink);background:var(--card);
          border:1px solid var(--rule);border-radius:999px;padding:9px 16px;cursor:pointer}
-#megaBtn:hover{border-color:var(--signal);color:var(--signal)}
+@media(hover:hover){#megaBtn:hover{border-color:var(--signal);color:var(--signal)}}
+#megaBtn:active{border-color:var(--signal);color:var(--signal)}
 .megamenu{display:none;position:absolute;top:calc(100% + 10px);left:0;z-index:50;
           background:var(--card);border:1px solid var(--rule);border-radius:6px;
           box-shadow:0 10px 30px rgba(0,0,0,.16);min-width:270px}
@@ -645,7 +661,7 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
 .pager{display:flex;flex-direction:column;align-items:center;gap:10px;
       margin:26px 0 10px;font:500 13px/1 var(--display)}
 .pager button{font:800 14px/1 var(--display);letter-spacing:.01em;color:#fff;
-              background:var(--signal);border:2px solid var(--signal);border-radius:999px;
+              background:var(--signal-dark);border:2px solid var(--signal-dark);border-radius:999px;
               padding:14px 34px;cursor:pointer;transition:background .15s ease,color .15s ease}
 .pager button:hover{background:var(--card);color:var(--signal)}
 .pager button:focus-visible{outline:2px solid var(--signal);outline-offset:3px}
@@ -665,8 +681,8 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
    details stacked below, instead of the old thumbnail-left row. */
 .card{background:var(--card);border-radius:16px;border:1px solid var(--rule);
       box-shadow:0 1px 3px rgba(0,0,0,.06);display:flex;flex-direction:column;
-      transition:box-shadow .15s ease;position:relative}
-.card:hover{box-shadow:0 4px 14px rgba(0,0,0,.12)}
+      transition:box-shadow .15s ease,border-color .15s ease;position:relative}
+.card:hover{box-shadow:0 4px 14px rgba(0,0,0,.12);border-color:var(--signal)}
 /* Was border-left:3px solid var(--gate) -- redundant with .newpill, which
    already says "New" in real text on the same card; a colour-only stripe
    with no label doesn't add information and is the side-tab tell on top
@@ -906,9 +922,9 @@ html{scroll-behavior:smooth}
           overflow:hidden;min-height:2.7em}
 .td-card:hover .td-title{color:var(--signal)}
 .td-prices{display:flex;align-items:baseline;gap:7px;flex-wrap:wrap;margin-top:auto}
-.td-now{font:800 17px/1 var(--mono);color:var(--signal);font-variant-numeric:tabular-nums}
+.td-now{font:800 17px/1 var(--mono);color:var(--gate-dark);font-variant-numeric:tabular-nums}
 .td-was{font:400 12px/1 var(--mono);color:var(--muted);font-variant-numeric:tabular-nums}
-.td-off{font:800 11px/1 var(--mono);color:#fff;background:var(--signal);
+.td-off{font:800 11px/1 var(--mono);color:#fff;background:var(--signal-dark);
         padding:5px 8px;border-radius:999px;letter-spacing:.03em;white-space:nowrap}
 .td-src{font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;
         color:var(--muted)}
@@ -932,6 +948,8 @@ html{scroll-behavior:smooth}
 }
 
 /* ---- category landing pages: breadcrumb + fashion subnav ---- */
+.visually-hidden{position:absolute;width:1px;height:1px;padding:0;margin:-1px;
+                 overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 .crumbs{margin:26px 0 2px;font-size:13px;color:var(--muted)}
 .crumbs a{color:var(--muted);text-decoration:none}
 .crumbs a:hover{color:var(--signal)}
@@ -992,6 +1010,7 @@ html{scroll-behavior:smooth}
   #catApply{background:var(--signal-dark)}
   #catApply:hover{background:#A82D0C}
   .price-now{color:var(--gate)}
+  .td-now{color:var(--gate)}
   .best-cta{background:var(--signal-dark);border-color:var(--signal-dark)}
   .best-cta:hover{background:var(--card);color:var(--signal)}
   .src-tag{background:#45453F}

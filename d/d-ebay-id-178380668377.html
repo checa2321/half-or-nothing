@@ -28,14 +28,35 @@
 <meta property="og:image" content="https://i.ebayimg.com/images/g/y6kAAeSwT-hqh3HP/s-l500.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://i.ebayimg.com/images/g/y6kAAeSwT-hqh3HP/s-l500.jpg">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Off-White JACKSON Green Square Unisex Sunglasses OERI13I 6055 50 OERI13I 6055 50","description":"53% off -- was $325.00, now $153.99 at Ebay.","image":"https://i.ebayimg.com/images/g/y6kAAeSwT-hqh3HP/s-l500.jpg","offers":{"@type":"Offer","price":"153.99","priceCurrency":"USD","availability":"https://schema.org/InStock","url":"https://halfornothing.com/d/d-ebay-id-178380668377.html","priceValidUntil":"2026-08-25T08:02:45Z"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Deals","item":"https://halfornothing.com/"},{"@type":"ListItem","position":2,"name":"Fashion & Accessories","item":"https://halfornothing.com/fashion.html"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Off-White JACKSON Green Square Unisex Sunglasses OERI13I 6055 50 OERI13I 6055 50","description":"53% off -- was $325.00, now $153.99 at Ebay.","image":"https://i.ebayimg.com/images/g/y6kAAeSwT-hqh3HP/s-l500.jpg","offers":{"@type":"Offer","price":"153.99","priceCurrency":"USD","availability":"https://schema.org/InStock","url":"https://halfornothing.com/d/d-ebay-id-178380668377.html","priceValidUntil":"2026-08-25T23:21:25Z"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Deals","item":"https://halfornothing.com/"},{"@type":"ListItem","position":2,"name":"Fashion & Accessories","item":"https://halfornothing.com/fashion.html"}]}</script>
 <style>
 :root{
   --signal:#D93A12; --signal-dark:#B8331A; --gate:#00a863; --gate-soft:#5C9B81;
+  /* White text on full-saturation --gate only clears 3.1:1 (light) / 2.4:1
+     (dark, see the theme override below) with white text -- both fail
+     WCAG AA's 4.5:1. This shade clears 5.4:1 in both themes; verified by
+     hand against the sRGB relative-luminance formula, same method as the
+     --signal-dark contrast fix earlier this session (2026-08-24). */
+  --gate-dark:#0B7A4C;
   --paper:#FFFFFF; --paper-2:#F9F9F7; --paper-3:#EFEFEA; --card:#FFFFFF;
   --ink:#1a1a1a; --ink-soft:#3B3B36; --muted:#666; --rule:#E0E0E0;
   --display:-apple-system,BlinkMacSystemFont,Roboto,"Segoe UI","Helvetica Neue",Arial,sans-serif;
   --mono:ui-monospace,"SF Mono",SFMono-Regular,"Cascadia Mono",Consolas,"Liberation Mono",monospace;
+  /* Wordmark only ("HALF"/"NOTHING" in the nav logo and hero H1) -- the rest
+     of the site keeps --display's native-OS stack on purpose (this is a
+     dense, task-first deal grid; system fonts are the right call there, see
+     operate.md). The wordmark is the one place brand identity is worth a
+     deliberate face instead of whatever the visitor's OS happens to ship --
+     self-hosted below so it never depends on a third-party font CDN the
+     site's CSP doesn't otherwise allow. */
+  --brand-font:"Archivo",var(--display);
+}
+@font-face{
+  font-family:"Archivo";font-style:normal;font-weight:900;font-display:swap;
+  src:url("/assets/fonts/archivo-900-latin.woff2") format("woff2");
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,
+                U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,
+                U+2212,U+2215,U+FEFF,U+FFFD;
 }
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
@@ -53,9 +74,9 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
 .topnav .inner{max-width:1200px;margin:0 auto;padding:14px 28px;display:flex;align-items:center;gap:32px}
 .topnav .logo{display:flex;align-items:center;gap:9px;text-decoration:none;color:var(--ink);flex-shrink:0}
 .logomark{width:23px;height:23px;color:var(--signal);flex-shrink:0;display:block}
-.lg-half{font-weight:900;letter-spacing:.02em;font-size:15px}
+.lg-half{font-family:var(--brand-font);font-weight:900;letter-spacing:.02em;font-size:15px}
 .lg-or{font:italic 500 11px/1 var(--display);color:var(--muted)}
-.lg-nothing{font-weight:900;letter-spacing:.02em;font-size:15px;color:var(--muted)}
+.lg-nothing{font-family:var(--brand-font);font-weight:900;letter-spacing:.02em;font-size:15px;color:var(--muted)}
 @supports(-webkit-text-stroke:1px red){
   .lg-nothing{color:transparent;-webkit-text-stroke:1.1px var(--ink)}
 }
@@ -66,7 +87,32 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
 .topnav .links a{color:var(--muted);text-decoration:none}
 .topnav .links a:hover{color:var(--ink)}
 .topnav .links a[aria-current]{color:var(--signal);font-weight:700}
-@media(max-width:640px){.topnav .links{display:none}}
+/* ---- #navBtn: the <=640px hamburger toggle for .links above. Hidden at
+   desktop widths; .links itself flips from a horizontal row to a full-width
+   dropdown panel exactly where it used to just disappear. ---- */
+#navBtn{display:none;align-items:center;justify-content:center;width:44px;height:44px;
+        flex-shrink:0;background:var(--card);border:1px solid var(--rule);border-radius:6px;
+        color:var(--ink);cursor:pointer;padding:0}
+/* hover:hover excludes touch: a bare :hover rule on a click-toggle trigger
+   makes iOS Safari/WebKit treat the first tap as a hover-simulation and only
+   fire the real click on a second tap -- confirmed on a real phone 2026-08-25
+   (see the four @media(hover:hover)-gated rules in this file). */
+@media(hover:hover){#navBtn:hover{border-color:var(--signal);color:var(--signal)}}
+/* :active is unconditional (not hover:hover-gated): it fires immediately on
+   touchstart with no click delay, so tap still gets the same red flash the
+   old bare :hover rule gave it -- gating :hover alone removed that feedback
+   on touch entirely (Che caught this on his phone 2026-08-25). */
+#navBtn:active{border-color:var(--signal);color:var(--signal)}
+#navBtn svg{width:20px;height:20px}
+@media(max-width:640px){
+  #navBtn{display:inline-flex}
+  .topnav .links{display:none;position:absolute;top:100%;left:0;right:0;z-index:50;
+                 flex-direction:column;gap:0;background:var(--card);
+                 border-bottom:1px solid var(--rule);box-shadow:0 10px 30px rgba(0,0,0,.16)}
+  .topnav .links.open{display:flex;animation:menufade .12s ease}
+  .topnav .links a{padding:14px 28px;border-top:1px solid var(--rule);font-size:15px}
+  .topnav .links a:first-child{border-top:none}
+}
 /* Phone: the search moved into the nav, and at 375px the full wordmark plus a
    usable field do not both fit (measured: logo 172px + padding left 24px of
    375). The mark alone still identifies the site, and the wordmark is repeated
@@ -74,6 +120,8 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
 @media(max-width:560px){
   .topnav .inner{gap:12px}
   .lg-half,.lg-or,.lg-nothing{display:none}
+  /* icon-only logo needs a touch target >= 24x24; the mark itself is 23x23 */
+  .topnav .logo{padding:2px}
   /* 44px minimum on the two controls a thumb actually aims at */
   .topnav .herosearch{max-width:none}
   .topnav .herosearch input{padding:13px 0}
@@ -127,10 +175,10 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
 @media(max-width:760px){.mast-ghost{display:none}}
 .brand{font-weight:800;letter-spacing:-.02em;line-height:.95;position:relative;
        font-size:clamp(1.35rem,3.2vw,1.75rem);margin:0;color:var(--ink)}
-.brand .half{color:var(--signal)}
-.brand-or{font-style:italic;font-weight:400;font-size:.42em;color:var(--muted);
+.brand .half{font-family:var(--brand-font);font-weight:900;color:var(--signal)}
+.brand-or{font-style:italic;font-weight:400;font-size:max(.42em,11px);color:var(--muted);
           vertical-align:.35em;margin:0 .15em}
-.brand-nothing{color:var(--muted)}
+.brand-nothing{font-family:var(--brand-font);font-weight:900;color:var(--muted)}
 @supports(-webkit-text-stroke:2px red){
   .brand-nothing{color:transparent;-webkit-text-stroke:1.6px var(--ink)}
 }
@@ -206,9 +254,14 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
   .footer-social{align-self:flex-start}
 }
 
-/* ---- disclosure: normal body size, left-border accent ---- */
+/* ---- disclosure: normal body size, plain border ---- */
+/* Was border-left:3px solid var(--signal) -- every one of these four
+   accordions got the same red stripe regardless of content, which is the
+   tell that it was decorating rather than signalling anything. The bold
+   <summary> label already carries the hierarchy; matches .card's own
+   plain-border convention elsewhere on the page (2026-08-24 polish). */
 .disclosure{margin:20px 0;padding:0;background:var(--card);
-            border:1px solid var(--rule);border-left:3px solid var(--signal);
+            border:1px solid var(--rule);
             border-radius:14px;max-width:76ch;overflow:hidden}
 .disclosure>summary{cursor:pointer;list-style:none;padding:14px 18px;
                     font-size:13.5px;font-weight:700;color:var(--ink);
@@ -243,7 +296,8 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
 .catfilter-wrap{position:relative}
 #catFilterBtn{font:500 13px/1 var(--display);color:var(--ink);background:var(--card);
               border:1px solid var(--rule);border-radius:999px;padding:10px 16px;cursor:pointer}
-#catFilterBtn:hover{border-color:var(--signal)}
+@media(hover:hover){#catFilterBtn:hover{border-color:var(--signal)}}
+#catFilterBtn:active{border-color:var(--signal)}
 .catfilter-panel{display:none;position:absolute;top:calc(100% + 6px);left:0;z-index:40;
                  background:var(--card);border:1px solid var(--rule);border-radius:6px;
                  box-shadow:0 8px 24px rgba(0,0,0,.15);width:290px}
@@ -286,7 +340,8 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
 #picksCatBtn{font:600 10.5px/1 var(--mono);letter-spacing:.05em;text-transform:uppercase;
              color:var(--muted);background:var(--card);border:1px solid var(--rule);
              border-radius:999px;padding:6px 11px;cursor:pointer}
-#picksCatBtn:hover{border-color:var(--signal);color:var(--signal)}
+@media(hover:hover){#picksCatBtn:hover{border-color:var(--signal);color:var(--signal)}}
+#picksCatBtn:active{border-color:var(--signal);color:var(--signal)}
 /* z-index bumped past the deals-page panel's 40: the Lasso embeds in the
    grid directly below this panel render as iframes, which can create their
    own stacking context that ignores a same-level z-index and paints over a
@@ -333,7 +388,8 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
 .picks-meta span{font:600 10.5px/1 var(--mono);letter-spacing:.05em;text-transform:uppercase;
                  color:var(--muted);background:var(--card);border:1px solid var(--rule);
                  border-radius:999px;padding:6px 11px}
-.picks-see-all{font:700 12.5px/1 var(--display);color:var(--signal);text-decoration:none}
+.picks-see-all{font:700 12.5px/1 var(--display);color:var(--signal);text-decoration:none;
+               display:inline-block;padding:7px 0}
 .picks-see-all:hover{text-decoration:underline}
 /* amazon-picks.html: same .pick/.pick-lasso cards as the homepage rail, just
    wrapped for a grid since there's no viewport to scroll-snap into. */
@@ -394,7 +450,7 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
              font:400 22px/1 var(--display);display:flex;align-items:center;justify-content:center;
              box-shadow:0 2px 10px rgba(0,0,0,.16);
              transition:background .15s ease,color .15s ease,border-color .15s ease,opacity .15s ease}
-.picks-arrow:hover{background:var(--signal);border-color:var(--signal);color:#fff}
+.picks-arrow:hover{background:var(--signal-dark);border-color:var(--signal-dark);color:#fff}
 .picks-arrow:focus-visible{outline:2px solid var(--signal);outline-offset:2px}
 .picks-arrow[disabled]{opacity:0;pointer-events:none}
 .picks-prev{left:-13px}
@@ -440,7 +496,8 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
             pointer-events:none;font-variant-numeric:tabular-nums;z-index:0}
 .pick-lasso-cat{position:absolute;top:14px;right:14px;z-index:2;max-width:150px;
             font:700 9px/1.2 var(--mono);letter-spacing:.06em;text-transform:uppercase;
-            color:#fff;background:linear-gradient(135deg,var(--pk-a,#52525B),var(--pk-b,#27272A));
+            color:#fff;background:linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),
+            linear-gradient(135deg,var(--pk-a,#52525B),var(--pk-b,#27272A));
             border-radius:999px;padding:5px 10px;overflow:hidden;text-overflow:ellipsis;
             white-space:nowrap}
 .pick-lasso .lasso-embed{position:relative;z-index:1}
@@ -558,7 +615,8 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
 .mast .megamenu-wrap{display:inline-block}
 #megaBtn{font:600 13px/1 var(--display);color:var(--ink);background:var(--card);
          border:1px solid var(--rule);border-radius:999px;padding:9px 16px;cursor:pointer}
-#megaBtn:hover{border-color:var(--signal);color:var(--signal)}
+@media(hover:hover){#megaBtn:hover{border-color:var(--signal);color:var(--signal)}}
+#megaBtn:active{border-color:var(--signal);color:var(--signal)}
 .megamenu{display:none;position:absolute;top:calc(100% + 10px);left:0;z-index:50;
           background:var(--card);border:1px solid var(--rule);border-radius:6px;
           box-shadow:0 10px 30px rgba(0,0,0,.16);min-width:270px}
@@ -603,7 +661,7 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
 .pager{display:flex;flex-direction:column;align-items:center;gap:10px;
       margin:26px 0 10px;font:500 13px/1 var(--display)}
 .pager button{font:800 14px/1 var(--display);letter-spacing:.01em;color:#fff;
-              background:var(--signal);border:2px solid var(--signal);border-radius:999px;
+              background:var(--signal-dark);border:2px solid var(--signal-dark);border-radius:999px;
               padding:14px 34px;cursor:pointer;transition:background .15s ease,color .15s ease}
 .pager button:hover{background:var(--card);color:var(--signal)}
 .pager button:focus-visible{outline:2px solid var(--signal);outline-offset:3px}
@@ -623,9 +681,12 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
    details stacked below, instead of the old thumbnail-left row. */
 .card{background:var(--card);border-radius:16px;border:1px solid var(--rule);
       box-shadow:0 1px 3px rgba(0,0,0,.06);display:flex;flex-direction:column;
-      transition:box-shadow .15s ease;position:relative}
-.card:hover{box-shadow:0 4px 14px rgba(0,0,0,.12)}
-.card.v{border-left:3px solid var(--gate)}
+      transition:box-shadow .15s ease,border-color .15s ease;position:relative}
+.card:hover{box-shadow:0 4px 14px rgba(0,0,0,.12);border-color:var(--signal)}
+/* Was border-left:3px solid var(--gate) -- redundant with .newpill, which
+   already says "New" in real text on the same card; a colour-only stripe
+   with no label doesn't add information and is the side-tab tell on top
+   of it (2026-08-24 polish). */
 .card.linked{box-shadow:0 0 0 3px rgba(0,168,99,.25)}
 
 .thumb{width:100%;height:170px;flex-shrink:0;margin:0;border-radius:16px 16px 0 0;
@@ -639,9 +700,9 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
 
 .pct-pill{background:var(--signal);color:#fff;font:800 11px/1 var(--mono);
           padding:5px 9px;border-radius:999px;letter-spacing:.03em;white-space:nowrap}
-.src-tag{background:#555;color:#fff;font-size:9px;font-weight:700;letter-spacing:.05em;
+.src-tag{background:#555;color:#fff;font-size:11px;font-weight:700;letter-spacing:.05em;
          text-transform:uppercase;padding:3px 8px;border-radius:999px}
-.newpill{background:var(--gate);color:#fff;font-size:9px;font-weight:700;
+.newpill{background:var(--gate);color:#fff;font-size:11px;font-weight:700;
          letter-spacing:.05em;text-transform:uppercase;padding:3px 8px;border-radius:999px}
 
 .card .body{padding:14px 16px 16px;position:relative;flex:1;min-width:0;
@@ -700,16 +761,32 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
 .card h3 a:hover{color:var(--signal)}
 .clamp2{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;max-height:2.8em}
 
+/* Che's call, per Amazon/eBay's own price-emphasis convention (2026-08-24)
+   -- the discount badge stays --signal, only the price itself goes green.
+   --gate-dark in the base rule, not plain --gate: full-saturation --gate
+   (#00a863) only clears 3.1:1 against a white card, failing WCAG AA's
+   4.5:1 the same way it did as a button background. --gate-dark clears
+   5.4:1. The dark-mode override below uses plain --gate instead, because
+   in that theme it's the OPPOSITE problem: --gate-dark (tuned for a white
+   background) only clears ~3.2:1 against the dark card, while dark mode's
+   own brighter --gate (#1fbf7f) already clears 7.2:1 there unmodified. */
 .prices{display:flex;align-items:center;gap:8px;margin:0;flex-wrap:wrap}
-.price-now{font-size:18px;font-weight:800;letter-spacing:-.01em;font-variant-numeric:tabular-nums;color:var(--signal)}
+.price-now{font-size:18px;font-weight:800;letter-spacing:-.01em;font-variant-numeric:tabular-nums;color:var(--gate-dark)}
 .price-was{font-size:12px;color:var(--muted);text-decoration:line-through;font-variant-numeric:tabular-nums;font-weight:500}
 .card .meta{font-size:11px;color:var(--muted);font-family:var(--mono);margin:0;font-weight:500;
             display:flex;gap:8px;align-items:center;flex-wrap:wrap}
 
+/* Green, not the brand orange: the price and the "% off" badge above are
+   already --signal, and a same-color button just piled a third orange
+   element into the same small area. Green marks the action distinctly
+   from the deal info -- also the near-universal "buy/go" convention, and
+   consistent with how this site already uses green (.newpill "New",
+   .card.linked's ring). --gate-dark, not --gate: see its definition for
+   why (2026-08-24, per Che's request to cut the orange overload here). */
 .cta{display:inline-block;align-self:flex-start;text-align:center;padding:9px 20px;border-radius:999px;
-     background:var(--signal);color:#fff;font-weight:700;font-size:12.5px;text-decoration:none;
+     background:var(--gate-dark);color:#fff;font-weight:700;font-size:12.5px;text-decoration:none;
      border:none;cursor:pointer;transition:all .15s;margin-top:2px}
-.cta:hover{background:var(--signal-dark)}
+.cta:hover{filter:brightness(.85)}
 
 .empty-state{padding:60px 12px;color:var(--muted);text-align:center;grid-column:1/-1}
 /* Shown when a ?deal= link from a social post outlives its listing. Uses the
@@ -825,7 +902,7 @@ html{scroll-behavior:smooth}
 .td-card:hover,.td-card:focus-visible{transform:translateY(-4px);
          box-shadow:0 10px 22px rgba(0,0,0,.16);border-color:var(--signal);outline:none}
 
-.td-cat{position:absolute;top:8px;left:8px;z-index:2;font:700 9px/1 var(--mono);
+.td-cat{position:absolute;top:8px;left:8px;z-index:2;font:700 11px/1 var(--mono);
         letter-spacing:.07em;text-transform:uppercase;color:#fff;
         background:rgba(26,26,26,.78);padding:5px 9px;border-radius:999px;
         backdrop-filter:blur(2px);max-width:calc(100% - 16px);
@@ -845,11 +922,11 @@ html{scroll-behavior:smooth}
           overflow:hidden;min-height:2.7em}
 .td-card:hover .td-title{color:var(--signal)}
 .td-prices{display:flex;align-items:baseline;gap:7px;flex-wrap:wrap;margin-top:auto}
-.td-now{font:800 17px/1 var(--mono);color:var(--signal);font-variant-numeric:tabular-nums}
+.td-now{font:800 17px/1 var(--mono);color:var(--gate-dark);font-variant-numeric:tabular-nums}
 .td-was{font:400 12px/1 var(--mono);color:var(--muted);font-variant-numeric:tabular-nums}
-.td-off{font:800 10px/1 var(--mono);color:#fff;background:var(--signal);
+.td-off{font:800 11px/1 var(--mono);color:#fff;background:var(--signal-dark);
         padding:5px 8px;border-radius:999px;letter-spacing:.03em;white-space:nowrap}
-.td-src{font-size:9px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;
+.td-src{font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;
         color:var(--muted)}
 
 .td-arrow{position:absolute;top:84px;transform:translateY(-50%);z-index:5;
@@ -858,7 +935,7 @@ html{scroll-behavior:smooth}
           font:400 22px/1 var(--display);display:flex;align-items:center;justify-content:center;
           box-shadow:0 2px 10px rgba(0,0,0,.16);
           transition:background .15s ease,color .15s ease,border-color .15s ease,opacity .15s ease}
-.td-arrow:hover{background:var(--signal);border-color:var(--signal);color:#fff}
+.td-arrow:hover{background:var(--signal-dark);border-color:var(--signal-dark);color:#fff}
 .td-arrow:focus-visible{outline:2px solid var(--signal);outline-offset:2px}
 .td-arrow[disabled]{opacity:0;pointer-events:none}
 .td-prev{left:-13px}
@@ -871,6 +948,8 @@ html{scroll-behavior:smooth}
 }
 
 /* ---- category landing pages: breadcrumb + fashion subnav ---- */
+.visually-hidden{position:absolute;width:1px;height:1px;padding:0;margin:-1px;
+                 overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 .crumbs{margin:26px 0 2px;font-size:13px;color:var(--muted)}
 .crumbs a{color:var(--muted);text-decoration:none}
 .crumbs a:hover{color:var(--signal)}
@@ -908,7 +987,7 @@ html{scroll-behavior:smooth}
              transition:background .15s ease,color .15s ease,border-color .15s ease,
                         opacity .2s ease,transform .2s ease,visibility .2s}
 .back-to-top.show{opacity:1;visibility:visible;transform:none}
-.back-to-top:hover{background:var(--signal);border-color:var(--signal);color:#fff}
+.back-to-top:hover{background:var(--signal-dark);border-color:var(--signal-dark);color:#fff}
 .back-to-top:focus-visible{outline:2px solid var(--signal);outline-offset:2px}
 
 /* ---- dark mode: same identity, inverted paper ---- */
@@ -917,8 +996,21 @@ html{scroll-behavior:smooth}
         --muted:#9B998F;--rule:#2D2D29;--signal:#FF4F29;--signal-dark:#D93A12;--gate:#1FBF7F}
   .thumb,.best-img{background:#fff}
   .pct-pill,.newpill{color:#161511}
-  .cta,#catApply{background:var(--signal-dark)}
-  .cta:hover,#catApply:hover{background:#A82D0C}
+  /* .cta used to be bundled into this same dark-mode override -- the actual
+     bug behind "the button still shows orange" (2026-08-24): the base
+     stylesheet's .cta{background:var(--gate-dark)} was correct, but this
+     rule, matching the identical selector at higher specificity via the
+     dark-mode media query, silently put it back to orange whenever the
+     visitor's OS was in dark mode. --gate-dark needs no theme override in
+     the first place -- it's white text against a fixed literal background
+     color, not text against the theme's own card color, so light and dark
+     mode give the exact same 5.4:1 either way. #catApply (the category
+     filter's Apply button, unrelated to the deal CTA) keeps its own
+     dark-mode treatment; only .cta is removed from it. */
+  #catApply{background:var(--signal-dark)}
+  #catApply:hover{background:#A82D0C}
+  .price-now{color:var(--gate)}
+  .td-now{color:var(--gate)}
   .best-cta{background:var(--signal-dark);border-color:var(--signal-dark)}
   .best-cta:hover{background:var(--card);color:var(--signal)}
   .src-tag{background:#45453F}
@@ -974,7 +1066,7 @@ html{scroll-behavior:smooth}
           text-decoration:none;padding:13px 22px;border-radius:4px;font-size:14.5px}
 .deal-cta:hover{background:var(--signal-dark)}
 .deal-cta-secondary{background:transparent;color:var(--signal);border:1px solid var(--signal)}
-.deal-cta-secondary:hover{background:var(--signal);color:#fff}
+.deal-cta-secondary:hover{background:var(--signal-dark);color:#fff}
 .archive-list{list-style:none;margin:0 0 28px;padding:0;font-size:14px;line-height:2}
 .archive-list a{color:var(--ink-soft);text-decoration:none}
 .archive-list a:hover{color:var(--signal)}
@@ -1005,7 +1097,7 @@ html{scroll-behavior:smooth}
 <svg class="logomark" viewBox="0 0 32 32" aria-hidden="true"><path d="M2 2h26L2 28z" fill="currentColor"/><path d="M30 4v26H4z" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round"/></svg>
 <span class="lg-half">HALF</span><span class="lg-or">or</span><span class="lg-nothing">NOTHING</span></a>
 <form class='herosearch' role='search' action='/index.html' method='get'><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' aria-hidden='true'><circle cx='11' cy='11' r='7'></circle><line x1='21' y1='21' x2='16.65' y2='16.65'></line></svg><input type='search' name='q' aria-label='Search deals' autocomplete='off'></form>
-<div class="links"><a href="/index.html">Deals</a><a href="/brands.html">Brands</a><a href="/amazon-picks.html">Amazon Picks</a><a href="/blog.html">Blog</a><a href="/about.html">About</a><a href="/privacy.html">Privacy</a><a href="/contact.html">Contact</a></div>
+<button type="button" id="navBtn" aria-expanded="false" aria-controls="navLinks" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button><div class="links" id="navLinks"><a href="/index.html">Deals</a><a href="/brands.html">Brands</a><a href="/amazon-picks.html">Amazon Picks</a><a href="/blog.html">Blog</a><a href="/about.html">About</a><a href="/privacy.html">Privacy</a><a href="/contact.html">Contact</a></div>
 </div></nav>
 <header class="mast"><span class="mast-ghost" id="mastGhost" aria-hidden="true">&#189;</span><div class="wrap">
 <h1 class="brand"><span class="half">Half</span> <span class="brand-or">or</span> <span class="brand-nothing">Nothing</span></h1>
@@ -1055,7 +1147,7 @@ html{scroll-behavior:smooth}
 </div></footer>
 </main>
 <button type="button" class="back-to-top" id="backToTop" aria-label="Back to top">&#9650;</button>
-<script src="/assets/js/interaction.js"></script>
+<script src="/assets/js/interaction.js?v=0c6bf820e4"></script>
 <script type="text/javascript" src="https://js.codedrink.com/snippet.min.js" defer></script>
 <script type="text/javascript" src="/assets/js/lasso-picks.js" defer></script>
 <script type="text/javascript" src="https://s.skimresources.com/js/307865X1796159.skimlinks.js"></script>
