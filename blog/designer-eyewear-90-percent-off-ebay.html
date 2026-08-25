@@ -237,9 +237,14 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
   .footer-social{align-self:flex-start}
 }
 
-/* ---- disclosure: normal body size, left-border accent ---- */
+/* ---- disclosure: normal body size, plain border ---- */
+/* Was border-left:3px solid var(--signal) -- every one of these four
+   accordions got the same red stripe regardless of content, which is the
+   tell that it was decorating rather than signalling anything. The bold
+   <summary> label already carries the hierarchy; matches .card's own
+   plain-border convention elsewhere on the page (2026-08-24 polish). */
 .disclosure{margin:20px 0;padding:0;background:var(--card);
-            border:1px solid var(--rule);border-left:3px solid var(--signal);
+            border:1px solid var(--rule);
             border-radius:14px;max-width:76ch;overflow:hidden}
 .disclosure>summary{cursor:pointer;list-style:none;padding:14px 18px;
                     font-size:13.5px;font-weight:700;color:var(--ink);
@@ -656,7 +661,10 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
       box-shadow:0 1px 3px rgba(0,0,0,.06);display:flex;flex-direction:column;
       transition:box-shadow .15s ease;position:relative}
 .card:hover{box-shadow:0 4px 14px rgba(0,0,0,.12)}
-.card.v{border-left:3px solid var(--gate)}
+/* Was border-left:3px solid var(--gate) -- redundant with .newpill, which
+   already says "New" in real text on the same card; a colour-only stripe
+   with no label doesn't add information and is the side-tab tell on top
+   of it (2026-08-24 polish). */
 .card.linked{box-shadow:0 0 0 3px rgba(0,168,99,.25)}
 
 .thumb{width:100%;height:170px;flex-shrink:0;margin:0;border-radius:16px 16px 0 0;
