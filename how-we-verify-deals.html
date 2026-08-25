@@ -32,6 +32,12 @@
 <style>
 :root{
   --signal:#D93A12; --signal-dark:#B8331A; --gate:#00a863; --gate-soft:#5C9B81;
+  /* White text on full-saturation --gate only clears 3.1:1 (light) / 2.4:1
+     (dark, see the theme override below) with white text -- both fail
+     WCAG AA's 4.5:1. This shade clears 5.4:1 in both themes; verified by
+     hand against the sRGB relative-luminance formula, same method as the
+     --signal-dark contrast fix earlier this session (2026-08-24). */
+  --gate-dark:#0B7A4C;
   --paper:#FFFFFF; --paper-2:#F9F9F7; --paper-3:#EFEFEA; --card:#FFFFFF;
   --ink:#1a1a1a; --ink-soft:#3B3B36; --muted:#666; --rule:#E0E0E0;
   --display:-apple-system,BlinkMacSystemFont,Roboto,"Segoe UI","Helvetica Neue",Arial,sans-serif;
@@ -745,10 +751,17 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
 .card .meta{font-size:11px;color:var(--muted);font-family:var(--mono);margin:0;font-weight:500;
             display:flex;gap:8px;align-items:center;flex-wrap:wrap}
 
+/* Green, not the brand orange: the price and the "% off" badge above are
+   already --signal, and a same-color button just piled a third orange
+   element into the same small area. Green marks the action distinctly
+   from the deal info -- also the near-universal "buy/go" convention, and
+   consistent with how this site already uses green (.newpill "New",
+   .card.linked's ring). --gate-dark, not --gate: see its definition for
+   why (2026-08-24, per Che's request to cut the orange overload here). */
 .cta{display:inline-block;align-self:flex-start;text-align:center;padding:9px 20px;border-radius:999px;
-     background:var(--signal);color:#fff;font-weight:700;font-size:12.5px;text-decoration:none;
+     background:var(--gate-dark);color:#fff;font-weight:700;font-size:12.5px;text-decoration:none;
      border:none;cursor:pointer;transition:all .15s;margin-top:2px}
-.cta:hover{background:var(--signal-dark)}
+.cta:hover{filter:brightness(.85)}
 
 .empty-state{padding:60px 12px;color:var(--muted);text-align:center;grid-column:1/-1}
 /* Shown when a ?deal= link from a social post outlives its listing. Uses the
