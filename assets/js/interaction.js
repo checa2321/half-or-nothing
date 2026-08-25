@@ -782,6 +782,15 @@
     // above already keeps that off the critical path, but it was still
     // costing every visitor a real network hit for data that's usually
     // identical to the one they already have.
+    //
+    // The fetch itself is scheduled via requestIdleCallback (2s timeout
+    // cap, so it still fires promptly on a busy page) rather than started
+    // synchronously right after render(): on brands.html the feed is ~1MB
+    // gzipped, and starting it in the browser's idle slot keeps it from
+    // competing with the first screen's own paint/hydration work on a slow
+    // device. Falls back to an immediate setTimeout where rIC doesn't exist
+    // (Safari) -- same effective timing as before there, so no regression.
+    var startFeedFetch = function(){
     fetch(feedUrl, {cache: 'default'})
       .then(function(r){ return r.ok ? r.json() : Promise.reject(r.status); })
       .then(function(feed){
@@ -826,6 +835,12 @@
         // Silent by design: the page is already usable. Surfacing a fetch
         // error here would be a broken-looking site over a working one.
       });
+    };
+    if (window.requestIdleCallback) {
+      requestIdleCallback(startFeedFetch, {timeout: 2000});
+    } else {
+      setTimeout(startFeedFetch, 1);
+    }
   }
 })();
 
