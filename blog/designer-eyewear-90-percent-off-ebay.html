@@ -681,8 +681,8 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
    details stacked below, instead of the old thumbnail-left row. */
 .card{background:var(--card);border-radius:16px;border:1px solid var(--rule);
       box-shadow:0 1px 3px rgba(0,0,0,.06);display:flex;flex-direction:column;
-      transition:box-shadow .15s ease;position:relative}
-.card:hover{box-shadow:0 4px 14px rgba(0,0,0,.12)}
+      transition:box-shadow .15s ease,border-color .15s ease;position:relative}
+.card:hover{box-shadow:0 4px 14px rgba(0,0,0,.12);border-color:var(--signal)}
 /* Was border-left:3px solid var(--gate) -- redundant with .newpill, which
    already says "New" in real text on the same card; a colour-only stripe
    with no label doesn't add information and is the side-tab tell on top
@@ -922,7 +922,7 @@ html{scroll-behavior:smooth}
           overflow:hidden;min-height:2.7em}
 .td-card:hover .td-title{color:var(--signal)}
 .td-prices{display:flex;align-items:baseline;gap:7px;flex-wrap:wrap;margin-top:auto}
-.td-now{font:800 17px/1 var(--mono);color:var(--signal);font-variant-numeric:tabular-nums}
+.td-now{font:800 17px/1 var(--mono);color:var(--gate-dark);font-variant-numeric:tabular-nums}
 .td-was{font:400 12px/1 var(--mono);color:var(--muted);font-variant-numeric:tabular-nums}
 .td-off{font:800 11px/1 var(--mono);color:#fff;background:var(--signal-dark);
         padding:5px 8px;border-radius:999px;letter-spacing:.03em;white-space:nowrap}
@@ -1010,6 +1010,7 @@ html{scroll-behavior:smooth}
   #catApply{background:var(--signal-dark)}
   #catApply:hover{background:#A82D0C}
   .price-now{color:var(--gate)}
+  .td-now{color:var(--gate)}
   .best-cta{background:var(--signal-dark);border-color:var(--signal-dark)}
   .best-cta:hover{background:var(--card);color:var(--signal)}
   .src-tag{background:#45453F}
