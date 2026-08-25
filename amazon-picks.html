@@ -66,7 +66,23 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
 .topnav .links a{color:var(--muted);text-decoration:none}
 .topnav .links a:hover{color:var(--ink)}
 .topnav .links a[aria-current]{color:var(--signal);font-weight:700}
-@media(max-width:640px){.topnav .links{display:none}}
+/* ---- #navBtn: the <=640px hamburger toggle for .links above. Hidden at
+   desktop widths; .links itself flips from a horizontal row to a full-width
+   dropdown panel exactly where it used to just disappear. ---- */
+#navBtn{display:none;align-items:center;justify-content:center;width:44px;height:44px;
+        flex-shrink:0;background:var(--card);border:1px solid var(--rule);border-radius:6px;
+        color:var(--ink);cursor:pointer;padding:0}
+#navBtn:hover{border-color:var(--signal);color:var(--signal)}
+#navBtn svg{width:20px;height:20px}
+@media(max-width:640px){
+  #navBtn{display:inline-flex}
+  .topnav .links{display:none;position:absolute;top:100%;left:0;right:0;z-index:50;
+                 flex-direction:column;gap:0;background:var(--card);
+                 border-bottom:1px solid var(--rule);box-shadow:0 10px 30px rgba(0,0,0,.16)}
+  .topnav .links.open{display:flex;animation:menufade .12s ease}
+  .topnav .links a{padding:14px 28px;border-top:1px solid var(--rule);font-size:15px}
+  .topnav .links a:first-child{border-top:none}
+}
 /* Phone: the search moved into the nav, and at 375px the full wordmark plus a
    usable field do not both fit (measured: logo 172px + padding left 24px of
    375). The mark alone still identifies the site, and the wordmark is repeated
@@ -1005,7 +1021,7 @@ html{scroll-behavior:smooth}
 <svg class="logomark" viewBox="0 0 32 32" aria-hidden="true"><path d="M2 2h26L2 28z" fill="currentColor"/><path d="M30 4v26H4z" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round"/></svg>
 <span class="lg-half">HALF</span><span class="lg-or">or</span><span class="lg-nothing">NOTHING</span></a>
 <form class='herosearch' role='search' onsubmit='return false'><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' aria-hidden='true'><circle cx='11' cy='11' r='7'></circle><line x1='21' y1='21' x2='16.65' y2='16.65'></line></svg><input type='search' id='dealSearch' aria-label='Search Amazon Picks' autocomplete='off' data-hints="[&quot;Fashion&quot;, &quot;Other&quot;, &quot;Electronics&quot;, &quot;Home&quot;, &quot;Beauty&quot;, &quot;Outdoor&quot;, &quot;Pets&quot;, &quot;Office &amp; School&quot;, &quot;Tools&quot;, &quot;Health&quot;, &quot;Automotive&quot;]"><span class='hero-hint' id='searchHint' aria-hidden='true'><span class='hh-lead'>Search for</span> <b id='searchHintWord'></b></span><div class='herosearch-suggest' id='searchSuggest' role='listbox' aria-label='Search suggestions'></div></form>
-<div class="links"><a href="/index.html">Deals</a><a href="/brands.html">Brands</a><a href="/amazon-picks.html" aria-current="page">Amazon Picks</a><a href="/blog.html">Blog</a><a href="/about.html">About</a><a href="/privacy.html">Privacy</a><a href="/contact.html">Contact</a></div>
+<button type="button" id="navBtn" aria-expanded="false" aria-controls="navLinks" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button><div class="links" id="navLinks"><a href="/index.html">Deals</a><a href="/brands.html">Brands</a><a href="/amazon-picks.html" aria-current="page">Amazon Picks</a><a href="/blog.html">Blog</a><a href="/about.html">About</a><a href="/privacy.html">Privacy</a><a href="/contact.html">Contact</a></div>
 </div></nav>
 <header class="mast"><span class="mast-ghost" id="mastGhost" aria-hidden="true">&#189;</span><div class="wrap">
 <h1 class="brand"><span class="half">Half</span> <span class="brand-or">or</span> <span class="brand-nothing">Nothing</span></h1>
