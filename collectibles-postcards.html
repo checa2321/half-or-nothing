@@ -745,8 +745,17 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
 .card h3 a:hover{color:var(--signal)}
 .clamp2{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;max-height:2.8em}
 
+/* Che's call, per Amazon/eBay's own price-emphasis convention (2026-08-24)
+   -- the discount badge stays --signal, only the price itself goes green.
+   --gate-dark in the base rule, not plain --gate: full-saturation --gate
+   (#00a863) only clears 3.1:1 against a white card, failing WCAG AA's
+   4.5:1 the same way it did as a button background. --gate-dark clears
+   5.4:1. The dark-mode override below uses plain --gate instead, because
+   in that theme it's the OPPOSITE problem: --gate-dark (tuned for a white
+   background) only clears ~3.2:1 against the dark card, while dark mode's
+   own brighter --gate (#1fbf7f) already clears 7.2:1 there unmodified. */
 .prices{display:flex;align-items:center;gap:8px;margin:0;flex-wrap:wrap}
-.price-now{font-size:18px;font-weight:800;letter-spacing:-.01em;font-variant-numeric:tabular-nums;color:var(--signal)}
+.price-now{font-size:18px;font-weight:800;letter-spacing:-.01em;font-variant-numeric:tabular-nums;color:var(--gate-dark)}
 .price-was{font-size:12px;color:var(--muted);text-decoration:line-through;font-variant-numeric:tabular-nums;font-weight:500}
 .card .meta{font-size:11px;color:var(--muted);font-family:var(--mono);margin:0;font-weight:500;
             display:flex;gap:8px;align-items:center;flex-wrap:wrap}
@@ -969,8 +978,20 @@ html{scroll-behavior:smooth}
         --muted:#9B998F;--rule:#2D2D29;--signal:#FF4F29;--signal-dark:#D93A12;--gate:#1FBF7F}
   .thumb,.best-img{background:#fff}
   .pct-pill,.newpill{color:#161511}
-  .cta,#catApply{background:var(--signal-dark)}
-  .cta:hover,#catApply:hover{background:#A82D0C}
+  /* .cta used to be bundled into this same dark-mode override -- the actual
+     bug behind "the button still shows orange" (2026-08-24): the base
+     stylesheet's .cta{background:var(--gate-dark)} was correct, but this
+     rule, matching the identical selector at higher specificity via the
+     dark-mode media query, silently put it back to orange whenever the
+     visitor's OS was in dark mode. --gate-dark needs no theme override in
+     the first place -- it's white text against a fixed literal background
+     color, not text against the theme's own card color, so light and dark
+     mode give the exact same 5.4:1 either way. #catApply (the category
+     filter's Apply button, unrelated to the deal CTA) keeps its own
+     dark-mode treatment; only .cta is removed from it. */
+  #catApply{background:var(--signal-dark)}
+  #catApply:hover{background:#A82D0C}
+  .price-now{color:var(--gate)}
   .best-cta{background:var(--signal-dark);border-color:var(--signal-dark)}
   .best-cta:hover{background:var(--card);color:var(--signal)}
   .src-tag{background:#45453F}
