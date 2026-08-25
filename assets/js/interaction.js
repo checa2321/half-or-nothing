@@ -773,7 +773,16 @@
     var priceMaxAttr = grid.getAttribute('data-feed-price-max');
     var wantPriceMin = priceMinAttr === null ? null : parseFloat(priceMinAttr);
     var wantPriceMax = priceMaxAttr === null ? null : parseFloat(priceMaxAttr);
-    fetch(feedUrl, {cache: 'no-cache'})
+    // 'default' respects the server's own cache-control (max-age=600 + ETag
+    // on deals.json, confirmed 2026-08-24): a revisit inside that window is
+    // served from disk with no network round trip at all, and past it the
+    // browser still revalidates and gets a cheap 304 when the hourly cron
+    // hasn't changed the feed. 'no-cache' forced a full round trip on every
+    // single load regardless of freshness -- the deferred-fetch architecture
+    // above already keeps that off the critical path, but it was still
+    // costing every visitor a real network hit for data that's usually
+    // identical to the one they already have.
+    fetch(feedUrl, {cache: 'default'})
       .then(function(r){ return r.ok ? r.json() : Promise.reject(r.status); })
       .then(function(feed){
         // Match against ids already in the document rather than assuming the
