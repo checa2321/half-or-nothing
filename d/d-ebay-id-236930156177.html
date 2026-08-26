@@ -28,7 +28,7 @@
 <meta property="og:image" content="https://i.ebayimg.com/images/g/QQcAAeSwPdNqhjBt/s-l500.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://i.ebayimg.com/images/g/QQcAAeSwPdNqhjBt/s-l500.jpg">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Towle Everyday Stainless Steel Anchor 20pc. Flatware Set (Service for Four)","description":"64% off -- was $120.00, now $42.99 at Ebay.","image":"https://i.ebayimg.com/images/g/QQcAAeSwPdNqhjBt/s-l500.jpg","offers":{"@type":"Offer","price":"42.99","priceCurrency":"USD","availability":"https://schema.org/InStock","url":"https://halfornothing.com/d/d-ebay-id-236930156177.html","priceValidUntil":"2026-08-27T01:07:22Z"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Deals","item":"https://halfornothing.com/"},{"@type":"ListItem","position":2,"name":"Home & Kitchen","item":"https://halfornothing.com/home-kitchen.html"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Towle Everyday Stainless Steel Anchor 20pc. Flatware Set (Service for Four)","description":"64% off -- was $120.00, now $42.99 at Ebay.","image":"https://i.ebayimg.com/images/g/QQcAAeSwPdNqhjBt/s-l500.jpg","offers":{"@type":"Offer","price":"42.99","priceCurrency":"USD","availability":"https://schema.org/InStock","url":"https://halfornothing.com/d/d-ebay-id-236930156177.html","priceValidUntil":"2026-08-27T02:07:41Z"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Deals","item":"https://halfornothing.com/"},{"@type":"ListItem","position":2,"name":"Home & Kitchen","item":"https://halfornothing.com/home-kitchen.html"}]}</script>
 <style>
 :root{
   --signal:#D93A12; --signal-dark:#B8331A; --gate:#00a863; --gate-soft:#5C9B81;
@@ -330,18 +330,21 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
           padding:9px 14px;font-size:13px;cursor:pointer}
 #catClear:hover{border-color:var(--signal)}
 
-/* amazon-picks.html's category filter sits inline in .picks-meta as a
-   fourth pill next to "N picks / Curated by hand / Amazon associate link"
-   -- #catFilterBtn above is an ID selector that only ever matched the deals
-   page's button, so this page's button rendered with zero styling (browser
-   default) until this rule existed. Matches .picks-meta span's exact look
-   rather than the deals page's larger pill so it reads as one row, not two
-   different UI languages stacked on top of each other. */
-#picksCatBtn{font:600 10.5px/1 var(--mono);letter-spacing:.05em;text-transform:uppercase;
-             color:var(--muted);background:var(--card);border:1px solid var(--rule);
-             border-radius:999px;padding:6px 11px;cursor:pointer}
-@media(hover:hover){#picksCatBtn:hover{border-color:var(--signal);color:var(--signal)}}
-#picksCatBtn:active{border-color:var(--signal);color:var(--signal)}
+/* amazon-picks.html's category filter sits inline in .picks-meta next to
+   plain informational text ("N picks / Curated by hand / Amazon associate
+   link"). An earlier version matched that text's own quiet styling so
+   closely it read as a fifth line of copy, not a control -- Che, 2026-08-26:
+   "ahi ni se diferencia" (couldn't tell it was clickable at all). Now it's
+   deliberately the odd one out in that row: solid orange fill (the Picks
+   section's own accent, matching .picks::before's gradient), bigger type,
+   more padding -- the one thing in .picks-meta that looks like a button
+   because it's the only interactive one. */
+#picksCatBtn{font:700 13px/1 var(--display);letter-spacing:.01em;
+             color:#fff;background:linear-gradient(135deg,#F0A500,#E8890C);
+             border:none;border-radius:999px;padding:9px 18px;cursor:pointer;
+             box-shadow:0 2px 6px rgba(232,137,12,.35)}
+@media(hover:hover){#picksCatBtn:hover{background:linear-gradient(135deg,#E8890C,#C97108)}}
+#picksCatBtn:active{background:#C97108}
 /* z-index bumped past the deals-page panel's 40: the Lasso embeds in the
    grid directly below this panel render as iframes, which can create their
    own stacking context that ignores a same-level z-index and paints over a
