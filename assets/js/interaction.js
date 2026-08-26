@@ -330,7 +330,7 @@
     var allPicks = Array.prototype.slice.call(document.querySelectorAll('.pick'));
     if (!allPicks.length) return;
     var PICKS_PAGE_SIZE = 40;
-    var pState = { cats: [], search: [], page: 1 };
+    var pState = { cats: [], search: [], page: 1, sort: 'newest' };
 
     function pMatches(card){
       if (pState.cats.length && pState.cats.indexOf(card.getAttribute('data-cat')) === -1) return false;
@@ -342,8 +342,27 @@
       }
       return true;
     }
+    // data-added is the ISO 8601 UTC string amazon_picks.add() stamps on
+    // every pick (see added_attr in _render_pick_card) -- that format sorts
+    // correctly as plain strings, so no Date parsing needed. A pick with no
+    // value (shouldn't happen, but data can predate this field) sorts to the
+    // bottom of "Newest first" and the top of "Oldest first" rather than
+    // masquerading as the newest/oldest thing on the page.
+    function pSortCompare(a, b){
+      var av = a.getAttribute('data-added') || '';
+      var bv = b.getAttribute('data-added') || '';
+      if (pState.sort === 'oldest') {
+        if (!av) return 1;
+        if (!bv) return -1;
+        return av < bv ? -1 : av > bv ? 1 : 0;
+      }
+      if (!av) return 1;
+      if (!bv) return -1;
+      return av > bv ? -1 : av < bv ? 1 : 0;
+    }
     function pRender(){
       var filtered = allPicks.filter(pMatches);
+      filtered.slice().sort(pSortCompare).forEach(function(c){ c.parentElement.appendChild(c); });
       var shown = Math.min(filtered.length, pState.page * PICKS_PAGE_SIZE);
       var visible = new Set(filtered.slice(0, shown));
       allPicks.forEach(function(c){ c.style.display = visible.has(c) ? '' : 'none'; });
@@ -414,6 +433,11 @@
       picksSearchEl.value = picksQ;
       pState.search = picksQ.trim().toLowerCase().split(/\s+/).filter(Boolean);
     }
+    var picksSortEl = document.getElementById('picksSort');
+    if (picksSortEl) picksSortEl.addEventListener('change', function(){
+      pState.sort = picksSortEl.value;
+      pRender();
+    });
     pRender();
   })();
 
