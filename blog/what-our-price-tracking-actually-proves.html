@@ -287,7 +287,7 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
 .filterbar{margin:26px 0 12px;display:flex;flex-wrap:wrap;gap:10px;align-items:center}
 #dealSearch::placeholder{color:#AAA}
 #dealSearch::-webkit-search-cancel-button{-webkit-appearance:none;appearance:none}
-#dealSort{font:500 13px/1 var(--display);color:var(--ink);background:var(--card);
+#dealSort,#picksSort{font:500 13px/1 var(--display);color:var(--ink);background:var(--card);
           border:1px solid var(--rule);border-radius:999px;padding:10px 16px;cursor:pointer}
 .no-results{padding:40px 12px;color:var(--muted);text-align:center;
             border:1px dashed var(--rule);border-radius:14px;display:none}
@@ -330,18 +330,21 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
           padding:9px 14px;font-size:13px;cursor:pointer}
 #catClear:hover{border-color:var(--signal)}
 
-/* amazon-picks.html's category filter sits inline in .picks-meta as a
-   fourth pill next to "N picks / Curated by hand / Amazon associate link"
-   -- #catFilterBtn above is an ID selector that only ever matched the deals
-   page's button, so this page's button rendered with zero styling (browser
-   default) until this rule existed. Matches .picks-meta span's exact look
-   rather than the deals page's larger pill so it reads as one row, not two
-   different UI languages stacked on top of each other. */
-#picksCatBtn{font:600 10.5px/1 var(--mono);letter-spacing:.05em;text-transform:uppercase;
-             color:var(--muted);background:var(--card);border:1px solid var(--rule);
-             border-radius:999px;padding:6px 11px;cursor:pointer}
-@media(hover:hover){#picksCatBtn:hover{border-color:var(--signal);color:var(--signal)}}
-#picksCatBtn:active{border-color:var(--signal);color:var(--signal)}
+/* amazon-picks.html's category filter sits inline in .picks-meta next to
+   plain informational text ("N picks / Curated by hand / Amazon associate
+   link"). An earlier version matched that text's own quiet styling so
+   closely it read as a fifth line of copy, not a control -- Che, 2026-08-26:
+   "ahi ni se diferencia" (couldn't tell it was clickable at all). Now it's
+   deliberately the odd one out in that row: solid orange fill (the Picks
+   section's own accent, matching .picks::before's gradient), bigger type,
+   more padding -- the one thing in .picks-meta that looks like a button
+   because it's the only interactive one. */
+#picksCatBtn{font:700 13px/1 var(--display);letter-spacing:.01em;
+             color:#fff;background:linear-gradient(135deg,#F0A500,#E8890C);
+             border:none;border-radius:999px;padding:9px 18px;cursor:pointer;
+             box-shadow:0 2px 6px rgba(232,137,12,.35)}
+@media(hover:hover){#picksCatBtn:hover{background:linear-gradient(135deg,#E8890C,#C97108)}}
+#picksCatBtn:active{background:#C97108}
 /* z-index bumped past the deals-page panel's 40: the Lasso embeds in the
    grid directly below this panel render as iframes, which can create their
    own stacking context that ignores a same-level z-index and paints over a
@@ -1117,11 +1120,11 @@ html{scroll-behavior:smooth}
 </details>
 <details class="disclosure">
 <summary>eBay, Walmart &amp; Amazon</summary>
-<div class="disclosure-body"><p class="trust-line"><b>eBay and Walmart.</b> Rescanned hourly. Sorted purely by discount, and nothing under 50% is listed. No countdown timers, no invented scarcity: every number on this page is measured, not staged. See <a href="/how-we-verify-deals.html">How We Verify Deals</a> for the full methodology.</p><p class="trust-line"><b>Amazon works differently.</b> The Amazon Picks section is hand-picked by Che, one at a time, with no price or discount number attached -- see <a href="/about.html">About</a> for why.</p></div>
+<div class="disclosure-body"><p class="trust-line"><b>eBay and Walmart.</b> Rescanned hourly. Sorted purely by discount, and nothing under 50% is listed. No countdown timers, no invented scarcity: every number on this page is measured, not staged. See <a href="/how-we-verify-deals.html">How We Verify Deals</a> for the full methodology.</p><p class="trust-line"><b>Amazon works differently.</b> The Amazon Picks section is hand-picked by Che, one at a time. When a pick shows a price, list price, or coupon, it was verified by hand directly on Amazon -- not pulled from an automated scan -- see <a href="/about.html">About</a> for why.</p></div>
 </details>
 <details class="disclosure">
 <summary>Affiliate disclosure &amp; how this page is built</summary>
-<div class="disclosure-body">Some links on this site are affiliate links. This site is a member of the eBay Partner Network. If you buy through one, I may earn a commission at no extra cost to you. Commission never affects which deals are listed or the order they appear in. Listings are sorted by discount percentage, highest first. As an Amazon Associate I earn from qualifying purchases.</div>
+<div class="disclosure-body">Some links on this site are affiliate links. This site is a member of the eBay Partner Network. If you buy through one, I may earn a commission at no extra cost to you. Commission never affects which deals are listed or the order they appear in. Listings default to newest first; sort by discount, price, or name any time. As an Amazon Associate I earn from qualifying purchases.</div>
 </details>
 <details class="disclosure">
 <summary>Pricing &amp; how often this updates</summary>
@@ -1149,7 +1152,7 @@ html{scroll-behavior:smooth}
 </div></footer>
 </main>
 <button type="button" class="back-to-top" id="backToTop" aria-label="Back to top">&#9650;</button>
-<script src="/assets/js/interaction.js?v=711ea7056a"></script>
+<script src="/assets/js/interaction.js?v=de469ada20"></script>
 <script type="text/javascript" src="https://js.codedrink.com/snippet.min.js" defer></script>
 <script type="text/javascript" src="/assets/js/lasso-picks.js" defer></script>
 <script type="text/javascript" src="https://s.skimresources.com/js/307865X1796159.skimlinks.js"></script>
