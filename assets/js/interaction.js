@@ -500,7 +500,7 @@
   var catBtn = document.getElementById('catFilterBtn');
   var catPanel = document.getElementById('catFilterPanel');
 
-  var state = { search: [], cats: [], page: 1, sort: 'default' };
+  var state = { search: [], cats: [], page: 1, sort: 'newest' };
 
   // `missing` decides which end an unparseable attribute lands on. It used to
   // always be -Infinity, which is right for a descending sort (unknown goes
