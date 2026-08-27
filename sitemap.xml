@@ -11175,8 +11175,8 @@
   <url>
     <loc>https://halfornothing.com/d/d-ebay-id-205811159087.html</loc>
     <lastmod>2026-08-27</lastmod>
-    <changefreq>hourly</changefreq>
-    <priority>0.6</priority>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
   </url>
   <url>
     <loc>https://halfornothing.com/d/d-ebay-id-205900144454.html</loc>
@@ -13707,8 +13707,8 @@
   <url>
     <loc>https://halfornothing.com/d/d-ebay-id-316857682815.html</loc>
     <lastmod>2026-08-27</lastmod>
-    <changefreq>hourly</changefreq>
-    <priority>0.6</priority>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
   </url>
   <url>
     <loc>https://halfornothing.com/d/d-ebay-id-317073799129.html</loc>
@@ -15567,8 +15567,8 @@
   <url>
     <loc>https://halfornothing.com/d/d-ebay-id-392703841811.html</loc>
     <lastmod>2026-08-27</lastmod>
-    <changefreq>hourly</changefreq>
-    <priority>0.6</priority>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
   </url>
   <url>
     <loc>https://halfornothing.com/d/d-ebay-id-392775672723.html</loc>
@@ -15603,8 +15603,8 @@
   <url>
     <loc>https://halfornothing.com/d/d-ebay-id-393150914840.html</loc>
     <lastmod>2026-08-27</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
+    <changefreq>hourly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://halfornothing.com/d/d-ebay-id-393812445605.html</loc>
@@ -16289,6 +16289,18 @@
     <lastmod>2026-08-27</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://halfornothing.com/d/d-ebay-id-236254678943.html</loc>
+    <lastmod>2026-08-27</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://halfornothing.com/d/d-ebay-id-158128626021.html</loc>
+    <lastmod>2026-08-27</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://halfornothing.com/amazon-picks.html</loc>
