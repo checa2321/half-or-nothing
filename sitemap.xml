@@ -4005,8 +4005,8 @@
   <url>
     <loc>https://halfornothing.com/d/d-ebay-id-158128274478.html</loc>
     <lastmod>2026-08-27</lastmod>
-    <changefreq>hourly</changefreq>
-    <priority>0.6</priority>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
   </url>
   <url>
     <loc>https://halfornothing.com/d/d-ebay-id-158129166010.html</loc>
@@ -11541,8 +11541,8 @@
   <url>
     <loc>https://halfornothing.com/d/d-ebay-id-233642369971.html</loc>
     <lastmod>2026-08-27</lastmod>
-    <changefreq>hourly</changefreq>
-    <priority>0.6</priority>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
   </url>
   <url>
     <loc>https://halfornothing.com/d/d-ebay-id-234518406237.html</loc>
@@ -12237,8 +12237,8 @@
   <url>
     <loc>https://halfornothing.com/d/d-ebay-id-267554155371.html</loc>
     <lastmod>2026-08-27</lastmod>
-    <changefreq>hourly</changefreq>
-    <priority>0.6</priority>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
   </url>
   <url>
     <loc>https://halfornothing.com/d/d-ebay-id-267561293331.html</loc>
@@ -15843,8 +15843,8 @@
   <url>
     <loc>https://halfornothing.com/d/d-ebay-id-820039309186.html</loc>
     <lastmod>2026-08-27</lastmod>
-    <changefreq>hourly</changefreq>
-    <priority>0.6</priority>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
   </url>
   <url>
     <loc>https://halfornothing.com/d/d-walmart-id-1010276517.html</loc>
@@ -15989,6 +15989,18 @@
     <lastmod>2026-08-27</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://halfornothing.com/d/d-ebay-id-127568943133.html</loc>
+    <lastmod>2026-08-27</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://halfornothing.com/d/d-ebay-id-256354936682.html</loc>
+    <lastmod>2026-08-27</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://halfornothing.com/amazon-picks.html</loc>
