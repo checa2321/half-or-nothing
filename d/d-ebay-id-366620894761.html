@@ -30,7 +30,7 @@
 <meta name="twitter:title" content="Women&#x27;s On Cloud X 3 Running Shoes Sneakers Size 8 White YY -- 50% off, $9.99 (was $19.97) | Half or Nothing">
 <meta name="twitter:description" content="50% off, $9.99 (was $19.97)">
 <meta name="twitter:image" content="https://i.ebayimg.com/images/g/ifcAAeSw0zlqiIJW/s-l500.jpg">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Women's On Cloud X 3 Running Shoes Sneakers Size 8 White YY","description":"50% off -- was $19.97, now $9.99 at Ebay.","image":"https://i.ebayimg.com/images/g/ifcAAeSw0zlqiIJW/s-l500.jpg","offers":{"@type":"Offer","price":"9.99","priceCurrency":"USD","availability":"https://schema.org/InStock","url":"https://halfornothing.com/d/d-ebay-id-366620894761.html","priceValidUntil":"2026-08-31T00:05:04Z"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Deals","item":"https://halfornothing.com/"},{"@type":"ListItem","position":2,"name":"Fashion & Accessories","item":"https://halfornothing.com/fashion.html"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Women's On Cloud X 3 Running Shoes Sneakers Size 8 White YY","description":"50% off -- was $19.97, now $9.99 at Ebay.","image":"https://i.ebayimg.com/images/g/ifcAAeSw0zlqiIJW/s-l500.jpg","offers":{"@type":"Offer","price":"9.99","priceCurrency":"USD","availability":"https://schema.org/InStock","url":"https://halfornothing.com/d/d-ebay-id-366620894761.html","priceValidUntil":"2026-08-31T00:54:21Z"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Deals","item":"https://halfornothing.com/"},{"@type":"ListItem","position":2,"name":"Fashion & Accessories","item":"https://halfornothing.com/fashion.html"}]}</script>
 <style>
 :root{
   --signal:#D93A12; --signal-dark:#B8331A; --gate:#00a863; --gate-soft:#5C9B81;
@@ -860,6 +860,24 @@ footer.site .disclosure{margin:14px 0}
           color:var(--muted);border-bottom:2px solid var(--ink)}
 .prose td{font-variant-numeric:tabular-nums}
 .prose tbody tr:hover{background:var(--paper-2)}
+/* [[compare:left|...]]/[[compare:right|...]] -- a real discounted item next
+   to a real regular-price (or lesser-discount) comparison item, both real
+   affiliate links. Deliberately plainer than the site's main .card (no
+   hover ring, no grid-item sizing assumptions) since this lives inside
+   prose, not the deals grid -- see half-or-nothing-price-comparison-
+   monetization-idea memory for why this exists and stays blog-only. */
+.prose-compare{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:0 0 26px}
+@media (max-width:560px){.prose-compare{grid-template-columns:1fr}}
+.compare-card{position:relative;padding:18px;background:var(--card);border:1px solid var(--rule);
+              border-radius:12px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:8px}
+.compare-card img{max-width:100%;max-height:180px;width:auto;height:auto;border-radius:8px;margin:0 0 4px}
+.compare-badge{position:absolute;top:12px;left:12px;padding:4px 10px;border-radius:999px;
+               font:700 11px/1 var(--mono);letter-spacing:.02em}
+.compare-badge-off{background:var(--signal);color:#fff}
+.compare-badge-reg{background:var(--paper-3);color:var(--muted);border:1px solid var(--rule)}
+.compare-title{font-size:14px;font-weight:600;color:var(--ink);margin:4px 0 0;line-height:1.35}
+.compare-price{font-size:17px;font-weight:800;color:var(--gate-dark);margin:0;font-variant-numeric:tabular-nums}
+.compare-card .cta{margin-top:4px}
 
 /* ---- blog index ---- */
 .blog-list{max-width:68ch;margin:8px 0 40px}
@@ -1053,6 +1071,7 @@ html{scroll-behavior:smooth}
   #catApply:hover{background:#A82D0C}
   .price-now{color:var(--gate)}
   .td-now{color:var(--gate)}
+  .compare-price{color:var(--gate)}
   .best-cta{background:var(--signal-dark);border-color:var(--signal-dark)}
   .best-cta:hover{background:var(--card);color:var(--signal)}
   .src-tag{background:#45453F}
