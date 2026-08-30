@@ -30,7 +30,7 @@
 <meta name="twitter:title" content="Jimmy Choo Brown Gradient Pilot Ladies Sunglasses OLLY/S 0DDB/HA 60 -- 61% off, $115.49 (was $295.00) | Half or Nothing">
 <meta name="twitter:description" content="61% off, $115.49 (was $295.00)">
 <meta name="twitter:image" content="https://i.ebayimg.com/images/g/aCkAAeSw0fJqicKd/s-l500.jpg">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Jimmy Choo Brown Gradient Pilot Ladies Sunglasses OLLY/S 0DDB/HA 60","description":"61% off -- was $295.00, now $115.49 at Ebay.","image":"https://i.ebayimg.com/images/g/aCkAAeSw0fJqicKd/s-l500.jpg","offers":{"@type":"Offer","price":"115.49","priceCurrency":"USD","availability":"https://schema.org/InStock","url":"https://halfornothing.com/d/d-ebay-id-157965758414.html","priceValidUntil":"2026-08-30T22:53:03Z"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Deals","item":"https://halfornothing.com/"},{"@type":"ListItem","position":2,"name":"Fashion & Accessories","item":"https://halfornothing.com/fashion.html"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Jimmy Choo Brown Gradient Pilot Ladies Sunglasses OLLY/S 0DDB/HA 60","description":"61% off -- was $295.00, now $115.49 at Ebay.","image":"https://i.ebayimg.com/images/g/aCkAAeSw0fJqicKd/s-l500.jpg","offers":{"@type":"Offer","price":"115.49","priceCurrency":"USD","availability":"https://schema.org/InStock","url":"https://halfornothing.com/d/d-ebay-id-157965758414.html","priceValidUntil":"2026-08-30T23:05:00Z"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Deals","item":"https://halfornothing.com/"},{"@type":"ListItem","position":2,"name":"Fashion & Accessories","item":"https://halfornothing.com/fashion.html"}]}</script>
 <style>
 :root{
   --signal:#D93A12; --signal-dark:#B8331A; --gate:#00a863; --gate-soft:#5C9B81;
@@ -814,23 +814,33 @@ footer.site .disclosure{margin:14px 0}
 .prose h1{font-size:clamp(2rem,5vw,2.9rem);font-weight:900;letter-spacing:-.035em;
           line-height:1.05;margin:0 0 8px}
 .prose .lede{font-size:1.15rem;color:var(--ink-soft);margin:0 0 30px}
-.prose h2{font-size:1.28rem;font-weight:700;letter-spacing:-.015em;margin:38px 0 10px;
-          padding-top:18px;border-top:2px solid var(--ink)}
+.prose h2{font-size:1.32rem;font-weight:800;letter-spacing:-.015em;margin:40px 0 16px;
+          padding-left:16px;border-left:4px solid var(--signal)}
 .prose h3{font-size:1.05rem;font-weight:700;letter-spacing:-.01em;margin:26px 0 8px}
 .prose p{margin:0 0 16px}
-.prose nav.post-toc{margin:0 0 26px;padding:16px 18px;background:var(--card);
-                    border:1px solid var(--rule);border-radius:10px}
+/* Boxed callouts (Key Takeaways, the [[toc]] jump-list): same left-accent-
+   border language as .deal-gone elsewhere on the site, not a new pattern.
+   Two accent colors (signal/gate) so the two boxes read as visually
+   distinct when they sit back to back. */
+.prose .callout{margin:0 0 26px;padding:18px 20px 20px;background:var(--card);
+                border:1px solid var(--rule);border-left:4px solid var(--signal);
+                border-radius:4px}
+.prose .callout.callout-toc{border-left-color:var(--gate)}
+.prose .callout h2{margin:0 0 12px;padding-left:0;border-left:none;font-size:1.15rem}
+.prose .callout ul{margin:0}
+.prose .callout li:last-child{margin-bottom:0}
 .prose nav.post-toc ul{margin:0;padding-left:0;list-style:none;columns:1}
 .prose nav.post-toc li{position:relative;padding-left:16px;margin-bottom:8px;font-size:.92rem}
 .prose nav.post-toc li:last-child{margin-bottom:0}
 .prose nav.post-toc li::before{content:'';position:absolute;left:0;top:.6em;width:8px;height:2px;
-                    border-radius:999px;background:var(--signal)}
+                    border-radius:999px;background:var(--gate)}
 .prose nav.post-toc a{font-weight:600}
 .prose ul{margin:0 0 16px;padding-left:0;list-style:none}
 .prose li{position:relative;padding-left:20px;margin-bottom:10px}
 .prose li::before{content:'';position:absolute;left:0;top:.62em;width:12px;height:2px;
                   border-radius:999px;background:var(--signal)}
-.prose strong{font-weight:700}
+.prose strong{font-weight:700;background:rgba(217,58,18,.14);padding:.05em .3em;
+              border-radius:4px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
 .prose a{color:var(--gate);text-underline-offset:3px;font-weight:600}
 .prose .stat{font-family:var(--mono);font-variant-numeric:tabular-nums}
 .prose figure.post-img{margin:22px 0;padding:14px;background:var(--card);
