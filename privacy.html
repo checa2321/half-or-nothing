@@ -27,6 +27,8 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <meta property="og:image" content="https://halfornothing.com/logo-og.png">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Privacy. Half or Nothing">
+<meta name="twitter:description" content="Half or Nothing collects nothing about you: no account, no analytics, no cookies set by this site. What the affiliate links and retailers do is spelled out here.">
 <meta name="twitter:image" content="https://halfornothing.com/logo-og.png">
 
 <style>
@@ -93,7 +95,16 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
 #navBtn{display:none;align-items:center;justify-content:center;width:44px;height:44px;
         flex-shrink:0;background:var(--card);border:1px solid var(--rule);border-radius:6px;
         color:var(--ink);cursor:pointer;padding:0}
-#navBtn:hover{border-color:var(--signal);color:var(--signal)}
+/* hover:hover excludes touch: a bare :hover rule on a click-toggle trigger
+   makes iOS Safari/WebKit treat the first tap as a hover-simulation and only
+   fire the real click on a second tap -- confirmed on a real phone 2026-08-25
+   (see the four @media(hover:hover)-gated rules in this file). */
+@media(hover:hover){#navBtn:hover{border-color:var(--signal);color:var(--signal)}}
+/* :active is unconditional (not hover:hover-gated): it fires immediately on
+   touchstart with no click delay, so tap still gets the same red flash the
+   old bare :hover rule gave it -- gating :hover alone removed that feedback
+   on touch entirely (Che caught this on his phone 2026-08-25). */
+#navBtn:active{border-color:var(--signal);color:var(--signal)}
 #navBtn svg{width:20px;height:20px}
 @media(max-width:640px){
   #navBtn{display:inline-flex}
@@ -111,6 +122,8 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
 @media(max-width:560px){
   .topnav .inner{gap:12px}
   .lg-half,.lg-or,.lg-nothing{display:none}
+  /* icon-only logo needs a touch target >= 24x24; the mark itself is 23x23 */
+  .topnav .logo{padding:2px}
   /* 44px minimum on the two controls a thumb actually aims at */
   .topnav .herosearch{max-width:none}
   .topnav .herosearch input{padding:13px 0}
@@ -134,7 +147,7 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
    empty right half of the band (which carried nothing but the ghost mark)
    does the work of looking alive. Three radial washes rather than one
    gradient so the hues meet at soft edges instead of a visible seam. */
-.mast{color:var(--ink);padding:30px 0 28px;position:relative;border-bottom:0;
+.mast{color:var(--ink);padding:44px 0 40px;position:relative;border-bottom:0;
       background:
         radial-gradient(900px 340px at 86% 14%, rgba(217,58,18,.26), transparent 62%),
         radial-gradient(720px 320px at 62% 104%, rgba(240,165,0,.32), transparent 60%),
@@ -150,7 +163,7 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
    "Deals" link and place this by hand is gone. */
 .mast-ghost{position:absolute;top:50%;transform:translateY(-48%);
             right:max(28px, calc((100% - 1180px) / 2 + 28px));
-            font:900 clamp(130px,14vw,178px)/1 Georgia,serif;
+            font:900 clamp(160px,16vw,230px)/1 Georgia,serif;
             color:rgba(0,168,99,.1);
             pointer-events:none;user-select:none;z-index:0}
 /* Gradient-filled rather than outlined: at this size an outline reads as a
@@ -163,7 +176,7 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
 }
 @media(max-width:760px){.mast-ghost{display:none}}
 .brand{font-weight:800;letter-spacing:-.02em;line-height:.95;position:relative;
-       font-size:clamp(1.35rem,3.2vw,1.75rem);margin:0;color:var(--ink)}
+       font-size:clamp(2rem,4.8vw,3.1rem);margin:0;color:var(--ink)}
 .brand .half{font-family:var(--brand-font);font-weight:900;color:var(--signal)}
 .brand-or{font-style:italic;font-weight:400;font-size:max(.42em,11px);color:var(--muted);
           vertical-align:.35em;margin:0 .15em}
@@ -171,8 +184,8 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
 @supports(-webkit-text-stroke:2px red){
   .brand-nothing{color:transparent;-webkit-text-stroke:1.6px var(--ink)}
 }
-.rule-line{font-size:.95rem;font-weight:400;margin:6px 0 0;color:var(--muted);
-           position:relative;max-width:600px;line-height:1.5}
+.rule-line{font-size:1.15rem;font-weight:400;margin:10px 0 0;color:var(--muted);
+           position:relative;max-width:640px;line-height:1.5}
 
 /* search, with the rotating hint layered over a transparent input */
 .herosearch{position:relative;display:flex;align-items:center;gap:10px;
@@ -215,11 +228,11 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
 .sugg-tag{display:block;margin-top:2px;font:600 9.5px/1 var(--mono);
   letter-spacing:.05em;text-transform:uppercase;color:var(--gate)}
 
-.stats{margin-top:14px;font:500 11px/1 var(--mono);letter-spacing:.07em;
+.stats{margin-top:22px;font:500 12px/1 var(--mono);letter-spacing:.07em;
        text-transform:uppercase;color:var(--muted);display:flex;flex-wrap:wrap;
        gap:8px 18px;align-items:baseline;position:relative}
 .stats>span{display:flex;align-items:baseline;gap:6px}
-.stats b{color:var(--ink);font-weight:700;font-size:13px;font-variant-numeric:tabular-nums}
+.stats b{color:var(--ink);font-weight:700;font-size:16px;font-variant-numeric:tabular-nums}
 
 /* ---- trust strip: clean and minimal ---- */
 /* ---- footer trust line + disclosure accordion + social ---- */
@@ -276,7 +289,7 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
 .filterbar{margin:26px 0 12px;display:flex;flex-wrap:wrap;gap:10px;align-items:center}
 #dealSearch::placeholder{color:#AAA}
 #dealSearch::-webkit-search-cancel-button{-webkit-appearance:none;appearance:none}
-#dealSort{font:500 13px/1 var(--display);color:var(--ink);background:var(--card);
+#dealSort,#picksSort{font:500 13px/1 var(--display);color:var(--ink);background:var(--card);
           border:1px solid var(--rule);border-radius:999px;padding:10px 16px;cursor:pointer}
 .no-results{padding:40px 12px;color:var(--muted);text-align:center;
             border:1px dashed var(--rule);border-radius:14px;display:none}
@@ -285,7 +298,8 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
 .catfilter-wrap{position:relative}
 #catFilterBtn{font:500 13px/1 var(--display);color:var(--ink);background:var(--card);
               border:1px solid var(--rule);border-radius:999px;padding:10px 16px;cursor:pointer}
-#catFilterBtn:hover{border-color:var(--signal)}
+@media(hover:hover){#catFilterBtn:hover{border-color:var(--signal)}}
+#catFilterBtn:active{border-color:var(--signal)}
 .catfilter-panel{display:none;position:absolute;top:calc(100% + 6px);left:0;z-index:40;
                  background:var(--card);border:1px solid var(--rule);border-radius:6px;
                  box-shadow:0 8px 24px rgba(0,0,0,.15);width:290px}
@@ -318,17 +332,21 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
           padding:9px 14px;font-size:13px;cursor:pointer}
 #catClear:hover{border-color:var(--signal)}
 
-/* amazon-picks.html's category filter sits inline in .picks-meta as a
-   fourth pill next to "N picks / Curated by hand / Amazon associate link"
-   -- #catFilterBtn above is an ID selector that only ever matched the deals
-   page's button, so this page's button rendered with zero styling (browser
-   default) until this rule existed. Matches .picks-meta span's exact look
-   rather than the deals page's larger pill so it reads as one row, not two
-   different UI languages stacked on top of each other. */
-#picksCatBtn{font:600 10.5px/1 var(--mono);letter-spacing:.05em;text-transform:uppercase;
-             color:var(--muted);background:var(--card);border:1px solid var(--rule);
-             border-radius:999px;padding:6px 11px;cursor:pointer}
-#picksCatBtn:hover{border-color:var(--signal);color:var(--signal)}
+/* amazon-picks.html's category filter sits inline in .picks-meta next to
+   plain informational text ("N picks / Curated by hand / Amazon associate
+   link"). An earlier version matched that text's own quiet styling so
+   closely it read as a fifth line of copy, not a control -- Che, 2026-08-26:
+   "ahi ni se diferencia" (couldn't tell it was clickable at all). Now it's
+   deliberately the odd one out in that row: solid orange fill (the Picks
+   section's own accent, matching .picks::before's gradient), bigger type,
+   more padding -- the one thing in .picks-meta that looks like a button
+   because it's the only interactive one. */
+#picksCatBtn{font:700 13px/1 var(--display);letter-spacing:.01em;
+             color:#fff;background:linear-gradient(135deg,#F0A500,#E8890C);
+             border:none;border-radius:999px;padding:9px 18px;cursor:pointer;
+             box-shadow:0 2px 6px rgba(232,137,12,.35)}
+@media(hover:hover){#picksCatBtn:hover{background:linear-gradient(135deg,#E8890C,#C97108)}}
+#picksCatBtn:active{background:#C97108}
 /* z-index bumped past the deals-page panel's 40: the Lasso embeds in the
    grid directly below this panel render as iframes, which can create their
    own stacking context that ignores a same-level z-index and paints over a
@@ -375,7 +393,8 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
 .picks-meta span{font:600 10.5px/1 var(--mono);letter-spacing:.05em;text-transform:uppercase;
                  color:var(--muted);background:var(--card);border:1px solid var(--rule);
                  border-radius:999px;padding:6px 11px}
-.picks-see-all{font:700 12.5px/1 var(--display);color:var(--signal);text-decoration:none}
+.picks-see-all{font:700 12.5px/1 var(--display);color:var(--signal);text-decoration:none;
+               display:inline-block;padding:7px 0}
 .picks-see-all:hover{text-decoration:underline}
 /* amazon-picks.html: same .pick/.pick-lasso cards as the homepage rail, just
    wrapped for a grid since there's no viewport to scroll-snap into. */
@@ -482,7 +501,8 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
             pointer-events:none;font-variant-numeric:tabular-nums;z-index:0}
 .pick-lasso-cat{position:absolute;top:14px;right:14px;z-index:2;max-width:150px;
             font:700 9px/1.2 var(--mono);letter-spacing:.06em;text-transform:uppercase;
-            color:#fff;background:linear-gradient(135deg,var(--pk-a,#52525B),var(--pk-b,#27272A));
+            color:#fff;background:linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),
+            linear-gradient(135deg,var(--pk-a,#52525B),var(--pk-b,#27272A));
             border-radius:999px;padding:5px 10px;overflow:hidden;text-overflow:ellipsis;
             white-space:nowrap}
 .pick-lasso .lasso-embed{position:relative;z-index:1}
@@ -596,11 +616,12 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
 }
 
 /* ---- mega menu (top nav Categories, DealNews-style flyout) ---- */
-.megamenu-wrap{position:relative;margin:16px 0 0}
+.megamenu-wrap{position:relative;margin:24px 0 0}
 .mast .megamenu-wrap{display:inline-block}
-#megaBtn{font:600 13px/1 var(--display);color:var(--ink);background:var(--card);
-         border:1px solid var(--rule);border-radius:999px;padding:9px 16px;cursor:pointer}
-#megaBtn:hover{border-color:var(--signal);color:var(--signal)}
+#megaBtn{font:600 14px/1 var(--display);color:var(--ink);background:var(--card);
+         border:1px solid var(--rule);border-radius:999px;padding:11px 20px;cursor:pointer}
+@media(hover:hover){#megaBtn:hover{border-color:var(--signal);color:var(--signal)}}
+#megaBtn:active{border-color:var(--signal);color:var(--signal)}
 .megamenu{display:none;position:absolute;top:calc(100% + 10px);left:0;z-index:50;
           background:var(--card);border:1px solid var(--rule);border-radius:6px;
           box-shadow:0 10px 30px rgba(0,0,0,.16);min-width:270px}
@@ -645,7 +666,7 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
 .pager{display:flex;flex-direction:column;align-items:center;gap:10px;
       margin:26px 0 10px;font:500 13px/1 var(--display)}
 .pager button{font:800 14px/1 var(--display);letter-spacing:.01em;color:#fff;
-              background:var(--signal);border:2px solid var(--signal);border-radius:999px;
+              background:var(--signal-dark);border:2px solid var(--signal-dark);border-radius:999px;
               padding:14px 34px;cursor:pointer;transition:background .15s ease,color .15s ease}
 .pager button:hover{background:var(--card);color:var(--signal)}
 .pager button:focus-visible{outline:2px solid var(--signal);outline-offset:3px}
@@ -665,8 +686,8 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
    details stacked below, instead of the old thumbnail-left row. */
 .card{background:var(--card);border-radius:16px;border:1px solid var(--rule);
       box-shadow:0 1px 3px rgba(0,0,0,.06);display:flex;flex-direction:column;
-      transition:box-shadow .15s ease;position:relative}
-.card:hover{box-shadow:0 4px 14px rgba(0,0,0,.12)}
+      transition:box-shadow .15s ease,border-color .15s ease;position:relative}
+.card:hover{box-shadow:0 4px 14px rgba(0,0,0,.12);border-color:var(--signal)}
 /* Was border-left:3px solid var(--gate) -- redundant with .newpill, which
    already says "New" in real text on the same card; a colour-only stripe
    with no label doesn't add information and is the side-tab tell on top
@@ -793,20 +814,70 @@ footer.site .disclosure{margin:14px 0}
 .prose h1{font-size:clamp(2rem,5vw,2.9rem);font-weight:900;letter-spacing:-.035em;
           line-height:1.05;margin:0 0 8px}
 .prose .lede{font-size:1.15rem;color:var(--ink-soft);margin:0 0 30px}
-.prose h2{font-size:1.28rem;font-weight:700;letter-spacing:-.015em;margin:38px 0 10px;
-          padding-top:18px;border-top:2px solid var(--ink)}
+.prose h2{font-size:1.32rem;font-weight:800;letter-spacing:-.015em;margin:40px 0 16px;
+          padding-left:16px;border-left:4px solid var(--signal)}
+.prose h3{font-size:1.05rem;font-weight:700;letter-spacing:-.01em;margin:26px 0 8px}
 .prose p{margin:0 0 16px}
+/* Boxed callouts (Key Takeaways, the [[toc]] jump-list): same left-accent-
+   border language as .deal-gone elsewhere on the site, not a new pattern.
+   Two accent colors (signal/gate) so the two boxes read as visually
+   distinct when they sit back to back. */
+.prose .callout{margin:0 0 26px;padding:18px 20px 20px;background:var(--card);
+                border:1px solid var(--rule);border-left:4px solid var(--signal);
+                border-radius:4px}
+.prose .callout.callout-toc{border-left-color:var(--gate)}
+.prose .callout h2{margin:0 0 12px;padding-left:0;border-left:none;font-size:1.15rem}
+.prose .callout ul{margin:0}
+.prose .callout li:last-child{margin-bottom:0}
+.prose nav.post-toc ul{margin:0;padding-left:0;list-style:none;columns:1}
+.prose nav.post-toc li{position:relative;padding-left:16px;margin-bottom:8px;font-size:.92rem}
+.prose nav.post-toc li:last-child{margin-bottom:0}
+.prose nav.post-toc li::before{content:'';position:absolute;left:0;top:.6em;width:8px;height:2px;
+                    border-radius:999px;background:var(--gate)}
+.prose nav.post-toc a{font-weight:600}
 .prose ul{margin:0 0 16px;padding-left:0;list-style:none}
 .prose li{position:relative;padding-left:20px;margin-bottom:10px}
 .prose li::before{content:'';position:absolute;left:0;top:.62em;width:12px;height:2px;
                   border-radius:999px;background:var(--signal)}
-.prose strong{font-weight:700}
+.prose strong{font-weight:700;background:rgba(217,58,18,.14);padding:.05em .3em;
+              border-radius:4px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
 .prose a{color:var(--gate);text-underline-offset:3px;font-weight:600}
 .prose .stat{font-family:var(--mono);font-variant-numeric:tabular-nums}
 .prose figure.post-img{margin:22px 0;padding:14px;background:var(--card);
                        border:1px solid var(--rule);border-radius:10px;text-align:center}
 .prose figure.post-img img{max-width:280px;width:100%;height:auto;border-radius:6px;display:block;margin:0 auto}
 .prose figure.post-img figcaption{margin-top:10px;font-size:.85rem;color:var(--ink-soft)}
+/* Full-width: the infographic is already a designed, self-contained dark
+   card (own frame, own padding) -- the 280px product-photo cap and card
+   wrapper above would just shrink it into a postage stamp. */
+.prose figure.post-infographic{margin:26px 0}
+.prose figure.post-infographic img{width:100%;height:auto;border-radius:12px;display:block}
+.prose figure.post-hero{margin:0 0 26px}
+.prose figure.post-hero img{width:100%;height:auto;border-radius:10px;display:block}
+.prose table{width:100%;margin:0 0 22px;border-collapse:collapse;font-size:.92rem}
+.prose th,.prose td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--rule)}
+.prose th{font:600 11px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;
+          color:var(--muted);border-bottom:2px solid var(--ink)}
+.prose td{font-variant-numeric:tabular-nums}
+.prose tbody tr:hover{background:var(--paper-2)}
+/* [[compare:left|...]]/[[compare:right|...]] -- a real discounted item next
+   to a real regular-price (or lesser-discount) comparison item, both real
+   affiliate links. Deliberately plainer than the site's main .card (no
+   hover ring, no grid-item sizing assumptions) since this lives inside
+   prose, not the deals grid -- see half-or-nothing-price-comparison-
+   monetization-idea memory for why this exists and stays blog-only. */
+.prose-compare{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:0 0 26px}
+@media (max-width:560px){.prose-compare{grid-template-columns:1fr}}
+.compare-card{position:relative;padding:18px;background:var(--card);border:1px solid var(--rule);
+              border-radius:12px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:8px}
+.compare-card img{max-width:100%;max-height:180px;width:auto;height:auto;border-radius:8px;margin:0 0 4px}
+.compare-badge{position:absolute;top:12px;left:12px;padding:4px 10px;border-radius:999px;
+               font:700 11px/1 var(--mono);letter-spacing:.02em}
+.compare-badge-off{background:var(--signal);color:#fff}
+.compare-badge-reg{background:var(--paper-3);color:var(--muted);border:1px solid var(--rule)}
+.compare-title{font-size:14px;font-weight:600;color:var(--ink);margin:4px 0 0;line-height:1.35}
+.compare-price{font-size:17px;font-weight:800;color:var(--gate-dark);margin:0;font-variant-numeric:tabular-nums}
+.compare-card .cta{margin-top:4px}
 
 /* ---- blog index ---- */
 .blog-list{max-width:68ch;margin:8px 0 40px}
@@ -841,7 +912,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--signal);outline-off
   /* must live here, after #megaBtn's base rule: equal specificity, so source
      order decides and an override placed earlier silently loses */
   #megaBtn{padding:15px 18px}
-  .mast{padding:20px 0 18px}
+  .mast{padding:28px 0 26px}
   .disclosure{font-size:13px}
   .disclosure>summary{padding:12px 14px}
   .disclosure-body{padding:0 14px 14px}
@@ -906,9 +977,9 @@ html{scroll-behavior:smooth}
           overflow:hidden;min-height:2.7em}
 .td-card:hover .td-title{color:var(--signal)}
 .td-prices{display:flex;align-items:baseline;gap:7px;flex-wrap:wrap;margin-top:auto}
-.td-now{font:800 17px/1 var(--mono);color:var(--signal);font-variant-numeric:tabular-nums}
+.td-now{font:800 17px/1 var(--mono);color:var(--gate-dark);font-variant-numeric:tabular-nums}
 .td-was{font:400 12px/1 var(--mono);color:var(--muted);font-variant-numeric:tabular-nums}
-.td-off{font:800 11px/1 var(--mono);color:#fff;background:var(--signal);
+.td-off{font:800 11px/1 var(--mono);color:#fff;background:var(--signal-dark);
         padding:5px 8px;border-radius:999px;letter-spacing:.03em;white-space:nowrap}
 .td-src{font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;
         color:var(--muted)}
@@ -932,10 +1003,17 @@ html{scroll-behavior:smooth}
 }
 
 /* ---- category landing pages: breadcrumb + fashion subnav ---- */
+.visually-hidden{position:absolute;width:1px;height:1px;padding:0;margin:-1px;
+                 overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 .crumbs{margin:26px 0 2px;font-size:13px;color:var(--muted)}
 .crumbs a{color:var(--muted);text-decoration:none}
 .crumbs a:hover{color:var(--signal)}
 .crumbs b{color:var(--ink);font-weight:600}
+.cat-intro{margin:14px 0 6px;max-width:78ch}
+.cat-intro h2{font:700 22px/1.25 var(--display);color:var(--ink);margin:0 0 8px}
+.cat-intro p{font:400 15px/1.6 var(--display);color:var(--ink-soft);margin:0}
+.cat-intro a{color:var(--signal);text-decoration:none;border-bottom:1px solid currentColor}
+.cat-intro a:hover{color:var(--signal-dark)}
 /* Pill-style subnav rows -- Shop / Shop by price / Shop by type. Same
    border-radius:999px pill language as #dealSort ("Highest discount") and
    the category filter button, so this reads as the same control family
@@ -992,6 +1070,8 @@ html{scroll-behavior:smooth}
   #catApply{background:var(--signal-dark)}
   #catApply:hover{background:#A82D0C}
   .price-now{color:var(--gate)}
+  .td-now{color:var(--gate)}
+  .compare-price{color:var(--gate)}
   .best-cta{background:var(--signal-dark);border-color:var(--signal-dark)}
   .best-cta:hover{background:var(--card);color:var(--signal)}
   .src-tag{background:#45453F}
@@ -1148,12 +1228,12 @@ page gets updated <strong>before</strong> that goes live, and the date above cha
 <div class="disclosure-body footer-cats"><a href='/electronics.html'>Electronics &amp; Tech</a> &middot; <a href='/home-kitchen.html'>Home &amp; Kitchen</a> &middot; <a href='/fashion.html'>Fashion &amp; Accessories</a> &middot; <a href='/beauty-health.html'>Beauty &amp; Health</a> &middot; <a href='/baby-kids.html'>Baby &amp; Kids</a> &middot; <a href='/outdoor-sports.html'>Outdoor &amp; Sports</a> &middot; <a href='/tools-auto.html'>Tools &amp; Auto</a> &middot; <a href='/pets.html'>Pets</a> &middot; <a href='/office-more.html'>Office &amp; More</a> &middot; <a href='/jewelry-watches.html'>Jewelry &amp; Watches</a> &middot; <a href='/collectibles-art.html'>Collectibles &amp; Art</a> &middot; <a href='/books-music-movies.html'>Books, Music &amp; Movies</a> &middot; <a href='/musical-instruments.html'>Musical Instruments &amp; Gear</a> &middot; <a href='/travel.html'>Travel &amp; Experiences</a> &middot; <a href='/other-finds.html'>Other Finds</a> &middot; <a href='/beauty-fragrances.html'>Fragrances</a></div>
 </details>
 <details class="disclosure">
-<summary>eBay, Walmart &amp; Amazon</summary>
-<div class="disclosure-body"><p class="trust-line"><b>eBay and Walmart.</b> Rescanned hourly. Sorted purely by discount, and nothing under 50% is listed. No countdown timers, no invented scarcity: every number on this page is measured, not staged. See <a href="/how-we-verify-deals.html">How We Verify Deals</a> for the full methodology.</p><p class="trust-line"><b>Amazon works differently.</b> The Amazon Picks section is hand-picked by Che, one at a time, with no price or discount number attached -- see <a href="/about.html">About</a> for why.</p></div>
+<summary>eBay &amp; Amazon</summary>
+<div class="disclosure-body"><p class="trust-line"><b>eBay.</b> Rescanned hourly. Sorted purely by discount, and nothing under 50% is listed. No countdown timers, no invented scarcity: every number on this page is measured, not staged. See <a href="/how-we-verify-deals.html">How We Verify Deals</a> for the full methodology.</p><p class="trust-line"><b>Amazon works differently.</b> The Amazon Picks section is hand-picked by Che, one at a time. When a pick shows a price, list price, or coupon, it was verified by hand directly on Amazon -- not pulled from an automated scan -- see <a href="/about.html">About</a> for why.</p></div>
 </details>
 <details class="disclosure">
 <summary>Affiliate disclosure &amp; how this page is built</summary>
-<div class="disclosure-body">Some links on this site are affiliate links. This site is a member of the eBay Partner Network. If you buy through one, I may earn a commission at no extra cost to you. Commission never affects which deals are listed or the order they appear in. Listings are sorted by discount percentage, highest first. As an Amazon Associate I earn from qualifying purchases.</div>
+<div class="disclosure-body">Some links on this site are affiliate links. This site is a member of the eBay Partner Network. If you buy through one, I may earn a commission at no extra cost to you. Commission never affects which deals are listed or the order they appear in. Listings default to newest first; sort by discount, price, or name any time. As an Amazon Associate I earn from qualifying purchases.</div>
 </details>
 <details class="disclosure">
 <summary>Pricing &amp; how often this updates</summary>
@@ -1181,7 +1261,7 @@ page gets updated <strong>before</strong> that goes live, and the date above cha
 </div></footer>
 </main>
 <button type="button" class="back-to-top" id="backToTop" aria-label="Back to top">&#9650;</button>
-<script src="/assets/js/interaction.js?v=0c6bf820e4"></script>
+<script src="/assets/js/interaction.js?v=de469ada20"></script>
 <script type="text/javascript" src="https://js.codedrink.com/snippet.min.js" defer></script>
 <script type="text/javascript" src="/assets/js/lasso-picks.js" defer></script>
 <script type="text/javascript" src="https://s.skimresources.com/js/307865X1796159.skimlinks.js"></script>

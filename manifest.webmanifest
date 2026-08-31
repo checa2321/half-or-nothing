@@ -1,7 +1,7 @@
 {
   "name": "Half or Nothing",
   "short_name": "Half or Nothing",
-  "description": "Markdowns of 50% or more across eBay and Walmart, refreshed hourly.",
+  "description": "Markdowns of 50% or more across eBay, refreshed hourly.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
