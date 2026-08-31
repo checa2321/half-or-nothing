@@ -30,7 +30,7 @@
 <meta name="twitter:title" content="Vedi Vero Ladies Sunglasses Black VE802 BLKS 64-18-145 VE802 BLKS 64-1 -- 58% off, $73.78 (was $175.00) | Half or Nothing">
 <meta name="twitter:description" content="58% off, $73.78 (was $175.00)">
 <meta name="twitter:image" content="https://i.ebayimg.com/images/g/gpUAAeSwM2lqlUvd/s-l500.jpg">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Vedi Vero Ladies Sunglasses Black VE802 BLKS 64-18-145 VE802 BLKS 64-18-145","description":"58% off -- was $175.00, now $73.78 at Ebay.","image":"https://i.ebayimg.com/images/g/gpUAAeSwM2lqlUvd/s-l500.jpg","offers":{"@type":"Offer","price":"73.78","priceCurrency":"USD","availability":"https://schema.org/InStock","url":"https://halfornothing.com/d/d-ebay-id-168455204308.html","priceValidUntil":"2026-09-01T00:04:42Z"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Deals","item":"https://halfornothing.com/"},{"@type":"ListItem","position":2,"name":"Fashion & Accessories","item":"https://halfornothing.com/fashion.html"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Vedi Vero Ladies Sunglasses Black VE802 BLKS 64-18-145 VE802 BLKS 64-18-145","description":"58% off -- was $175.00, now $73.78 at Ebay.","image":"https://i.ebayimg.com/images/g/gpUAAeSwM2lqlUvd/s-l500.jpg","offers":{"@type":"Offer","price":"73.78","priceCurrency":"USD","availability":"https://schema.org/InStock","url":"https://halfornothing.com/d/d-ebay-id-168455204308.html","priceValidUntil":"2026-09-01T00:19:26Z"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Deals","item":"https://halfornothing.com/"},{"@type":"ListItem","position":2,"name":"Fashion & Accessories","item":"https://halfornothing.com/fashion.html"}]}</script>
 <style>
 :root{
   --signal:#D93A12; --signal-dark:#B8331A; --gate:#00a863; --gate-soft:#5C9B81;
@@ -1152,6 +1152,37 @@ html{scroll-behavior:smooth}
 .idx-table td a{color:var(--ink);text-decoration:none}
 .idx-table td a:hover{color:var(--signal)}
 .idx-table tbody tr:hover td{background:var(--paper-2)}
+
+/* ---- Curator mode (Pinterest multi-select), 2026-08-31 ----
+   .curator-only elements only ever appear once body carries .curator-mode,
+   a class interaction.js adds after a one-time ?curator=<secret> URL visit
+   sets a localStorage flag. A normal visitor's DOM never gets that class,
+   so these rules never paint for them -- see interaction.js for the gate. */
+.curator-only{display:none}
+body.curator-mode .curator-only{display:inline-flex}
+.pin-btn{align-items:center;justify-content:center;width:30px;height:30px;
+         border-radius:50%;border:1px solid var(--rule);background:var(--card);
+         cursor:pointer;font-size:14px;line-height:1;position:absolute;top:8px;right:44px}
+.pin-btn[aria-pressed="true"]{background:var(--signal);border-color:var(--signal)}
+body.curator-mode #curator-badge{display:flex}
+#curator-badge{position:fixed;right:18px;bottom:18px;z-index:500;align-items:center;gap:6px;
+               background:var(--signal);color:#fff;border:none;border-radius:24px;
+               padding:10px 18px;font:700 14px/1 var(--mono);cursor:pointer;
+               box-shadow:0 4px 14px rgba(0,0,0,.25)}
+#curator-panel{position:fixed;right:18px;bottom:70px;z-index:500;width:300px;max-height:60vh;
+               overflow-y:auto;background:var(--card);border:1px solid var(--rule);
+               border-radius:8px;box-shadow:0 8px 24px rgba(0,0,0,.3);padding:12px;display:none}
+#curator-panel.open{display:block}
+#curator-panel h4{margin:0 0 8px;font-size:13px;text-transform:uppercase;letter-spacing:.04em;color:var(--muted)}
+#curator-panel ul{list-style:none;margin:0 0 10px;padding:0}
+#curator-panel li{display:flex;justify-content:space-between;gap:8px;padding:6px 0;
+                   border-bottom:1px solid var(--rule);font-size:13px}
+#curator-panel li span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#curator-panel li button{border:none;background:none;color:var(--muted);cursor:pointer;font-size:14px}
+#curator-panel .curator-actions{display:flex;gap:8px}
+#curator-panel .curator-actions button{flex:1;padding:8px;border-radius:4px;border:1px solid var(--rule);
+                   background:var(--paper-2);cursor:pointer;font-size:12.5px;font-weight:600}
+#curator-panel .curator-actions button.primary{background:var(--signal);color:#fff;border-color:var(--signal)}
 </style></head><body>
 <nav class="topnav"><div class="inner">
 <a class="logo" href="/index.html" aria-label="Half or Nothing">
@@ -1208,7 +1239,7 @@ html{scroll-behavior:smooth}
 </div></footer>
 </main>
 <button type="button" class="back-to-top" id="backToTop" aria-label="Back to top">&#9650;</button>
-<script src="/assets/js/interaction.js?v=de469ada20"></script>
+<script src="/assets/js/interaction.js?v=8bff3fbb38"></script>
 <script type="text/javascript" src="https://js.codedrink.com/snippet.min.js" defer></script>
 <script type="text/javascript" src="/assets/js/lasso-picks.js" defer></script>
 <script type="text/javascript" src="https://s.skimresources.com/js/307865X1796159.skimlinks.js"></script>
