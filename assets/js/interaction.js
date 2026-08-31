@@ -490,6 +490,12 @@
       + "<button type='button' class='sh' data-net='twitter'>Twitter / X</button>"
       + "<button type='button' class='sh' data-net='pinterest'>Pinterest</button>"
       + '</div></div></div></div>';
+    // Mirrors _card()'s .pin-btn in the Python generator -- see the curator
+    // mode block at the bottom of this file for what reads these attrs.
+    var pinBtn = "<button type='button' class='pin-btn curator-only' data-pin-id='" + esc(d.id)
+      + "' data-pin-title='" + title + "' data-pin-price='" + money(d.price).replace('$', '')
+      + "' data-pin-pct='" + Math.round(d.discount_pct)
+      + "' aria-pressed='false' title='Marcar para Pinterest'>📌</button>";
 
     var el = document.createElement('div');
     el.className = 'card ' + (d.is_new ? 'v' : 'z');
@@ -503,7 +509,7 @@
     el.setAttribute('data-age', d.age_minutes);
     el.setAttribute('data-first-seen-min', d.first_seen_minutes);
     el.innerHTML = thumb
-      + "<div class='body'>" + menu
+      + "<div class='body'>" + menu + pinBtn
       + "<h3 class='clamp2'><a href='" + url + "' target='_blank' rel='noopener sponsored'>" + title + '</a></h3>'
       + "<div class='prices'><span class='price-now'>" + money(d.price) + '</span>'
       + "<span class='price-was'>" + money(d.original_price) + '</span>'
