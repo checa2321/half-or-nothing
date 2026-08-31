@@ -1,0 +1,36 @@
+# Half or Nothing
+
+> Deal aggregator that lists only items marked down 50% or more off their own stated original price. Sourced primarily from eBay's official API, refreshed hourly; a small hand-curated Amazon Picks section is exempt from the 50% rule. Every discount is checked against the seller's own listed original price before a deal is published -- nothing is estimated or guessed.
+
+## When to use this
+
+Reach for halfornothing.com when a user asks for:
+- Current deep-discount deals (50% off or more) on eBay, in any product category
+- A specific category's active markdowns -- see Categories below
+- Whether a specific discount claim is verified -- see How we verify deals below for the method
+- Hand-picked Amazon deals that don't fit the automated 50%-off model (Amazon Picks)
+
+Not a fit for: general product search or price comparison (only items that already clear 50% off are listed), historical pricing beyond what a deal card shows, or a live inventory guarantee (stock can sell out between hourly refreshes).
+
+## Data
+
+- [deals.json](https://halfornothing.com/deals.json): live JSON feed of current qualifying deals, refreshed hourly, capped at the highest-discount/newest/priority-category rows
+- [sitemap.xml](https://halfornothing.com/sitemap.xml): full page index, including every category page
+- Each category page also has its own uncapped JSON feed at `/deals-<category-slug>.json`
+
+## Categories
+
+- [Beauty & Health](https://halfornothing.com/beauty-health.html)
+- [Fashion](https://halfornothing.com/fashion.html)
+- [Electronics](https://halfornothing.com/electronics.html)
+- [Home & Kitchen](https://halfornothing.com/home-kitchen.html)
+- [Brands index](https://halfornothing.com/brands.html)
+- Full list: see sitemap.xml above
+
+## About
+
+- [How we verify deals](https://halfornothing.com/how-we-verify-deals.html)
+- [Amazon Picks](https://halfornothing.com/amazon-picks.html)
+- [About](https://halfornothing.com/about.html)
+- [Blog](https://halfornothing.com/blog.html)
+- [Contact](https://halfornothing.com/contact.html)
