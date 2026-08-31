@@ -1152,6 +1152,37 @@ html{scroll-behavior:smooth}
 .idx-table td a{color:var(--ink);text-decoration:none}
 .idx-table td a:hover{color:var(--signal)}
 .idx-table tbody tr:hover td{background:var(--paper-2)}
+
+/* ---- Curator mode (Pinterest multi-select), 2026-08-31 ----
+   .curator-only elements only ever appear once body carries .curator-mode,
+   a class interaction.js adds after a one-time ?curator=<secret> URL visit
+   sets a localStorage flag. A normal visitor's DOM never gets that class,
+   so these rules never paint for them -- see interaction.js for the gate. */
+.curator-only{display:none}
+body.curator-mode .curator-only{display:inline-flex}
+.pin-btn{align-items:center;justify-content:center;width:30px;height:30px;
+         border-radius:50%;border:1px solid var(--rule);background:var(--card);
+         cursor:pointer;font-size:14px;line-height:1;position:absolute;top:8px;right:44px}
+.pin-btn[aria-pressed="true"]{background:var(--signal);border-color:var(--signal)}
+body.curator-mode #curator-badge{display:flex}
+#curator-badge{position:fixed;right:18px;bottom:18px;z-index:500;align-items:center;gap:6px;
+               background:var(--signal);color:#fff;border:none;border-radius:24px;
+               padding:10px 18px;font:700 14px/1 var(--mono);cursor:pointer;
+               box-shadow:0 4px 14px rgba(0,0,0,.25)}
+#curator-panel{position:fixed;right:18px;bottom:70px;z-index:500;width:300px;max-height:60vh;
+               overflow-y:auto;background:var(--card);border:1px solid var(--rule);
+               border-radius:8px;box-shadow:0 8px 24px rgba(0,0,0,.3);padding:12px;display:none}
+#curator-panel.open{display:block}
+#curator-panel h4{margin:0 0 8px;font-size:13px;text-transform:uppercase;letter-spacing:.04em;color:var(--muted)}
+#curator-panel ul{list-style:none;margin:0 0 10px;padding:0}
+#curator-panel li{display:flex;justify-content:space-between;gap:8px;padding:6px 0;
+                   border-bottom:1px solid var(--rule);font-size:13px}
+#curator-panel li span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#curator-panel li button{border:none;background:none;color:var(--muted);cursor:pointer;font-size:14px}
+#curator-panel .curator-actions{display:flex;gap:8px}
+#curator-panel .curator-actions button{flex:1;padding:8px;border-radius:4px;border:1px solid var(--rule);
+                   background:var(--paper-2);cursor:pointer;font-size:12.5px;font-weight:600}
+#curator-panel .curator-actions button.primary{background:var(--signal);color:#fff;border-color:var(--signal)}
 </style></head><body>
 <nav class="topnav"><div class="inner">
 <a class="logo" href="/index.html" aria-label="Half or Nothing">
@@ -1175,8 +1206,8 @@ html{scroll-behavior:smooth}
 <div class="disclosure-body footer-cats"><a href='/electronics.html'>Electronics &amp; Tech</a> &middot; <a href='/home-kitchen.html'>Home &amp; Kitchen</a> &middot; <a href='/fashion.html'>Fashion &amp; Accessories</a> &middot; <a href='/beauty-health.html'>Beauty &amp; Health</a> &middot; <a href='/baby-kids.html'>Baby &amp; Kids</a> &middot; <a href='/outdoor-sports.html'>Outdoor &amp; Sports</a> &middot; <a href='/tools-auto.html'>Tools &amp; Auto</a> &middot; <a href='/pets.html'>Pets</a> &middot; <a href='/office-more.html'>Office &amp; More</a> &middot; <a href='/jewelry-watches.html'>Jewelry &amp; Watches</a> &middot; <a href='/collectibles-art.html'>Collectibles &amp; Art</a> &middot; <a href='/books-music-movies.html'>Books, Music &amp; Movies</a> &middot; <a href='/musical-instruments.html'>Musical Instruments &amp; Gear</a> &middot; <a href='/travel.html'>Travel &amp; Experiences</a> &middot; <a href='/other-finds.html'>Other Finds</a> &middot; <a href='/beauty-fragrances.html'>Fragrances</a></div>
 </details>
 <details class="disclosure">
-<summary>eBay, Walmart &amp; Amazon</summary>
-<div class="disclosure-body"><p class="trust-line"><b>eBay and Walmart.</b> Rescanned hourly. Sorted purely by discount, and nothing under 50% is listed. No countdown timers, no invented scarcity: every number on this page is measured, not staged. See <a href="/how-we-verify-deals.html">How We Verify Deals</a> for the full methodology.</p><p class="trust-line"><b>Amazon works differently.</b> The Amazon Picks section is hand-picked by Che, one at a time. When a pick shows a price, list price, or coupon, it was verified by hand directly on Amazon -- not pulled from an automated scan -- see <a href="/about.html">About</a> for why.</p></div>
+<summary>eBay &amp; Amazon</summary>
+<div class="disclosure-body"><p class="trust-line"><b>eBay.</b> Rescanned hourly. Sorted purely by discount, and nothing under 50% is listed. No countdown timers, no invented scarcity: every number on this page is measured, not staged. See <a href="/how-we-verify-deals.html">How We Verify Deals</a> for the full methodology.</p><p class="trust-line"><b>Amazon works differently.</b> The Amazon Picks section is hand-picked by Che, one at a time. When a pick shows a price, list price, or coupon, it was verified by hand directly on Amazon -- not pulled from an automated scan -- see <a href="/about.html">About</a> for why.</p></div>
 </details>
 <details class="disclosure">
 <summary>Affiliate disclosure &amp; how this page is built</summary>
@@ -1208,7 +1239,7 @@ html{scroll-behavior:smooth}
 </div></footer>
 </main>
 <button type="button" class="back-to-top" id="backToTop" aria-label="Back to top">&#9650;</button>
-<script src="/assets/js/interaction.js?v=de469ada20"></script>
+<script src="/assets/js/interaction.js?v=3c6956f9a6"></script>
 <script type="text/javascript" src="https://js.codedrink.com/snippet.min.js" defer></script>
 <script type="text/javascript" src="/assets/js/lasso-picks.js" defer></script>
 <script type="text/javascript" src="https://s.skimresources.com/js/307865X1796159.skimlinks.js"></script>
