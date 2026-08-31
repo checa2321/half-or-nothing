@@ -969,3 +969,138 @@ initRail('lassoViewport', 'lassoPrev', 'lassoNext', '.pick-lasso', 14);
   relative();
   setInterval(relative, 30000);
 })();
+
+// ---- Curator mode: multi-select Pinterest queue, 2026-08-31 ----
+// Hidden from every normal visitor. Only turns on after a one-time visit
+// with ?curator=<secret> in the URL, which flips a localStorage flag that
+// then persists across every future page load/session on this browser --
+// no server, no login, just a shared link Che/Dannette each open once.
+// The queue itself only ever stores each card's stable id (see
+// _anchor_id() in html_output.py) plus a few display fields for the panel
+// -- Che pastes the copied list to Claude, which looks the real id up in
+// deal_store.json rather than trusting anything scraped from the page.
+(function(){
+  var CURATOR_SECRET = 'APFpH4MXZvvJGAo3';
+  var FLAG_KEY = 'honCuratorMode';
+  var QUEUE_KEY = 'honPinQueue';
+
+  var params = new URLSearchParams(window.location.search);
+  if (params.get('curator') === CURATOR_SECRET) {
+    localStorage.setItem(FLAG_KEY, '1');
+    params.delete('curator');
+    var clean = window.location.pathname + (params.toString() ? '?' + params.toString() : '');
+    history.replaceState(null, '', clean);
+  }
+  if (localStorage.getItem(FLAG_KEY) !== '1') return;
+
+  document.body.classList.add('curator-mode');
+
+  function loadQueue(){
+    try { return JSON.parse(localStorage.getItem(QUEUE_KEY)) || []; }
+    catch (e) { return []; }
+  }
+  function saveQueue(q){ localStorage.setItem(QUEUE_KEY, JSON.stringify(q)); }
+  function copyToClipboard(text){
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text);
+      return;
+    }
+    var ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.position = 'fixed';
+    ta.style.opacity = '0';
+    document.body.appendChild(ta);
+    ta.focus();
+    ta.select();
+    try { document.execCommand('copy'); } catch (err) {}
+    document.body.removeChild(ta);
+  }
+
+  var badge = document.createElement('button');
+  badge.id = 'curator-badge';
+  badge.type = 'button';
+  var panel = document.createElement('div');
+  panel.id = 'curator-panel';
+  document.body.appendChild(badge);
+  document.body.appendChild(panel);
+
+  function render(){
+    var q = loadQueue();
+    badge.textContent = '📌 ' + q.length + ' seleccionado' + (q.length === 1 ? '' : 's');
+    var items = q.map(function(item){
+      return '<li><span title="' + item.title.replace(/"/g, '&quot;') + '">' + item.title +
+             ' — $' + item.price + ' (' + item.pct + '% off)</span>' +
+             '<button type="button" data-remove="' + item.id + '" aria-label="Quitar">✕</button></li>';
+    }).join('');
+    panel.innerHTML = '<h4>Cola para Zernio</h4>' +
+      '<ul>' + (items || '<li style="color:var(--muted)">Nada marcado todavía</li>') + '</ul>' +
+      '<div class="curator-actions">' +
+      '<button type="button" id="curator-clear">Vaciar</button>' +
+      '<button type="button" id="curator-copy" class="primary">Copiar para Zernio</button>' +
+      '</div>';
+    // Reflect the current queue on every pin button already in the DOM
+    // (cards built after this script ran, e.g. from lazy-render, get their
+    // state set at click time instead -- see the delegated handler below).
+    var ids = {};
+    q.forEach(function(item){ ids[item.id] = true; });
+    Array.prototype.forEach.call(document.querySelectorAll('.pin-btn'), function(btn){
+      var on = !!ids[btn.getAttribute('data-pin-id')];
+      btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+  }
+
+  document.addEventListener('click', function(e){
+    var pinBtn = e.target.closest && e.target.closest('.pin-btn');
+    if (pinBtn) {
+      var id = pinBtn.getAttribute('data-pin-id');
+      var q = loadQueue();
+      var idx = q.findIndex(function(item){ return item.id === id; });
+      if (idx >= 0) {
+        q.splice(idx, 1);
+      } else {
+        q.push({
+          id: id,
+          title: pinBtn.getAttribute('data-pin-title'),
+          price: pinBtn.getAttribute('data-pin-price'),
+          pct: pinBtn.getAttribute('data-pin-pct'),
+        });
+      }
+      saveQueue(q);
+      render();
+      return;
+    }
+    if (e.target === badge) {
+      panel.classList.toggle('open');
+      return;
+    }
+    var removeBtn = e.target.closest && e.target.closest('[data-remove]');
+    if (removeBtn) {
+      var rid = removeBtn.getAttribute('data-remove');
+      saveQueue(loadQueue().filter(function(item){ return item.id !== rid; }));
+      render();
+      return;
+    }
+    if (e.target.id === 'curator-clear') {
+      if (confirm('¿Vaciar toda la cola?')) {
+        saveQueue([]);
+        render();
+      }
+      return;
+    }
+    if (e.target.id === 'curator-copy') {
+      var q2 = loadQueue();
+      var text = q2.map(function(item){
+        return item.id + ' | ' + item.title + ' | $' + item.price + ' | ' + item.pct + '% off';
+      }).join('\n');
+      copyToClipboard(text);
+      e.target.textContent = '✓ Copiado';
+      setTimeout(function(){ e.target.textContent = 'Copiar para Zernio'; }, 1500);
+      return;
+    }
+    if (!panel.contains(e.target) && e.target !== badge) {
+      panel.classList.remove('open');
+    }
+  });
+
+  render();
+})();
