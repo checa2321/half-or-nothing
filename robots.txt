@@ -2,3 +2,7 @@ User-agent: *
 Allow: /
 
 Sitemap: https://halfornothing.com/sitemap.xml
+
+# AI agents: see /llms.txt for what this site does, when to use it, and
+# where the real machine-readable data feeds are (deals.json and friends).
+
