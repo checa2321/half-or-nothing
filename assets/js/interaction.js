@@ -26,19 +26,28 @@
 
   // ---- per-card overflow menu: open in new tab / report / share flyout ----
   function copyToClipboard(text){
+    function fallback(){
+      var ta = document.createElement('textarea');
+      ta.value = text;
+      ta.style.position = 'fixed';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.focus();
+      ta.select();
+      try { document.execCommand('copy'); } catch (err) {}
+      document.body.removeChild(ta);
+    }
+    // navigator.clipboard.writeText() can reject (permission denied by the
+    // browser's Permissions Policy, or blocked outright in an embedded/
+    // sandboxed context) even though the API exists -- found live 2026-08-31
+    // testing the curator-mode copy button, where the fire-and-forget call
+    // silently swallowed the rejection and nothing ever landed on the
+    // clipboard, no fallback, no error shown to the user.
     if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(text);
+      navigator.clipboard.writeText(text).catch(fallback);
       return;
     }
-    var ta = document.createElement('textarea');
-    ta.value = text;
-    ta.style.position = 'fixed';
-    ta.style.opacity = '0';
-    document.body.appendChild(ta);
-    ta.focus();
-    ta.select();
-    try { document.execCommand('copy'); } catch (err) {}
-    document.body.removeChild(ta);
+    fallback();
   }
   function shareTarget(net, pageUrl, title){
     var u = encodeURIComponent(pageUrl);
@@ -1007,19 +1016,28 @@ initRail('lassoViewport', 'lassoPrev', 'lassoNext', '.pick-lasso', 14);
   }
   function saveQueue(q){ localStorage.setItem(QUEUE_KEY, JSON.stringify(q)); }
   function copyToClipboard(text){
+    function fallback(){
+      var ta = document.createElement('textarea');
+      ta.value = text;
+      ta.style.position = 'fixed';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.focus();
+      ta.select();
+      try { document.execCommand('copy'); } catch (err) {}
+      document.body.removeChild(ta);
+    }
+    // navigator.clipboard.writeText() can reject (permission denied by the
+    // browser's Permissions Policy, or blocked outright in an embedded/
+    // sandboxed context) even though the API exists -- found live 2026-08-31
+    // testing the curator-mode copy button, where the fire-and-forget call
+    // silently swallowed the rejection and nothing ever landed on the
+    // clipboard, no fallback, no error shown to the user.
     if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(text);
+      navigator.clipboard.writeText(text).catch(fallback);
       return;
     }
-    var ta = document.createElement('textarea');
-    ta.value = text;
-    ta.style.position = 'fixed';
-    ta.style.opacity = '0';
-    document.body.appendChild(ta);
-    ta.focus();
-    ta.select();
-    try { document.execCommand('copy'); } catch (err) {}
-    document.body.removeChild(ta);
+    fallback();
   }
 
   var badge = document.createElement('button');
