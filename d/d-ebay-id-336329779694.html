@@ -35,6 +35,7 @@
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"NEW Royal Rangers Patch Uniform Arrow Embroidered patch badge yellow red","description":"75% off -- was $25.99, now $6.50 at Ebay.","image":"https://i.ebayimg.com/images/g/dFAAAeSwI1BpMu1Y/s-l500.jpg","offers":{"@type":"Offer","price":"6.50","priceCurrency":"USD","availability":"https://schema.org/Discontinued","url":"https://halfornothing.com/d/d-ebay-id-336329779694.html"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Deals","item":"https://halfornothing.com/"},{"@type":"ListItem","position":2,"name":"Collectibles & Art","item":"https://halfornothing.com/collectibles-art.html"}]}</script>
 <style>
 :root{
+  --dur-fast:.12s; --dur-base:.15s; --dur-med:.18s;
   --signal:#D93A12; --signal-dark:#B8331A; --gate:#00a863; --gate-soft:#5C9B81;
   /* White text on full-saturation --gate only clears 3.1:1 (light) / 2.4:1
      (dark, see the theme override below) with white text -- both fail
@@ -110,10 +111,12 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
 #navBtn svg{width:20px;height:20px}
 @media(max-width:640px){
   #navBtn{display:inline-flex}
-  .topnav .links{display:none;position:absolute;top:100%;left:0;right:0;z-index:50;
+  .topnav .links{display:flex;position:absolute;top:100%;left:0;right:0;z-index:50;
                  flex-direction:column;gap:0;background:var(--card);
-                 border-bottom:1px solid var(--rule);box-shadow:0 10px 30px rgba(0,0,0,.16)}
-  .topnav .links.open{display:flex;animation:menufade .12s ease}
+                 border-bottom:1px solid var(--rule);box-shadow:0 10px 30px rgba(0,0,0,.16);
+                 opacity:0;visibility:hidden;transform:translateY(-4px);
+                 transition:opacity var(--dur-fast) ease,transform var(--dur-fast) ease,visibility var(--dur-fast)}
+  .topnav .links.open{opacity:1;visibility:visible;transform:none}
   .topnav .links a{padding:14px 28px;border-top:1px solid var(--rule);font-size:15px}
   .topnav .links a:first-child{border-top:none}
 }
@@ -193,7 +196,7 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
 .herosearch{position:relative;display:flex;align-items:center;gap:10px;
             margin:16px 0 0;max-width:560px;background:var(--paper-2);
             border:1px solid var(--rule);border-radius:999px;padding:0 18px;
-            transition:border-color .15s ease,box-shadow .15s ease}
+            transition:border-color var(--dur-base) ease,box-shadow var(--dur-base) ease}
 .herosearch:focus-within{border-color:var(--signal);box-shadow:0 0 0 3px rgba(217,58,18,.12)}
 .herosearch>svg{width:18px;height:18px;stroke:var(--muted);flex-shrink:0}
 .herosearch input{flex:1;min-width:0;background:transparent;border:0;outline:none;
@@ -250,7 +253,7 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
 .footer-social a{display:flex;align-items:center;justify-content:center;
                  width:44px;height:44px;text-decoration:none;color:var(--ink-soft);
                  border:1px solid var(--rule);border-radius:50%;
-                 transition:border-color .15s ease,color .15s ease,background .15s ease}
+                 transition:border-color var(--dur-base) ease,color var(--dur-base) ease,background var(--dur-base) ease}
 .footer-social a:hover{border-color:var(--signal);color:var(--signal);background:var(--paper-2)}
 .footer-social svg{width:19px;height:19px;fill:currentColor}
 @media(max-width:640px){
@@ -275,6 +278,11 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
 .disclosure[open]>summary::after{content:'\2212'}
 .disclosure>summary:hover{color:var(--signal)}
 .disclosure-body{padding:0 18px 16px;font-size:13.5px;line-height:1.65;color:var(--ink-soft)}
+/* Native <details> shows/hides content itself -- height can't be animated
+   reliably across browsers without JS, so this only softens the pop-in,
+   it doesn't try to animate the layout jump. */
+.disclosure[open]>.disclosure-body{animation:disclosure-in 160ms ease-out}
+@keyframes disclosure-in{from{opacity:0}to{opacity:1}}
 
 /* ---- grid card prices (the .best-deal-hero rules that used to live here went
    with the component, 2026-08-10 -- these two are still the grid's) ---- */
@@ -302,10 +310,12 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
               border:1px solid var(--rule);border-radius:999px;padding:10px 16px;cursor:pointer}
 @media(hover:hover){#catFilterBtn:hover{border-color:var(--signal)}}
 #catFilterBtn:active{border-color:var(--signal)}
-.catfilter-panel{display:none;position:absolute;top:calc(100% + 6px);left:0;z-index:40;
+.catfilter-panel{display:block;position:absolute;top:calc(100% + 6px);left:0;z-index:40;
                  background:var(--card);border:1px solid var(--rule);border-radius:6px;
-                 box-shadow:0 8px 24px rgba(0,0,0,.15);width:290px}
-.catfilter-panel.open{display:block;animation:menufade .12s ease}
+                 box-shadow:0 8px 24px rgba(0,0,0,.15);width:290px;
+                 opacity:0;visibility:hidden;transform:translateY(-4px);
+                 transition:opacity var(--dur-fast) ease,transform var(--dur-fast) ease,visibility var(--dur-fast)}
+.catfilter-panel.open{opacity:1;visibility:visible;transform:none}
 .catfilter-list{max-height:320px;overflow-y:auto;padding:10px 14px}
 .catfilter-list label{display:flex;gap:9px;align-items:center;padding:6px 0;
                       font-size:13px;cursor:pointer;color:var(--ink)}
@@ -323,7 +333,7 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
    touch-target minimum -- was 4px 6px (~18x22px), under the floor. */
 .catfilter-caret{background:none;border:none;cursor:pointer;padding:7px;line-height:1;
                  color:var(--muted);font-size:10px;flex-shrink:0;
-                 transition:transform .12s ease,color .12s ease}
+                 transition:transform var(--dur-fast) ease,color var(--dur-fast) ease}
 @media(hover:hover){.catfilter-caret:hover{color:var(--signal)}}
 .catfilter-caret:active{color:var(--signal)}
 .catfilter-caret[aria-expanded=true]{transform:rotate(90deg);color:var(--signal)}
@@ -419,7 +429,7 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
 .pick{scroll-snap-align:start;flex:0 0 236px;width:236px;display:flex;flex-direction:column;
       text-decoration:none;overflow:hidden;
       background:var(--card);border:1px solid var(--rule);border-radius:14px;
-      transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}
+      transition:transform var(--dur-med) ease,box-shadow var(--dur-med) ease,border-color var(--dur-med) ease}
 .pick:hover,.pick:focus-visible{transform:translateY(-4px);border-color:transparent;
       box-shadow:0 12px 26px rgba(0,0,0,.15)}
 /* --pk-a/--pk-b are set per card from the pick's category (PICK_FAMILIES). */
@@ -444,7 +454,7 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
 .pick-body{display:flex;flex-direction:column;gap:7px;padding:13px 14px 14px;flex:1}
 .pick-title{font:700 13.5px/1.38 var(--display);color:var(--ink);
             display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;
-            transition:color .15s ease}
+            transition:color var(--dur-base) ease}
 .pick:hover .pick-title{color:var(--signal)}
 .pick-note{font-size:12.5px;line-height:1.5;color:var(--ink-soft);
            display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
@@ -452,14 +462,14 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
           display:flex;align-items:center;justify-content:space-between;gap:8px;
           font:700 11px/1 var(--mono);letter-spacing:.04em;text-transform:uppercase;
           color:var(--signal)}
-.pick-cta i{font-style:normal;transition:transform .18s ease}
+.pick-cta i{font-style:normal;transition:transform var(--dur-med) ease}
 .pick:hover .pick-cta i{transform:translateX(4px)}
 .picks-arrow{position:absolute;top:66px;transform:translateY(-50%);z-index:5;
              width:38px;height:38px;border-radius:50%;cursor:pointer;
              background:var(--card);border:1px solid var(--rule);color:var(--ink);
              font:400 22px/1 var(--display);display:flex;align-items:center;justify-content:center;
              box-shadow:0 2px 10px rgba(0,0,0,.16);
-             transition:background .15s ease,color .15s ease,border-color .15s ease,opacity .15s ease}
+             transition:background var(--dur-base) ease,color var(--dur-base) ease,border-color var(--dur-base) ease,opacity var(--dur-base) ease}
 @media(hover:hover){.picks-arrow:hover{background:var(--signal-dark);border-color:var(--signal-dark);color:#fff}}
 .picks-arrow:active{background:var(--signal-dark);border-color:var(--signal-dark);color:#fff}
 .picks-arrow:focus-visible{outline:2px solid var(--signal);outline-offset:2px}
@@ -492,7 +502,7 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
 .picks-lasso-track{display:flex;gap:14px;width:max-content;padding-bottom:2px}
 .pick-lasso{scroll-snap-align:start;flex:0 0 400px;width:400px;background:var(--card);
             border:1px solid var(--rule);border-radius:14px;padding:16px;position:relative;
-            overflow:hidden;transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}
+            overflow:hidden;transition:transform var(--dur-med) ease,box-shadow var(--dur-med) ease,border-color var(--dur-med) ease}
 .pick-lasso:hover{transform:translateY(-4px);border-color:transparent;box-shadow:0 12px 26px rgba(0,0,0,.15)}
 @media(max-width:640px){.pick-lasso{flex:0 0 320px;width:320px}}
 /* Category chip + rank numeral, carried over from the SVG-art picks (same
@@ -628,10 +638,12 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
          border:1px solid var(--rule);border-radius:999px;padding:11px 20px;cursor:pointer}
 @media(hover:hover){#megaBtn:hover{border-color:var(--signal);color:var(--signal)}}
 #megaBtn:active{border-color:var(--signal);color:var(--signal)}
-.megamenu{display:none;position:absolute;top:calc(100% + 10px);left:0;z-index:50;
+.megamenu{display:block;position:absolute;top:calc(100% + 10px);left:0;z-index:50;
           background:var(--card);border:1px solid var(--rule);border-radius:6px;
-          box-shadow:0 10px 30px rgba(0,0,0,.16);min-width:270px}
-.megamenu.open{display:block;animation:menufade .12s ease}
+          box-shadow:0 10px 30px rgba(0,0,0,.16);min-width:270px;
+          opacity:0;visibility:hidden;transform:translateY(-4px);
+          transition:opacity var(--dur-fast) ease,transform var(--dur-fast) ease,visibility var(--dur-fast)}
+.megamenu.open{opacity:1;visibility:visible;transform:none}
 .mega-left{list-style:none;margin:0;padding:6px 0}
 .mega-left>li{position:relative;margin:0}
 .mega-left>li>a{display:flex;justify-content:space-between;align-items:center;gap:18px;
@@ -666,14 +678,13 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
   .mega-left>li.has-fly.open>.flyout{display:grid}
   .megamenu{min-width:230px}
 }
-@keyframes menufade{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:none}}
 
 /* ---- pager: hard-edged buttons ---- */
 .pager{display:flex;flex-direction:column;align-items:center;gap:10px;
       margin:26px 0 10px;font:500 13px/1 var(--display)}
 .pager button{font:800 14px/1 var(--display);letter-spacing:.01em;color:#fff;
               background:var(--signal-dark);border:2px solid var(--signal-dark);border-radius:999px;
-              padding:14px 34px;cursor:pointer;transition:background .15s ease,color .15s ease}
+              padding:14px 34px;cursor:pointer;transition:background var(--dur-base) ease,color var(--dur-base) ease}
 .pager button:hover{background:var(--card);color:var(--signal)}
 .pager button:focus-visible{outline:2px solid var(--signal);outline-offset:3px}
 .pager-status{color:var(--muted);font:500 12px/1 var(--mono);letter-spacing:.04em}
@@ -692,13 +703,27 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
    details stacked below, instead of the old thumbnail-left row. */
 .card{background:var(--card);border-radius:16px;border:1px solid var(--rule);
       box-shadow:0 1px 3px rgba(0,0,0,.06);display:flex;flex-direction:column;
-      transition:box-shadow .15s ease,border-color .15s ease;position:relative}
+      transition:box-shadow var(--dur-base) ease,border-color var(--dur-base) ease;position:relative}
 .card:hover{box-shadow:0 4px 14px rgba(0,0,0,.12);border-color:var(--signal)}
 /* Was border-left:3px solid var(--gate) -- redundant with .newpill, which
    already says "New" in real text on the same card; a colour-only stripe
    with no label doesn't add information and is the side-tab tell on top
    of it (2026-08-24 polish). */
 .card.linked{box-shadow:0 0 0 3px rgba(0,168,99,.25)}
+/* .v = a genuinely new listing (see _card()'s css_class), not a fake "new"
+   flag. One-shot on page load, no color, no loop -- the .newpill text
+   already says "New"; this is just weight, not another badge. Prototyped
+   as five directions (Stamp/Number/Live/Quiet/Proof) plus two riff rounds
+   off Live and Glow before landing here -- picked over a color-based glow
+   or a border flash because it reads as "alive" without implying urgency,
+   which is the same line .newpill's real text already draws. */
+.card.v{animation:card-breathe 900ms cubic-bezier(0.23,1,0.32,1)}
+@keyframes card-breathe{
+  0%{transform:scale(1)}
+  40%{transform:scale(1.018)}
+  100%{transform:scale(1)}
+}
+@media(prefers-reduced-motion:reduce){.card.v{animation:none}}
 
 .thumb{width:100%;height:170px;flex-shrink:0;margin:0;border-radius:16px 16px 0 0;
        overflow:hidden;background:#fff;display:block;
@@ -727,7 +752,7 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
                   background:var(--card);border:1px solid var(--rule);border-radius:10px;
                   display:flex;align-items:center;justify-content:center;cursor:pointer;
                   font-size:18px;line-height:1;color:var(--ink);z-index:10;
-                  transition:background .15s,border-color .15s}
+                  transition:background var(--dur-base),border-color var(--dur-base)}
 /* Same hover:hover/:active split as navBtn/megaBtn/catFilterBtn/picksCatBtn
    (2026-08-25 fix) -- this is the fifth click-toggle trigger, missed in that
    pass. Bare :hover on a toggle makes iOS Safari eat the first tap. */
@@ -749,27 +774,30 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
    overlaps the card below, and z-index ties break by DOM order (later wins),
    which made Share unclickable on every card except the last row */
 .over-menu.active{z-index:1000}
-.over-menu .dropdown{display:none;position:absolute;top:100%;right:0;
+.over-menu .dropdown{display:block;position:absolute;top:100%;right:0;
                             background:var(--card);border:1px solid var(--rule);border-radius:12px;
                             min-width:180px;margin-top:6px;box-shadow:0 4px 12px rgba(0,0,0,.12);
-                            z-index:20}
-.over-menu.active .dropdown{display:block;animation:menufade .12s ease}
+                            z-index:20;opacity:0;visibility:hidden;transform:translateY(-4px);
+                            transition:opacity var(--dur-fast) ease,transform var(--dur-fast) ease,visibility var(--dur-fast)}
+.over-menu.active .dropdown{opacity:1;visibility:visible;transform:none}
 .over-menu .dropdown a,.over-menu .dropdown button{
                               display:flex;align-items:center;gap:10px;padding:11px 14px;
                               width:100%;background:none;font-family:inherit;text-align:left;
                               border:0;color:var(--ink);text-decoration:none;font-size:13px;
                               font-weight:500;border-bottom:1px solid var(--rule);cursor:pointer;
-                              transition:background .15s,color .15s}
+                              transition:background var(--dur-base),color var(--dur-base)}
 .over-menu .dropdown>*:last-child{border-bottom:none}
 .over-menu .dropdown a:hover,.over-menu .dropdown button:hover{
                               background:var(--paper-3);color:var(--signal)}
 .over-menu .has-sub{position:relative}
 .over-menu .has-sub>button{border-bottom:none}
-.over-menu .subdrop{display:none;position:absolute;right:100%;top:0;margin-right:4px;
+.over-menu .subdrop{display:block;position:absolute;right:100%;top:0;margin-right:4px;
                           background:var(--card);border:1px solid var(--rule);border-radius:12px;
-                          min-width:130px;box-shadow:0 4px 12px rgba(0,0,0,.12);z-index:30}
+                          min-width:130px;box-shadow:0 4px 12px rgba(0,0,0,.12);z-index:30;
+                          opacity:0;visibility:hidden;transform:translateY(-4px);
+                          transition:opacity var(--dur-fast) ease,transform var(--dur-fast) ease,visibility var(--dur-fast)}
 .over-menu .has-sub:hover .subdrop,
-.over-menu .has-sub.open .subdrop{display:block;animation:menufade .12s ease}
+.over-menu .has-sub.open .subdrop{opacity:1;visibility:visible;transform:none}
 
 .card h3{font-size:14px;line-height:1.4;font-weight:600;margin:0;color:var(--ink);padding-right:34px}
 .card h3 a{color:inherit;text-decoration:none}
@@ -800,8 +828,9 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
    why (2026-08-24, per Che's request to cut the orange overload here). */
 .cta{display:inline-block;align-self:flex-start;text-align:center;padding:9px 20px;border-radius:999px;
      background:var(--gate-dark);color:#fff;font-weight:700;font-size:12.5px;text-decoration:none;
-     border:none;cursor:pointer;transition:filter .15s;margin-top:2px}
+     border:none;cursor:pointer;transition:filter var(--dur-base),transform var(--dur-fast) ease-out;margin-top:2px}
 .cta:hover{filter:brightness(.85)}
+.cta:active{transform:scale(.97)}
 
 .empty-state{padding:60px 12px;color:var(--muted);text-align:center;grid-column:1/-1}
 /* Shown when a ?deal= link from a social post outlives its listing. Uses the
@@ -963,7 +992,7 @@ html{scroll-behavior:smooth}
          display:flex;flex-direction:column;text-decoration:none;color:inherit;
          background:var(--card);border:1px solid var(--rule);border-radius:20px;
          box-shadow:0 1px 3px rgba(0,0,0,.06);overflow:hidden;
-         transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}
+         transition:transform var(--dur-med) ease,box-shadow var(--dur-med) ease,border-color var(--dur-med) ease}
 .td-card:hover,.td-card:focus-visible{transform:translateY(-4px);
          box-shadow:0 10px 22px rgba(0,0,0,.16);border-color:var(--signal);outline:none}
 
@@ -999,7 +1028,7 @@ html{scroll-behavior:smooth}
           background:var(--card);border:1px solid var(--rule);color:var(--ink);
           font:400 22px/1 var(--display);display:flex;align-items:center;justify-content:center;
           box-shadow:0 2px 10px rgba(0,0,0,.16);
-          transition:background .15s ease,color .15s ease,border-color .15s ease,opacity .15s ease}
+          transition:background var(--dur-base) ease,color var(--dur-base) ease,border-color var(--dur-base) ease,opacity var(--dur-base) ease}
 .td-arrow:hover{background:var(--signal-dark);border-color:var(--signal-dark);color:#fff}
 .td-arrow:focus-visible{outline:2px solid var(--signal);outline-offset:2px}
 .td-arrow[disabled]{opacity:0;pointer-events:none}
@@ -1054,7 +1083,7 @@ html{scroll-behavior:smooth}
              font:400 20px/1 var(--display);display:flex;align-items:center;justify-content:center;
              box-shadow:0 2px 10px rgba(0,0,0,.16);
              opacity:0;visibility:hidden;transform:translateY(8px);
-             transition:background .15s ease,color .15s ease,border-color .15s ease,
+             transition:background var(--dur-base) ease,color var(--dur-base) ease,border-color var(--dur-base) ease,
                         opacity .2s ease,transform .2s ease,visibility .2s}
 .back-to-top.show{opacity:1;visibility:visible;transform:none}
 .back-to-top:hover{background:var(--signal-dark);border-color:var(--signal-dark);color:#fff}
@@ -1134,8 +1163,10 @@ html{scroll-behavior:smooth}
 .deal-page-pct{font:800 12px/1 var(--mono);color:#fff;background:var(--signal);
                padding:5px 8px;border-radius:999px;letter-spacing:.03em}
 .deal-cta{display:inline-block;background:var(--signal);color:#fff;font-weight:700;
-          text-decoration:none;padding:13px 22px;border-radius:4px;font-size:14.5px}
+          text-decoration:none;padding:13px 22px;border-radius:4px;font-size:14.5px;
+          transition:background var(--dur-base),transform var(--dur-fast) ease-out}
 .deal-cta:hover{background:var(--signal-dark)}
+.deal-cta:active{transform:scale(.97)}
 .deal-cta-secondary{background:transparent;color:var(--signal);border:1px solid var(--signal)}
 .deal-cta-secondary:hover{background:var(--signal-dark);color:#fff}
 .archive-list{list-style:none;margin:0 0 28px;padding:0;font-size:14px;line-height:2}
