@@ -1,5 +1,7 @@
 <!doctype html><html lang="en"><head>
 <meta charset="utf-8">
+<link rel="preconnect" href="https://i.ebayimg.com">
+<link rel="preconnect" href="https://www.googletagmanager.com">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-1R6E61L78L"></script>
 <script src="/assets/js/ga-init.js"></script>
 <script src="/assets/js/impact-tag.js"></script>
@@ -30,7 +32,7 @@
 <meta name="twitter:title" content="Lauffer by Towle Bedford 18/8 Stainless 5pc. Place Setting (Service fo -- 50% off, $49.99 (was $100.00) | Half or Nothing">
 <meta name="twitter:description" content="50% off, $49.99 (was $100.00)">
 <meta name="twitter:image" content="https://i.ebayimg.com/images/g/spgAAeSw5rNqU6eC/s-l500.jpg">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Lauffer by Towle Bedford 18/8 Stainless 5pc. Place Setting (Service for One)","description":"50% off -- was $100.00, now $49.99 at Ebay.","image":"https://i.ebayimg.com/images/g/spgAAeSw5rNqU6eC/s-l500.jpg","offers":{"@type":"Offer","price":"49.99","priceCurrency":"USD","availability":"https://schema.org/InStock","url":"https://halfornothing.com/d/d-ebay-id-236013838644.html","priceValidUntil":"2026-09-02T00:04:21Z"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Deals","item":"https://halfornothing.com/"},{"@type":"ListItem","position":2,"name":"Home & Kitchen","item":"https://halfornothing.com/home-kitchen.html"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Lauffer by Towle Bedford 18/8 Stainless 5pc. Place Setting (Service for One)","description":"50% off -- was $100.00, now $49.99 at Ebay.","image":"https://i.ebayimg.com/images/g/spgAAeSw5rNqU6eC/s-l500.jpg","offers":{"@type":"Offer","price":"49.99","priceCurrency":"USD","availability":"https://schema.org/InStock","url":"https://halfornothing.com/d/d-ebay-id-236013838644.html","priceValidUntil":"2026-09-02T01:04:18Z"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Deals","item":"https://halfornothing.com/"},{"@type":"ListItem","position":2,"name":"Home & Kitchen","item":"https://halfornothing.com/home-kitchen.html"}]}</script>
 <style>
 :root{
   --signal:#D93A12; --signal-dark:#B8331A; --gate:#00a863; --gate-soft:#5C9B81;
@@ -98,7 +100,7 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
 /* hover:hover excludes touch: a bare :hover rule on a click-toggle trigger
    makes iOS Safari/WebKit treat the first tap as a hover-simulation and only
    fire the real click on a second tap -- confirmed on a real phone 2026-08-25
-   (see the four @media(hover:hover)-gated rules in this file). */
+   (see the @media(hover:hover)-gated rules in this file). */
 @media(hover:hover){#navBtn:hover{border-color:var(--signal);color:var(--signal)}}
 /* :active is unconditional (not hover:hover-gated): it fires immediately on
    touchstart with no click delay, so tap still gets the same red flash the
@@ -320,7 +322,8 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
 .catfilter-caret{background:none;border:none;cursor:pointer;padding:4px 6px;line-height:1;
                  color:var(--muted);font-size:10px;flex-shrink:0;
                  transition:transform .12s ease,color .12s ease}
-.catfilter-caret:hover{color:var(--signal)}
+@media(hover:hover){.catfilter-caret:hover{color:var(--signal)}}
+.catfilter-caret:active{color:var(--signal)}
 .catfilter-caret[aria-expanded=true]{transform:rotate(90deg);color:var(--signal)}
 .catfilter-subs{display:none}
 .catfilter-subs.open{display:block}
@@ -455,7 +458,8 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
              font:400 22px/1 var(--display);display:flex;align-items:center;justify-content:center;
              box-shadow:0 2px 10px rgba(0,0,0,.16);
              transition:background .15s ease,color .15s ease,border-color .15s ease,opacity .15s ease}
-.picks-arrow:hover{background:var(--signal-dark);border-color:var(--signal-dark);color:#fff}
+@media(hover:hover){.picks-arrow:hover{background:var(--signal-dark);border-color:var(--signal-dark);color:#fff}}
+.picks-arrow:active{background:var(--signal-dark);border-color:var(--signal-dark);color:#fff}
 .picks-arrow:focus-visible{outline:2px solid var(--signal);outline-offset:2px}
 .picks-arrow[disabled]{opacity:0;pointer-events:none}
 .picks-prev{left:-13px}
@@ -721,8 +725,12 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
                   background:var(--card);border:1px solid var(--rule);border-radius:10px;
                   display:flex;align-items:center;justify-content:center;cursor:pointer;
                   font-size:18px;line-height:1;color:var(--ink);z-index:10;
-                  transition:all .15s}
-.over-menu:hover{background:var(--paper-3);border-color:var(--signal)}
+                  transition:background .15s,border-color .15s}
+/* Same hover:hover/:active split as navBtn/megaBtn/catFilterBtn/picksCatBtn
+   (2026-08-25 fix) -- this is the fifth click-toggle trigger, missed in that
+   pass. Bare :hover on a toggle makes iOS Safari eat the first tap. */
+@media(hover:hover){.over-menu:hover{background:var(--paper-3);border-color:var(--signal)}}
+.over-menu:active{background:var(--paper-3);border-color:var(--signal)}
 /* Invisible ring that widens the tap target to ~46px without growing the
    drawn button: a 28px control is under the 44px minimum for a fingertip, and
    this card is dense enough that a visibly bigger button would crowd the
@@ -749,7 +757,7 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
                               width:100%;background:none;font-family:inherit;text-align:left;
                               border:0;color:var(--ink);text-decoration:none;font-size:13px;
                               font-weight:500;border-bottom:1px solid var(--rule);cursor:pointer;
-                              transition:all .15s}
+                              transition:background .15s,color .15s}
 .over-menu .dropdown>*:last-child{border-bottom:none}
 .over-menu .dropdown a:hover,.over-menu .dropdown button:hover{
                               background:var(--paper-3);color:var(--signal)}
@@ -790,7 +798,7 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
    why (2026-08-24, per Che's request to cut the orange overload here). */
 .cta{display:inline-block;align-self:flex-start;text-align:center;padding:9px 20px;border-radius:999px;
      background:var(--gate-dark);color:#fff;font-weight:700;font-size:12.5px;text-decoration:none;
-     border:none;cursor:pointer;transition:all .15s;margin-top:2px}
+     border:none;cursor:pointer;transition:filter .15s;margin-top:2px}
 .cta:hover{filter:brightness(.85)}
 
 .empty-state{padding:60px 12px;color:var(--muted);text-align:center;grid-column:1/-1}
@@ -812,7 +820,7 @@ footer.site .disclosure{margin:14px 0}
 /* ---- prose pages ---- */
 .prose{max-width:68ch;padding:44px 0 0}
 .prose h1{font-size:clamp(2rem,5vw,2.9rem);font-weight:900;letter-spacing:-.035em;
-          line-height:1.05;margin:0 0 8px}
+          line-height:1.05;margin:0 0 8px;text-wrap:balance}
 .prose .lede{font-size:1.15rem;color:var(--ink-soft);margin:0 0 30px}
 .prose h2{font-size:1.32rem;font-weight:800;letter-spacing:-.015em;margin:40px 0 16px;
           padding-left:16px;border-left:4px solid var(--signal)}
@@ -1052,7 +1060,7 @@ html{scroll-behavior:smooth}
 
 /* ---- dark mode: same identity, inverted paper ---- */
 @media (prefers-color-scheme: dark){
-  :root{--card:#1C1C1A;--paper-2:#131312;--paper-3:#232320;--ink:#ECEAE4;--ink-soft:#C7C5BD;
+  :root{color-scheme:dark;--card:#1C1C1A;--paper-2:#131312;--paper-3:#232320;--ink:#ECEAE4;--ink-soft:#C7C5BD;
         --muted:#9B998F;--rule:#2D2D29;--signal:#FF4F29;--signal-dark:#D93A12;--gate:#1FBF7F}
   .thumb,.best-img{background:#fff}
   .pct-pill,.newpill{color:#161511}
