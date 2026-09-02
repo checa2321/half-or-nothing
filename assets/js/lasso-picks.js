@@ -12,14 +12,20 @@
   // their snippet renders it re-flows the same embed into the "Cutter" theme
   // (50/50 split, image block-centered, full-width button) with no separate
   // API call -- confirmed against Lasso's own stylesheet rules for
-  // .embed-lasso-cutter. Scoped to .picks-lasso-rail so it can never touch a
-  // Lasso embed elsewhere on the site that was deliberately built as Cactus.
+  // .embed-lasso-cutter. Originally scoped to .picks-lasso-rail only so it
+  // could never touch a Lasso embed elsewhere that was deliberately built as
+  // Cactus -- widened to the whole page (2026-09-02) once the account's own
+  // Display Settings default was switched to Cutter too, so there's no
+  // longer a legitimate Cactus embed anywhere to protect. Blog posts render
+  // each [[lasso:ASIN]] pick in its own '.picks-page-grid-lasso' wrapper
+  // (see blog.py's _lasso_pick_card), not one shared rail, so this can't
+  // assume a single container the way the Picks grid page did.
   // Lasso's title field is the full Amazon listing name, hardcoded into the
   // embed itself (see _LASSO_SHORT_TITLES in html_output.py). Once rendered,
   // swap in the brand+type version from that div's data-short-title attribute
   // -- doesn't touch Lasso's stored data, just what this page displays.
   (function () {
-    var grid = document.querySelector(".picks-lasso-rail");
+    var grid = document.body;
     if (!grid) return;
     function retheme() {
       grid.querySelectorAll(".embed-lasso-cactus").forEach(function (el) {
