@@ -32,7 +32,7 @@
 <meta name="twitter:title" content="Moschino Grey Rectangular Ladies Sunglasses MOS145/S 0MU1/IR 55 MOS145 -- 81% off, $48.33 (was $255.00) | Half or Nothing">
 <meta name="twitter:description" content="81% off, $48.33 (was $255.00)">
 <meta name="twitter:image" content="https://i.ebayimg.com/images/g/WI8AAeSwsoRqlUuS/s-l500.jpg">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Moschino Grey Rectangular Ladies Sunglasses MOS145/S 0MU1/IR 55 MOS145/S 0MU1/IR","description":"81% off -- was $255.00, now $48.33 at Ebay.","image":"https://i.ebayimg.com/images/g/WI8AAeSwsoRqlUuS/s-l500.jpg","offers":{"@type":"Offer","price":"48.33","priceCurrency":"USD","availability":"https://schema.org/InStock","url":"https://halfornothing.com/d/d-ebay-id-168444475225.html","priceValidUntil":"2026-09-02T10:04:51Z"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Deals","item":"https://halfornothing.com/"},{"@type":"ListItem","position":2,"name":"Fashion & Accessories","item":"https://halfornothing.com/fashion.html"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Moschino Grey Rectangular Ladies Sunglasses MOS145/S 0MU1/IR 55 MOS145/S 0MU1/IR","description":"81% off -- was $255.00, now $48.33 at Ebay.","image":"https://i.ebayimg.com/images/g/WI8AAeSwsoRqlUuS/s-l500.jpg","offers":{"@type":"Offer","price":"48.33","priceCurrency":"USD","availability":"https://schema.org/InStock","url":"https://halfornothing.com/d/d-ebay-id-168444475225.html","priceValidUntil":"2026-09-02T11:06:01Z"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Deals","item":"https://halfornothing.com/"},{"@type":"ListItem","position":2,"name":"Fashion & Accessories","item":"https://halfornothing.com/fashion.html"}]}</script>
 <style>
 :root{
   --dur-fast:.12s; --dur-base:.15s; --dur-med:.18s;
@@ -580,8 +580,19 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
 .pick-lasso .embed-lasso-image-no-lazy{width:120px !important;height:120px !important;
             object-fit:contain !important;border-radius:12px;border:1px solid var(--rule);
             background:var(--paper-3)}
+/* Title is the full raw Amazon product name (often 15+ words) with no
+   truncation of its own -- inside the 120px-image/1fr-text grid that leaves
+   maybe 150-250px for text, so a long one ran 8-10 ragged lines and blew the
+   card's height out (Che, 2026-09-02: "se ve rotisimo", the E.L.F. pick and
+   "todos" on mobile). Clamped to 4 lines with an ellipsis at every card
+   width -- same fix whether the text column is narrow (mobile) or the wider
+   desktop 1fr -- so the card height stays predictable and the title never
+   wraps past what a shopper needs to recognize the product. */
 .pick-lasso .embed-lasso-title,.pick-lasso a.embed-lasso-title{font-size:14px !important;
-            line-height:1.4 !important;font-weight:600 !important;margin:0 0 4px !important}
+            line-height:1.4 !important;font-weight:600 !important;margin:0 0 4px !important;
+            display:-webkit-box !important;-webkit-line-clamp:4 !important;
+            -webkit-box-orient:vertical !important;overflow:hidden !important;
+            text-overflow:ellipsis !important}
 .pick-lasso .embed-lasso-price{font-size:13px !important;margin:0 !important}
 .pick-lasso .embed-lasso-description{display:none !important}
 .pick-lasso a.embed-lasso-button-1{grid-area:btn !important;padding:9px 14px !important;
@@ -616,6 +627,22 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
    keeps its 120px .thumb sizing untouched. */
 .picks-page-grid-lasso .pick-lasso .embed-lasso-display{grid-template-columns:200px 1fr !important}
 .picks-page-grid-lasso .pick-lasso .embed-lasso-image-no-lazy{width:200px !important;height:200px !important}
+/* Mobile: the 120px-image/1fr-text side-by-side grid above leaves the title
+   column too narrow on a phone-width card (Che, 2026-09-02: "todos se ven
+   rotisimos en el celular" -- title crammed beside the photo instead of
+   under it). Below 640px (same breakpoint .pick-lasso already shrinks its
+   own width at) the image moves to its own full-width row above the title
+   instead, centered, same as every other product card style on the site. */
+@media(max-width:640px){
+.pick-lasso .embed-lasso-display,
+.picks-page-grid-lasso .pick-lasso .embed-lasso-display{grid-template-columns:1fr !important;
+            grid-template-areas:"img" "text" "btn" "meta" "date" !important;
+            justify-items:center !important}
+.pick-lasso .embed-lasso-box-1:has(.embed-lasso-image),
+.pick-lasso .embed-lasso-box-2:has(.embed-lasso-image){justify-self:center !important}
+.pick-lasso .embed-lasso-box-1:has(.embed-lasso-title),
+.pick-lasso .embed-lasso-box-2:has(.embed-lasso-title){width:100% !important;padding-top:8px !important}
+}
 /* These 20 embeds were minted through Lasso's WordPress plugin flow, not the
    Websites/halfornothing.com project Che configures in Lasso's own "Display
    Settings" -- so the badge/button colors he set and saved there (verified

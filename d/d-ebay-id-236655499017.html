@@ -32,7 +32,7 @@
 <meta name="twitter:title" content="Oneida Colonial Boston 18/8 Stainless Steel Iced Beverage Spoon (Set o -- 67% off, $79.99 (was $240.00) | Half or Nothing">
 <meta name="twitter:description" content="67% off, $79.99 (was $240.00)">
 <meta name="twitter:image" content="https://i.ebayimg.com/images/g/u8YAAeSwfBJpwNcX/s-l500.jpg">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Oneida Colonial Boston 18/8 Stainless Steel Iced Beverage Spoon (Set of Twelve)","description":"67% off -- was $240.00, now $79.99 at Ebay.","image":"https://i.ebayimg.com/images/g/u8YAAeSwfBJpwNcX/s-l500.jpg","offers":{"@type":"Offer","price":"79.99","priceCurrency":"USD","availability":"https://schema.org/InStock","url":"https://halfornothing.com/d/d-ebay-id-236655499017.html","priceValidUntil":"2026-09-02T10:04:51Z"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Deals","item":"https://halfornothing.com/"},{"@type":"ListItem","position":2,"name":"Home & Kitchen","item":"https://halfornothing.com/home-kitchen.html"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Oneida Colonial Boston 18/8 Stainless Steel Iced Beverage Spoon (Set of Twelve)","description":"67% off -- was $240.00, now $79.99 at Ebay.","image":"https://i.ebayimg.com/images/g/u8YAAeSwfBJpwNcX/s-l500.jpg","offers":{"@type":"Offer","price":"79.99","priceCurrency":"USD","availability":"https://schema.org/InStock","url":"https://halfornothing.com/d/d-ebay-id-236655499017.html","priceValidUntil":"2026-09-02T11:06:01Z"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Deals","item":"https://halfornothing.com/"},{"@type":"ListItem","position":2,"name":"Home & Kitchen","item":"https://halfornothing.com/home-kitchen.html"}]}</script>
 <style>
 :root{
   --dur-fast:.12s; --dur-base:.15s; --dur-med:.18s;
@@ -580,8 +580,19 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
 .pick-lasso .embed-lasso-image-no-lazy{width:120px !important;height:120px !important;
             object-fit:contain !important;border-radius:12px;border:1px solid var(--rule);
             background:var(--paper-3)}
+/* Title is the full raw Amazon product name (often 15+ words) with no
+   truncation of its own -- inside the 120px-image/1fr-text grid that leaves
+   maybe 150-250px for text, so a long one ran 8-10 ragged lines and blew the
+   card's height out (Che, 2026-09-02: "se ve rotisimo", the E.L.F. pick and
+   "todos" on mobile). Clamped to 4 lines with an ellipsis at every card
+   width -- same fix whether the text column is narrow (mobile) or the wider
+   desktop 1fr -- so the card height stays predictable and the title never
+   wraps past what a shopper needs to recognize the product. */
 .pick-lasso .embed-lasso-title,.pick-lasso a.embed-lasso-title{font-size:14px !important;
-            line-height:1.4 !important;font-weight:600 !important;margin:0 0 4px !important}
+            line-height:1.4 !important;font-weight:600 !important;margin:0 0 4px !important;
+            display:-webkit-box !important;-webkit-line-clamp:4 !important;
+            -webkit-box-orient:vertical !important;overflow:hidden !important;
+            text-overflow:ellipsis !important}
 .pick-lasso .embed-lasso-price{font-size:13px !important;margin:0 !important}
 .pick-lasso .embed-lasso-description{display:none !important}
 .pick-lasso a.embed-lasso-button-1{grid-area:btn !important;padding:9px 14px !important;
@@ -616,6 +627,22 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
    keeps its 120px .thumb sizing untouched. */
 .picks-page-grid-lasso .pick-lasso .embed-lasso-display{grid-template-columns:200px 1fr !important}
 .picks-page-grid-lasso .pick-lasso .embed-lasso-image-no-lazy{width:200px !important;height:200px !important}
+/* Mobile: the 120px-image/1fr-text side-by-side grid above leaves the title
+   column too narrow on a phone-width card (Che, 2026-09-02: "todos se ven
+   rotisimos en el celular" -- title crammed beside the photo instead of
+   under it). Below 640px (same breakpoint .pick-lasso already shrinks its
+   own width at) the image moves to its own full-width row above the title
+   instead, centered, same as every other product card style on the site. */
+@media(max-width:640px){
+.pick-lasso .embed-lasso-display,
+.picks-page-grid-lasso .pick-lasso .embed-lasso-display{grid-template-columns:1fr !important;
+            grid-template-areas:"img" "text" "btn" "meta" "date" !important;
+            justify-items:center !important}
+.pick-lasso .embed-lasso-box-1:has(.embed-lasso-image),
+.pick-lasso .embed-lasso-box-2:has(.embed-lasso-image){justify-self:center !important}
+.pick-lasso .embed-lasso-box-1:has(.embed-lasso-title),
+.pick-lasso .embed-lasso-box-2:has(.embed-lasso-title){width:100% !important;padding-top:8px !important}
+}
 /* These 20 embeds were minted through Lasso's WordPress plugin flow, not the
    Websites/halfornothing.com project Che configures in Lasso's own "Display
    Settings" -- so the badge/button colors he set and saved there (verified
@@ -1285,7 +1312,7 @@ body.curator-mode #curator-badge{display:flex}
 
 </div></header>
 <main class="wrap">
-<nav class='crumbs' aria-label='Breadcrumb'><a href='/index.html'>All deals</a> <span>&rsaquo;</span> <a href='/home-kitchen.html'>Home &amp; Kitchen</a> <span>&rsaquo;</span> <b>Deal</b></nav><article class='deal-page'><div class='deal-page-media'><img src='https://i.ebayimg.com/images/g/u8YAAeSwfBJpwNcX/s-l500.jpg' alt='Oneida Colonial Boston 18/8 Stainless Steel Iced Beverage Spoon (Set of Twelve)' loading='eager' decoding='async' referrerpolicy='no-referrer'></div><div class='deal-page-body'><h1>Oneida Colonial Boston 18/8 Stainless Steel Iced Beverage Spoon (Set of Twelve)</h1><p class='deal-status deal-status-live'>Live now &middot; verified within the last 6 hours.</p><p class='deal-page-price'><b>$79.99</b><s>$240.00</s><span class='deal-page-pct'>67% off</span></p><a class='deal-cta' href='https://www.ebay.com/itm/236655499017?_skw=flatware+set&amp;hash=item3719c45709%3Ag%3Au8YAAeSwfBJpwNcX&amp;amdata=enc%3AAQALAAAA8ACCtXRWQnOEpyOqnQQ8KGYZFxfGPVMf4nQuDzRDONvjqKH2s38%2FCbfnkIchosrnqQ37UoTJ2g7MvXVNgSX9U3tcPJ8dtbcZ4stFXgj2ALWWxPlChXAiGdiFippBLzG0NvhJONTebhpPRSXXY0k8zZxK3132XgFOxEdPmkzGUneTzkcvX2dGNwQOncvUcM%2FvYfs5guhzO1n4PhsBoAUd%2FZJbOa%2FQQQcTiWiPU9qKsXiLiNNWUF5GTlekmr6wscqKyIRyKiYSKTHRVOfdYmTi%2F1e1k9R6C0rlE65i3%2BzElAsw%2FmhZS25Gpb%2BIRFOVpB7Uww%3D%3D&amp;campid=5339186549&amp;toolid=10001&amp;mkevt=1&amp;mkcid=1&amp;mkrid=711-53200-19255-0&amp;siteid=0&amp;customid=hond' target='_blank' rel='noopener sponsored'>Get this deal at Ebay &rarr;</a></div></article>
+<nav class='crumbs' aria-label='Breadcrumb'><a href='/index.html'>All deals</a> <span>&rsaquo;</span> <a href='/home-kitchen.html'>Home &amp; Kitchen</a> <span>&rsaquo;</span> <b>Deal</b></nav><article class='deal-page'><div class='deal-page-media'><img src='https://i.ebayimg.com/images/g/u8YAAeSwfBJpwNcX/s-l500.jpg' alt='Oneida Colonial Boston 18/8 Stainless Steel Iced Beverage Spoon (Set of Twelve)' loading='eager' decoding='async' referrerpolicy='no-referrer'></div><div class='deal-page-body'><h1>Oneida Colonial Boston 18/8 Stainless Steel Iced Beverage Spoon (Set of Twelve)</h1><p class='deal-status deal-status-live'>Live now &middot; verified within the last 6 hours.</p><p class='deal-page-price'><b>$79.99</b><s>$240.00</s><span class='deal-page-pct'>67% off</span></p><a class='deal-cta' href='https://www.ebay.com/itm/236655499017?_skw=flatware+set&amp;hash=item3719c45709%3Ag%3Au8YAAeSwfBJpwNcX&amp;amdata=enc%3AAQALAAAA8ACCtXRWQnOEpyOqnQQ8KGYZFxfGPVMf4nQuDzRDONvjqKH2s38%2FCbfnkIchosrnqQ37UoTJ2g7MvXVNgSX9U3tcPJ8dtbcZ4stFXgj2ALWWxPlChXAiGdiFippBLzG0NvhJONTebhpPRSXXY0k8zZw9E0zD4EmHiy9sdLjkDKeajyy1xoM%2BkEjqeIcOUCcWX%2FMRDEMV%2BV14Ibrg5BBq6AoJt%2Fc7qeGS35JtmVxF9WT6RGFr%2BHe8iuhM%2FhgfqxWhGobdaAOnirapwLvrhOUJGnBIK7xGMzexxdKYpq2MPMv%2BtEKvt0aZNqMs9Jatt78sbg%3D%3D&amp;campid=5339186549&amp;toolid=10001&amp;mkevt=1&amp;mkcid=1&amp;mkrid=711-53200-19255-0&amp;siteid=0&amp;customid=hond' target='_blank' rel='noopener sponsored'>Get this deal at Ebay &rarr;</a></div></article>
 <footer class="site"><div class="footer-grid">
 <div class="footer-main">
 <details class="disclosure">
