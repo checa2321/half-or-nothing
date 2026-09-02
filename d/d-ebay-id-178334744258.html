@@ -32,7 +32,7 @@
 <meta name="twitter:title" content="Burberry Blue Oval Men&#x27;s Sunglasses BE4439 412080 51 BE4439 412080 51 -- 64% off, $188.98 (was $522.00) | Half or Nothing">
 <meta name="twitter:description" content="64% off, $188.98 (was $522.00)">
 <meta name="twitter:image" content="https://i.ebayimg.com/images/g/oBkAAeSwptdqhszL/s-l500.jpg">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Burberry Blue Oval Men's Sunglasses BE4439 412080 51 BE4439 412080 51","description":"64% off -- was $522.00, now $188.98 at Ebay.","image":"https://i.ebayimg.com/images/g/oBkAAeSwptdqhszL/s-l500.jpg","offers":{"@type":"Offer","price":"188.98","priceCurrency":"USD","availability":"https://schema.org/InStock","url":"https://halfornothing.com/d/d-ebay-id-178334744258.html","priceValidUntil":"2026-09-02T08:05:05Z"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Deals","item":"https://halfornothing.com/"},{"@type":"ListItem","position":2,"name":"Fashion & Accessories","item":"https://halfornothing.com/fashion.html"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Burberry Blue Oval Men's Sunglasses BE4439 412080 51 BE4439 412080 51","description":"64% off -- was $522.00, now $188.98 at Ebay.","image":"https://i.ebayimg.com/images/g/oBkAAeSwptdqhszL/s-l500.jpg","offers":{"@type":"Offer","price":"188.98","priceCurrency":"USD","availability":"https://schema.org/InStock","url":"https://halfornothing.com/d/d-ebay-id-178334744258.html","priceValidUntil":"2026-09-02T09:04:51Z"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Deals","item":"https://halfornothing.com/"},{"@type":"ListItem","position":2,"name":"Fashion & Accessories","item":"https://halfornothing.com/fashion.html"}]}</script>
 <style>
 :root{
   --dur-fast:.12s; --dur-base:.15s; --dur-med:.18s;
@@ -608,6 +608,14 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
    which nothing else on the page has a slot for. */
 .pick-lasso-coupon{font:700 11px/1.3 var(--mono);color:var(--gate);margin:-4px 0 8px;
             letter-spacing:.02em}
+/* Blog posts only: the deals-grid/amazon-picks.html .thumb convention (120px,
+   pinned so cards never grow) is right for a dense grid of many picks, but
+   inside a single post's ~600px-wide prose column a lone pick next to a big
+   eBay/compare-card photo read as a tiny thumbnail next to a poster (Che,
+   2026-09-02). Higher-specificity override, blog posts only -- the grid page
+   keeps its 120px .thumb sizing untouched. */
+.picks-page-grid-lasso .pick-lasso .embed-lasso-display{grid-template-columns:200px 1fr !important}
+.picks-page-grid-lasso .pick-lasso .embed-lasso-image-no-lazy{width:200px !important;height:200px !important}
 /* These 20 embeds were minted through Lasso's WordPress plugin flow, not the
    Websites/halfornothing.com project Che configures in Lasso's own "Display
    Settings" -- so the badge/button colors he set and saved there (verified
@@ -622,9 +630,15 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
    hardcoded white). Background is transparent rather than var(--card): the
    embed no longer needs to paint its own card surface -- .pick-lasso already
    does, in the same theme-aware color -- and painting it a second time here
-   opaquely covered the category chip/rank numeral sitting behind it. */
+   opaquely covered the category chip/rank numeral sitting behind it.
+   Updated 2026-09-02: --embed-lasso-main (badge/border accent) matches the
+   site's brand red so the card frame lines up with the eBay [[shop:...]]
+   card's border. --embed-lasso-button stays Amazon's own orange (#FF9900)
+   on purpose -- Che, 2026-09-02: "el boton de amazon se queda naranja
+   porque es el color de amazon", the button should read as Amazon's own
+   Buy button, not recolored to match the site. */
 .pick-lasso .lasso-embed{
-  --embed-lasso-main:#00A863 !important;
+  --embed-lasso-main:#D93A12 !important;
   --embed-lasso-title:var(--ink) !important;
   --embed-lasso-button:#FF9900 !important;
   --embed-lasso-button-text:#ffffff !important;
@@ -907,16 +921,48 @@ footer.site .disclosure{margin:14px 0}
    monetization-idea memory for why this exists and stays blog-only. */
 .prose-compare{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:0 0 26px}
 @media (max-width:560px){.prose-compare{grid-template-columns:1fr}}
+/* Same grid shape as .pick-lasso .embed-lasso-display (photo left, title+
+   price top right, button below, disclosure below that) -- Che, 2026-09-02:
+   the eBay card had the photo on top and everything below it, unlike
+   Amazon's side-by-side layout, and wanted them structurally the same.
+   Colors deliberately do NOT match Amazon's: eBay keeps the site's normal
+   green price/button (--gate-dark, the same as every eBay/Walmart deal
+   card), Amazon keeps its own orange Buy button and red price -- only the
+   6px accent border is shared between the two systems. */
 .compare-card{position:relative;padding:18px;background:var(--card);border:1px solid var(--rule);
-              border-radius:12px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:8px}
-.compare-card img{max-width:100%;max-height:180px;width:auto;height:auto;border-radius:8px;margin:0 0 4px}
+              border-radius:12px;text-align:left;display:grid;grid-template-columns:200px 1fr;
+              grid-template-areas:"img text" "img btn" "img meta";column-gap:14px;row-gap:4px;
+              align-items:center}
+@media (max-width:480px){
+  .compare-card{grid-template-columns:1fr;
+                grid-template-areas:"img" "text" "btn" "meta";justify-items:center;text-align:center}
+}
+/* [[shop:...]] only (not the [[compare:left/right]] pair, where a thick
+   accent border on both sides would misleadingly frame the non-discounted
+   "Regular Price" side as a hot deal too) -- matches the Lasso Amazon Pick
+   card's own 6px brand-red border exactly (Che, 2026-09-02). */
+.compare-card-solo{border:6px solid var(--signal)}
+/* Same 200px paper-framed photo box as .picks-page-grid-lasso .pick-lasso
+   (see the block above) -- same size, same border/radius/background, so an
+   Amazon Pick and an eBay [[shop:...]] card in the same post read as one
+   consistent product-card language, not two different systems. */
+.compare-card img{grid-area:img;width:200px;height:200px;object-fit:contain;border-radius:12px;
+                  border:1px solid var(--rule);background:var(--paper-3);align-self:start}
 .compare-badge{position:absolute;top:12px;left:12px;padding:4px 10px;border-radius:999px;
                font:700 11px/1 var(--mono);letter-spacing:.02em}
 .compare-badge-off{background:var(--signal);color:#fff}
 .compare-badge-reg{background:var(--paper-3);color:var(--muted);border:1px solid var(--rule)}
-.compare-title{font-size:14px;font-weight:600;color:var(--ink);margin:4px 0 0;line-height:1.35}
-.compare-price{font-size:17px;font-weight:800;color:var(--gate-dark);margin:0;font-variant-numeric:tabular-nums}
-.compare-card .cta{margin-top:4px}
+.compare-text{grid-area:text;align-self:center}
+.compare-title{font-size:14px;font-weight:600;color:var(--ink);margin:0;line-height:1.35}
+/* Site's normal deal-card price color (--gate-dark, same as .price-now/
+   .td-now everywhere else), not Amazon's red -- eBay pricing keeps its own
+   established identity. .price-was/.pct-pill are the same markup the Lasso
+   card uses for a real discount, just recolored to match. */
+.compare-price{font-size:20px;font-weight:800;color:var(--gate-dark);
+               margin:2px 0 0;font-variant-numeric:tabular-nums;display:flex;align-items:baseline;
+               gap:8px;flex-wrap:wrap}
+.compare-card .cta{grid-area:btn;margin-top:4px}
+.compare-disclosure{grid-area:meta;font-size:10.5px;color:var(--muted);margin:2px 0 0}
 
 /* ---- blog index ---- */
 .blog-list{max-width:68ch;margin:8px 0 40px}
@@ -1282,6 +1328,6 @@ body.curator-mode #curator-badge{display:flex}
 <button type="button" class="back-to-top" id="backToTop" aria-label="Back to top">&#9650;</button>
 <script src="/assets/js/interaction.js?v=3c6956f9a6"></script>
 <script type="text/javascript" src="https://js.codedrink.com/snippet.min.js" defer></script>
-<script type="text/javascript" src="/assets/js/lasso-picks.js" defer></script>
+<script type="text/javascript" src="/assets/js/lasso-picks.js?v=3" defer></script>
 <script type="text/javascript" src="https://s.skimresources.com/js/307865X1796159.skimlinks.js"></script>
 </body></html>
