@@ -33,7 +33,7 @@
 <meta name="twitter:title" content="Nine West Smoke Sport Ladies Sunglasses 10267601.LTS GRYSMK 10267601.L -- 92% off, $12.71 (was $150.00) | Half or Nothing">
 <meta name="twitter:description" content="92% off, $12.71 (was $150.00)">
 <meta name="twitter:image" content="https://i.ebayimg.com/images/g/J9oAAeSw0DZqlUyb/s-l500.jpg">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Nine West Smoke Sport Ladies Sunglasses 10267601.LTS GRYSMK 10267601.LTS GRYSMK","description":"92% off -- was $150.00, now $12.71 at Ebay.","image":"https://i.ebayimg.com/images/g/J9oAAeSw0DZqlUyb/s-l500.jpg","offers":{"@type":"Offer","price":"12.71","priceCurrency":"USD","availability":"https://schema.org/InStock","url":"https://halfornothing.com/d/d-ebay-id-178376240951.html","priceValidUntil":"2026-09-04T02:05:24Z"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Deals","item":"https://halfornothing.com/"},{"@type":"ListItem","position":2,"name":"Fashion & Accessories","item":"https://halfornothing.com/fashion.html"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Nine West Smoke Sport Ladies Sunglasses 10267601.LTS GRYSMK 10267601.LTS GRYSMK","description":"92% off -- was $150.00, now $12.71 at Ebay.","image":"https://i.ebayimg.com/images/g/J9oAAeSw0DZqlUyb/s-l500.jpg","offers":{"@type":"Offer","price":"12.71","priceCurrency":"USD","availability":"https://schema.org/InStock","url":"https://halfornothing.com/d/d-ebay-id-178376240951.html","priceValidUntil":"2026-09-04T03:05:28Z"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Deals","item":"https://halfornothing.com/"},{"@type":"ListItem","position":2,"name":"Fashion & Accessories","item":"https://halfornothing.com/fashion.html"}]}</script>
 <style>
 :root{
   --dur-fast:.12s; --dur-base:.15s; --dur-med:.18s;
@@ -850,6 +850,64 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
 .over-menu .has-sub:hover .subdrop,
 .over-menu .has-sub.open .subdrop{opacity:1;visibility:visible;transform:none}
 
+/* ---- variant picker: grouped cards (deal_grouping.py) open a stacked
+   modal instead of a new tab, same mechanism DealSeek uses on the same
+   "one part, many fitments" pattern -- confirmed live 2026-09-03: their
+   swatch clicks push a NEW dialog on top rather than swapping the current
+   one, so closing the top one reveals the previous choice still there
+   underneath instead of losing it. #vmodalStack holds every open dialog in
+   DOM order (later = on top, no z-index math needed); openVariantModal()/
+   closeTopVariantModal() in interaction.js own the push/pop. */
+.variant-pill{display:block;width:100%;margin:8px 0 0;padding:8px 10px;
+               background:var(--paper-2);border:1px solid var(--rule);border-radius:var(--r-sm);
+               color:var(--ink);font:600 12px/1 var(--display);text-align:center;cursor:pointer}
+@media(hover:hover){.variant-pill:hover{border-color:var(--signal);color:var(--signal)}}
+#vmodalStack{position:fixed;inset:0;z-index:2000}
+/* Appearing/disappearing is a real state transition (a dialog entering or
+   leaving the page), not decoration -- the global reduced-motion rule above
+   already neutralizes both keyframes for anyone who asked for that. */
+@keyframes vmodalFade{from{opacity:0}to{opacity:1}}
+@keyframes vmodalPop{from{opacity:0;transform:translate(-50%,-50%) scale(.96)}
+                      to{opacity:1;transform:translate(-50%,-50%) scale(1)}}
+.vmodal-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.5);
+                  animation:vmodalFade var(--dur-med) ease}
+.vmodal{position:fixed;left:50%;top:50%;transform:translate(-50%,-50%);z-index:1;
+        width:min(720px,92vw);max-height:88vh;overflow:auto;background:var(--card);
+        border:1px solid var(--rule);border-radius:var(--r-lg);
+        box-shadow:0 20px 60px rgba(0,0,0,.35);padding:24px;
+        animation:vmodalPop var(--dur-med) ease}
+.vmodal-close{position:absolute;top:14px;right:14px;width:32px;height:32px;border-radius:50%;
+              border:1px solid var(--rule);background:var(--paper-2);color:var(--ink);
+              font-size:16px;line-height:1;cursor:pointer}
+@media(hover:hover){.vmodal-close:hover{border-color:var(--signal);color:var(--signal)}}
+.vmodal-body{display:flex;gap:24px;flex-wrap:wrap}
+.vmodal-img{flex:0 0 220px;max-width:100%;border-radius:var(--r-md);overflow:hidden;
+            background:var(--paper-2);border:1px solid var(--rule)}
+.vmodal-img img{display:block;width:100%;height:auto}
+.vmodal-info{flex:1 1 320px;min-width:0}
+.vmodal-title{font:700 16px/1.4 var(--display);color:var(--ink);margin:0 40px 10px 0}
+.vmodal-prices{display:flex;align-items:baseline;gap:10px;margin:0 0 14px}
+.vmodal-price-now{font:800 22px/1 var(--mono);color:var(--gate-dark)}
+.vmodal-price-was{font:400 14px/1 var(--mono);color:var(--muted);text-decoration:line-through}
+.vmodal-pct{background:var(--signal);color:#fff;font:700 11px/1 var(--display);
+            padding:4px 8px;border-radius:var(--r-pill)}
+.vmodal-cta{display:inline-block;padding:11px 22px;border-radius:var(--r-pill);
+            background:var(--gate-dark);color:#fff;font:700 14px/1 var(--display);
+            text-decoration:none;margin:0 0 20px}
+@media(hover:hover){.vmodal-cta:hover{background:var(--gate)}}
+.vmodal-swatch-label{font:700 11px/1 var(--display);letter-spacing:.04em;text-transform:uppercase;
+                      color:var(--muted);margin:0 0 10px}
+.vmodal-swatches{display:flex;gap:8px;flex-wrap:wrap}
+.vmodal-swatch{width:56px;height:56px;padding:0;border-radius:var(--r-sm);overflow:hidden;
+               background:var(--paper-2);border:2px solid var(--rule);cursor:pointer}
+.vmodal-swatch img{display:block;width:100%;height:100%;object-fit:contain}
+.vmodal-swatch.is-active{border-color:var(--signal)}
+@media(hover:hover){.vmodal-swatch:not(.is-active):hover{border-color:var(--muted)}}
+@media(max-width:560px){
+  .vmodal{padding:18px}
+  .vmodal-img{flex-basis:100%}
+}
+
 .card h3{font-size:14px;line-height:1.4;font-weight:600;margin:0;color:var(--ink);padding-right:34px}
 .card h3 a{color:inherit;text-decoration:none}
 .card h3 a:hover{color:var(--signal)}
@@ -1363,7 +1421,7 @@ body.curator-mode #curator-badge{display:flex}
 </div></footer>
 </main>
 <button type="button" class="back-to-top" id="backToTop" aria-label="Back to top">&#9650;</button>
-<script src="/assets/js/interaction.js?v=3c6956f9a6"></script>
+<script src="/assets/js/interaction.js?v=2144774cb9"></script>
 <script type="text/javascript" src="https://js.codedrink.com/snippet.min.js" defer></script>
 <script type="text/javascript" src="/assets/js/lasso-picks.js?v=3" defer></script>
 <script type="text/javascript" src="https://s.skimresources.com/js/307865X1796159.skimlinks.js"></script>
