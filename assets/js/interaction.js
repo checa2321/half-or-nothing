@@ -736,6 +736,73 @@
     }
   }
 
+  // The home's own deals.json is capped (INDEX_FEED_MAX) and is a mixed
+  // sample across the whole catalogue, not a per-category guarantee -- a
+  // small category's real count (the number the filter panel's own badge
+  // shows) can be well ahead of how many of its cards actually made that
+  // sample. Confirmed live 2026-09-03: Sneakers' badge said 73, the panel
+  // only had 13 to filter down to. data-cat-feed-slugs (html_output.py,
+  // CATEGORY_SLUGS) names each category's own uncapped feed -- the same
+  // file its dedicated page already reads -- so this fetches it in on
+  // demand the first time that category is picked, rather than duplicating
+  // the cap-vs-real-count problem in a second place.
+  var catFeedSlugs = null;
+  var subcatFeedSlugs = null;
+  try { catFeedSlugs = JSON.parse(grid.getAttribute('data-cat-feed-slugs') || 'null'); }
+  catch (e) { catFeedSlugs = null; }
+  try { subcatFeedSlugs = JSON.parse(grid.getAttribute('data-subcat-feed-slugs') || 'null'); }
+  catch (e) { subcatFeedSlugs = null; }
+  var loadedCatFeeds = {};
+
+  // A subcategory can own a feed distinct from its parent's (beauty:haircare
+  // reads deals-beauty-haircare.json) or explicitly share it (fashion:sneakers
+  // reads deals-fashion.json, same as the bare "fashion" filter) -- check the
+  // more specific mapping first, fall back to the category-wide one so a
+  // bare top-level pick (no ":") still resolves.
+  function feedSlugFor(val){
+    if (subcatFeedSlugs && subcatFeedSlugs[val]) return subcatFeedSlugs[val];
+    if (catFeedSlugs) return catFeedSlugs[val.split(':')[0]];
+    return null;
+  }
+
+  function ensureCategoryCoverage(vals, done){
+    if ((!catFeedSlugs && !subcatFeedSlugs) || !window.fetch || !vals.length) { done(); return; }
+    var slugs = [];
+    var seen = {};
+    vals.forEach(function(v){
+      var slug = feedSlugFor(v);
+      if (slug && !loadedCatFeeds[slug] && !seen[slug]) { seen[slug] = true; slugs.push(slug); }
+    });
+    if (!slugs.length) { done(); return; }
+    slugs.forEach(function(slug){ loadedCatFeeds[slug] = true; });
+
+    Promise.all(slugs.map(function(slug){
+      return fetch('/deals-' + slug + '.json', {cache: 'default'})
+        .then(function(r){ return r.ok ? r.json() : {deals: []}; })
+        .catch(function(){ return {deals: []}; });
+    })).then(function(feeds){
+      var have = {};
+      allCards.forEach(function(c){ have[c.id] = true; });
+      var frag = document.createDocumentFragment();
+      var added = 0;
+      feeds.forEach(function(feed){
+        (feed.deals || []).forEach(function(d){
+          if (have[d.id]) return;
+          have[d.id] = true;
+          frag.appendChild(buildCard(d));
+          added++;
+        });
+      });
+      if (added) {
+        grid.appendChild(frag);
+        allCards = Array.prototype.filter.call(grid.children, function(el){
+          return el.classList.contains('card');
+        });
+      }
+      done();
+    });
+  }
+
   function applyCats(vals){
     state.cats = vals;
     state.page = 1;
@@ -748,6 +815,7 @@
       catBtn.textContent = vals.length ? ('Category (' + vals.length + ') ▾') : 'Category ▾';
     }
     render();
+    ensureCategoryCoverage(vals, render);
   }
 
   attachSearchSuggest(
