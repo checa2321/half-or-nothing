@@ -620,6 +620,26 @@
     }
   }
 
+  function closeAllVariantModals(){
+    while (vOpenDialogs.length) closeTopVariantModal();
+  }
+
+  // A modal left open when the user navigates away (back/forward to another
+  // site, a new tab, closing the tab) can get frozen into the browser's
+  // back-forward cache exactly as it was: .vmodal-backdrop still covering
+  // the full viewport at position:fixed, swallowing every click on the page
+  // underneath it, with nothing visibly different enough at a glance to
+  // explain why the whole page suddenly stopped responding -- confirmed
+  // report 2026-09-03, "ni el logo es clickeable ... solo se arregla con
+  // refresh." pagehide fires before that snapshot is taken, so clearing the
+  // stack there means whatever gets cached is already closed. pageshow's
+  // persisted flag (true only on a bfcache restore, not a fresh load) is a
+  // second pass in case some browser path snapshots before pagehide runs.
+  window.addEventListener('pagehide', closeAllVariantModals);
+  window.addEventListener('pageshow', function(e){
+    if (e.persisted) closeAllVariantModals();
+  });
+
   document.addEventListener('click', function(e){
     var pill = e.target.closest ? e.target.closest('.variant-pill') : null;
     if (pill) {
