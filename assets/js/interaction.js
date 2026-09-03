@@ -471,6 +471,14 @@
       .replace(/"/g,'&quot;').replace(/'/g,'&#x27;');
   }
   function money(n){ return '$' + Number(n).toFixed(2); }
+  // Mirrors _variant_pill_html() in html_output.py -- same markup, same
+  // data-variants JSON-in-attribute contract, so openVariantModal() below
+  // works identically on a card built here or one built server-side.
+  function variantPillHTML(variants){
+    if (!variants || variants.length < 2) return '';
+    return "<button type='button' class='variant-pill' data-variants='" + esc(JSON.stringify(variants)) + "'>"
+      + variants.length + ' options available</button>';
+  }
 
   function buildCard(d){
     var url = esc(d.url || '#');
@@ -525,10 +533,122 @@
       + "<span class='pct-pill'>" + Math.round(d.discount_pct) + '% off</span></div>'
       + "<div class='meta'><span class='src-tag'>" + esc(d.source_label) + '</span>'
       + '<span>Seen ' + esc(d.seen_text) + '</span>' + pills + '</div>'
+      + variantPillHTML(d.variants)
       + "<a class='cta' href='" + url + "' target='_blank' rel='noopener sponsored'>Buy on " + esc(d.source_label) + '</a>'
       + '</div>';
     return el;
   }
+
+  // ---- variant picker modal ----
+  // Grouped cards (deal_grouping.py -- same base product listed once per
+  // fitment/size/etc) open this instead of navigating anywhere. Behaviour
+  // mirrors DealSeek's own picker, confirmed live 2026-09-03: choosing a
+  // swatch pushes a NEW dialog on top of the current one rather than
+  // swapping its content, so the close (X) button reveals the previous
+  // choice still mounted underneath instead of losing it. #vmodalStack is
+  // created once, lazily, and holds every open .vmodal in DOM order --
+  // later ones sit on top for free, no z-index bookkeeping needed.
+  var vStack = null;
+  var vOpenDialogs = [];
+
+  function vSwatchesHTML(variants, activeIdx){
+    return variants.map(function(vv, i){
+      var cls = 'vmodal-swatch' + (i === activeIdx ? ' is-active' : '');
+      var img = vv.image_url
+        ? '<img src="' + esc(vv.image_url) + '" alt="' + esc(vv.label || vv.title) + '" loading="lazy">'
+        : '';
+      return "<button type='button' class='" + cls + "' data-idx='" + i
+        + "' title='" + esc(vv.label || vv.title) + "'>" + img + '</button>';
+    }).join('');
+  }
+
+  function vDialogHTML(variants, activeIdx){
+    var v = variants[activeIdx];
+    var img = v.image_url
+      ? '<img src="' + esc(v.image_url) + '" alt="' + esc(v.title) + '">'
+      : '';
+    return (
+      "<button type='button' class='vmodal-close' aria-label='Close'>&times;</button>"
+      + "<div class='vmodal-body'>"
+      + "<div class='vmodal-img'>" + img + '</div>'
+      + "<div class='vmodal-info'>"
+      + "<h3 class='vmodal-title'>" + esc(v.title) + '</h3>'
+      + "<div class='vmodal-prices'><span class='vmodal-price-now'>" + money(v.price) + '</span>'
+      + "<span class='vmodal-price-was'>" + money(v.original_price) + '</span>'
+      + "<span class='vmodal-pct'>" + Math.round(v.discount_pct) + '% off</span></div>'
+      + "<a class='vmodal-cta' href='" + esc(v.url) + "' target='_blank' rel='noopener sponsored'>Buy on "
+      + esc(v.source_label) + '</a>'
+      + "<div class='vmodal-swatch-label'>" + variants.length + ' options</div>'
+      + "<div class='vmodal-swatches'>" + vSwatchesHTML(variants, activeIdx) + '</div>'
+      + '</div></div>'
+    );
+  }
+
+  function openVariantModal(variants, activeIdx){
+    if (!vStack) {
+      vStack = document.createElement('div');
+      vStack.id = 'vmodalStack';
+      document.body.appendChild(vStack);
+    }
+    if (!vStack.querySelector('.vmodal-backdrop')) {
+      var backdrop = document.createElement('div');
+      backdrop.className = 'vmodal-backdrop';
+      vStack.appendChild(backdrop);
+    }
+    // Every dialog in one stack belongs to the same group -- swatches only
+    // ever reference siblings within the array that opened the stack.
+    vStack._variants = variants;
+    var dlg = document.createElement('div');
+    dlg.className = 'vmodal';
+    dlg.setAttribute('role', 'dialog');
+    dlg.setAttribute('aria-modal', 'true');
+    dlg.innerHTML = vDialogHTML(variants, activeIdx);
+    vStack.appendChild(dlg);
+    vOpenDialogs.push(dlg);
+    document.body.style.overflow = 'hidden';
+    var closeBtn = dlg.querySelector('.vmodal-close');
+    if (closeBtn) closeBtn.focus();
+  }
+
+  function closeTopVariantModal(){
+    var dlg = vOpenDialogs.pop();
+    if (dlg && dlg.parentNode) dlg.parentNode.removeChild(dlg);
+    if (!vOpenDialogs.length && vStack) {
+      var backdrop = vStack.querySelector('.vmodal-backdrop');
+      if (backdrop && backdrop.parentNode) backdrop.parentNode.removeChild(backdrop);
+      document.body.style.overflow = '';
+    }
+  }
+
+  document.addEventListener('click', function(e){
+    var pill = e.target.closest ? e.target.closest('.variant-pill') : null;
+    if (pill) {
+      e.stopPropagation();
+      var variants;
+      try { variants = JSON.parse(pill.getAttribute('data-variants') || '[]'); }
+      catch (err) { variants = []; }
+      if (variants.length) openVariantModal(variants, 0);
+      return;
+    }
+    var swatch = e.target.closest ? e.target.closest('.vmodal-swatch') : null;
+    if (swatch) {
+      e.stopPropagation();
+      openVariantModal(vStack._variants, parseInt(swatch.getAttribute('data-idx'), 10));
+      return;
+    }
+    var closeBtn = e.target.closest ? e.target.closest('.vmodal-close') : null;
+    if (closeBtn) {
+      e.stopPropagation();
+      closeTopVariantModal();
+      return;
+    }
+    var backdrop = e.target.closest ? e.target.closest('.vmodal-backdrop') : null;
+    if (backdrop) closeTopVariantModal();
+  });
+
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape' && vOpenDialogs.length) closeTopVariantModal();
+  });
 
   var searchEl = document.getElementById('dealSearch');
   var sortEl = document.getElementById('dealSort');
