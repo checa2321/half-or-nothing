@@ -33,7 +33,7 @@
 <meta name="twitter:title" content="Dolce and Gabbana Dark Grey Square Men&#x27;s Sunglasses DG4484 501/87 54 -- 64% off, $222.59 (was $614.00) | Half or Nothing">
 <meta name="twitter:description" content="64% off, $222.59 (was $614.00)">
 <meta name="twitter:image" content="https://i.ebayimg.com/images/g/xmEAAeSwzadqlm1O/s-l500.jpg">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Dolce and Gabbana Dark Grey Square Men's Sunglasses DG4484 501/87 54","description":"64% off -- was $614.00, now $222.59 at Ebay.","image":"https://i.ebayimg.com/images/g/xmEAAeSwzadqlm1O/s-l500.jpg","offers":{"@type":"Offer","price":"222.59","priceCurrency":"USD","availability":"https://schema.org/InStock","url":"https://halfornothing.com/d/d-ebay-id-168617559959.html","priceValidUntil":"2026-09-04T00:04:34Z"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Deals","item":"https://halfornothing.com/"},{"@type":"ListItem","position":2,"name":"Fashion & Accessories","item":"https://halfornothing.com/fashion.html"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Dolce and Gabbana Dark Grey Square Men's Sunglasses DG4484 501/87 54","description":"64% off -- was $614.00, now $222.59 at Ebay.","image":"https://i.ebayimg.com/images/g/xmEAAeSwzadqlm1O/s-l500.jpg","offers":{"@type":"Offer","price":"222.59","priceCurrency":"USD","availability":"https://schema.org/InStock","url":"https://halfornothing.com/d/d-ebay-id-168617559959.html","priceValidUntil":"2026-09-04T01:05:01Z"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Deals","item":"https://halfornothing.com/"},{"@type":"ListItem","position":2,"name":"Fashion & Accessories","item":"https://halfornothing.com/fashion.html"}]}</script>
 <style>
 :root{
   --dur-fast:.12s; --dur-base:.15s; --dur-med:.18s;
@@ -46,6 +46,15 @@
   --gate-dark:#0B7A4C;
   --paper:#FFFFFF; --paper-2:#F9F9F7; --paper-3:#EFEFEA; --card:#FFFFFF;
   --ink:#1a1a1a; --ink-soft:#3B3B36; --muted:#666; --rule:#E0E0E0;
+  /* Shape scale (2026-09-03 taste-skill audit): consolidates ~11 stray
+     border-radius values (4-24px) that drifted apart across sessions --
+     .card was 16px, .pick was 14px, .compare-card was 12px, .td-card was
+     20px, all doing the same "product/stat card" job but reading as
+     slightly different rounding depending on which page you're on. Small =
+     controls/dropdowns/buttons/badges, medium = cards and card-sized media,
+     large = page-level section containers. --r-pill (999px) already existed
+     inline everywhere and stays a literal, it was never inconsistent. */
+  --r-sm:6px; --r-md:12px; --r-lg:20px;
   --display:-apple-system,BlinkMacSystemFont,Roboto,"Segoe UI","Helvetica Neue",Arial,sans-serif;
   --mono:ui-monospace,"SF Mono",SFMono-Regular,"Cascadia Mono",Consolas,"Liberation Mono",monospace;
   /* Wordmark only ("HALF"/"NOTHING" in the nav logo and hero H1) -- the rest
@@ -97,7 +106,7 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
    desktop widths; .links itself flips from a horizontal row to a full-width
    dropdown panel exactly where it used to just disappear. ---- */
 #navBtn{display:none;align-items:center;justify-content:center;width:44px;height:44px;
-        flex-shrink:0;background:var(--card);border:1px solid var(--rule);border-radius:6px;
+        flex-shrink:0;background:var(--card);border:1px solid var(--rule);border-radius:var(--r-sm);
         color:var(--ink);cursor:pointer;padding:0}
 /* hover:hover excludes touch: a bare :hover rule on a click-toggle trigger
    makes iOS Safari/WebKit treat the first tap as a hover-simulation and only
@@ -219,12 +228,12 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
    .open the same way it does for every other panel on the site (see
    closeAll()), so Escape/outside-click close this one for free. */
 .herosearch-suggest{position:absolute;left:0;right:0;top:calc(100% + 8px);
-  background:var(--card);border:1px solid var(--rule);border-radius:14px;
+  background:var(--card);border:1px solid var(--rule);border-radius:var(--r-md);
   box-shadow:0 14px 32px rgba(0,0,0,.14);padding:6px;z-index:40;
   max-height:360px;overflow-y:auto;display:none}
 .herosearch-suggest.open{display:block}
 .herosearch-suggest button{display:block;width:100%;text-align:left;
-  background:transparent;border:0;border-radius:9px;padding:10px 12px;
+  background:transparent;border:0;border-radius:var(--r-sm);padding:10px 12px;
   font:400 13.5px/1.35 var(--display);color:var(--ink);cursor:pointer}
 .herosearch-suggest button:hover,.herosearch-suggest button.active{background:var(--paper-2)}
 .herosearch-suggest button b{color:var(--signal);font-weight:700}
@@ -270,7 +279,7 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
    plain-border convention elsewhere on the page (2026-08-24 polish). */
 .disclosure{margin:20px 0;padding:0;background:var(--card);
             border:1px solid var(--rule);
-            border-radius:14px;max-width:76ch;overflow:hidden}
+            border-radius:var(--r-md);max-width:76ch;overflow:hidden}
 .disclosure>summary{cursor:pointer;list-style:none;padding:14px 18px;
                     font-size:13.5px;font-weight:700;color:var(--ink);
                     display:flex;align-items:center;justify-content:space-between;gap:12px}
@@ -303,7 +312,7 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
 #dealSort,#picksSort{font:500 13px/1 var(--display);color:var(--ink);background:var(--card);
           border:1px solid var(--rule);border-radius:999px;padding:10px 16px;cursor:pointer}
 .no-results{padding:40px 12px;color:var(--muted);text-align:center;
-            border:1px dashed var(--rule);border-radius:14px;display:none}
+            border:1px dashed var(--rule);border-radius:var(--r-md);display:none}
 
 /* ---- category filter dropdown (checkbox panel, DealNews-style) ---- */
 .catfilter-wrap{position:relative}
@@ -312,7 +321,7 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
 @media(hover:hover){#catFilterBtn:hover{border-color:var(--signal)}}
 #catFilterBtn:active{border-color:var(--signal)}
 .catfilter-panel{display:block;position:absolute;top:calc(100% + 6px);left:0;z-index:40;
-                 background:var(--card);border:1px solid var(--rule);border-radius:6px;
+                 background:var(--card);border:1px solid var(--rule);border-radius:var(--r-sm);
                  box-shadow:0 8px 24px rgba(0,0,0,.15);width:290px;
                  opacity:0;visibility:hidden;transform:translateY(-4px);
                  transition:opacity var(--dur-fast) ease,transform var(--dur-fast) ease,visibility var(--dur-fast)}
@@ -390,13 +399,13 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
    rhythm sitting inside its own banded section, so the eye reads
    "editorial shelf, not scanner output" before it reads a word. */
 .picks{position:relative;margin:34px 0 8px;padding:26px 24px 28px;overflow:hidden;
-       background:var(--paper-2);border:1px solid var(--rule);border-radius:24px}
+       background:var(--paper-2);border:1px solid var(--rule);border-radius:var(--r-lg)}
 /* The gold hairline is the section's only fixed colour. Picks are the one
    thing on the page a human chose, so they get an accent the machine-made
    cards (all --signal red) never use. */
 .picks::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;
                background:linear-gradient(90deg,#F0A500,#E8890C 45%,var(--signal))}
-@media(max-width:640px){.picks{padding:20px 14px 22px;border-radius:18px}}
+@media(max-width:640px){.picks{padding:20px 14px 22px;border-radius:var(--r-lg)}}
 .picks-head{margin-bottom:18px}
 .picks-eyebrow{display:inline-flex;align-items:center;gap:7px;
                font:700 10px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;
@@ -429,7 +438,7 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
 .picks-track{display:flex;gap:14px;width:max-content;padding-bottom:2px}
 .pick{scroll-snap-align:start;flex:0 0 236px;width:236px;display:flex;flex-direction:column;
       text-decoration:none;overflow:hidden;
-      background:var(--card);border:1px solid var(--rule);border-radius:14px;
+      background:var(--card);border:1px solid var(--rule);border-radius:var(--r-md);
       transition:transform var(--dur-med) ease,box-shadow var(--dur-med) ease,border-color var(--dur-med) ease}
 .pick:hover,.pick:focus-visible{transform:translateY(-4px);border-color:transparent;
       box-shadow:0 12px 26px rgba(0,0,0,.15)}
@@ -502,7 +511,7 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
 .picks-lasso-viewport::-webkit-scrollbar{display:none}
 .picks-lasso-track{display:flex;gap:14px;width:max-content;padding-bottom:2px}
 .pick-lasso{scroll-snap-align:start;flex:0 0 400px;width:400px;background:var(--card);
-            border:1px solid var(--rule);border-radius:14px;padding:16px;position:relative;
+            border:1px solid var(--rule);border-radius:var(--r-md);padding:16px;position:relative;
             overflow:hidden;transition:transform var(--dur-med) ease,box-shadow var(--dur-med) ease,border-color var(--dur-med) ease}
 .pick-lasso:hover{transform:translateY(-4px);border-color:transparent;box-shadow:0 12px 26px rgba(0,0,0,.15)}
 @media(max-width:640px){.pick-lasso{flex:0 0 320px;width:320px}}
@@ -579,7 +588,7 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
 .pick-lasso .embed-lasso-end{grid-area:meta !important;width:100% !important}
 .pick-lasso .embed-lasso-image{display:block !important;margin:0 !important;padding:0 !important}
 .pick-lasso .embed-lasso-image-no-lazy{width:120px !important;height:120px !important;
-            object-fit:contain !important;border-radius:12px;border:1px solid var(--rule);
+            object-fit:contain !important;border-radius:var(--r-md);border:1px solid var(--rule);
             background:var(--paper-3)}
 /* Title is the full raw Amazon product name (often 15+ words) with no
    truncation of its own -- inside the 120px-image/1fr-text grid that leaves
@@ -597,7 +606,7 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
 .pick-lasso .embed-lasso-price{font-size:13px !important;margin:0 !important}
 .pick-lasso .embed-lasso-description{display:none !important}
 .pick-lasso a.embed-lasso-button-1{grid-area:btn !important;padding:9px 14px !important;
-            font-size:12px !important;border-radius:8px !important}
+            font-size:12px !important;border-radius:var(--r-sm) !important}
 .pick-lasso .embed-lasso-date,.pick-lasso .embed-lasso-disclosure{font-size:10.5px !important;
             padding:0 !important;color:var(--muted) !important}
 /* Price gets its own accent (Che, 2026-08-15: bigger, different color if
@@ -681,7 +690,7 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
 @media(hover:hover){#megaBtn:hover{border-color:var(--signal);color:var(--signal)}}
 #megaBtn:active{border-color:var(--signal);color:var(--signal)}
 .megamenu{display:block;position:absolute;top:calc(100% + 10px);left:0;z-index:50;
-          background:var(--card);border:1px solid var(--rule);border-radius:6px;
+          background:var(--card);border:1px solid var(--rule);border-radius:var(--r-sm);
           box-shadow:0 10px 30px rgba(0,0,0,.16);min-width:270px;
           opacity:0;visibility:hidden;transform:translateY(-4px);
           transition:opacity var(--dur-fast) ease,transform var(--dur-fast) ease,visibility var(--dur-fast)}
@@ -698,7 +707,7 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
    <h4>-headed column per subcategory, which was fine at Fashion's three and
    unreadable at Home's eleven: the flyout grew sideways off the viewport. */
 .flyout{display:none;position:absolute;left:100%;top:-1px;z-index:51;
-        background:var(--card);border:1px solid var(--rule);border-radius:6px;
+        background:var(--card);border:1px solid var(--rule);border-radius:var(--r-sm);
         box-shadow:0 10px 30px rgba(0,0,0,.16);padding:14px 18px;
         grid-template-columns:repeat(2,minmax(max-content,1fr));grid-auto-flow:row;
         column-gap:26px;row-gap:1px;white-space:nowrap;max-width:min(460px,60vw)}
@@ -743,7 +752,7 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
 /* Portrait cards, same shape/size as the Today's Top Deals rail (.td-card)
    so the main grid and the rail read as one card language -- image on top,
    details stacked below, instead of the old thumbnail-left row. */
-.card{background:var(--card);border-radius:16px;border:1px solid var(--rule);
+.card{background:var(--card);border-radius:var(--r-md);border:1px solid var(--rule);
       box-shadow:0 1px 3px rgba(0,0,0,.06);display:flex;flex-direction:column;
       transition:box-shadow var(--dur-base) ease,border-color var(--dur-base) ease;position:relative}
 .card:hover{box-shadow:0 4px 14px rgba(0,0,0,.12);border-color:var(--signal)}
@@ -767,7 +776,7 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
 }
 @media(prefers-reduced-motion:reduce){.card.v{animation:none}}
 
-.thumb{width:100%;height:170px;flex-shrink:0;margin:0;border-radius:16px 16px 0 0;
+.thumb{width:100%;height:170px;flex-shrink:0;margin:0;border-radius:var(--r-md) var(--r-md) 0 0;
        overflow:hidden;background:#fff;display:block;
        border:0;border-bottom:1px solid var(--rule)}
 .thumb img{width:100%;height:100%;object-fit:contain;display:block;padding:10px;
@@ -791,7 +800,7 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
    an unstyled, permanently-expanded list of buttons. .over-menu is specific
    enough as a class name that this doesn't need a .card qualifier at all. */
 .over-menu{position:absolute;top:10px;right:12px;width:28px;height:28px;
-                  background:var(--card);border:1px solid var(--rule);border-radius:10px;
+                  background:var(--card);border:1px solid var(--rule);border-radius:var(--r-md);
                   display:flex;align-items:center;justify-content:center;cursor:pointer;
                   font-size:18px;line-height:1;color:var(--ink);z-index:10;
                   transition:background var(--dur-base),border-color var(--dur-base)}
@@ -804,7 +813,7 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
    drawn button: a 28px control is under the 44px minimum for a fingertip, and
    this card is dense enough that a visibly bigger button would crowd the
    title. Sits only around the button, never over the dropdown below it. */
-.over-menu::before{content:'';position:absolute;inset:-9px;border-radius:8px}
+.over-menu::before{content:'';position:absolute;inset:-9px;border-radius:var(--r-sm)}
 /* .dots is a real <button> so the menu is keyboard-operable; it fills the
    .over-menu box and inherits its look rather than drawing a second one. */
 .over-menu .dots{position:absolute;inset:0;width:100%;height:100%;padding:0;margin:0;
@@ -817,7 +826,7 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
    which made Share unclickable on every card except the last row */
 .over-menu.active{z-index:1000}
 .over-menu .dropdown{display:block;position:absolute;top:100%;right:0;
-                            background:var(--card);border:1px solid var(--rule);border-radius:12px;
+                            background:var(--card);border:1px solid var(--rule);border-radius:var(--r-md);
                             min-width:180px;margin-top:6px;box-shadow:0 4px 12px rgba(0,0,0,.12);
                             z-index:20;opacity:0;visibility:hidden;transform:translateY(-4px);
                             transition:opacity var(--dur-fast) ease,transform var(--dur-fast) ease,visibility var(--dur-fast)}
@@ -834,7 +843,7 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
 .over-menu .has-sub{position:relative}
 .over-menu .has-sub>button{border-bottom:none}
 .over-menu .subdrop{display:block;position:absolute;right:100%;top:0;margin-right:4px;
-                          background:var(--card);border:1px solid var(--rule);border-radius:12px;
+                          background:var(--card);border:1px solid var(--rule);border-radius:var(--r-md);
                           min-width:130px;box-shadow:0 4px 12px rgba(0,0,0,.12);z-index:30;
                           opacity:0;visibility:hidden;transform:translateY(-4px);
                           transition:opacity var(--dur-fast) ease,transform var(--dur-fast) ease,visibility var(--dur-fast)}
@@ -905,7 +914,7 @@ footer.site .disclosure{margin:14px 0}
    distinct when they sit back to back. */
 .prose .callout{margin:0 0 26px;padding:18px 20px 20px;background:var(--card);
                 border:1px solid var(--rule);border-left:4px solid var(--signal);
-                border-radius:4px}
+                border-radius:var(--r-sm)}
 .prose .callout.callout-toc{border-left-color:var(--gate)}
 .prose .callout h2{margin:0 0 12px;padding-left:0;border-left:none;font-size:1.15rem}
 .prose .callout ul{margin:0}
@@ -921,20 +930,20 @@ footer.site .disclosure{margin:14px 0}
 .prose li::before{content:'';position:absolute;left:0;top:.62em;width:12px;height:2px;
                   border-radius:999px;background:var(--signal)}
 .prose strong{font-weight:700;background:rgba(217,58,18,.14);padding:.05em .3em;
-              border-radius:4px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+              border-radius:var(--r-sm);box-decoration-break:clone;-webkit-box-decoration-break:clone}
 .prose a{color:var(--gate);text-underline-offset:3px;font-weight:600}
 .prose .stat{font-family:var(--mono);font-variant-numeric:tabular-nums}
 .prose figure.post-img{margin:22px auto;padding:14px;background:var(--card);max-width:600px;
-                       border:1px solid var(--rule);border-radius:10px;text-align:center}
-.prose figure.post-img img{max-width:600px;width:100%;height:auto;border-radius:6px;display:block;margin:0 auto}
+                       border:1px solid var(--rule);border-radius:var(--r-md);text-align:center}
+.prose figure.post-img img{max-width:600px;width:100%;height:auto;border-radius:var(--r-sm);display:block;margin:0 auto}
 .prose figure.post-img figcaption{margin-top:10px;font-size:.85rem;color:var(--ink-soft)}
 /* Full-width: the infographic is already a designed, self-contained dark
    card (own frame, own padding) -- the 280px product-photo cap and card
    wrapper above would just shrink it into a postage stamp. */
 .prose figure.post-infographic{margin:26px 0}
-.prose figure.post-infographic img{width:100%;height:auto;border-radius:12px;display:block}
+.prose figure.post-infographic img{width:100%;height:auto;border-radius:var(--r-md);display:block}
 .prose figure.post-hero{margin:0 0 26px}
-.prose figure.post-hero img{width:100%;height:auto;border-radius:10px;display:block}
+.prose figure.post-hero img{width:100%;height:auto;border-radius:var(--r-md);display:block}
 .prose table{width:100%;margin:0 0 22px;border-collapse:collapse;font-size:.92rem}
 .prose th,.prose td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--rule)}
 .prose th{font:600 11px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;
@@ -958,7 +967,7 @@ footer.site .disclosure{margin:14px 0}
    card), Amazon keeps its own orange Buy button and red price -- only the
    6px accent border is shared between the two systems. */
 .compare-card{position:relative;padding:18px;background:var(--card);border:1px solid var(--rule);
-              border-radius:12px;text-align:left;display:grid;grid-template-columns:200px 1fr;
+              border-radius:var(--r-md);text-align:left;display:grid;grid-template-columns:200px 1fr;
               grid-template-areas:"img text" "img btn" "img meta";column-gap:14px;row-gap:4px;
               align-items:center}
 @media (max-width:480px){
@@ -974,7 +983,7 @@ footer.site .disclosure{margin:14px 0}
    (see the block above) -- same size, same border/radius/background, so an
    Amazon Pick and an eBay [[shop:...]] card in the same post read as one
    consistent product-card language, not two different systems. */
-.compare-card img{grid-area:img;width:200px;height:200px;object-fit:contain;border-radius:12px;
+.compare-card img{grid-area:img;width:200px;height:200px;object-fit:contain;border-radius:var(--r-md);
                   border:1px solid var(--rule);background:var(--paper-3);align-self:start}
 .compare-badge{position:absolute;top:12px;left:12px;padding:4px 10px;border-radius:999px;
                font:700 11px/1 var(--mono);letter-spacing:.02em}
@@ -996,7 +1005,7 @@ footer.site .disclosure{margin:14px 0}
 .blog-list{max-width:68ch;margin:8px 0 40px}
 .blog-row{padding:20px 0;border-top:1px solid var(--rule);display:flex;gap:18px;align-items:flex-start}
 .blog-row:last-child{border-bottom:1px solid var(--rule)}
-.blog-row-cover{flex-shrink:0;display:block;width:140px;height:88px;border-radius:8px;
+.blog-row-cover{flex-shrink:0;display:block;width:140px;height:88px;border-radius:var(--r-sm);
                  overflow:hidden;border:1px solid var(--rule)}
 .blog-row-cover img{width:100%;height:100%;object-fit:cover;display:block}
 .blog-row-body{min-width:0}
@@ -1017,7 +1026,7 @@ footer.site .disclosure{margin:14px 0}
 .author-head h1{margin:0;font-size:clamp(1.6rem,4vw,2.1rem)}
 .author-bio{max-width:64ch;color:var(--ink-soft);margin:0 0 34px}
 
-a:focus-visible,button:focus-visible{outline:2px solid var(--signal);outline-offset:2px;border-radius:6px}
+a:focus-visible,button:focus-visible{outline:2px solid var(--signal);outline-offset:2px;border-radius:var(--r-sm)}
 
 @media (max-width:760px){
   .wrap{padding:0 18px}
@@ -1049,7 +1058,7 @@ html{scroll-behavior:smooth}
    plus native scroll gives touch swipe and keyboard scrolling for free. The
    arrows just call scrollBy() on the same element the finger already drives. */
 .topdeals{margin:28px 0 4px;background:var(--card);border:2px solid var(--signal);
-          border-radius:24px;padding:20px 22px 22px}
+          border-radius:var(--r-lg);padding:20px 22px 22px}
 @media(max-width:640px){.topdeals{padding:16px 14px 18px}}
 .td-head{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:14px}
 .td-head h2{font-size:clamp(1.25rem,3vw,1.6rem);font-weight:800;letter-spacing:-.015em;margin:0;color:var(--ink)}
@@ -1064,7 +1073,7 @@ html{scroll-behavior:smooth}
 
 .td-card{scroll-snap-align:start;flex:0 0 218px;width:218px;position:relative;
          display:flex;flex-direction:column;text-decoration:none;color:inherit;
-         background:var(--card);border:1px solid var(--rule);border-radius:20px;
+         background:var(--card);border:1px solid var(--rule);border-radius:var(--r-lg);
          box-shadow:0 1px 3px rgba(0,0,0,.06);overflow:hidden;
          transition:transform var(--dur-med) ease,box-shadow var(--dur-med) ease,border-color var(--dur-med) ease}
 .td-card:hover,.td-card:focus-visible{transform:translateY(-4px);
@@ -1211,7 +1220,7 @@ html{scroll-behavior:smooth}
 /* ---- durable per-deal pages (/d/{id}.html), pilot 2026-08-14 ---- */
 .deal-page{display:flex;gap:32px;margin:22px 0 40px;flex-wrap:wrap}
 .deal-page-media{flex:0 0 320px;max-width:100%;background:var(--card);
-                  border:1px solid var(--rule);border-radius:4px;overflow:hidden;
+                  border:1px solid var(--rule);border-radius:var(--r-sm);overflow:hidden;
                   display:flex;align-items:center;justify-content:center;min-height:240px;
                   position:relative}
 .deal-page-media img{width:100%;height:auto;display:block}
@@ -1237,7 +1246,7 @@ html{scroll-behavior:smooth}
 .deal-page-pct{font:800 12px/1 var(--mono);color:#fff;background:var(--signal);
                padding:5px 8px;border-radius:999px;letter-spacing:.03em}
 .deal-cta{display:inline-block;background:var(--signal);color:#fff;font-weight:700;
-          text-decoration:none;padding:13px 22px;border-radius:4px;font-size:14.5px;
+          text-decoration:none;padding:13px 22px;border-radius:var(--r-sm);font-size:14.5px;
           transition:background var(--dur-base),transform var(--dur-fast) ease-out}
 .deal-cta:hover{background:var(--signal-dark)}
 .deal-cta:active{transform:scale(.97)}
@@ -1249,7 +1258,7 @@ html{scroll-behavior:smooth}
 
 /* ---- Discount Index (discount-index.html), 2026-08-14 ---- */
 .idx-stat-row{display:flex;flex-wrap:wrap;gap:12px;margin:8px 0 30px}
-.idx-stat{background:var(--card);border:1px solid var(--rule);border-radius:6px;
+.idx-stat{background:var(--card);border:1px solid var(--rule);border-radius:var(--r-sm);
           padding:14px 18px;min-width:130px;flex:1 1 130px}
 .idx-stat b{display:block;font:800 1.6rem/1.1 var(--mono);color:var(--signal);
             font-variant-numeric:tabular-nums;margin-bottom:2px}
@@ -1281,12 +1290,12 @@ body.curator-mode .curator-only{display:inline-flex}
 .pin-btn[aria-pressed="true"]{background:var(--signal);border-color:var(--signal)}
 body.curator-mode #curator-badge{display:flex}
 #curator-badge{position:fixed;right:18px;bottom:18px;z-index:500;align-items:center;gap:6px;
-               background:var(--signal);color:#fff;border:none;border-radius:24px;
+               background:var(--signal);color:#fff;border:none;border-radius:var(--r-lg);
                padding:10px 18px;font:700 14px/1 var(--mono);cursor:pointer;
                box-shadow:0 4px 14px rgba(0,0,0,.25)}
 #curator-panel{position:fixed;right:18px;bottom:70px;z-index:500;width:300px;max-height:60vh;
                overflow-y:auto;background:var(--card);border:1px solid var(--rule);
-               border-radius:8px;box-shadow:0 8px 24px rgba(0,0,0,.3);padding:12px;display:none}
+               border-radius:var(--r-sm);box-shadow:0 8px 24px rgba(0,0,0,.3);padding:12px;display:none}
 #curator-panel.open{display:block}
 #curator-panel h4{margin:0 0 8px;font-size:13px;text-transform:uppercase;letter-spacing:.04em;color:var(--muted)}
 #curator-panel ul{list-style:none;margin:0 0 10px;padding:0}
@@ -1295,7 +1304,7 @@ body.curator-mode #curator-badge{display:flex}
 #curator-panel li span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 #curator-panel li button{border:none;background:none;color:var(--muted);cursor:pointer;font-size:14px}
 #curator-panel .curator-actions{display:flex;gap:8px}
-#curator-panel .curator-actions button{flex:1;padding:8px;border-radius:4px;border:1px solid var(--rule);
+#curator-panel .curator-actions button{flex:1;padding:8px;border-radius:var(--r-sm);border:1px solid var(--rule);
                    background:var(--paper-2);cursor:pointer;font-size:12.5px;font-weight:600}
 #curator-panel .curator-actions button.primary{background:var(--signal);color:#fff;border-color:var(--signal)}
 </style></head><body>
