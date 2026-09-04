@@ -1035,11 +1035,25 @@
     var targetId = dealParam || location.hash.slice(1);
     var targetCard = document.getElementById(targetId);
     if (!targetCard || !targetCard.classList.contains('card')) return false;
+    // Must sort the same way render() will before computing idx -- render()
+    // re-sorts `filtered` by state.sort before slicing to the visible page,
+    // and state.sort defaults to 'newest' for every visitor (both the JS
+    // `state` object and the server-rendered <option selected> agree on
+    // this), not just 'default' (discount desc). Comparing an idx from the
+    // unsorted order against a page slice from the newest-first order was
+    // silently hiding the deep-linked card (display:none) on every normal
+    // page load, for any item outside the first PAGE_SIZE newest items --
+    // confirmed live 2026-09-04 on ?deal=d-ebay-id-157944559471: the target
+    // card got the `linked` class correctly but fell outside the visible
+    // page because its position in newest-first order didn't match the
+    // unsorted index gotoDeepLink() had computed.
     var filteredNow = allCards.filter(matches);
+    if (state.sort !== 'default') filteredNow = filteredNow.slice().sort(sortCompare);
     var idx = filteredNow.indexOf(targetCard);
     if (idx === -1 && state.cats.length) {
       state.cats = [];
       filteredNow = allCards.filter(matches);
+      if (state.sort !== 'default') filteredNow = filteredNow.slice().sort(sortCompare);
       idx = filteredNow.indexOf(targetCard);
     }
     if (idx === -1) return false;
