@@ -33,7 +33,7 @@
 <meta name="twitter:title" content="Indian Twin Bed Sheet Cotton Wall Hanging Decorative Twin Size Tapestr -- 50% off, $14.49 (was $28.98) | Half or Nothing">
 <meta name="twitter:description" content="50% off, $14.49 (was $28.98)">
 <meta name="twitter:image" content="https://i.ebayimg.com/images/g/gcUAAOSwSp5dKcpM/s-l500.jpg">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Indian Twin Bed Sheet Cotton Wall Hanging Decorative Twin Size Tapestry for Gift","description":"50% off -- was $28.98, now $14.49 at Ebay.","image":"https://i.ebayimg.com/images/g/gcUAAOSwSp5dKcpM/s-l500.jpg","offers":{"@type":"Offer","price":"14.49","priceCurrency":"USD","availability":"https://schema.org/InStock","url":"https://halfornothing.com/d/d-ebay-id-264396913352.html","priceValidUntil":"2026-09-04T05:05:07Z"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Deals","item":"https://halfornothing.com/"},{"@type":"ListItem","position":2,"name":"Home & Kitchen","item":"https://halfornothing.com/home-kitchen.html"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Indian Twin Bed Sheet Cotton Wall Hanging Decorative Twin Size Tapestry for Gift","description":"50% off -- was $28.98, now $14.49 at Ebay.","image":"https://i.ebayimg.com/images/g/gcUAAOSwSp5dKcpM/s-l500.jpg","offers":{"@type":"Offer","price":"14.49","priceCurrency":"USD","availability":"https://schema.org/InStock","url":"https://halfornothing.com/d/d-ebay-id-264396913352.html","priceValidUntil":"2026-09-04T06:04:49Z"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Deals","item":"https://halfornothing.com/"},{"@type":"ListItem","position":2,"name":"Home & Kitchen","item":"https://halfornothing.com/home-kitchen.html"}]}</script>
 <style>
 :root{
   --dur-fast:.12s; --dur-base:.15s; --dur-med:.18s;
@@ -862,7 +862,15 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
                background:var(--paper-2);border:1px solid var(--rule);border-radius:var(--r-sm);
                color:var(--ink);font:600 12px/1 var(--display);text-align:center;cursor:pointer}
 @media(hover:hover){.variant-pill:hover{border-color:var(--signal);color:var(--signal)}}
-#vmodalStack{position:fixed;inset:0;z-index:2000}
+/* pointer-events:none here, :auto on the two children below -- #vmodalStack
+   itself is never removed once created (only its children are, on close), so
+   without this the full-viewport fixed container keeps swallowing every
+   click on the ENTIRE page after the first close, invisibly (it is empty,
+   nothing to see) but totally: confirmed live 2026-09-03, "vuelvo y nada en
+   la pagina sirve" -- not just the pill, everything, including nav links
+   nowhere near where the modal had been. */
+#vmodalStack{position:fixed;inset:0;z-index:2000;pointer-events:none}
+#vmodalStack .vmodal-backdrop,#vmodalStack .vmodal{pointer-events:auto}
 /* Appearing/disappearing is a real state transition (a dialog entering or
    leaving the page), not decoration -- the global reduced-motion rule above
    already neutralizes both keyframes for anyone who asked for that. */
@@ -1380,7 +1388,7 @@ body.curator-mode #curator-badge{display:flex}
 
 </div></header>
 <main class="wrap">
-<nav class='crumbs' aria-label='Breadcrumb'><a href='/index.html'>All deals</a> <span>&rsaquo;</span> <a href='/home-kitchen.html'>Home &amp; Kitchen</a> <span>&rsaquo;</span> <b>Deal</b></nav><article class='deal-page'><div class='deal-page-media'><img src='https://i.ebayimg.com/images/g/gcUAAOSwSp5dKcpM/s-l500.jpg' alt='Indian Twin Bed Sheet Cotton Wall Hanging Decorative Twin Size Tapestry for Gift' loading='eager' decoding='async' referrerpolicy='no-referrer'></div><div class='deal-page-body'><h1>Indian Twin Bed Sheet Cotton Wall Hanging Decorative Twin Size Tapestry for Gift</h1><p class='deal-status deal-status-live'>Live now &middot; verified within the last 6 hours.</p><p class='deal-page-price'><b>$14.49</b><s>$28.98</s><span class='deal-page-pct'>50% off</span></p><a class='deal-cta' href='https://www.ebay.com/itm/264396913352?_skw=wall+art+decor&amp;hash=item3d8f48bac8%3Ag%3AgcUAAOSwSp5dKcpM&amp;amdata=enc%3AAQALAAAA8ACCtXRWQnOEpyOqnQQ8KGaSk6zqBP4akQyl4uC%2Fqp5nC5LM28r8IaFOvkdjJPmP33eQh3Yi5gjSJ0kfe5qd7yuYUYMrlP0wan%2B2eOXD%2FuTxRotXrsAqOZjTgImjxLLEeFCDBs0wd1zFqzApympA9nQl0xfKysskJhAcBLWR6Ru7oLE2VSuX0295Zolugmv5qswDIxj5%2F8cNDH7XmsGFE2jyZ3lyaRacTcs96BIygA%2FJ1a%2BmcdoVDbaYFfWzSL83nxb0ZmdzhRJQTXSulSHZGE%2B7XFldjHeyihqn4MAJRlvFELDuYG6eEsK9VVQQjA1rtQ%3D%3D&amp;campid=5339186549&amp;toolid=10001&amp;mkevt=1&amp;mkcid=1&amp;mkrid=711-53200-19255-0&amp;siteid=0&amp;customid=hond' target='_blank' rel='noopener sponsored'>Get this deal at Ebay &rarr;</a></div></article>
+<nav class='crumbs' aria-label='Breadcrumb'><a href='/index.html'>All deals</a> <span>&rsaquo;</span> <a href='/home-kitchen.html'>Home &amp; Kitchen</a> <span>&rsaquo;</span> <b>Deal</b></nav><article class='deal-page'><div class='deal-page-media'><img src='https://i.ebayimg.com/images/g/gcUAAOSwSp5dKcpM/s-l500.jpg' alt='Indian Twin Bed Sheet Cotton Wall Hanging Decorative Twin Size Tapestry for Gift' loading='eager' decoding='async' referrerpolicy='no-referrer'></div><div class='deal-page-body'><h1>Indian Twin Bed Sheet Cotton Wall Hanging Decorative Twin Size Tapestry for Gift</h1><p class='deal-status deal-status-live'>Live now &middot; verified within the last 6 hours.</p><p class='deal-page-price'><b>$14.49</b><s>$28.98</s><span class='deal-page-pct'>50% off</span></p><a class='deal-cta' href='https://www.ebay.com/itm/264396913352?_skw=wall+art+decor&amp;hash=item3d8f48bac8%3Ag%3AgcUAAOSwSp5dKcpM&amp;amdata=enc%3AAQALAAAA8ACCtXRWQnOEpyOqnQQ8KGaSk6zqBP4akQyl4uC%2Fqp5nC5LM28r8IaFOvkdjJPmP33eQh3Yi5gjSJ0kfe5qd7yuYUYMrlP0wan%2B2eOXD%2FuTxRotXrsAqOZjTgImjxLLEeFCDBs0wd1zFqzApympA9nSmDYxCx9SUVUdwfbs71di6JsUku8Lr1hTvN5WZdKaJe1vMa2wS%2BJSMzQZhosquE39k%2BzrCFKy9jE%2B9cRgNKC5U6sO8R3%2Bpw6Za3FYaYjWfmxv35xsqEvEFTOtBQ6MtDKU%2F93%2BjHrx94tOSUJg0kIngC77%2FTLABt0YZrwyY6WiKVw%3D%3D&amp;campid=5339186549&amp;toolid=10001&amp;mkevt=1&amp;mkcid=1&amp;mkrid=711-53200-19255-0&amp;siteid=0&amp;customid=hond' target='_blank' rel='noopener sponsored'>Get this deal at Ebay &rarr;</a></div></article>
 <footer class="site"><div class="footer-grid">
 <div class="footer-main">
 <details class="disclosure">
@@ -1421,7 +1429,7 @@ body.curator-mode #curator-badge{display:flex}
 </div></footer>
 </main>
 <button type="button" class="back-to-top" id="backToTop" aria-label="Back to top">&#9650;</button>
-<script src="/assets/js/interaction.js?v=d974a4321b"></script>
+<script src="/assets/js/interaction.js?v=b761bf8fd8"></script>
 <script type="text/javascript" src="https://js.codedrink.com/snippet.min.js" defer></script>
 <script type="text/javascript" src="/assets/js/lasso-picks.js?v=3" defer></script>
 <script type="text/javascript" src="https://s.skimresources.com/js/307865X1796159.skimlinks.js"></script>

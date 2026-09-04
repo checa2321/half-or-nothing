@@ -33,7 +33,7 @@
 <meta name="twitter:title" content="Persol Polarized Blue Gradient Square Unisex Sunglasses PO3313S 96/S3  -- 59% off, $163.44 (was $402.00) | Half or Nothing">
 <meta name="twitter:description" content="59% off, $163.44 (was $402.00)">
 <meta name="twitter:image" content="https://i.ebayimg.com/images/g/DlEAAeSwiX1qlyCf/s-l500.jpg">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Persol Polarized Blue Gradient Square Unisex Sunglasses PO3313S 96/S3 52","description":"59% off -- was $402.00, now $163.44 at Ebay.","image":"https://i.ebayimg.com/images/g/DlEAAeSwiX1qlyCf/s-l500.jpg","offers":{"@type":"Offer","price":"163.44","priceCurrency":"USD","availability":"https://schema.org/InStock","url":"https://halfornothing.com/d/d-ebay-id-168478374631.html","priceValidUntil":"2026-09-04T05:05:07Z"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Deals","item":"https://halfornothing.com/"},{"@type":"ListItem","position":2,"name":"Fashion & Accessories","item":"https://halfornothing.com/fashion.html"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Persol Polarized Blue Gradient Square Unisex Sunglasses PO3313S 96/S3 52","description":"59% off -- was $402.00, now $163.44 at Ebay.","image":"https://i.ebayimg.com/images/g/DlEAAeSwiX1qlyCf/s-l500.jpg","offers":{"@type":"Offer","price":"163.44","priceCurrency":"USD","availability":"https://schema.org/InStock","url":"https://halfornothing.com/d/d-ebay-id-168478374631.html","priceValidUntil":"2026-09-04T06:04:49Z"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Deals","item":"https://halfornothing.com/"},{"@type":"ListItem","position":2,"name":"Fashion & Accessories","item":"https://halfornothing.com/fashion.html"}]}</script>
 <style>
 :root{
   --dur-fast:.12s; --dur-base:.15s; --dur-med:.18s;
@@ -862,7 +862,15 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
                background:var(--paper-2);border:1px solid var(--rule);border-radius:var(--r-sm);
                color:var(--ink);font:600 12px/1 var(--display);text-align:center;cursor:pointer}
 @media(hover:hover){.variant-pill:hover{border-color:var(--signal);color:var(--signal)}}
-#vmodalStack{position:fixed;inset:0;z-index:2000}
+/* pointer-events:none here, :auto on the two children below -- #vmodalStack
+   itself is never removed once created (only its children are, on close), so
+   without this the full-viewport fixed container keeps swallowing every
+   click on the ENTIRE page after the first close, invisibly (it is empty,
+   nothing to see) but totally: confirmed live 2026-09-03, "vuelvo y nada en
+   la pagina sirve" -- not just the pill, everything, including nav links
+   nowhere near where the modal had been. */
+#vmodalStack{position:fixed;inset:0;z-index:2000;pointer-events:none}
+#vmodalStack .vmodal-backdrop,#vmodalStack .vmodal{pointer-events:auto}
 /* Appearing/disappearing is a real state transition (a dialog entering or
    leaving the page), not decoration -- the global reduced-motion rule above
    already neutralizes both keyframes for anyone who asked for that. */
@@ -1421,7 +1429,7 @@ body.curator-mode #curator-badge{display:flex}
 </div></footer>
 </main>
 <button type="button" class="back-to-top" id="backToTop" aria-label="Back to top">&#9650;</button>
-<script src="/assets/js/interaction.js?v=d974a4321b"></script>
+<script src="/assets/js/interaction.js?v=b761bf8fd8"></script>
 <script type="text/javascript" src="https://js.codedrink.com/snippet.min.js" defer></script>
 <script type="text/javascript" src="/assets/js/lasso-picks.js?v=3" defer></script>
 <script type="text/javascript" src="https://s.skimresources.com/js/307865X1796159.skimlinks.js"></script>

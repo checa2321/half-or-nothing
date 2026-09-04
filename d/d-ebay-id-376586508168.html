@@ -33,7 +33,7 @@
 <meta name="twitter:title" content="Pampers Pure Hybrid Reusable Cloth Diaper Cover, One Size - Full Flora -- 60% off, $11.99 (was $29.99) | Half or Nothing">
 <meta name="twitter:description" content="60% off, $11.99 (was $29.99)">
 <meta name="twitter:image" content="https://i.ebayimg.com/images/g/xQAAAeSwxxdqgG0Z/s-l500.jpg">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Pampers Pure Hybrid Reusable Cloth Diaper Cover, One Size - Full Floral","description":"60% off -- was $29.99, now $11.99 at Ebay.","image":"https://i.ebayimg.com/images/g/xQAAAeSwxxdqgG0Z/s-l500.jpg","offers":{"@type":"Offer","price":"11.99","priceCurrency":"USD","availability":"https://schema.org/InStock","url":"https://halfornothing.com/d/d-ebay-id-376586508168.html","priceValidUntil":"2026-09-04T05:05:08Z"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Deals","item":"https://halfornothing.com/"},{"@type":"ListItem","position":2,"name":"Baby & Kids","item":"https://halfornothing.com/baby-kids.html"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Pampers Pure Hybrid Reusable Cloth Diaper Cover, One Size - Full Floral","description":"60% off -- was $29.99, now $11.99 at Ebay.","image":"https://i.ebayimg.com/images/g/xQAAAeSwxxdqgG0Z/s-l500.jpg","offers":{"@type":"Offer","price":"11.99","priceCurrency":"USD","availability":"https://schema.org/InStock","url":"https://halfornothing.com/d/d-ebay-id-376586508168.html","priceValidUntil":"2026-09-04T06:04:49Z"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Deals","item":"https://halfornothing.com/"},{"@type":"ListItem","position":2,"name":"Baby & Kids","item":"https://halfornothing.com/baby-kids.html"}]}</script>
 <style>
 :root{
   --dur-fast:.12s; --dur-base:.15s; --dur-med:.18s;
@@ -862,7 +862,15 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
                background:var(--paper-2);border:1px solid var(--rule);border-radius:var(--r-sm);
                color:var(--ink);font:600 12px/1 var(--display);text-align:center;cursor:pointer}
 @media(hover:hover){.variant-pill:hover{border-color:var(--signal);color:var(--signal)}}
-#vmodalStack{position:fixed;inset:0;z-index:2000}
+/* pointer-events:none here, :auto on the two children below -- #vmodalStack
+   itself is never removed once created (only its children are, on close), so
+   without this the full-viewport fixed container keeps swallowing every
+   click on the ENTIRE page after the first close, invisibly (it is empty,
+   nothing to see) but totally: confirmed live 2026-09-03, "vuelvo y nada en
+   la pagina sirve" -- not just the pill, everything, including nav links
+   nowhere near where the modal had been. */
+#vmodalStack{position:fixed;inset:0;z-index:2000;pointer-events:none}
+#vmodalStack .vmodal-backdrop,#vmodalStack .vmodal{pointer-events:auto}
 /* Appearing/disappearing is a real state transition (a dialog entering or
    leaving the page), not decoration -- the global reduced-motion rule above
    already neutralizes both keyframes for anyone who asked for that. */
@@ -1380,7 +1388,7 @@ body.curator-mode #curator-badge{display:flex}
 
 </div></header>
 <main class="wrap">
-<nav class='crumbs' aria-label='Breadcrumb'><a href='/index.html'>All deals</a> <span>&rsaquo;</span> <a href='/baby-kids.html'>Baby &amp; Kids</a> <span>&rsaquo;</span> <b>Deal</b></nav><article class='deal-page'><div class='deal-page-media'><img src='https://i.ebayimg.com/images/g/xQAAAeSwxxdqgG0Z/s-l500.jpg' alt='Pampers Pure Hybrid Reusable Cloth Diaper Cover, One Size - Full Floral' loading='eager' decoding='async' referrerpolicy='no-referrer'></div><div class='deal-page-body'><h1>Pampers Pure Hybrid Reusable Cloth Diaper Cover, One Size - Full Floral</h1><p class='deal-status deal-status-live'>Live now &middot; verified within the last 6 hours.</p><p class='deal-page-price'><b>$11.99</b><s>$29.99</s><span class='deal-page-pct'>60% off</span></p><a class='deal-cta' href='https://www.ebay.com/itm/376586508168?_skw=baby&amp;hash=item57ae4e1788%3Ag%3AxQAAAeSwxxdqgG0Z&amp;amdata=enc%3AAQALAAAA4ACCtXRWQnOEpyOqnQQ8KGZ7CCxropTM5HEQlOV96bLxJERFYql0s4Djfi4gGWFzpQcg0tt6km8MzoY8vOz7WpyhS2V4r%2BkFqyMtPS2zqiJihg4idoiNtktDfXlhrR2%2Bv%2B4CpkBw6fkvbjcbfGw8kYrQcCeBmntRzOqsRc9jFUli0Trm9OuzEIGLxD2xx%2BPIhjRgYzdlX2GK63pW8Ioh2dgquQzd0WOFD9Q0lpPzU7%2Firu%2FZK8ZzhveIBGofZjTvzsI2C3LOhIiPHXNSxudJXAvjmZeNQgf%2FY7RciaIKRpty&amp;campid=5339186549&amp;toolid=10001&amp;mkevt=1&amp;mkcid=1&amp;mkrid=711-53200-19255-0&amp;siteid=0&amp;customid=hond' target='_blank' rel='noopener sponsored'>Get this deal at Ebay &rarr;</a></div></article>
+<nav class='crumbs' aria-label='Breadcrumb'><a href='/index.html'>All deals</a> <span>&rsaquo;</span> <a href='/baby-kids.html'>Baby &amp; Kids</a> <span>&rsaquo;</span> <b>Deal</b></nav><article class='deal-page'><div class='deal-page-media'><img src='https://i.ebayimg.com/images/g/xQAAAeSwxxdqgG0Z/s-l500.jpg' alt='Pampers Pure Hybrid Reusable Cloth Diaper Cover, One Size - Full Floral' loading='eager' decoding='async' referrerpolicy='no-referrer'></div><div class='deal-page-body'><h1>Pampers Pure Hybrid Reusable Cloth Diaper Cover, One Size - Full Floral</h1><p class='deal-status deal-status-live'>Live now &middot; verified within the last 6 hours.</p><p class='deal-page-price'><b>$11.99</b><s>$29.99</s><span class='deal-page-pct'>60% off</span></p><a class='deal-cta' href='https://www.ebay.com/itm/376586508168?_skw=baby&amp;hash=item57ae4e1788%3Ag%3AxQAAAeSwxxdqgG0Z&amp;amdata=enc%3AAQALAAAA4ACCtXRWQnOEpyOqnQQ8KGZ7CCxropTM5HEQlOV96bLxJERFYql0s4Djfi4gGWFzpQcg0tt6km8MzoY8vOz7WpyhS2V4r%2BkFqyMtPS2zqiJihg4idoiNtktDfXlhrR2%2Bv%2B4CpkBw6fkvbjcbfGw8kYrXAvYLFG1z3MBSA9f5FOagZ6QH4wNneGK3rJehkCMa98XP4Bd5dBCC4leFDNSkZ4hxiEnivJXOBraIl4DAk%2FJHE64bZfWmptn8D3DMwYk66WAWFOYFx2aSTpMeqI4ErdNSVf6Bioey0UviJ8%2BH7LmW&amp;campid=5339186549&amp;toolid=10001&amp;mkevt=1&amp;mkcid=1&amp;mkrid=711-53200-19255-0&amp;siteid=0&amp;customid=hond' target='_blank' rel='noopener sponsored'>Get this deal at Ebay &rarr;</a></div></article>
 <footer class="site"><div class="footer-grid">
 <div class="footer-main">
 <details class="disclosure">
@@ -1421,7 +1429,7 @@ body.curator-mode #curator-badge{display:flex}
 </div></footer>
 </main>
 <button type="button" class="back-to-top" id="backToTop" aria-label="Back to top">&#9650;</button>
-<script src="/assets/js/interaction.js?v=d974a4321b"></script>
+<script src="/assets/js/interaction.js?v=b761bf8fd8"></script>
 <script type="text/javascript" src="https://js.codedrink.com/snippet.min.js" defer></script>
 <script type="text/javascript" src="/assets/js/lasso-picks.js?v=3" defer></script>
 <script type="text/javascript" src="https://s.skimresources.com/js/307865X1796159.skimlinks.js"></script>

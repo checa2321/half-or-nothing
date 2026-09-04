@@ -33,7 +33,7 @@
 <meta name="twitter:title" content="Juliska Iberian Sage 4-Piece Spreader Set - NIB $52 -- 65% off, $18.00 (was $52.00) | Half or Nothing">
 <meta name="twitter:description" content="65% off, $18.00 (was $52.00)">
 <meta name="twitter:image" content="https://i.ebayimg.com/images/g/lVkAAeSwKRRqFiKf/s-l500.jpg">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Juliska Iberian Sage 4-Piece Spreader Set - NIB $52","description":"65% off -- was $52.00, now $18.00 at Ebay.","image":"https://i.ebayimg.com/images/g/lVkAAeSwKRRqFiKf/s-l500.jpg","offers":{"@type":"Offer","price":"18.00","priceCurrency":"USD","availability":"https://schema.org/InStock","url":"https://halfornothing.com/d/d-ebay-id-800075738930.html","priceValidUntil":"2026-09-04T05:05:08Z"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Deals","item":"https://halfornothing.com/"},{"@type":"ListItem","position":2,"name":"Home & Kitchen","item":"https://halfornothing.com/home-kitchen.html"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Juliska Iberian Sage 4-Piece Spreader Set - NIB $52","description":"65% off -- was $52.00, now $18.00 at Ebay.","image":"https://i.ebayimg.com/images/g/lVkAAeSwKRRqFiKf/s-l500.jpg","offers":{"@type":"Offer","price":"18.00","priceCurrency":"USD","availability":"https://schema.org/InStock","url":"https://halfornothing.com/d/d-ebay-id-800075738930.html","priceValidUntil":"2026-09-04T06:04:49Z"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Deals","item":"https://halfornothing.com/"},{"@type":"ListItem","position":2,"name":"Home & Kitchen","item":"https://halfornothing.com/home-kitchen.html"}]}</script>
 <style>
 :root{
   --dur-fast:.12s; --dur-base:.15s; --dur-med:.18s;
@@ -862,7 +862,15 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
                background:var(--paper-2);border:1px solid var(--rule);border-radius:var(--r-sm);
                color:var(--ink);font:600 12px/1 var(--display);text-align:center;cursor:pointer}
 @media(hover:hover){.variant-pill:hover{border-color:var(--signal);color:var(--signal)}}
-#vmodalStack{position:fixed;inset:0;z-index:2000}
+/* pointer-events:none here, :auto on the two children below -- #vmodalStack
+   itself is never removed once created (only its children are, on close), so
+   without this the full-viewport fixed container keeps swallowing every
+   click on the ENTIRE page after the first close, invisibly (it is empty,
+   nothing to see) but totally: confirmed live 2026-09-03, "vuelvo y nada en
+   la pagina sirve" -- not just the pill, everything, including nav links
+   nowhere near where the modal had been. */
+#vmodalStack{position:fixed;inset:0;z-index:2000;pointer-events:none}
+#vmodalStack .vmodal-backdrop,#vmodalStack .vmodal{pointer-events:auto}
 /* Appearing/disappearing is a real state transition (a dialog entering or
    leaving the page), not decoration -- the global reduced-motion rule above
    already neutralizes both keyframes for anyone who asked for that. */
@@ -1380,7 +1388,7 @@ body.curator-mode #curator-badge{display:flex}
 
 </div></header>
 <main class="wrap">
-<nav class='crumbs' aria-label='Breadcrumb'><a href='/index.html'>All deals</a> <span>&rsaquo;</span> <a href='/home-kitchen.html'>Home &amp; Kitchen</a> <span>&rsaquo;</span> <b>Deal</b></nav><article class='deal-page'><div class='deal-page-media'><img src='https://i.ebayimg.com/images/g/lVkAAeSwKRRqFiKf/s-l500.jpg' alt='Juliska Iberian Sage 4-Piece Spreader Set - NIB $52' loading='eager' decoding='async' referrerpolicy='no-referrer'></div><div class='deal-page-body'><h1>Juliska Iberian Sage 4-Piece Spreader Set - NIB $52</h1><p class='deal-status deal-status-live'>Live now &middot; verified within the last 6 hours.</p><p class='deal-page-price'><b>$18.00</b><s>$52.00</s><span class='deal-page-pct'>65% off</span></p><a class='deal-cta' href='https://www.ebay.com/itm/800075738930?_skw=flatware+set&amp;hash=itemba483aef32%3Ag%3AlVkAAeSwKRRqFiKf&amp;amdata=enc%3AAQALAAAA8ACCtXRWQnOEpyOqnQQ8KGaGd2q7DGWeSlAeZGA4L%2F9SIUa6kqCIGemvv1remtt3458Ry0iHRIGBUJuwCohP1qH7lYWoZP0eCCYr8uDlIsGUqWR%2BmefLcShhM1MWN7RgeSqwvW2PtkxLbqtmbVz1ajzRvODIYtQZyZvDW74QgOPmvJy3%2F3ENy8BfAzGGMIOQt%2BX9t2n7IH5qTZXZy3uuOTAZq%2FAVdbKn%2B1hSZ95otbNzlRnmcdrot7iENro3PqL5eL7AIV%2BEVcnRdTwZdk1nM15dNJQGmRPjhV99GrHDJbG%2BOkIEPIPjmVDM1R8eluh%2BWQ%3D%3D&amp;campid=5339186549&amp;toolid=10001&amp;mkevt=1&amp;mkcid=1&amp;mkrid=711-53200-19255-0&amp;siteid=0&amp;customid=hond' target='_blank' rel='noopener sponsored'>Get this deal at Ebay &rarr;</a></div></article>
+<nav class='crumbs' aria-label='Breadcrumb'><a href='/index.html'>All deals</a> <span>&rsaquo;</span> <a href='/home-kitchen.html'>Home &amp; Kitchen</a> <span>&rsaquo;</span> <b>Deal</b></nav><article class='deal-page'><div class='deal-page-media'><img src='https://i.ebayimg.com/images/g/lVkAAeSwKRRqFiKf/s-l500.jpg' alt='Juliska Iberian Sage 4-Piece Spreader Set - NIB $52' loading='eager' decoding='async' referrerpolicy='no-referrer'></div><div class='deal-page-body'><h1>Juliska Iberian Sage 4-Piece Spreader Set - NIB $52</h1><p class='deal-status deal-status-live'>Live now &middot; verified within the last 6 hours.</p><p class='deal-page-price'><b>$18.00</b><s>$52.00</s><span class='deal-page-pct'>65% off</span></p><a class='deal-cta' href='https://www.ebay.com/itm/800075738930?_skw=flatware+set&amp;hash=itemba483aef32%3Ag%3AlVkAAeSwKRRqFiKf&amp;amdata=enc%3AAQALAAAA8ACCtXRWQnOEpyOqnQQ8KGaGd2q7DGWeSlAeZGA4L%2F9SIUa6kqCIGemvv1remtt3458Ry0iHRIGBUJuwCohP1qH7lYWoZP0eCCYr8uDlIsGUqWR%2BmefLcShhM1MWN7RgeSqwvW2PtkxLbqtmbVz1ajzrT%2FJgfmEV4Sy%2FrvaeMk7culfbMfMTF5uMPkU6u4A4OwbbbOOwFAlFIchLP3AwPOLl1JZrfwjoi%2BQRKLirKghwM6Lyu9cZ1CTYQmGAuEW7iYXRw0C9G4jr%2FY%2Fd%2FoSEhsqk6JKSWMIFC%2BEXPao7hTXqBofrJNKu8yLEMrG3cC7GLg%3D%3D&amp;campid=5339186549&amp;toolid=10001&amp;mkevt=1&amp;mkcid=1&amp;mkrid=711-53200-19255-0&amp;siteid=0&amp;customid=hond' target='_blank' rel='noopener sponsored'>Get this deal at Ebay &rarr;</a></div></article>
 <footer class="site"><div class="footer-grid">
 <div class="footer-main">
 <details class="disclosure">
@@ -1421,7 +1429,7 @@ body.curator-mode #curator-badge{display:flex}
 </div></footer>
 </main>
 <button type="button" class="back-to-top" id="backToTop" aria-label="Back to top">&#9650;</button>
-<script src="/assets/js/interaction.js?v=d974a4321b"></script>
+<script src="/assets/js/interaction.js?v=b761bf8fd8"></script>
 <script type="text/javascript" src="https://js.codedrink.com/snippet.min.js" defer></script>
 <script type="text/javascript" src="/assets/js/lasso-picks.js?v=3" defer></script>
 <script type="text/javascript" src="https://s.skimresources.com/js/307865X1796159.skimlinks.js"></script>

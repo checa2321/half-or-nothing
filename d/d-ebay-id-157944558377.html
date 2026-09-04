@@ -33,7 +33,7 @@
 <meta name="twitter:title" content="Sferra Parello Cotton Percale Twin Sheet Set White - NWT $480 -- 62% off, $180.00 (was $480.00) | Half or Nothing">
 <meta name="twitter:description" content="62% off, $180.00 (was $480.00)">
 <meta name="twitter:image" content="https://i.ebayimg.com/images/g/iYkAAeSw2bhqipG8/s-l500.jpg">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Sferra Parello Cotton Percale Twin Sheet Set White - NWT $480","description":"62% off -- was $480.00, now $180.00 at Ebay.","image":"https://i.ebayimg.com/images/g/iYkAAeSw2bhqipG8/s-l500.jpg","offers":{"@type":"Offer","price":"180.00","priceCurrency":"USD","availability":"https://schema.org/InStock","url":"https://halfornothing.com/d/d-ebay-id-157944558377.html","priceValidUntil":"2026-09-04T05:05:07Z"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Deals","item":"https://halfornothing.com/"},{"@type":"ListItem","position":2,"name":"Home & Kitchen","item":"https://halfornothing.com/home-kitchen.html"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Sferra Parello Cotton Percale Twin Sheet Set White - NWT $480","description":"62% off -- was $480.00, now $180.00 at Ebay.","image":"https://i.ebayimg.com/images/g/iYkAAeSw2bhqipG8/s-l500.jpg","offers":{"@type":"Offer","price":"180.00","priceCurrency":"USD","availability":"https://schema.org/InStock","url":"https://halfornothing.com/d/d-ebay-id-157944558377.html","priceValidUntil":"2026-09-04T06:04:49Z"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Deals","item":"https://halfornothing.com/"},{"@type":"ListItem","position":2,"name":"Home & Kitchen","item":"https://halfornothing.com/home-kitchen.html"}]}</script>
 <style>
 :root{
   --dur-fast:.12s; --dur-base:.15s; --dur-med:.18s;
@@ -862,7 +862,15 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
                background:var(--paper-2);border:1px solid var(--rule);border-radius:var(--r-sm);
                color:var(--ink);font:600 12px/1 var(--display);text-align:center;cursor:pointer}
 @media(hover:hover){.variant-pill:hover{border-color:var(--signal);color:var(--signal)}}
-#vmodalStack{position:fixed;inset:0;z-index:2000}
+/* pointer-events:none here, :auto on the two children below -- #vmodalStack
+   itself is never removed once created (only its children are, on close), so
+   without this the full-viewport fixed container keeps swallowing every
+   click on the ENTIRE page after the first close, invisibly (it is empty,
+   nothing to see) but totally: confirmed live 2026-09-03, "vuelvo y nada en
+   la pagina sirve" -- not just the pill, everything, including nav links
+   nowhere near where the modal had been. */
+#vmodalStack{position:fixed;inset:0;z-index:2000;pointer-events:none}
+#vmodalStack .vmodal-backdrop,#vmodalStack .vmodal{pointer-events:auto}
 /* Appearing/disappearing is a real state transition (a dialog entering or
    leaving the page), not decoration -- the global reduced-motion rule above
    already neutralizes both keyframes for anyone who asked for that. */
@@ -1380,7 +1388,7 @@ body.curator-mode #curator-badge{display:flex}
 
 </div></header>
 <main class="wrap">
-<nav class='crumbs' aria-label='Breadcrumb'><a href='/index.html'>All deals</a> <span>&rsaquo;</span> <a href='/home-kitchen.html'>Home &amp; Kitchen</a> <span>&rsaquo;</span> <b>Deal</b></nav><article class='deal-page'><div class='deal-page-media'><img src='https://i.ebayimg.com/images/g/iYkAAeSw2bhqipG8/s-l500.jpg' alt='Sferra Parello Cotton Percale Twin Sheet Set White - NWT $480' loading='eager' decoding='async' referrerpolicy='no-referrer'></div><div class='deal-page-body'><h1>Sferra Parello Cotton Percale Twin Sheet Set White - NWT $480</h1><p class='deal-status deal-status-live'>Live now &middot; verified within the last 6 hours.</p><p class='deal-page-price'><b>$180.00</b><s>$480.00</s><span class='deal-page-pct'>62% off</span></p><a class='deal-cta' href='https://www.ebay.com/itm/157944558377?_skw=sheet+set&amp;hash=item24c63ab329%3Ag%3AiYkAAeSw2bhqipG8&amp;amdata=enc%3AAQALAAAA4ACCtXRWQnOEpyOqnQQ8KGYczWME4A9vaqWPLcW%2BJyoYEVtl3Q3cv73yTdWyCKTW%2FrlTEmnXnyW%2FW31Ex0q85dhyWQpkIaOVLcOGZ0yffSuodbsAOIapdBFXWKMECuUs3YArauARBiZKXs6c3TbPxJQ4Mktg6PxS%2Fqa0USFcaGtpTGfvAdr8sZbmnJW3vEHKkhrJkkxYA5vo1DH2489H%2F4m45xGwNTq1xlAeazwfhCUoIYhPgcudn8UW%2FrvC7EKPQrzwpR6aKWd82uNN4oNLES4rsttUBVXyNuc28slbJmPS&amp;campid=5339186549&amp;toolid=10001&amp;mkevt=1&amp;mkcid=1&amp;mkrid=711-53200-19255-0&amp;siteid=0&amp;customid=hond' target='_blank' rel='noopener sponsored'>Get this deal at Ebay &rarr;</a></div></article>
+<nav class='crumbs' aria-label='Breadcrumb'><a href='/index.html'>All deals</a> <span>&rsaquo;</span> <a href='/home-kitchen.html'>Home &amp; Kitchen</a> <span>&rsaquo;</span> <b>Deal</b></nav><article class='deal-page'><div class='deal-page-media'><img src='https://i.ebayimg.com/images/g/iYkAAeSw2bhqipG8/s-l500.jpg' alt='Sferra Parello Cotton Percale Twin Sheet Set White - NWT $480' loading='eager' decoding='async' referrerpolicy='no-referrer'></div><div class='deal-page-body'><h1>Sferra Parello Cotton Percale Twin Sheet Set White - NWT $480</h1><p class='deal-status deal-status-live'>Live now &middot; verified within the last 6 hours.</p><p class='deal-page-price'><b>$180.00</b><s>$480.00</s><span class='deal-page-pct'>62% off</span></p><a class='deal-cta' href='https://www.ebay.com/itm/157944558377?_skw=sheet+set&amp;hash=item24c63ab329%3Ag%3AiYkAAeSw2bhqipG8&amp;amdata=enc%3AAQALAAAA4ACCtXRWQnOEpyOqnQQ8KGYczWME4A9vaqWPLcW%2BJyoYEVtl3Q3cv73yTdWyCKTW%2FrlTEmnXnyW%2FW31Ex0q85dhyWQpkIaOVLcOGZ0yffSuodbsAOIapdBFXWKMECuUs3YArauARBiZKXs6c3TbPxJQ4HT0QxPzked3FFEe5gp2nmej%2B%2F0uScpsEaIrJG%2BR7kVuMAWAZS2MfrXQBWuMZeWtWbbuWDTfhWgjzwInUzs7NXBfpApytowjsB2jBNH0ijK2HsV5zQ9zfq4FKaDKE3AsEVtaeGx1ryKPul%2BKV6W19&amp;campid=5339186549&amp;toolid=10001&amp;mkevt=1&amp;mkcid=1&amp;mkrid=711-53200-19255-0&amp;siteid=0&amp;customid=hond' target='_blank' rel='noopener sponsored'>Get this deal at Ebay &rarr;</a></div></article>
 <footer class="site"><div class="footer-grid">
 <div class="footer-main">
 <details class="disclosure">
@@ -1421,7 +1429,7 @@ body.curator-mode #curator-badge{display:flex}
 </div></footer>
 </main>
 <button type="button" class="back-to-top" id="backToTop" aria-label="Back to top">&#9650;</button>
-<script src="/assets/js/interaction.js?v=d974a4321b"></script>
+<script src="/assets/js/interaction.js?v=b761bf8fd8"></script>
 <script type="text/javascript" src="https://js.codedrink.com/snippet.min.js" defer></script>
 <script type="text/javascript" src="/assets/js/lasso-picks.js?v=3" defer></script>
 <script type="text/javascript" src="https://s.skimresources.com/js/307865X1796159.skimlinks.js"></script>
