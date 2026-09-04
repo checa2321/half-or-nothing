@@ -562,15 +562,79 @@
     }).join('');
   }
 
+  // Gallery for the active variant: image_url first (already the picked
+  // "best" photo -- see _usable_image_url), then whatever else eBay's own
+  // additionalImages carried for that same listing (ebay_source.py, up to 5,
+  // confirmed live 2026-09-03). Deduped so image_url never appears twice.
+  function vGalleryList(v){
+    var g = (v.gallery || []).slice();
+    var i = g.indexOf(v.image_url);
+    if (v.image_url && i === -1) g.unshift(v.image_url);
+    else if (v.image_url) { g.splice(i, 1); g.unshift(v.image_url); }
+    return g;
+  }
+
+  function vGalleryHTML(v){
+    var photos = vGalleryList(v);
+    if (!photos.length) return "<div class='vmodal-img'></div>";
+    var main = "<div class='vmodal-img'><img src=\"" + esc(photos[0]) + '" alt="' + esc(v.title) + '"></div>';
+    if (photos.length < 2) return main;
+    var thumbs = photos.map(function(url, i){
+      return "<button type='button' class='vmodal-thumb" + (i === 0 ? ' is-active' : '')
+        + "' data-photo-idx='" + i + "'><img src=\"" + esc(url) + '" alt="" loading="lazy"></button>';
+    }).join('');
+    return main + "<div class='vmodal-thumbs'>" + thumbs + '</div>';
+  }
+
+  // Same-category/subcategory siblings already rendered in the grid -- costs
+  // no extra fetch. Reads allCards (declared below in this closure;
+  // vDialogHTML/openVariantModal only ever run after the grid exists), so it
+  // also covers cards added later by ensureCategoryCoverage(). Excludes every
+  // id already in this variant group so "Similar Deals" never just echoes
+  // the group you're already looking at.
+  function vSimilarDeals(variants, limit){
+    var ownIds = {};
+    variants.forEach(function(v){ ownIds[v.id] = true; });
+    var v0 = variants[0];
+    if (!allCards || (!v0.category && !v0.subcategory)) return [];
+    var pool = Array.prototype.filter.call(allCards, function(c){
+      if (ownIds[c.id]) return false;
+      return c.getAttribute('data-subcat') === v0.subcategory
+        || c.getAttribute('data-cat') === v0.category;
+    });
+    return pool.slice(0, limit).map(function(c){
+      var img = c.querySelector('.thumb img');
+      var link = c.querySelector('h3 a');
+      return {
+        title: link ? link.textContent : '',
+        url: link ? link.getAttribute('href') : '#',
+        image_url: img ? img.getAttribute('src') : '',
+        price: c.getAttribute('data-price')
+      };
+    });
+  }
+
+  function vSimilarHTML(variants){
+    var items = vSimilarDeals(variants, 8);
+    if (!items.length) return '';
+    var cards = items.map(function(it){
+      var img = it.image_url ? '<img src="' + esc(it.image_url) + '" alt="" loading="lazy">' : '';
+      return "<a class='vmodal-similar-card' href='" + esc(it.url) + "' target='_blank' rel='noopener sponsored'>"
+        + img
+        + "<div class='vmodal-similar-title'>" + esc(it.title) + '</div>'
+        + "<div class='vmodal-similar-price'>" + money(it.price) + '</div>'
+        + '</a>';
+    }).join('');
+    return "<div class='vmodal-similar'><div class='vmodal-similar-label'>Similar Deals</div>"
+      + "<div class='vmodal-similar-grid'>" + cards + '</div></div>';
+  }
+
   function vDialogHTML(variants, activeIdx){
     var v = variants[activeIdx];
-    var img = v.image_url
-      ? '<img src="' + esc(v.image_url) + '" alt="' + esc(v.title) + '">'
-      : '';
     return (
       "<button type='button' class='vmodal-close' aria-label='Close'>&times;</button>"
       + "<div class='vmodal-body'>"
-      + "<div class='vmodal-img'>" + img + '</div>'
+      + "<div class='vmodal-gallery'>" + vGalleryHTML(v) + '</div>'
       + "<div class='vmodal-info'>"
       + "<h3 class='vmodal-title'>" + esc(v.title) + '</h3>'
       + "<div class='vmodal-prices'><span class='vmodal-price-now'>" + money(v.price) + '</span>'
@@ -580,7 +644,9 @@
       + esc(v.source_label) + '</a>'
       + "<div class='vmodal-swatch-label'>" + variants.length + ' options</div>'
       + "<div class='vmodal-swatches'>" + vSwatchesHTML(variants, activeIdx) + '</div>'
-      + '</div></div>'
+      + '</div>'
+      + vSimilarHTML(variants)
+      + '</div>'
     );
   }
 
@@ -654,6 +720,21 @@
     if (swatch) {
       e.stopPropagation();
       openVariantModal(vStack._variants, parseInt(swatch.getAttribute('data-idx'), 10));
+      return;
+    }
+    // Gallery thumb: swap the main photo in place -- this is browsing the
+    // SAME variant's other photos, not switching variants, so it must not
+    // push a new stacked dialog the way a swatch click does.
+    var photoThumb = e.target.closest ? e.target.closest('.vmodal-thumb') : null;
+    if (photoThumb) {
+      e.stopPropagation();
+      var dlg = photoThumb.closest('.vmodal');
+      var mainImg = dlg && dlg.querySelector('.vmodal-img img');
+      var thumbImg = photoThumb.querySelector('img');
+      if (mainImg && thumbImg) mainImg.src = thumbImg.src;
+      var rail = photoThumb.parentNode;
+      Array.prototype.forEach.call(rail.children, function(t){ t.classList.remove('is-active'); });
+      photoThumb.classList.add('is-active');
       return;
     }
     var closeBtn = e.target.closest ? e.target.closest('.vmodal-close') : null;
