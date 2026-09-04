@@ -33,7 +33,7 @@
 <meta name="twitter:title" content="Lenox TOMLYN  - Stainless Steel 62 -piece Flatware Set - N/O - Service -- 67% off, $99.99 (was $300.00) | Half or Nothing">
 <meta name="twitter:description" content="67% off, $99.99 (was $300.00)">
 <meta name="twitter:image" content="https://i.ebayimg.com/images/g/DIoAAOSwu05jwIYT/s-l500.jpg">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Lenox TOMLYN  - Stainless Steel 62 -piece Flatware Set - N/O - Service for EIGHT","description":"67% off -- was $300.00, now $99.99 at Ebay.","image":"https://i.ebayimg.com/images/g/DIoAAOSwu05jwIYT/s-l500.jpg","offers":{"@type":"Offer","price":"99.99","priceCurrency":"USD","availability":"https://schema.org/InStock","url":"https://halfornothing.com/d/d-ebay-id-117327170819.html","priceValidUntil":"2026-09-05T02:06:25Z"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Deals","item":"https://halfornothing.com/"},{"@type":"ListItem","position":2,"name":"Home & Kitchen","item":"https://halfornothing.com/home-kitchen.html"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Lenox TOMLYN  - Stainless Steel 62 -piece Flatware Set - N/O - Service for EIGHT","description":"67% off -- was $300.00, now $99.99 at Ebay.","image":"https://i.ebayimg.com/images/g/DIoAAOSwu05jwIYT/s-l500.jpg","offers":{"@type":"Offer","price":"99.99","priceCurrency":"USD","availability":"https://schema.org/InStock","url":"https://halfornothing.com/d/d-ebay-id-117327170819.html","priceValidUntil":"2026-09-05T03:06:39Z"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Deals","item":"https://halfornothing.com/"},{"@type":"ListItem","position":2,"name":"Home & Kitchen","item":"https://halfornothing.com/home-kitchen.html"}]}</script>
 <style>
 :root{
   --dur-fast:.12s; --dur-base:.15s; --dur-med:.18s;
@@ -634,9 +634,21 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
    inside a single post's ~600px-wide prose column a lone pick next to a big
    eBay/compare-card photo read as a tiny thumbnail next to a poster (Che,
    2026-09-02). Higher-specificity override, blog posts only -- the grid page
-   keeps its 120px .thumb sizing untouched. */
-.picks-page-grid-lasso .pick-lasso .embed-lasso-display{grid-template-columns:200px 1fr !important}
-.picks-page-grid-lasso .pick-lasso .embed-lasso-image-no-lazy{width:200px !important;height:200px !important}
+   keeps its 120px .thumb sizing untouched.
+   :not(.picks-lasso-rail) is the actual gate for that, not the class name
+   alone -- html_output.py's amazon-picks.html grid and the brands.html
+   "Amazon Picks in a known brand" rail both carry picks-page-grid-lasso
+   AND picks-lasso-rail together (see write_amazon_picks_page /
+   _tagged_deals_html), while blog.py's single-pick wrapper only ever
+   carries picks-page-grid-lasso alone. Before this :not(), both grid pages
+   matched too -- confirmed live 2026-09-04: a 120px-fixed image forced
+   into a 200px column left ~71px for title/price/coupon, which wrapped
+   into a near-vertical ladder and overflowed the card's right/bottom
+   edges. That's what actually produced the "words outside the card" bug,
+   not the box-1/box-2 sizing rules below (their width was fine once the
+   image column stopped eating the rest of the card). */
+.picks-page-grid-lasso:not(.picks-lasso-rail) .pick-lasso .embed-lasso-display{grid-template-columns:200px 1fr !important}
+.picks-page-grid-lasso:not(.picks-lasso-rail) .pick-lasso .embed-lasso-image-no-lazy{width:200px !important;height:200px !important}
 /* Mobile: the 120px-image/1fr-text side-by-side grid above leaves the title
    column too narrow on a phone-width card (Che, 2026-09-02: "todos se ven
    rotisimos en el celular" -- title crammed beside the photo instead of
@@ -1416,7 +1428,7 @@ body.curator-mode #curator-badge{display:flex}
 
 </div></header>
 <main class="wrap">
-<nav class='crumbs' aria-label='Breadcrumb'><a href='/index.html'>All deals</a> <span>&rsaquo;</span> <a href='/home-kitchen.html'>Home &amp; Kitchen</a> <span>&rsaquo;</span> <b>Deal</b></nav><article class='deal-page'><div class='deal-page-media'><img src='https://i.ebayimg.com/images/g/DIoAAOSwu05jwIYT/s-l500.jpg' alt='Lenox TOMLYN  - Stainless Steel 62 -piece Flatware Set - N/O - Service for EIGHT' loading='eager' decoding='async' referrerpolicy='no-referrer'></div><div class='deal-page-body'><h1>Lenox TOMLYN  - Stainless Steel 62 -piece Flatware Set - N/O - Service for EIGHT</h1><p class='deal-status deal-status-live'>Live now &middot; verified within the last 6 hours.</p><p class='deal-page-price'><b>$99.99</b><s>$300.00</s><span class='deal-page-pct'>67% off</span></p><a class='deal-cta' href='https://www.ebay.com/itm/117327170819?_skw=flatware+set&amp;hash=item1b513e8d03%3Ag%3ADIoAAOSwu05jwIYT&amp;amdata=enc%3AAQALAAAA8ACCtXRWQnOEpyOqnQQ8KGYGa9ZV%2BllNtUz1q%2FjB3NLZc05VJf7NTl%2ByvFovdUKmIZwee65Zdqz8UuGweFwbkjgkFOSMWr1VcRDn4suU75aGjSocHgC9nb4CI7vXiqz96zeFA4WIyMGJvn0Y90S8jAslBKBXoZDN6JcPz0E4Woh5azEmZ%2BBJPmWFs%2B78OcG%2FZ%2B74sg5IoAiEBIf9qPvt2eFEoL46F5vC%2Fh0Kb3rILSiO7K1fehwtrbKzlro%2BXpKkplX%2BQMCMzb%2FOO7Ls5KjB0Ox8WMAli63SW6JiUJGBFK5pzcRI4OGv3rCb9C3QUm9SyQ%3D%3D&amp;campid=5339186549&amp;toolid=10001&amp;mkevt=1&amp;mkcid=1&amp;mkrid=711-53200-19255-0&amp;siteid=0&amp;customid=hond' target='_blank' rel='noopener sponsored'>Get this deal at Ebay &rarr;</a></div></article>
+<nav class='crumbs' aria-label='Breadcrumb'><a href='/index.html'>All deals</a> <span>&rsaquo;</span> <a href='/home-kitchen.html'>Home &amp; Kitchen</a> <span>&rsaquo;</span> <b>Deal</b></nav><article class='deal-page'><div class='deal-page-media'><img src='https://i.ebayimg.com/images/g/DIoAAOSwu05jwIYT/s-l500.jpg' alt='Lenox TOMLYN  - Stainless Steel 62 -piece Flatware Set - N/O - Service for EIGHT' loading='eager' decoding='async' referrerpolicy='no-referrer'></div><div class='deal-page-body'><h1>Lenox TOMLYN  - Stainless Steel 62 -piece Flatware Set - N/O - Service for EIGHT</h1><p class='deal-status deal-status-live'>Live now &middot; verified within the last 6 hours.</p><p class='deal-page-price'><b>$99.99</b><s>$300.00</s><span class='deal-page-pct'>67% off</span></p><a class='deal-cta' href='https://www.ebay.com/itm/117327170819?_skw=flatware+set&amp;hash=item1b513e8d03%3Ag%3ADIoAAOSwu05jwIYT&amp;amdata=enc%3AAQALAAAA8ACCtXRWQnOEpyOqnQQ8KGYGa9ZV%2BllNtUz1q%2FjB3NLZc05VJf7NTl%2ByvFovdUKmIZwee65Zdqz8UuGweFwbkjgkFOSMWr1VcRDn4suU75aGjSocHgC9nb4CI7vXiqz96zeFA4WIyMGJvn0Y90S8jAsJvX5B5K9YmWOco9v3zWawE34my5hacAeHoQQ2iMtGnRdxHIRzl3oUKCnmssfyKvqCqhlatpFgvJEtHZbJ0o1WZvPWXpkMzSM6nqCEIsqOcS%2BTs5KkFhoU%2BcNftQxgiVZTOvcjSkL55CuEPaG6ELahqRF3YRdi4J77bpqJD12j2Q%3D%3D&amp;campid=5339186549&amp;toolid=10001&amp;mkevt=1&amp;mkcid=1&amp;mkrid=711-53200-19255-0&amp;siteid=0&amp;customid=hond' target='_blank' rel='noopener sponsored'>Get this deal at Ebay &rarr;</a></div></article>
 <footer class="site"><div class="footer-grid">
 <div class="footer-main">
 <details class="disclosure">

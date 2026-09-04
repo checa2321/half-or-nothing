@@ -33,7 +33,7 @@
 <meta name="twitter:title" content="Moschino Brown Shaded Butterfly Ladies Sunglasses MOS098/S 0HT8/HA 55 -- 81% off, $48.33 (was $255.00) | Half or Nothing">
 <meta name="twitter:description" content="81% off, $48.33 (was $255.00)">
 <meta name="twitter:image" content="https://i.ebayimg.com/images/g/N0gAAeSwTclqlUx4/s-l500.jpg">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Moschino Brown Shaded Butterfly Ladies Sunglasses MOS098/S 0HT8/HA 55","description":"81% off -- was $255.00, now $48.33 at Ebay.","image":"https://i.ebayimg.com/images/g/N0gAAeSwTclqlUx4/s-l500.jpg","offers":{"@type":"Offer","price":"48.33","priceCurrency":"USD","availability":"https://schema.org/InStock","url":"https://halfornothing.com/d/d-ebay-id-168583790168.html","priceValidUntil":"2026-09-05T02:06:25Z"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Deals","item":"https://halfornothing.com/"},{"@type":"ListItem","position":2,"name":"Fashion & Accessories","item":"https://halfornothing.com/fashion.html"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Moschino Brown Shaded Butterfly Ladies Sunglasses MOS098/S 0HT8/HA 55","description":"81% off -- was $255.00, now $48.33 at Ebay.","image":"https://i.ebayimg.com/images/g/N0gAAeSwTclqlUx4/s-l500.jpg","offers":{"@type":"Offer","price":"48.33","priceCurrency":"USD","availability":"https://schema.org/InStock","url":"https://halfornothing.com/d/d-ebay-id-168583790168.html","priceValidUntil":"2026-09-05T03:06:39Z"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Deals","item":"https://halfornothing.com/"},{"@type":"ListItem","position":2,"name":"Fashion & Accessories","item":"https://halfornothing.com/fashion.html"}]}</script>
 <style>
 :root{
   --dur-fast:.12s; --dur-base:.15s; --dur-med:.18s;
@@ -634,9 +634,21 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
    inside a single post's ~600px-wide prose column a lone pick next to a big
    eBay/compare-card photo read as a tiny thumbnail next to a poster (Che,
    2026-09-02). Higher-specificity override, blog posts only -- the grid page
-   keeps its 120px .thumb sizing untouched. */
-.picks-page-grid-lasso .pick-lasso .embed-lasso-display{grid-template-columns:200px 1fr !important}
-.picks-page-grid-lasso .pick-lasso .embed-lasso-image-no-lazy{width:200px !important;height:200px !important}
+   keeps its 120px .thumb sizing untouched.
+   :not(.picks-lasso-rail) is the actual gate for that, not the class name
+   alone -- html_output.py's amazon-picks.html grid and the brands.html
+   "Amazon Picks in a known brand" rail both carry picks-page-grid-lasso
+   AND picks-lasso-rail together (see write_amazon_picks_page /
+   _tagged_deals_html), while blog.py's single-pick wrapper only ever
+   carries picks-page-grid-lasso alone. Before this :not(), both grid pages
+   matched too -- confirmed live 2026-09-04: a 120px-fixed image forced
+   into a 200px column left ~71px for title/price/coupon, which wrapped
+   into a near-vertical ladder and overflowed the card's right/bottom
+   edges. That's what actually produced the "words outside the card" bug,
+   not the box-1/box-2 sizing rules below (their width was fine once the
+   image column stopped eating the rest of the card). */
+.picks-page-grid-lasso:not(.picks-lasso-rail) .pick-lasso .embed-lasso-display{grid-template-columns:200px 1fr !important}
+.picks-page-grid-lasso:not(.picks-lasso-rail) .pick-lasso .embed-lasso-image-no-lazy{width:200px !important;height:200px !important}
 /* Mobile: the 120px-image/1fr-text side-by-side grid above leaves the title
    column too narrow on a phone-width card (Che, 2026-09-02: "todos se ven
    rotisimos en el celular" -- title crammed beside the photo instead of

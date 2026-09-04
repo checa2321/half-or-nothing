@@ -33,7 +33,7 @@
 <meta name="twitter:title" content="Juliska Iberian Sage 4-Piece Spreader Set - NIB $52 -- 65% off, $18.00 (was $52.00) | Half or Nothing">
 <meta name="twitter:description" content="65% off, $18.00 (was $52.00)">
 <meta name="twitter:image" content="https://i.ebayimg.com/images/g/lVkAAeSwKRRqFiKf/s-l500.jpg">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Juliska Iberian Sage 4-Piece Spreader Set - NIB $52","description":"65% off -- was $52.00, now $18.00 at Ebay.","image":"https://i.ebayimg.com/images/g/lVkAAeSwKRRqFiKf/s-l500.jpg","offers":{"@type":"Offer","price":"18.00","priceCurrency":"USD","availability":"https://schema.org/InStock","url":"https://halfornothing.com/d/d-ebay-id-800075738930.html","priceValidUntil":"2026-09-05T02:06:25Z"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Deals","item":"https://halfornothing.com/"},{"@type":"ListItem","position":2,"name":"Home & Kitchen","item":"https://halfornothing.com/home-kitchen.html"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Juliska Iberian Sage 4-Piece Spreader Set - NIB $52","description":"65% off -- was $52.00, now $18.00 at Ebay.","image":"https://i.ebayimg.com/images/g/lVkAAeSwKRRqFiKf/s-l500.jpg","offers":{"@type":"Offer","price":"18.00","priceCurrency":"USD","availability":"https://schema.org/InStock","url":"https://halfornothing.com/d/d-ebay-id-800075738930.html","priceValidUntil":"2026-09-05T03:06:39Z"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Deals","item":"https://halfornothing.com/"},{"@type":"ListItem","position":2,"name":"Home & Kitchen","item":"https://halfornothing.com/home-kitchen.html"}]}</script>
 <style>
 :root{
   --dur-fast:.12s; --dur-base:.15s; --dur-med:.18s;
@@ -634,9 +634,21 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
    inside a single post's ~600px-wide prose column a lone pick next to a big
    eBay/compare-card photo read as a tiny thumbnail next to a poster (Che,
    2026-09-02). Higher-specificity override, blog posts only -- the grid page
-   keeps its 120px .thumb sizing untouched. */
-.picks-page-grid-lasso .pick-lasso .embed-lasso-display{grid-template-columns:200px 1fr !important}
-.picks-page-grid-lasso .pick-lasso .embed-lasso-image-no-lazy{width:200px !important;height:200px !important}
+   keeps its 120px .thumb sizing untouched.
+   :not(.picks-lasso-rail) is the actual gate for that, not the class name
+   alone -- html_output.py's amazon-picks.html grid and the brands.html
+   "Amazon Picks in a known brand" rail both carry picks-page-grid-lasso
+   AND picks-lasso-rail together (see write_amazon_picks_page /
+   _tagged_deals_html), while blog.py's single-pick wrapper only ever
+   carries picks-page-grid-lasso alone. Before this :not(), both grid pages
+   matched too -- confirmed live 2026-09-04: a 120px-fixed image forced
+   into a 200px column left ~71px for title/price/coupon, which wrapped
+   into a near-vertical ladder and overflowed the card's right/bottom
+   edges. That's what actually produced the "words outside the card" bug,
+   not the box-1/box-2 sizing rules below (their width was fine once the
+   image column stopped eating the rest of the card). */
+.picks-page-grid-lasso:not(.picks-lasso-rail) .pick-lasso .embed-lasso-display{grid-template-columns:200px 1fr !important}
+.picks-page-grid-lasso:not(.picks-lasso-rail) .pick-lasso .embed-lasso-image-no-lazy{width:200px !important;height:200px !important}
 /* Mobile: the 120px-image/1fr-text side-by-side grid above leaves the title
    column too narrow on a phone-width card (Che, 2026-09-02: "todos se ven
    rotisimos en el celular" -- title crammed beside the photo instead of
@@ -1416,7 +1428,7 @@ body.curator-mode #curator-badge{display:flex}
 
 </div></header>
 <main class="wrap">
-<nav class='crumbs' aria-label='Breadcrumb'><a href='/index.html'>All deals</a> <span>&rsaquo;</span> <a href='/home-kitchen.html'>Home &amp; Kitchen</a> <span>&rsaquo;</span> <b>Deal</b></nav><article class='deal-page'><div class='deal-page-media'><img src='https://i.ebayimg.com/images/g/lVkAAeSwKRRqFiKf/s-l500.jpg' alt='Juliska Iberian Sage 4-Piece Spreader Set - NIB $52' loading='eager' decoding='async' referrerpolicy='no-referrer'></div><div class='deal-page-body'><h1>Juliska Iberian Sage 4-Piece Spreader Set - NIB $52</h1><p class='deal-status deal-status-live'>Live now &middot; verified within the last 6 hours.</p><p class='deal-page-price'><b>$18.00</b><s>$52.00</s><span class='deal-page-pct'>65% off</span></p><a class='deal-cta' href='https://www.ebay.com/itm/800075738930?_skw=flatware+set&amp;hash=itemba483aef32%3Ag%3AlVkAAeSwKRRqFiKf&amp;amdata=enc%3AAQALAAAA8ACCtXRWQnOEpyOqnQQ8KGaGd2q7DGWeSlAeZGA4L%2F9SIUa6kqCIGemvv1remtt3458Ry0iHRIGBUJuwCohP1qH7lYWoZP0eCCYr8uDlIsGUqWR%2BmefLcShhM1MWN7RgeSqwvW2PtkxLbqtmbVz1ajyCYD71NU%2FpnC0pjtsTBLIGHzoR8L6ext9vJbuJ%2B5uTWeP76JR9pPUKe2Kelx2KEvbJbUyg8UKHssni1kKj4YDNxFrDYawZfXEytZB%2F3vC7cPvM8IoNvNp3MVe8apO01WfKjhJgZvug%2B4YXrvgDqrJ9OcI8oX2fZNnO4zFguiR7Ug%3D%3D&amp;campid=5339186549&amp;toolid=10001&amp;mkevt=1&amp;mkcid=1&amp;mkrid=711-53200-19255-0&amp;siteid=0&amp;customid=hond' target='_blank' rel='noopener sponsored'>Get this deal at Ebay &rarr;</a></div></article>
+<nav class='crumbs' aria-label='Breadcrumb'><a href='/index.html'>All deals</a> <span>&rsaquo;</span> <a href='/home-kitchen.html'>Home &amp; Kitchen</a> <span>&rsaquo;</span> <b>Deal</b></nav><article class='deal-page'><div class='deal-page-media'><img src='https://i.ebayimg.com/images/g/lVkAAeSwKRRqFiKf/s-l500.jpg' alt='Juliska Iberian Sage 4-Piece Spreader Set - NIB $52' loading='eager' decoding='async' referrerpolicy='no-referrer'></div><div class='deal-page-body'><h1>Juliska Iberian Sage 4-Piece Spreader Set - NIB $52</h1><p class='deal-status deal-status-live'>Live now &middot; verified within the last 6 hours.</p><p class='deal-page-price'><b>$18.00</b><s>$52.00</s><span class='deal-page-pct'>65% off</span></p><a class='deal-cta' href='https://www.ebay.com/itm/800075738930?_skw=flatware+set&amp;hash=itemba483aef32%3Ag%3AlVkAAeSwKRRqFiKf&amp;amdata=enc%3AAQALAAAA8ACCtXRWQnOEpyOqnQQ8KGaGd2q7DGWeSlAeZGA4L%2F9SIUa6kqCIGemvv1remtt3458Ry0iHRIGBUJuwCohP1qH7lYWoZP0eCCYr8uDlIsGUqWR%2BmefLcShhM1MWN7RgeSqwvW2PtkxLbqtmbVz1ajxaLsqyA0ui2X28s%2Bqh0D1uHMP7tXVjPu3Vp9GAWKSyNHIf3F%2F9fzolAJp1tSvCJFP%2FLNtXXi4a%2F2dajx9L%2Fa5fgO%2BoOe%2FzsPKcNx2WGCZGizJi%2FDZqLwKNrAI8r0oajl1Dkxsah2zaSFAe%2B0c3FQULtkO2p2ScVo5%2FpRfBGuZrpQ%3D%3D&amp;campid=5339186549&amp;toolid=10001&amp;mkevt=1&amp;mkcid=1&amp;mkrid=711-53200-19255-0&amp;siteid=0&amp;customid=hond' target='_blank' rel='noopener sponsored'>Get this deal at Ebay &rarr;</a></div></article>
 <footer class="site"><div class="footer-grid">
 <div class="footer-main">
 <details class="disclosure">
