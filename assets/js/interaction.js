@@ -466,11 +466,13 @@
   // ever added here, right before observing, so a browser with no
   // IntersectionObserver (or JS that fails to run at all) leaves cards in
   // their normal, always-visible state rather than stuck invisible.
+  // Re-triggerable both directions (Che, 2026-09-05): toggles reveal-in
+  // instead of adding it once and unobserving, so scrolling back up past a
+  // card fades it back out the same way scrolling down faded it in --
+  // keeps observing indefinitely rather than a one-shot reveal.
   var revealObserver = window.IntersectionObserver ? new IntersectionObserver(function(entries){
     entries.forEach(function(entry){
-      if (!entry.isIntersecting) return;
-      entry.target.classList.add('reveal-in');
-      revealObserver.unobserve(entry.target);
+      entry.target.classList.toggle('reveal-in', entry.isIntersecting);
     });
   }, {rootMargin: '0px 0px -40px 0px'}) : null;
   function observeReveal(cards){
@@ -481,6 +483,16 @@
     });
   }
   observeReveal(allCards);
+
+  // Mirrors _pct_tier_class() in html_output.py -- see its own comment for
+  // why the bands land where they do.
+  function pctTierClass(pct){
+    if (pct >= 90) return 'pct-t5 pct-pill-extreme';
+    if (pct >= 80) return 'pct-t4';
+    if (pct >= 70) return 'pct-t3';
+    if (pct >= 60) return 'pct-t2';
+    return 'pct-t1';
+  }
 
   // ---- card markup, browser side ----
   // Mirrors _card() in html_output.py. Only the markup is duplicated: every
@@ -553,7 +565,7 @@
       + "<h3 class='clamp2'><a href='" + url + "' target='_blank' rel='noopener sponsored'>" + title + '</a></h3>'
       + "<div class='prices'><span class='price-now'>" + money(d.price) + '</span>'
       + "<span class='price-was'>" + money(d.original_price) + '</span>'
-      + "<span class='pct-pill" + (d.discount_pct >= 80 ? ' pct-pill-extreme' : '') + "'>" + Math.round(d.discount_pct) + '% off</span></div>'
+      + "<span class='pct-pill " + pctTierClass(d.discount_pct) + "'>" + Math.round(d.discount_pct) + '% off</span></div>'
       + "<div class='meta'><span class='src-tag'>" + esc(d.source_label) + '</span>'
       + '<span>Seen ' + esc(d.seen_text) + '</span>' + pills + '</div>'
       + variantPillHTML(d.variants)
