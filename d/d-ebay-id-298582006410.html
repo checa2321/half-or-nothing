@@ -33,7 +33,8 @@
 <meta name="twitter:title" content="Oneida VIRAGE (Glossy) - Stainless Steel 20pc. Flatware Set (Service f -- 60% off, $39.99 (was $100.00) | Half or Nothing">
 <meta name="twitter:description" content="60% off, $39.99 (was $100.00)">
 <meta name="twitter:image" content="https://i.ebayimg.com/images/g/mM0AAOSwA19jlM0R/s-l500.jpg">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Oneida VIRAGE (Glossy) - Stainless Steel 20pc. Flatware Set (Service for Four)","description":"60% off -- was $100.00, now $39.99 at Ebay.","image":"https://i.ebayimg.com/images/g/mM0AAOSwA19jlM0R/s-l500.jpg","offers":{"@type":"Offer","price":"39.99","priceCurrency":"USD","availability":"https://schema.org/InStock","url":"https://halfornothing.com/d/d-ebay-id-298582006410.html","priceValidUntil":"2026-09-06T03:06:34Z"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Deals","item":"https://halfornothing.com/"},{"@type":"ListItem","position":2,"name":"Home & Kitchen","item":"https://halfornothing.com/home-kitchen.html"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Oneida VIRAGE (Glossy) - Stainless Steel 20pc. Flatware Set (Service for Four)","description":"60% off -- was $100.00, now $39.99 at Ebay.","image":"https://i.ebayimg.com/images/g/mM0AAOSwA19jlM0R/s-l500.jpg","offers":{"@type":"Offer","price":"39.99","priceCurrency":"USD","availability":"https://schema.org/InStock","url":"https://halfornothing.com/d/d-ebay-id-298582006410.html","priceValidUntil":"2026-09-06T03:23:31Z"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Deals","item":"https://halfornothing.com/"},{"@type":"ListItem","position":2,"name":"Home & Kitchen","item":"https://halfornothing.com/home-kitchen.html"}]}</script>
+<script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <style>
 /* Native cross-document View Transitions (2026-09-05) -- one line turns on
    a browser-native fade between full page navigations (category to
@@ -149,6 +150,24 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
 .topnav .links a{color:var(--muted);text-decoration:none}
 .topnav .links a:hover{color:var(--ink)}
 .topnav .links a[aria-current]{color:var(--signal);font-weight:700}
+/* Theme toggle (2026-09-05) -- dark mode only followed the OS preference
+   before this; most visitors never knew the site had one. Same hover:hover/
+   :active split as every other icon button on the site (navBtn/megaBtn/
+   over-menu/catFilterBtn). */
+.theme-toggle{width:38px;height:38px;flex-shrink:0;border-radius:50%;
+              background:var(--card);border:1px solid var(--rule);color:var(--ink);
+              display:flex;align-items:center;justify-content:center;cursor:pointer;padding:0;
+              transition:border-color var(--dur-base) ease,color var(--dur-base) ease}
+.theme-toggle svg{width:18px;height:18px}
+.theme-toggle .theme-icon-moon{display:none}
+.theme-toggle:active{border-color:var(--signal);color:var(--signal)}
+@media(hover:hover){.theme-toggle:hover{border-color:var(--signal);color:var(--signal)}}
+@media(prefers-color-scheme:dark){
+  :root:not([data-theme="light"]) .theme-toggle .theme-icon-sun{display:none}
+  :root:not([data-theme="light"]) .theme-toggle .theme-icon-moon{display:block}
+}
+:root[data-theme="dark"] .theme-toggle .theme-icon-sun{display:none}
+:root[data-theme="dark"] .theme-toggle .theme-icon-moon{display:block}
 /* ---- #navBtn: the <=640px hamburger toggle for .links above. Hidden at
    desktop widths; .links itself flips from a horizontal row to a full-width
    dropdown panel exactly where it used to just disappear. ---- */
@@ -917,8 +936,28 @@ footer.site .footer-social a:hover{border-color:var(--signal);color:var(--signal
 @keyframes card-skeleton-shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
 @media(prefers-reduced-motion:reduce){.card-skeleton-thumb,.card-skeleton-line{animation:none}}
 
+/* Amplifying the discount pill (2026-09-05), not adding a new signal -- this
+   is the site's own Two-Signal Rule ("red means look at this number") given
+   more weight on the number that rule already exists for, not a new
+   decorative element. Bounces on hover along with the card's other hover
+   feedback (transform, hover:hover-gated to match .card itself). */
 .pct-pill{background:var(--signal);color:#fff;font:800 11px/1 var(--mono);
-          padding:5px 9px;border-radius:999px;letter-spacing:.03em;white-space:nowrap}
+          padding:5px 9px;border-radius:999px;letter-spacing:.03em;white-space:nowrap;
+          transition:transform var(--dur-med) ease}
+.card:active .pct-pill{transform:scale(1.08)}
+@media(hover:hover){.card:hover .pct-pill{transform:scale(1.08)}}
+/* Real discounts only (data-discount is the actual computed %, never
+   fabricated) -- a soft halo ring at rest for genuinely extreme deals, plus
+   a one-shot pop the moment the card scrolls into view (piggybacking on the
+   .reveal-in class the scroll-reveal system already adds, so this needs no
+   extra JS). One-shot, not a looping pulse: DESIGN.md's "no fabricated
+   urgency" rule is about honesty, not about banning motion on a real fact,
+   but a permanent loop on every 80%+ card sitewide would cheapen the signal
+   through repetition the same way a fake countdown would through dishonesty. */
+.pct-pill-extreme{box-shadow:0 0 0 3px rgba(217,58,18,.18)}
+.card.reveal-in .pct-pill-extreme{animation:pct-pill-pop .5s cubic-bezier(.23,1,.32,1)}
+@keyframes pct-pill-pop{0%{transform:scale(1)}40%{transform:scale(1.25)}
+                          60%{transform:scale(.95)}100%{transform:scale(1)}}
 .src-tag{background:#555;color:#fff;font-size:11px;font-weight:700;letter-spacing:.05em;
          text-transform:uppercase;padding:3px 8px;border-radius:999px}
 .newpill{background:var(--gate);color:#fff;font-size:11px;font-weight:700;
@@ -1605,11 +1644,21 @@ html{scroll-behavior:smooth}
 .back-to-top:focus-visible{outline:2px solid var(--signal);outline-offset:2px}
 
 /* ---- dark mode: same identity, inverted paper ---- */
+/* Dark theme (2026-09-05): now reachable two ways -- the OS preference
+   below, or the explicit nav toggle (#themeToggle in interaction.js, which
+   sets data-theme on <html> and remembers it in localStorage). Every rule
+   in the OS-preference block is guarded with :not([data-theme="light"]) so
+   an explicit "light" pick can override a dark OS, and mirrored verbatim
+   under :root[data-theme="dark"] (no media query) so an explicit "dark"
+   pick works even on a light-OS visitor. Same content twice is the
+   documented pattern for this exact "manual override + system preference"
+   case -- a media query can't be satisfied by an attribute, so there is no
+   single-selector way to gate it once. */
 @media (prefers-color-scheme: dark){
-  :root{color-scheme:dark;--card:#1C1C1A;--paper-2:#131312;--paper-3:#232320;--ink:#ECEAE4;--ink-soft:#C7C5BD;
+  :root:not([data-theme="light"]){color-scheme:dark;--card:#1C1C1A;--paper-2:#131312;--paper-3:#232320;--ink:#ECEAE4;--ink-soft:#C7C5BD;
         --muted:#9B998F;--rule:#2D2D29;--signal:#FF4F29;--signal-dark:#D93A12;--gate:#1FBF7F}
-  .thumb,.best-img{background:#fff}
-  .pct-pill,.newpill{color:#161511}
+  :root:not([data-theme="light"]) .thumb,:root:not([data-theme="light"]) .best-img{background:#fff}
+  :root:not([data-theme="light"]) .pct-pill,:root:not([data-theme="light"]) .newpill{color:#161511}
   /* .cta used to be bundled into this same dark-mode override -- the actual
      bug behind "the button still shows orange" (2026-08-24): the base
      stylesheet's .cta{background:var(--gate-dark)} was correct, but this
@@ -1621,30 +1670,52 @@ html{scroll-behavior:smooth}
      mode give the exact same 5.4:1 either way. #catApply (the category
      filter's Apply button, unrelated to the deal CTA) keeps its own
      dark-mode treatment; only .cta is removed from it. */
-  #catApply{background:var(--signal-dark)}
-  #catApply:hover{background:#A82D0C}
-  .price-now{color:var(--gate)}
-  .td-now{color:var(--gate)}
-  .compare-price{color:var(--gate)}
-  .prose a{color:var(--gate)}
-  .best-cta{background:var(--signal-dark);border-color:var(--signal-dark)}
-  .best-cta:hover{background:var(--card);color:var(--signal)}
-  .src-tag{background:#45453F}
+  :root:not([data-theme="light"]) #catApply{background:var(--signal-dark)}
+  :root:not([data-theme="light"]) #catApply:hover{background:#A82D0C}
+  :root:not([data-theme="light"]) .price-now{color:var(--gate)}
+  :root:not([data-theme="light"]) .td-now{color:var(--gate)}
+  :root:not([data-theme="light"]) .compare-price{color:var(--gate)}
+  :root:not([data-theme="light"]) .prose a{color:var(--gate)}
+  :root:not([data-theme="light"]) .best-cta{background:var(--signal-dark);border-color:var(--signal-dark)}
+  :root:not([data-theme="light"]) .best-cta:hover{background:var(--card);color:var(--signal)}
+  :root:not([data-theme="light"]) .src-tag{background:#45453F}
   /* The picks eyebrow gold is mixed for white paper; on the dark band it
      drops below the contrast floor, so it lightens rather than inverts. */
-  .picks-eyebrow{color:#E8A33A}
-  .picks-eyebrow::before{background:#E8A33A}
+  :root:not([data-theme="light"]) .picks-eyebrow{color:#E8A33A}
+  :root:not([data-theme="light"]) .picks-eyebrow::before{background:#E8A33A}
   /* The banner's warm paper tint would glow grey-white here, so the base
      ramps into a warm near-black instead and the washes carry more alpha to
      stay visible against it. Same three hues, same right-weighted bloom. */
-  .mast{background:
+  :root:not([data-theme="light"]) .mast{background:
         radial-gradient(900px 340px at 86% 14%, rgba(255,79,41,.20), transparent 62%),
         radial-gradient(720px 320px at 62% 104%, rgba(240,165,0,.16), transparent 60%),
         radial-gradient(700px 320px at 104% 86%, rgba(31,191,127,.15), transparent 62%),
         linear-gradient(100deg, var(--card) 0%, var(--card) 34%, #241B17 72%, #2B1F19 100%)}
-  .mast-ghost{opacity:.38}
-  footer.site{border-top-color:var(--rule)}
+  :root:not([data-theme="light"]) .mast-ghost{opacity:.38}
+  :root:not([data-theme="light"]) footer.site{border-top-color:var(--rule)}
 }
+:root[data-theme="dark"]{color-scheme:dark;--card:#1C1C1A;--paper-2:#131312;--paper-3:#232320;--ink:#ECEAE4;--ink-soft:#C7C5BD;
+      --muted:#9B998F;--rule:#2D2D29;--signal:#FF4F29;--signal-dark:#D93A12;--gate:#1FBF7F}
+:root[data-theme="dark"] .thumb,:root[data-theme="dark"] .best-img{background:#fff}
+:root[data-theme="dark"] .pct-pill,:root[data-theme="dark"] .newpill{color:#161511}
+:root[data-theme="dark"] #catApply{background:var(--signal-dark)}
+:root[data-theme="dark"] #catApply:hover{background:#A82D0C}
+:root[data-theme="dark"] .price-now{color:var(--gate)}
+:root[data-theme="dark"] .td-now{color:var(--gate)}
+:root[data-theme="dark"] .compare-price{color:var(--gate)}
+:root[data-theme="dark"] .prose a{color:var(--gate)}
+:root[data-theme="dark"] .best-cta{background:var(--signal-dark);border-color:var(--signal-dark)}
+:root[data-theme="dark"] .best-cta:hover{background:var(--card);color:var(--signal)}
+:root[data-theme="dark"] .src-tag{background:#45453F}
+:root[data-theme="dark"] .picks-eyebrow{color:#E8A33A}
+:root[data-theme="dark"] .picks-eyebrow::before{background:#E8A33A}
+:root[data-theme="dark"] .mast{background:
+      radial-gradient(900px 340px at 86% 14%, rgba(255,79,41,.20), transparent 62%),
+      radial-gradient(720px 320px at 62% 104%, rgba(240,165,0,.16), transparent 60%),
+      radial-gradient(700px 320px at 104% 86%, rgba(31,191,127,.15), transparent 62%),
+      linear-gradient(100deg, var(--card) 0%, var(--card) 34%, #241B17 72%, #2B1F19 100%)}
+:root[data-theme="dark"] .mast-ghost{opacity:.38}
+:root[data-theme="dark"] footer.site{border-top-color:var(--rule)}
 
 @media (prefers-reduced-motion:reduce){
   /* Animations (all movement-based on this site: card-breathe, the blog
@@ -1757,6 +1828,10 @@ body.curator-mode #curator-badge{display:flex}
 <span class="lg-half">HALF</span><span class="lg-or">or</span><span class="lg-nothing">NOTHING</span></a>
 <form class='herosearch' role='search' action='/index.html' method='get'><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' aria-hidden='true'><circle cx='11' cy='11' r='7'></circle><line x1='21' y1='21' x2='16.65' y2='16.65'></line></svg><input type='search' name='q' aria-label='Search deals' placeholder='Search deals…' autocomplete='off'></form>
 <button type="button" id="navBtn" aria-expanded="false" aria-controls="navLinks" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button><div class="links" id="navLinks"><a href="/index.html">Deals</a><a href="/brands.html">Brands</a><a href="/amazon-picks.html">Amazon Picks</a><a href="/blog.html">Blog</a><a href="/about.html">About</a><a href="/privacy.html">Privacy</a><a href="/contact.html">Contact</a></div>
+<button type="button" id="themeToggle" class="theme-toggle" aria-label="Toggle dark mode" aria-pressed="false">
+<svg class="theme-icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+<svg class="theme-icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+</button>
 </div></nav>
 <header class="mast"><span class="mast-ghost" id="mastGhost" aria-hidden="true">&#189;</span><div class="wrap">
 <h1 class="brand"><span class="half">Half</span> <span class="brand-or">or</span> <span class="brand-nothing">Nothing</span></h1>
@@ -1806,7 +1881,7 @@ body.curator-mode #curator-badge{display:flex}
 </ul>
 </div></footer>
 <button type="button" class="back-to-top" id="backToTop" aria-label="Back to top">&#9650;</button>
-<script src="/assets/js/interaction.js?v=899565993f"></script>
+<script src="/assets/js/interaction.js?v=2c22184957"></script>
 <script src="/assets/js/blog-search.js?v=63d78cfffa"></script>
 <script type="text/javascript" src="https://js.codedrink.com/snippet.min.js" defer></script>
 <script type="text/javascript" src="/assets/js/lasso-picks.js?v=3" defer></script>
