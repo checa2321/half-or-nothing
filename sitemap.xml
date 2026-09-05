@@ -8133,8 +8133,8 @@
   <url>
     <loc>https://halfornothing.com/d/d-ebay-id-177518809372.html</loc>
     <lastmod>2026-09-05</lastmod>
-    <changefreq>hourly</changefreq>
-    <priority>0.6</priority>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
   </url>
   <url>
     <loc>https://halfornothing.com/d/d-ebay-id-177635411827.html</loc>
@@ -8241,8 +8241,8 @@
   <url>
     <loc>https://halfornothing.com/d/d-ebay-id-177924248388.html</loc>
     <lastmod>2026-09-05</lastmod>
-    <changefreq>hourly</changefreq>
-    <priority>0.6</priority>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
   </url>
   <url>
     <loc>https://halfornothing.com/d/d-ebay-id-177924792026.html</loc>
@@ -11931,8 +11931,8 @@
   <url>
     <loc>https://halfornothing.com/d/d-ebay-id-206438324556.html</loc>
     <lastmod>2026-09-05</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
+    <changefreq>hourly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://halfornothing.com/d/d-ebay-id-206451979206.html</loc>
@@ -13341,8 +13341,8 @@
   <url>
     <loc>https://halfornothing.com/d/d-ebay-id-267687736200.html</loc>
     <lastmod>2026-09-05</lastmod>
-    <changefreq>hourly</changefreq>
-    <priority>0.6</priority>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
   </url>
   <url>
     <loc>https://halfornothing.com/d/d-ebay-id-267709982638.html</loc>
@@ -13821,8 +13821,8 @@
   <url>
     <loc>https://halfornothing.com/d/d-ebay-id-287485661761.html</loc>
     <lastmod>2026-09-05</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
+    <changefreq>hourly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://halfornothing.com/d/d-ebay-id-287503514176.html</loc>
@@ -14327,6 +14327,12 @@
     <lastmod>2026-09-05</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://halfornothing.com/d/d-ebay-id-298595999582.html</loc>
+    <lastmod>2026-09-05</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://halfornothing.com/d/d-ebay-id-298602458805.html</loc>
@@ -17425,6 +17431,12 @@
     <priority>0.3</priority>
   </url>
   <url>
+    <loc>https://halfornothing.com/d/d-ebay-id-398229113470.html</loc>
+    <lastmod>2026-09-05</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://halfornothing.com/d/d-ebay-id-398245461661.html</loc>
     <lastmod>2026-09-05</lastmod>
     <changefreq>yearly</changefreq>
@@ -17947,6 +17959,12 @@
     <priority>0.3</priority>
   </url>
   <url>
+    <loc>https://halfornothing.com/d/d-ebay-id-820040516242.html</loc>
+    <lastmod>2026-09-05</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://halfornothing.com/d/d-ebay-id-820050296606.html</loc>
     <lastmod>2026-09-05</lastmod>
     <changefreq>yearly</changefreq>
@@ -17961,8 +17979,8 @@
   <url>
     <loc>https://halfornothing.com/d/d-ebay-id-820050333876.html</loc>
     <lastmod>2026-09-05</lastmod>
-    <changefreq>hourly</changefreq>
-    <priority>0.6</priority>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
   </url>
   <url>
     <loc>https://halfornothing.com/d/d-ebay-id-820050355528.html</loc>
@@ -18163,19 +18181,7 @@
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://halfornothing.com/d/d-ebay-id-820040516242.html</loc>
-    <lastmod>2026-09-05</lastmod>
-    <changefreq>hourly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://halfornothing.com/d/d-ebay-id-298595999582.html</loc>
-    <lastmod>2026-09-05</lastmod>
-    <changefreq>hourly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://halfornothing.com/d/d-ebay-id-398229113470.html</loc>
+    <loc>https://halfornothing.com/d/d-ebay-id-277754430774.html</loc>
     <lastmod>2026-09-05</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.6</priority>
