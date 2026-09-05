@@ -1131,6 +1131,11 @@ footer.site .disclosure{margin:14px 0}
 .compare-disclosure{grid-area:meta;font-size:10.5px;color:var(--muted);margin:2px 0 0}
 
 /* ---- blog index ---- */
+/* Same left-accent-border language as .prose h2 (see above), since these
+   category headings sit outside .prose and don't inherit that rule. */
+.blog-category-title{font-size:1.32rem;font-weight:800;letter-spacing:-.015em;
+                      margin:32px 0 4px;padding-left:16px;border-left:4px solid var(--signal)}
+.blog-category:first-child .blog-category-title{margin-top:8px}
 .blog-list{max-width:68ch;margin:8px 0 40px}
 .blog-row{padding:20px 0;border-top:1px solid var(--rule);display:flex;gap:18px;align-items:flex-start}
 .blog-row:last-child{border-bottom:1px solid var(--rule)}
