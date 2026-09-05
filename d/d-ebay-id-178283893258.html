@@ -33,7 +33,7 @@
 <meta name="twitter:title" content="McLaren Brown Gradient Square Unisex Sunglasses MLDS-89S03 C02 53 MLDS -- 76% off, $82.67 (was $350.00) | Half or Nothing">
 <meta name="twitter:description" content="76% off, $82.67 (was $350.00)">
 <meta name="twitter:image" content="https://i.ebayimg.com/images/g/OU8AAeSwYtNqlU0p/s-l500.jpg">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"McLaren Brown Gradient Square Unisex Sunglasses MLDS-89S03 C02 53 MLDS-89S03 C02","description":"76% off -- was $350.00, now $82.67 at Ebay.","image":"https://i.ebayimg.com/images/g/OU8AAeSwYtNqlU0p/s-l500.jpg","offers":{"@type":"Offer","price":"82.67","priceCurrency":"USD","availability":"https://schema.org/InStock","url":"https://halfornothing.com/d/d-ebay-id-178283893258.html","priceValidUntil":"2026-09-05T23:06:12Z"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Deals","item":"https://halfornothing.com/"},{"@type":"ListItem","position":2,"name":"Fashion & Accessories","item":"https://halfornothing.com/fashion.html"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"McLaren Brown Gradient Square Unisex Sunglasses MLDS-89S03 C02 53 MLDS-89S03 C02","description":"76% off -- was $350.00, now $82.67 at Ebay.","image":"https://i.ebayimg.com/images/g/OU8AAeSwYtNqlU0p/s-l500.jpg","offers":{"@type":"Offer","price":"82.67","priceCurrency":"USD","availability":"https://schema.org/InStock","url":"https://halfornothing.com/d/d-ebay-id-178283893258.html","priceValidUntil":"2026-09-06T00:06:22Z"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Deals","item":"https://halfornothing.com/"},{"@type":"ListItem","position":2,"name":"Fashion & Accessories","item":"https://halfornothing.com/fashion.html"}]}</script>
 <style>
 :root{
   --dur-fast:.12s; --dur-base:.15s; --dur-med:.18s;
@@ -1033,9 +1033,13 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
 .empty-state{padding:60px 12px;color:var(--muted);text-align:center;grid-column:1/-1}
 /* Shown when a ?deal= link from a social post outlives its listing. Uses the
    signal colour because it is answering a question the visitor actually
-   asked, not decorating the page. */
-.deal-gone{margin:0 0 18px;padding:14px 16px;border:2px solid var(--signal);
-           border-left-width:6px;background:var(--card);color:var(--ink);
+   asked, not decorating the page. Was a 6px left stripe on a 2px border --
+   the side-tab tell, plus a thicker-than-anywhere-else border; a uniform
+   1px border plus a light signal tint gives it the same real weight
+   without either (2026-09-05 cleanup, matches .disclosure's plain-border
+   precedent from the 2026-08-24 polish). */
+.deal-gone{margin:0 0 18px;padding:14px 16px;border:1px solid var(--signal);
+           background:rgba(217,58,18,.08);color:var(--ink);
            font-size:14px;line-height:1.5}
 .deal-gone b{display:block;margin-bottom:2px}
 
@@ -1064,19 +1068,18 @@ footer.site .disclosure{margin:14px 0}
 .prose h1{font-family:var(--brand-font);font-size:clamp(2rem,5vw,2.9rem);font-weight:900;
           letter-spacing:-.015em;line-height:1.1;margin:0 0 8px;text-wrap:balance}
 .prose .lede{font-size:1.15rem;color:var(--ink-soft);margin:0 0 30px}
-.prose h2{font-size:1.32rem;font-weight:800;letter-spacing:-.015em;margin:40px 0 16px;
-          padding-left:16px;border-left:4px solid var(--signal)}
+.prose h2{font-size:1.32rem;font-weight:800;letter-spacing:-.015em;margin:40px 0 16px}
 .prose h3{font-size:1.05rem;font-weight:700;letter-spacing:-.01em;margin:26px 0 8px}
 .prose p{margin:0 0 16px}
-/* Boxed callouts (Key Takeaways, the [[toc]] jump-list): same left-accent-
-   border language as .deal-gone elsewhere on the site, not a new pattern.
-   Two accent colors (signal/gate) so the two boxes read as visually
-   distinct when they sit back to back. */
+/* Boxed callouts (Key Takeaways, the [[toc]] jump-list). Was a left-accent
+   stripe shared with .deal-gone's old language -- replaced 2026-09-05 with
+   a uniform 1px border in the same two accent colors, so the two box types
+   still read as visually distinct sitting back to back, without the
+   side-tab tell. */
 .prose .callout{margin:0 0 26px;padding:18px 20px 20px;background:var(--card);
-                border:1px solid var(--rule);border-left:4px solid var(--signal);
-                border-radius:var(--r-sm)}
-.prose .callout.callout-toc{border-left-color:var(--gate)}
-.prose .callout h2{margin:0 0 12px;padding-left:0;border-left:none;font-size:1.15rem}
+                border:1px solid var(--signal);border-radius:var(--r-sm)}
+.prose .callout.callout-toc{border-color:var(--gate)}
+.prose .callout h2{margin:0 0 12px;font-size:1.15rem}
 .prose .callout ul{margin:0}
 .prose .callout li:last-child{margin-bottom:0}
 .prose nav.post-toc ul{margin:0;padding-left:0;list-style:none;columns:1}
