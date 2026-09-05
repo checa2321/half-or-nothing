@@ -553,7 +553,7 @@
       + "<h3 class='clamp2'><a href='" + url + "' target='_blank' rel='noopener sponsored'>" + title + '</a></h3>'
       + "<div class='prices'><span class='price-now'>" + money(d.price) + '</span>'
       + "<span class='price-was'>" + money(d.original_price) + '</span>'
-      + "<span class='pct-pill'>" + Math.round(d.discount_pct) + '% off</span></div>'
+      + "<span class='pct-pill" + (d.discount_pct >= 80 ? ' pct-pill-extreme' : '') + "'>" + Math.round(d.discount_pct) + '% off</span></div>'
       + "<div class='meta'><span class='src-tag'>" + esc(d.source_label) + '</span>'
       + '<span>Seen ' + esc(d.seen_text) + '</span>' + pills + '</div>'
       + variantPillHTML(d.variants)
@@ -1381,6 +1381,32 @@ initRail('lassoViewport', 'lassoPrev', 'lassoNext', '.pick-lasso', 14);
       else el.textContent = target;
     }
     requestAnimationFrame(tick);
+  });
+})();
+
+// ---- Theme toggle (2026-09-05) ----
+// The inline no-FOUC script in page_shell's <head> already applied any
+// saved localStorage preference before first paint; this just wires the
+// button itself. currentTheme() falls back to the OS preference when
+// there's no explicit choice yet, so the very first click always flips
+// away from whatever's actually showing, not from some other default.
+(function(){
+  var btn = document.getElementById('themeToggle');
+  if (!btn) return;
+  function currentTheme(){
+    var explicit = document.documentElement.getAttribute('data-theme');
+    if (explicit) return explicit;
+    return (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light';
+  }
+  function setPressed(theme){
+    btn.setAttribute('aria-pressed', theme === 'dark' ? 'true' : 'false');
+  }
+  setPressed(currentTheme());
+  btn.addEventListener('click', function(){
+    var next = currentTheme() === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    try { localStorage.setItem('theme', next); } catch(e){}
+    setPressed(next);
   });
 })();
 
