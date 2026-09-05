@@ -459,6 +459,29 @@
   var banner = grid.querySelector('.divider-banner');
   if (banner) banner.style.display = 'none';
 
+  // Scroll-reveal (2026-09-05): fade+slide each card in as it crosses into
+  // view, instead of the whole grid just sitting there fully rendered from
+  // the first frame. Already-visible is the real default -- the `.reveal`
+  // class (which is what CSS keys the hidden starting state off) is only
+  // ever added here, right before observing, so a browser with no
+  // IntersectionObserver (or JS that fails to run at all) leaves cards in
+  // their normal, always-visible state rather than stuck invisible.
+  var revealObserver = window.IntersectionObserver ? new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('reveal-in');
+      revealObserver.unobserve(entry.target);
+    });
+  }, {rootMargin: '0px 0px -40px 0px'}) : null;
+  function observeReveal(cards){
+    if (!revealObserver) return;
+    cards.forEach(function(c){
+      c.classList.add('reveal');
+      revealObserver.observe(c);
+    });
+  }
+  observeReveal(allCards);
+
   // ---- card markup, browser side ----
   // Mirrors _card() in html_output.py. Only the markup is duplicated: every
   // value it prints is computed once in Python by _card_fields() and carried
@@ -1107,7 +1130,37 @@
   var feedUrl = grid.getAttribute('data-feed');
   // No feed to wait for (the local view), so a miss is already conclusive.
   if ((!feedUrl || !window.fetch) && !deepLinked && wantedDeal()) dealGoneNotice();
+  // Skeleton placeholders (2026-09-05): FIRST_PAINT_CARDS (60) already fills
+  // several screens on a normal viewport, so this rarely matters -- but on a
+  // slow connection, or a wide/zoomed-out desktop showing more than 60
+  // cards' worth of space, the grid used to just stop dead until the idle-
+  // scheduled fetch above resolved, then cards would pop in with no warning.
+  // A handful of shimmering placeholders at the tail signals "more is
+  // coming" instead. Deliberately a separate class from `.card`, not a
+  // `.card.skeleton` -- allCards/search/filter/variant-modal logic all key
+  // off `classList.contains('card')`, and a fake listing in that set would
+  // be clickable, searchable, and countable as real inventory.
+  var SKELETON_COUNT = 8;
+  function addSkeletonCards(){
+    var frag = document.createDocumentFragment();
+    for (var i = 0; i < SKELETON_COUNT; i++){
+      var s = document.createElement('div');
+      s.className = 'card-skeleton';
+      s.setAttribute('aria-hidden', 'true');
+      s.innerHTML = "<div class='card-skeleton-thumb'></div><div class='card-skeleton-body'>"
+        + "<div class='card-skeleton-line' style='width:90%'></div>"
+        + "<div class='card-skeleton-line' style='width:60%'></div>"
+        + "<div class='card-skeleton-line card-skeleton-price' style='width:40%'></div></div>";
+      frag.appendChild(s);
+    }
+    grid.appendChild(frag);
+  }
+  function removeSkeletonCards(){
+    grid.querySelectorAll('.card-skeleton').forEach(function(s){ s.remove(); });
+  }
+
   if (feedUrl && window.fetch) {
+    addSkeletonCards();
     var wantCat = grid.getAttribute('data-feed-cat');
     var wantSub = grid.getAttribute('data-feed-subcat');
     var wantType = grid.getAttribute('data-feed-type');
@@ -1136,6 +1189,12 @@
     fetch(feedUrl, {cache: 'default'})
       .then(function(r){ return r.ok ? r.json() : Promise.reject(r.status); })
       .then(function(feed){
+        // Real cards (or the plain end of the grid, if there aren't any)
+        // replace the skeletons the moment the feed resolves either way --
+        // removed here unconditionally rather than only in the `added`
+        // branch below, so a feed with nothing new to add doesn't leave
+        // fake placeholders shimmering forever.
+        removeSkeletonCards();
         // Match against ids already in the document rather than assuming the
         // document holds exactly the feed's first N: the two are built from
         // the same ordered list, but keying on identity means a change to
@@ -1146,6 +1205,7 @@
 
         var frag = document.createDocumentFragment();
         var added = 0;
+        var newCards = [];
         (feed.deals || []).forEach(function(d){
           if (have[d.id]) return;
           if (wantCat && d.category !== wantCat) return;
@@ -1153,11 +1213,14 @@
           if (wantType && d.fashion_type !== wantType) return;
           if (wantPriceMin !== null && !(d.price > wantPriceMin)) return;
           if (wantPriceMax !== null && !(d.price <= wantPriceMax)) return;
-          frag.appendChild(buildCard(d));
+          var newCard = buildCard(d);
+          frag.appendChild(newCard);
+          newCards.push(newCard);
           added++;
         });
         if (!added) return;
         grid.appendChild(frag);
+        observeReveal(newCards);
 
         allCards = Array.prototype.filter.call(grid.children, function(el){
           return el.classList.contains('card');
@@ -1176,6 +1239,9 @@
       .catch(function(){
         // Silent by design: the page is already usable. Surfacing a fetch
         // error here would be a broken-looking site over a working one.
+        // Skeletons still need to go, though -- a failed fetch means
+        // nothing is ever going to replace them.
+        removeSkeletonCards();
       });
     };
     if (window.requestIdleCallback) {
@@ -1286,6 +1352,36 @@ initRail('lassoViewport', 'lassoPrev', 'lassoNext', '.pick-lasso', 14);
   }
   relative();
   setInterval(relative, 30000);
+})();
+
+// ---- Hero stat count-up (2026-09-05) ----
+// The real number is already the element's text content (see stats_html's
+// own comment in html_output.py) -- this reads it back out, zeroes the
+// display, and animates up to the exact same value, so the animation can
+// never show a number that doesn't match what's actually true, and a JS
+// failure just leaves the real number sitting there instead of a stuck "0".
+(function(){
+  var els = document.querySelectorAll('.stat-count');
+  if (!els.length) return;
+  var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  els.forEach(function(el){
+    var target = parseInt(el.textContent, 10);
+    if (!isFinite(target) || reduceMotion) return;
+    el.textContent = '0';
+    var start = null;
+    var duration = 1200;
+    function tick(ts){
+      if (start === null) start = ts;
+      var progress = Math.min((ts - start) / duration, 1);
+      // Same exponential ease-out used for the blog spotlight's entrance
+      // this session -- one motion curve, not a different one per feature.
+      var eased = 1 - Math.pow(1 - progress, 3);
+      el.textContent = Math.round(target * eased);
+      if (progress < 1) requestAnimationFrame(tick);
+      else el.textContent = target;
+    }
+    requestAnimationFrame(tick);
+  });
 })();
 
 // ---- Curator mode: multi-select Pinterest queue, 2026-08-31 ----
