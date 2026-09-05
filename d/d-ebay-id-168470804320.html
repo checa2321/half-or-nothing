@@ -33,10 +33,21 @@
 <meta name="twitter:title" content="Gucci Lilac Cat Eye Ladies Sunglasses GG1844SA 003 55 GG1844SA 003 55 -- 72% off, $146.27 (was $515.00) | Half or Nothing">
 <meta name="twitter:description" content="72% off, $146.27 (was $515.00)">
 <meta name="twitter:image" content="https://i.ebayimg.com/images/g/HMgAAeSweY5qlUxS/s-l500.jpg">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Gucci Lilac Cat Eye Ladies Sunglasses GG1844SA 003 55 GG1844SA 003 55","description":"72% off -- was $515.00, now $146.27 at Ebay.","image":"https://i.ebayimg.com/images/g/HMgAAeSweY5qlUxS/s-l500.jpg","offers":{"@type":"Offer","price":"146.27","priceCurrency":"USD","availability":"https://schema.org/InStock","url":"https://halfornothing.com/d/d-ebay-id-168470804320.html","priceValidUntil":"2026-09-06T00:06:22Z"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Deals","item":"https://halfornothing.com/"},{"@type":"ListItem","position":2,"name":"Fashion & Accessories","item":"https://halfornothing.com/fashion.html"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Gucci Lilac Cat Eye Ladies Sunglasses GG1844SA 003 55 GG1844SA 003 55","description":"72% off -- was $515.00, now $146.27 at Ebay.","image":"https://i.ebayimg.com/images/g/HMgAAeSweY5qlUxS/s-l500.jpg","offers":{"@type":"Offer","price":"146.27","priceCurrency":"USD","availability":"https://schema.org/InStock","url":"https://halfornothing.com/d/d-ebay-id-168470804320.html","priceValidUntil":"2026-09-06T01:06:17Z"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Deals","item":"https://halfornothing.com/"},{"@type":"ListItem","position":2,"name":"Fashion & Accessories","item":"https://halfornothing.com/fashion.html"}]}</script>
 <style>
 :root{
   --dur-fast:.12s; --dur-base:.15s; --dur-med:.18s;
+  /* Heading/title scale (2026-09-05): pulled every ad-hoc heading/title
+     font-size on the site into named tokens after the design audit counted
+     9 undocumented sizes doing heading work, two of them ("section title"
+     at 1.4rem and prose h2 at 1.32rem) only 6% apart -- the same role
+     declared twice, independently, by drift rather than intent. Values kept
+     identical to what already shipped (this centralizes the scale, it
+     doesn't redesign it) except that one pair, which now shares --fs-h2
+     since both are literally a section heading. */
+  --fs-display:clamp(2rem,5vw,2.9rem); --fs-h2:1.32rem; --fs-h3:1.05rem;
+  --fs-title-lg:1.5rem; --fs-title-md:1.1rem; --fs-title-sm:.98rem; --fs-title-xs:.85rem;
+  --fs-lede:1.15rem;
   --signal:#D93A12; --signal-dark:#B8331A; --gate:#00a863; --gate-soft:#5C9B81;
   /* White text on full-saturation --gate only clears 3.1:1 (light) / 2.4:1
      (dark, see the theme override below) with white text -- both fail
@@ -284,11 +295,15 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
 .footer-grid{display:flex;align-items:flex-start;justify-content:space-between;gap:32px}
 .footer-main{flex:1;min-width:0}
 .footer-social{list-style:none;display:flex;flex-wrap:wrap;gap:10px;margin:0;padding:0;flex-shrink:0}
-.footer-social a{display:flex;align-items:center;justify-content:center;
+/* footer.site.footer-social (not .footer-social alone) so this reliably beats
+   `footer.site a`'s color:var(--gate) below on specificity -- the plain-class
+   version used to lose that fight, which is why the social icons rendered
+   solid Gate Green instead of the intended muted gray (found 2026-09-05). */
+footer.site .footer-social a{display:flex;align-items:center;justify-content:center;
                  width:44px;height:44px;text-decoration:none;color:var(--ink-soft);
                  border:1px solid var(--rule);border-radius:50%;
                  transition:border-color var(--dur-base) ease,color var(--dur-base) ease,background var(--dur-base) ease}
-.footer-social a:hover{border-color:var(--signal);color:var(--signal);background:var(--paper-2)}
+footer.site .footer-social a:hover{border-color:var(--signal);color:var(--signal);background:var(--paper-2)}
 .footer-social svg{width:19px;height:19px;fill:currentColor}
 @media(max-width:640px){
   .footer-grid{flex-direction:column-reverse;gap:20px}
@@ -473,8 +488,15 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
       text-decoration:none;overflow:hidden;
       background:var(--card);border:1px solid var(--rule);border-radius:var(--r-md);
       transition:transform var(--dur-med) ease,box-shadow var(--dur-med) ease,border-color var(--dur-med) ease}
-.pick:hover,.pick:focus-visible{transform:translateY(-4px);border-color:transparent;
+/* hover:hover/:active split (2026-09-05 fix, same convention as navBtn/
+   megaBtn/catFilterBtn/over-menu): this was bare :hover before, so touch
+   visitors -- most of this card's actual traffic -- got zero visual
+   acknowledgment before navigating away. :focus-visible/:active share the
+   hover treatment unconditionally; :hover alone is gated. */
+.pick:focus-visible,.pick:active{transform:translateY(-4px);border-color:transparent;
       box-shadow:0 12px 26px rgba(0,0,0,.15)}
+@media(hover:hover){.pick:hover{transform:translateY(-4px);border-color:transparent;
+      box-shadow:0 12px 26px rgba(0,0,0,.15)}}
 /* --pk-a/--pk-b are set per card from the pick's category (PICK_FAMILIES). */
 .pick-art{position:relative;height:132px;display:flex;align-items:flex-end;padding:12px 13px;
           background:linear-gradient(140deg,var(--pk-a,#52525B),var(--pk-b,#27272A));
@@ -486,7 +508,7 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
             stroke:#fff;stroke-width:1.6;fill:none;opacity:.95;
             stroke-linecap:round;stroke-linejoin:round;
             transition:transform .25s ease}
-.pick:hover .pick-glyph{transform:scale(1.12) rotate(-4deg)}
+@media(hover:hover){.pick:hover .pick-glyph{transform:scale(1.12) rotate(-4deg)}}
 .pick-num{position:absolute;top:-6px;right:6px;font:800 62px/1 var(--display);
           letter-spacing:-.04em;color:rgba(255,255,255,.22);pointer-events:none;
           font-variant-numeric:tabular-nums}
@@ -498,7 +520,8 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
 .pick-title{font:700 13.5px/1.38 var(--display);color:var(--ink);
             display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;
             transition:color var(--dur-base) ease}
-.pick:hover .pick-title{color:var(--signal)}
+.pick:focus-visible .pick-title,.pick:active .pick-title{color:var(--signal)}
+@media(hover:hover){.pick:hover .pick-title{color:var(--signal)}}
 .pick-note{font-size:12.5px;line-height:1.5;color:var(--ink-soft);
            display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
 .pick-cta{margin-top:auto;padding-top:11px;border-top:1px solid var(--rule);
@@ -506,7 +529,8 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
           font:700 11px/1 var(--mono);letter-spacing:.04em;text-transform:uppercase;
           color:var(--signal)}
 .pick-cta i{font-style:normal;transition:transform var(--dur-med) ease}
-.pick:hover .pick-cta i{transform:translateX(4px)}
+.pick:focus-visible .pick-cta i,.pick:active .pick-cta i{transform:translateX(4px)}
+@media(hover:hover){.pick:hover .pick-cta i{transform:translateX(4px)}}
 .picks-arrow{position:absolute;top:66px;transform:translateY(-50%);z-index:5;
              width:38px;height:38px;border-radius:50%;cursor:pointer;
              background:var(--card);border:1px solid var(--rule);color:var(--ink);
@@ -546,7 +570,10 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
 .pick-lasso{scroll-snap-align:start;flex:0 0 400px;width:400px;background:var(--card);
             border:1px solid var(--rule);border-radius:var(--r-md);padding:16px;position:relative;
             overflow:hidden;transition:transform var(--dur-med) ease,box-shadow var(--dur-med) ease,border-color var(--dur-med) ease}
-.pick-lasso:hover{transform:translateY(-4px);border-color:transparent;box-shadow:0 12px 26px rgba(0,0,0,.15)}
+/* .pick-lasso is a <div> (Lasso injects the real link/button inside it), so
+   only :active applies here -- a div never receives keyboard focus itself. */
+.pick-lasso:active{transform:translateY(-4px);border-color:transparent;box-shadow:0 12px 26px rgba(0,0,0,.15)}
+@media(hover:hover){.pick-lasso:hover{transform:translateY(-4px);border-color:transparent;box-shadow:0 12px 26px rgba(0,0,0,.15)}}
 @media(max-width:640px){.pick-lasso{flex:0 0 320px;width:320px}}
 /* Category chip + rank numeral, carried over from the SVG-art picks (same
    --pk-a/--pk-b/_pick_art() as those cards) so the two rails read as one
@@ -800,7 +827,12 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
 .card{background:var(--card);border-radius:var(--r-md);border:1px solid var(--rule);
       box-shadow:0 1px 3px rgba(0,0,0,.06);display:flex;flex-direction:column;
       transition:box-shadow var(--dur-base) ease,border-color var(--dur-base) ease;position:relative}
-.card:hover{box-shadow:0 4px 14px rgba(0,0,0,.12);border-color:var(--signal)}
+/* .card is a <div> (the real link is the inner title/thumb <a>), so only
+   :active applies -- it still fires correctly since a mouse-down inside the
+   card bubbles :active up to it, giving touch a visible response before the
+   inner link navigates (2026-09-05 fix, same gap as .pick/.pick-lasso). */
+.card:active{box-shadow:0 4px 14px rgba(0,0,0,.12);border-color:var(--signal)}
+@media(hover:hover){.card:hover{box-shadow:0 4px 14px rgba(0,0,0,.12);border-color:var(--signal)}}
 /* Was border-left:3px solid var(--gate) -- redundant with .newpill, which
    already says "New" in real text on the same card; a colour-only stripe
    with no label doesn't add information and is the side-tab tell on top
@@ -1043,15 +1075,20 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
            font-size:14px;line-height:1.5}
 .deal-gone b{display:block;margin-bottom:2px}
 
-footer.site{margin:48px 0 0;border-top:2px solid var(--ink);padding:24px 0 56px;
-            font-size:14px;color:var(--muted)}
+/* max-width/margin/padding merged in directly (2026-09-05) -- footer used to
+   inherit them for free by sitting inside <main class="wrap">, but that also
+   meant it had no implicit `contentinfo` landmark (a <footer> nested inside
+   <main> per the HTML-AAM spec doesn't get one). Moved footer to be a sibling
+   of main instead, so it needs its own copy of .wrap's constraint. */
+footer.site{max-width:1180px;margin:48px auto 0;padding:24px 28px 56px;
+            border-top:2px solid var(--ink);font-size:14px;color:var(--muted)}
 footer.site a{color:var(--gate);font-weight:600}
 footer.site .runline{font:400 12px/1.6 var(--mono);color:var(--muted);margin-top:12px}
 footer.site .footer-legal{margin-top:18px}
 footer.site .disclosure{margin:14px 0}
 
 /* ---- prose pages ---- */
-.prose{max-width:68ch;padding:44px 0 0}
+.prose{max-width:68ch;margin:0 auto;padding:44px 0 0}
 /* Archivo 900, not var(--display) (the system-font stack) -- every other
    heading/label on the site already runs on --display fine at UI sizes,
    but a prose H1 is the single largest, most prominent text on any blog
@@ -1065,11 +1102,17 @@ footer.site .disclosure{margin:14px 0}
    the old -.035em: that was tuned to compensate a thin system face at
    large size, Archivo's own weight doesn't need as much negative tracking
    to read as intentional. */
-.prose h1{font-family:var(--brand-font);font-size:clamp(2rem,5vw,2.9rem);font-weight:900;
+.prose h1{font-family:var(--brand-font);font-size:var(--fs-display);font-weight:900;
           letter-spacing:-.015em;line-height:1.1;margin:0 0 8px;text-wrap:balance}
-.prose .lede{font-size:1.15rem;color:var(--ink-soft);margin:0 0 30px}
-.prose h2{font-size:1.32rem;font-weight:800;letter-spacing:-.015em;margin:40px 0 16px}
-.prose h3{font-size:1.05rem;font-weight:700;letter-spacing:-.01em;margin:26px 0 8px}
+.prose .lede{font-size:var(--fs-lede);color:var(--ink-soft);margin:0 0 30px}
+/* scroll-margin-top on both (2026-09-05 fix): the sticky topnav (67px) was
+   covering the heading a TOC/anchor link jumps to -- every one of a post's
+   [[toc]] links landed the reader on a hidden heading with no way to tell
+   why the page looked "empty" right after the jump. */
+.prose h2{font-size:var(--fs-h2);font-weight:800;letter-spacing:-.015em;margin:40px 0 16px;
+          scroll-margin-top:84px}
+.prose h3{font-size:var(--fs-h3);font-weight:700;letter-spacing:-.01em;margin:26px 0 8px;
+          scroll-margin-top:84px}
 .prose p{margin:0 0 16px}
 /* Boxed callouts (Key Takeaways, the [[toc]] jump-list). Was a left-accent
    stripe shared with .deal-gone's old language -- replaced 2026-09-05 with
@@ -1094,7 +1137,14 @@ footer.site .disclosure{margin:14px 0}
                   border-radius:999px;background:var(--signal)}
 .prose strong{font-weight:700;background:rgba(217,58,18,.14);padding:.05em .3em;
               border-radius:var(--r-sm);box-decoration-break:clone;-webkit-box-decoration-break:clone}
-.prose a{color:var(--gate);text-underline-offset:3px;font-weight:600}
+/* --gate-dark, not raw --gate (2026-09-05 fix): green-on-paper measured
+   ~2.94:1 live, below WCAG AA's 4.5:1 floor for normal text -- the same
+   contrast problem --gate-dark already exists to solve for white-on-green,
+   just never applied to green-as-text-color until now. --gate-dark clears
+   5.4:1 regardless of theme (see the Gate Rule note near :root's tokens). */
+.prose a{color:var(--gate-dark);text-underline-offset:3px;font-weight:600;
+         transition:color var(--dur-base) ease}
+.prose a:hover{color:var(--signal-dark)}
 .prose .stat{font-family:var(--mono);font-variant-numeric:tabular-nums}
 .prose figure.post-img{margin:22px auto;padding:14px;background:var(--card);max-width:600px;
                        border:1px solid var(--rule);border-radius:var(--r-md);text-align:center}
@@ -1106,7 +1156,12 @@ footer.site .disclosure{margin:14px 0}
 .prose figure.post-infographic{margin:26px 0}
 .prose figure.post-infographic img{width:100%;height:auto;border-radius:var(--r-md);display:block}
 .prose figure.post-hero{margin:0 0 26px}
-.prose figure.post-hero img{width:100%;height:auto;border-radius:var(--r-md);display:block}
+/* aspect-ratio (2026-09-05 fix): this is the post's LCP candidate
+   (fetchpriority=high in blog.py) and the one image on the page with no
+   intrinsic-size hint before it decodes -- every other image type here
+   (cards, covers) already reserves space via aspect-ratio. */
+.prose figure.post-hero img{width:100%;height:auto;aspect-ratio:16/9;
+                             object-fit:cover;border-radius:var(--r-md);display:block}
 .prose table{width:100%;margin:0 0 22px;border-collapse:collapse;font-size:.92rem}
 .prose th,.prose td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--rule)}
 .prose th{font:600 11px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;
@@ -1208,26 +1263,49 @@ footer.site .disclosure{margin:14px 0}
 @keyframes blog-spotlight-in{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
 @media(max-width:860px){.blog-spotlight{grid-template-columns:1fr}}
 .blog-featured{display:grid;grid-template-columns:1fr;border:1px solid var(--rule);
-                border-radius:var(--r-lg);overflow:hidden;background:var(--card)}
+                border-radius:var(--r-lg);overflow:hidden;background:var(--card);
+                transition:border-color var(--dur-base) ease,box-shadow var(--dur-base) ease}
+/* The biggest, most prominent link on the page had zero press feedback
+   before this (2026-09-05 fix) -- no :hover, no :active, nothing -- so a
+   touch tap gave no acknowledgment before navigating. It's an <article>, not
+   a link itself, so only :active applies (bubbles up from the inner <a> on
+   press); the border/shadow language matches .blog-card-compact's own. */
+.blog-featured:active{border-color:var(--muted);box-shadow:0 4px 14px rgba(0,0,0,.1)}
+@media(hover:hover){.blog-featured:hover{border-color:var(--muted);box-shadow:0 4px 14px rgba(0,0,0,.1)}}
 .blog-featured-cover{display:block;aspect-ratio:16/9;background:var(--paper-3)}
 .blog-featured-cover img{width:100%;height:100%;object-fit:cover;display:block;
                           transition:transform .3s}
-.blog-featured:hover .blog-featured-cover img{transform:scale(1.03)}
+.blog-featured:active .blog-featured-cover img{transform:scale(1.03)}
+@media(hover:hover){.blog-featured:hover .blog-featured-cover img{transform:scale(1.03)}}
 .blog-featured-body{padding:20px 24px 24px}
-.blog-featured-title{display:block;font-size:1.5rem;font-weight:800;letter-spacing:-.015em;
+.blog-featured-title{display:block;font-size:var(--fs-title-lg);font-weight:800;letter-spacing:-.015em;
                       line-height:1.2;color:var(--ink);text-decoration:none}
 .blog-featured-title:hover{color:var(--signal)}
 .blog-featured-desc{margin:10px 0 0;color:var(--ink-soft);max-width:60ch}
 .blog-featured-meta{margin:12px 0 0;font:500 11px/1 var(--mono);letter-spacing:.06em;
                      text-transform:uppercase;color:var(--muted)}
-.blog-spotlight-secondary{display:flex;flex-direction:column;gap:14px;justify-content:space-between}
-.blog-spotlight-secondary .blog-card-compact{display:flex;align-items:center;gap:12px}
-.blog-spotlight-secondary .blog-card-cover{flex-shrink:0;width:72px;height:72px;aspect-ratio:auto}
+/* Was justify-content:space-between: with exactly 3 cards and no
+   description, that stretched them into 3 visibly separated islands with
+   big dead gaps between -- flagged by the visual audit and by Che directly
+   (2026-09-05). Real content (bigger cover + a description, via
+   _blog_row_compact's show_desc=True) plus a plain top-aligned gap gives
+   each card enough height to close most of that gap on its own, instead of
+   faking it with distributed whitespace. */
+.blog-spotlight-secondary{display:flex;flex-direction:column;gap:20px}
+.blog-spotlight-secondary .blog-card-compact{display:flex;align-items:flex-start;gap:14px}
+.blog-spotlight-secondary .blog-card-cover{flex-shrink:0;width:104px;height:104px;aspect-ratio:auto}
 .blog-spotlight-secondary .blog-card-body{padding:0}
-.blog-spotlight-secondary .blog-card-title{padding:0;font-size:.9rem}
-.blog-spotlight-secondary .blog-card-date{padding:3px 0 0}
+.blog-spotlight-secondary .blog-card-title{padding:0;font-size:.95rem}
+.blog-spotlight-secondary .blog-card-desc{margin:6px 0 0;font-size:.82rem;color:var(--ink-soft);
+                                           display:-webkit-box;-webkit-line-clamp:2;
+                                           -webkit-box-orient:vertical;overflow:hidden}
+.blog-spotlight-secondary .blog-card-date{padding:6px 0 0}
 
-.blog-section-title{font-size:1.4rem;font-weight:800;letter-spacing:-.015em;margin:0 0 20px}
+/* --fs-h2, not its own literal (2026-09-05 consolidation): this was 1.4rem,
+   the audit's flagship "scale drift" example -- a second, independently
+   declared "section heading" size only 6% from .prose h2's 1.32rem. Same
+   role, now the same token. */
+.blog-section-title{font-size:var(--fs-h2);font-weight:800;letter-spacing:-.015em;margin:0 0 20px}
 /* One column per category, side by side -- this (not a taller single-file
    list) is what actually cuts the scroll: every category is visible in the
    same viewport instead of one below the other. Fixed column counts per
@@ -1246,7 +1324,13 @@ footer.site .disclosure{margin:14px 0}
 @media(max-width:480px){.blog-category-grid{grid-template-columns:1fr}}
 .blog-category-col-head{display:flex;align-items:baseline;justify-content:space-between;
                          gap:8px;margin:0 0 12px;padding-bottom:10px;border-bottom:2px solid var(--rule)}
-.blog-category-title{font-size:.98rem;font-weight:800;letter-spacing:-.005em;margin:0}
+.blog-category-title{font-size:var(--fs-title-sm);font-weight:800;letter-spacing:-.005em;margin:0}
+/* The title used to be plain text while "View all" right below it was a
+   link -- felt inconsistent (Che, 2026-09-05). Every category now has a
+   real page (see build_all()'s comment) so the title links there too. */
+.blog-category-title a{color:inherit;text-decoration:none}
+.blog-category-title a:active{color:var(--signal)}
+@media(hover:hover){.blog-category-title a:hover{color:var(--signal)}}
 .blog-category-count{font:500 10px/1 var(--mono);letter-spacing:.05em;
                       text-transform:uppercase;color:var(--muted);white-space:nowrap}
 .blog-category-col-list{display:flex;flex-direction:column;gap:12px}
@@ -1255,19 +1339,21 @@ footer.site .disclosure{margin:14px 0}
 .blog-category-more:hover{text-decoration:underline}
 .blog-category-more i{font-style:normal;display:inline-block;transition:transform var(--dur-med) ease}
 .blog-category-more:hover i{transform:translateX(3px)}
+.blog-category-note{margin:12px 0 0;font-size:.85rem;font-style:italic;color:var(--muted)}
 
 /* Compact card -- every post inside a category column, and the spotlight's
    secondary list (sized differently there via the overrides above). */
 .blog-card-compact{display:block;border:1px solid var(--rule);border-radius:var(--r-md);
                     overflow:hidden;background:var(--card);transition:border-color .15s}
-.blog-card-compact:hover{border-color:var(--muted)}
-.blog-card-compact:active{transform:translateY(1px)}
+.blog-card-compact:active{border-color:var(--muted);transform:translateY(1px)}
+@media(hover:hover){.blog-card-compact:hover{border-color:var(--muted)}}
 .blog-card-cover{display:block;aspect-ratio:16/9;background:var(--paper-3);overflow:hidden}
 .blog-card-cover img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .3s}
-.blog-card-compact:hover .blog-card-cover img{transform:scale(1.04)}
+.blog-card-compact:active .blog-card-cover img{transform:scale(1.04)}
+@media(hover:hover){.blog-card-compact:hover .blog-card-cover img{transform:scale(1.04)}}
 .blog-card-body{padding:10px 12px}
 .blog-card-title{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;
-                  overflow:hidden;font-size:.85rem;font-weight:700;
+                  overflow:hidden;font-size:var(--fs-title-xs);font-weight:700;
                   color:var(--ink);text-decoration:none;letter-spacing:-.003em;line-height:1.35}
 .blog-card-title:hover{color:var(--signal)}
 .blog-card-date{margin:6px 0 0;font:500 10px/1 var(--mono);letter-spacing:.05em;
@@ -1275,19 +1361,30 @@ footer.site .disclosure{margin:14px 0}
 
 /* The original row layout -- still used by author pages and category
    archive pages, which list posts one at a time with a real description. */
-.blog-list{max-width:68ch;margin:8px 0 40px}
+.blog-list{max-width:68ch;margin:8px auto 40px}
 .blog-row{padding:20px 0;border-top:1px solid var(--rule);display:flex;gap:18px;align-items:flex-start}
 .blog-row:last-child{border-bottom:1px solid var(--rule)}
 .blog-row-cover{flex-shrink:0;display:block;width:140px;height:74px;border-radius:var(--r-sm);
                  overflow:hidden;border:1px solid var(--rule)}
 .blog-row-cover img{width:100%;height:100%;object-fit:cover;display:block}
 .blog-row-body{min-width:0}
-.blog-row-title{display:block;font-size:1.1rem;font-weight:700;color:var(--ink);
+.blog-row-title{display:block;font-size:var(--fs-title-md);font-weight:700;color:var(--ink);
                  text-decoration:none;letter-spacing:-.01em}
 .blog-row-title:hover{color:var(--signal)}
 .blog-row-desc{margin:6px 0 0;color:var(--ink-soft)}
 .blog-row-date{margin:6px 0 0;font:500 11px/1 var(--mono);letter-spacing:.06em;
                 text-transform:uppercase;color:var(--muted)}
+
+/* "You might also like" -- a post used to end straight into the sitewide
+   footer with no recirculation at all (2026-09-05 fix, see render_post()'s
+   own comment). Full .wrap width (not .prose's 68ch) so it can run 3 real
+   cards across, same visual language as the index's category-grid cards. */
+.blog-related{max-width:1180px;margin:8px auto 40px}
+.blog-related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+@media(max-width:860px){.blog-related-grid{grid-template-columns:1fr}}
+.blog-related .blog-card-desc{margin:6px 0 0;font-size:.82rem;color:var(--ink-soft);
+                               display:-webkit-box;-webkit-line-clamp:2;
+                               -webkit-box-orient:vertical;overflow:hidden}
 
 /* ---- blog author profile ---- */
 .author-head{display:flex;gap:16px;align-items:center;margin:8px 0 20px}
@@ -1400,6 +1497,13 @@ html{scroll-behavior:smooth}
 /* ---- category landing pages: breadcrumb + fashion subnav ---- */
 .visually-hidden{position:absolute;width:1px;height:1px;padding:0;margin:-1px;
                  overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+/* Keyboard-only skip link -- first focusable element in the document, so a
+   keyboard/screen-reader user doesn't have to tab through the full nav +
+   search + hamburger on every single page load just to reach the content. */
+.skip-link{position:absolute;top:-48px;left:8px;z-index:1000;background:var(--signal);
+           color:#fff;padding:10px 16px;border-radius:var(--r-sm);font-weight:700;
+           text-decoration:none;transition:top var(--dur-base) ease}
+.skip-link:focus{top:8px}
 .crumbs{margin:26px 0 2px;font-size:13px;color:var(--muted)}
 .crumbs a{color:var(--muted);text-decoration:none}
 .crumbs a:hover{color:var(--signal)}
@@ -1467,6 +1571,7 @@ html{scroll-behavior:smooth}
   .price-now{color:var(--gate)}
   .td-now{color:var(--gate)}
   .compare-price{color:var(--gate)}
+  .prose a{color:var(--gate)}
   .best-cta{background:var(--signal-dark);border-color:var(--signal-dark)}
   .best-cta:hover{background:var(--card);color:var(--signal)}
   .src-tag{background:#45453F}
@@ -1487,7 +1592,16 @@ html{scroll-behavior:smooth}
 }
 
 @media (prefers-reduced-motion:reduce){
-  *{transition:none!important;animation:none!important;scroll-behavior:auto!important}
+  /* Animations (all movement-based on this site: card-breathe, the blog
+     spotlight's entrance, the disclosure fade) stay fully off. Transitions
+     used to be blanket-killed too, but that took out short opacity/color
+     hover feedback along with real movement -- reduced motion means fewer/
+     gentler transitions, not zero, per improve-animations' 2026-09-05
+     review. Restricting transition-property to this safe list keeps color/
+     background/border/shadow/opacity easing alive while any transform-based
+     transition on the same rule becomes instant. */
+  *{animation:none!important;scroll-behavior:auto!important}
+  *{transition-property:color,background-color,border-color,box-shadow,opacity!important}
 }
 
 /* ---- durable per-deal pages (/d/{id}.html), pilot 2026-08-14 ---- */
@@ -1581,11 +1695,12 @@ body.curator-mode #curator-badge{display:flex}
                    background:var(--paper-2);cursor:pointer;font-size:12.5px;font-weight:600}
 #curator-panel .curator-actions button.primary{background:var(--signal);color:#fff;border-color:var(--signal)}
 </style></head><body>
-<nav class="topnav"><div class="inner">
+<a class="skip-link" href="#main">Skip to content</a>
+<nav class="topnav" aria-label="Main"><div class="inner">
 <a class="logo" href="/index.html" aria-label="Half or Nothing">
 <svg class="logomark" viewBox="0 0 32 32" aria-hidden="true"><path d="M2 2h26L2 28z" fill="currentColor"/><path d="M30 4v26H4z" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round"/></svg>
 <span class="lg-half">HALF</span><span class="lg-or">or</span><span class="lg-nothing">NOTHING</span></a>
-<form class='herosearch' role='search' action='/index.html' method='get'><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' aria-hidden='true'><circle cx='11' cy='11' r='7'></circle><line x1='21' y1='21' x2='16.65' y2='16.65'></line></svg><input type='search' name='q' aria-label='Search deals' autocomplete='off'></form>
+<form class='herosearch' role='search' action='/index.html' method='get'><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' aria-hidden='true'><circle cx='11' cy='11' r='7'></circle><line x1='21' y1='21' x2='16.65' y2='16.65'></line></svg><input type='search' name='q' aria-label='Search deals' placeholder='Search deals…' autocomplete='off'></form>
 <button type="button" id="navBtn" aria-expanded="false" aria-controls="navLinks" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button><div class="links" id="navLinks"><a href="/index.html">Deals</a><a href="/brands.html">Brands</a><a href="/amazon-picks.html">Amazon Picks</a><a href="/blog.html">Blog</a><a href="/about.html">About</a><a href="/privacy.html">Privacy</a><a href="/contact.html">Contact</a></div>
 </div></nav>
 <header class="mast"><span class="mast-ghost" id="mastGhost" aria-hidden="true">&#189;</span><div class="wrap">
@@ -1594,8 +1709,9 @@ body.curator-mode #curator-badge{display:flex}
 
 
 </div></header>
-<main class="wrap">
+<main class="wrap" id="main">
 <nav class='crumbs' aria-label='Breadcrumb'><a href='/index.html'>All deals</a> <span>&rsaquo;</span> <a href='/fashion.html'>Fashion &amp; Accessories</a> <span>&rsaquo;</span> <b>Deal</b></nav><article class='deal-page'><div class='deal-page-media'><img src='https://i.ebayimg.com/images/g/HMgAAeSweY5qlUxS/s-l500.jpg' alt='Gucci Lilac Cat Eye Ladies Sunglasses GG1844SA 003 55 GG1844SA 003 55' loading='eager' decoding='async' referrerpolicy='no-referrer'></div><div class='deal-page-body'><h1>Gucci Lilac Cat Eye Ladies Sunglasses GG1844SA 003 55 GG1844SA 003 55</h1><p class='deal-status deal-status-live'>Live now &middot; verified within the last 6 hours.</p><p class='deal-page-price'><b>$146.27</b><s>$515.00</s><span class='deal-page-pct'>72% off</span></p><a class='deal-cta' href='https://www.ebay.com/itm/168470804320?_skw=sunglasses&amp;hash=item2739a47760%3Ag%3AHMgAAeSweY5qlUxS&amp;campid=5339186549&amp;toolid=10001&amp;mkevt=1&amp;mkcid=1&amp;mkrid=711-53200-19255-0&amp;siteid=0&amp;customid=hond' target='_blank' rel='noopener sponsored'>Get this deal at Ebay &rarr;</a></div></article>
+</main>
 <footer class="site"><div class="footer-grid">
 <div class="footer-main">
 <details class="disclosure">
@@ -1634,10 +1750,9 @@ body.curator-mode #curator-badge{display:flex}
 </a></li>
 </ul>
 </div></footer>
-</main>
 <button type="button" class="back-to-top" id="backToTop" aria-label="Back to top">&#9650;</button>
 <script src="/assets/js/interaction.js?v=bb81cde38a"></script>
-<script src="/assets/js/blog-search.js?v=5207321b68"></script>
+<script src="/assets/js/blog-search.js?v=63d78cfffa"></script>
 <script type="text/javascript" src="https://js.codedrink.com/snippet.min.js" defer></script>
 <script type="text/javascript" src="/assets/js/lasso-picks.js?v=3" defer></script>
 <script type="text/javascript" src="https://s.skimresources.com/js/307865X1796159.skimlinks.js"></script>

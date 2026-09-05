@@ -12907,6 +12907,12 @@
     <priority>0.3</priority>
   </url>
   <url>
+    <loc>https://halfornothing.com/d/d-ebay-id-236938545618.html</loc>
+    <lastmod>2026-09-05</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://halfornothing.com/d/d-ebay-id-236956107982.html</loc>
     <lastmod>2026-09-05</lastmod>
     <changefreq>hourly</changefreq>
@@ -18205,12 +18211,6 @@
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://halfornothing.com/d/d-ebay-id-236938545618.html</loc>
-    <lastmod>2026-09-05</lastmod>
-    <changefreq>hourly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://halfornothing.com/amazon-picks.html</loc>
     <lastmod>2026-09-05</lastmod>
     <changefreq>daily</changefreq>
@@ -19861,7 +19861,25 @@
     <priority>0.4</priority>
   </url>
   <url>
+    <loc>https://halfornothing.com/blog/category/gift-guides.html</loc>
+    <lastmod>2026-09-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
     <loc>https://halfornothing.com/blog/category/brand-category-guides.html</loc>
+    <lastmod>2026-09-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://halfornothing.com/blog/category/skincare-beauty.html</loc>
+    <lastmod>2026-09-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://halfornothing.com/blog/category/buying-guides.html</loc>
     <lastmod>2026-09-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.4</priority>
