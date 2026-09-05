@@ -14,7 +14,7 @@
 <meta name="p:domain_verify" content="b06c80659cb177658cb0a074eb84ed5a"/>
 <meta name="facebook-domain-verification" content="102jd0a5hrhgjx2lcmhxphz3614sa3" />
 <meta name="mitgo-verification" content="46ae6829-e2d7-444b-8d2a-5aafdcff824e" />
-<script type="text/javascript" src="http://classic.avantlink.com/affiliate_app_confirm.php?mode=js&authResponse=0e2edce9ec278e051f718f32c0a5499d89d4df26"></script>
+
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><path d='M2 2h26L2 28z' fill='%23D93A12'/><path d='M30 4v26H4z' fill='none' stroke='%23D93A12' stroke-width='2.6' stroke-linejoin='round'/></svg>">
 <link rel="manifest" href="/manifest.webmanifest">
 <meta name="theme-color" content="#D93A12">
@@ -37,6 +37,17 @@
 <style>
 :root{
   --dur-fast:.12s; --dur-base:.15s; --dur-med:.18s;
+  /* Heading/title scale (2026-09-05): pulled every ad-hoc heading/title
+     font-size on the site into named tokens after the design audit counted
+     9 undocumented sizes doing heading work, two of them ("section title"
+     at 1.4rem and prose h2 at 1.32rem) only 6% apart -- the same role
+     declared twice, independently, by drift rather than intent. Values kept
+     identical to what already shipped (this centralizes the scale, it
+     doesn't redesign it) except that one pair, which now shares --fs-h2
+     since both are literally a section heading. */
+  --fs-display:clamp(2rem,5vw,2.9rem); --fs-h2:1.32rem; --fs-h3:1.05rem;
+  --fs-title-lg:1.5rem; --fs-title-md:1.1rem; --fs-title-sm:.98rem; --fs-title-xs:.85rem;
+  --fs-lede:1.15rem;
   --signal:#D93A12; --signal-dark:#B8331A; --gate:#00a863; --gate-soft:#5C9B81;
   /* White text on full-saturation --gate only clears 3.1:1 (light) / 2.4:1
      (dark, see the theme override below) with white text -- both fail
@@ -284,11 +295,15 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
 .footer-grid{display:flex;align-items:flex-start;justify-content:space-between;gap:32px}
 .footer-main{flex:1;min-width:0}
 .footer-social{list-style:none;display:flex;flex-wrap:wrap;gap:10px;margin:0;padding:0;flex-shrink:0}
-.footer-social a{display:flex;align-items:center;justify-content:center;
+/* footer.site.footer-social (not .footer-social alone) so this reliably beats
+   `footer.site a`'s color:var(--gate) below on specificity -- the plain-class
+   version used to lose that fight, which is why the social icons rendered
+   solid Gate Green instead of the intended muted gray (found 2026-09-05). */
+footer.site .footer-social a{display:flex;align-items:center;justify-content:center;
                  width:44px;height:44px;text-decoration:none;color:var(--ink-soft);
                  border:1px solid var(--rule);border-radius:50%;
                  transition:border-color var(--dur-base) ease,color var(--dur-base) ease,background var(--dur-base) ease}
-.footer-social a:hover{border-color:var(--signal);color:var(--signal);background:var(--paper-2)}
+footer.site .footer-social a:hover{border-color:var(--signal);color:var(--signal);background:var(--paper-2)}
 .footer-social svg{width:19px;height:19px;fill:currentColor}
 @media(max-width:640px){
   .footer-grid{flex-direction:column-reverse;gap:20px}
@@ -473,8 +488,15 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
       text-decoration:none;overflow:hidden;
       background:var(--card);border:1px solid var(--rule);border-radius:var(--r-md);
       transition:transform var(--dur-med) ease,box-shadow var(--dur-med) ease,border-color var(--dur-med) ease}
-.pick:hover,.pick:focus-visible{transform:translateY(-4px);border-color:transparent;
+/* hover:hover/:active split (2026-09-05 fix, same convention as navBtn/
+   megaBtn/catFilterBtn/over-menu): this was bare :hover before, so touch
+   visitors -- most of this card's actual traffic -- got zero visual
+   acknowledgment before navigating away. :focus-visible/:active share the
+   hover treatment unconditionally; :hover alone is gated. */
+.pick:focus-visible,.pick:active{transform:translateY(-4px);border-color:transparent;
       box-shadow:0 12px 26px rgba(0,0,0,.15)}
+@media(hover:hover){.pick:hover{transform:translateY(-4px);border-color:transparent;
+      box-shadow:0 12px 26px rgba(0,0,0,.15)}}
 /* --pk-a/--pk-b are set per card from the pick's category (PICK_FAMILIES). */
 .pick-art{position:relative;height:132px;display:flex;align-items:flex-end;padding:12px 13px;
           background:linear-gradient(140deg,var(--pk-a,#52525B),var(--pk-b,#27272A));
@@ -486,7 +508,7 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
             stroke:#fff;stroke-width:1.6;fill:none;opacity:.95;
             stroke-linecap:round;stroke-linejoin:round;
             transition:transform .25s ease}
-.pick:hover .pick-glyph{transform:scale(1.12) rotate(-4deg)}
+@media(hover:hover){.pick:hover .pick-glyph{transform:scale(1.12) rotate(-4deg)}}
 .pick-num{position:absolute;top:-6px;right:6px;font:800 62px/1 var(--display);
           letter-spacing:-.04em;color:rgba(255,255,255,.22);pointer-events:none;
           font-variant-numeric:tabular-nums}
@@ -498,7 +520,8 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
 .pick-title{font:700 13.5px/1.38 var(--display);color:var(--ink);
             display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;
             transition:color var(--dur-base) ease}
-.pick:hover .pick-title{color:var(--signal)}
+.pick:focus-visible .pick-title,.pick:active .pick-title{color:var(--signal)}
+@media(hover:hover){.pick:hover .pick-title{color:var(--signal)}}
 .pick-note{font-size:12.5px;line-height:1.5;color:var(--ink-soft);
            display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
 .pick-cta{margin-top:auto;padding-top:11px;border-top:1px solid var(--rule);
@@ -506,7 +529,8 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
           font:700 11px/1 var(--mono);letter-spacing:.04em;text-transform:uppercase;
           color:var(--signal)}
 .pick-cta i{font-style:normal;transition:transform var(--dur-med) ease}
-.pick:hover .pick-cta i{transform:translateX(4px)}
+.pick:focus-visible .pick-cta i,.pick:active .pick-cta i{transform:translateX(4px)}
+@media(hover:hover){.pick:hover .pick-cta i{transform:translateX(4px)}}
 .picks-arrow{position:absolute;top:66px;transform:translateY(-50%);z-index:5;
              width:38px;height:38px;border-radius:50%;cursor:pointer;
              background:var(--card);border:1px solid var(--rule);color:var(--ink);
@@ -546,7 +570,10 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
 .pick-lasso{scroll-snap-align:start;flex:0 0 400px;width:400px;background:var(--card);
             border:1px solid var(--rule);border-radius:var(--r-md);padding:16px;position:relative;
             overflow:hidden;transition:transform var(--dur-med) ease,box-shadow var(--dur-med) ease,border-color var(--dur-med) ease}
-.pick-lasso:hover{transform:translateY(-4px);border-color:transparent;box-shadow:0 12px 26px rgba(0,0,0,.15)}
+/* .pick-lasso is a <div> (Lasso injects the real link/button inside it), so
+   only :active applies here -- a div never receives keyboard focus itself. */
+.pick-lasso:active{transform:translateY(-4px);border-color:transparent;box-shadow:0 12px 26px rgba(0,0,0,.15)}
+@media(hover:hover){.pick-lasso:hover{transform:translateY(-4px);border-color:transparent;box-shadow:0 12px 26px rgba(0,0,0,.15)}}
 @media(max-width:640px){.pick-lasso{flex:0 0 320px;width:320px}}
 /* Category chip + rank numeral, carried over from the SVG-art picks (same
    --pk-a/--pk-b/_pick_art() as those cards) so the two rails read as one
@@ -800,7 +827,12 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
 .card{background:var(--card);border-radius:var(--r-md);border:1px solid var(--rule);
       box-shadow:0 1px 3px rgba(0,0,0,.06);display:flex;flex-direction:column;
       transition:box-shadow var(--dur-base) ease,border-color var(--dur-base) ease;position:relative}
-.card:hover{box-shadow:0 4px 14px rgba(0,0,0,.12);border-color:var(--signal)}
+/* .card is a <div> (the real link is the inner title/thumb <a>), so only
+   :active applies -- it still fires correctly since a mouse-down inside the
+   card bubbles :active up to it, giving touch a visible response before the
+   inner link navigates (2026-09-05 fix, same gap as .pick/.pick-lasso). */
+.card:active{box-shadow:0 4px 14px rgba(0,0,0,.12);border-color:var(--signal)}
+@media(hover:hover){.card:hover{box-shadow:0 4px 14px rgba(0,0,0,.12);border-color:var(--signal)}}
 /* Was border-left:3px solid var(--gate) -- redundant with .newpill, which
    already says "New" in real text on the same card; a colour-only stripe
    with no label doesn't add information and is the side-tab tell on top
@@ -1043,15 +1075,20 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
            font-size:14px;line-height:1.5}
 .deal-gone b{display:block;margin-bottom:2px}
 
-footer.site{margin:48px 0 0;border-top:2px solid var(--ink);padding:24px 0 56px;
-            font-size:14px;color:var(--muted)}
+/* max-width/margin/padding merged in directly (2026-09-05) -- footer used to
+   inherit them for free by sitting inside <main class="wrap">, but that also
+   meant it had no implicit `contentinfo` landmark (a <footer> nested inside
+   <main> per the HTML-AAM spec doesn't get one). Moved footer to be a sibling
+   of main instead, so it needs its own copy of .wrap's constraint. */
+footer.site{max-width:1180px;margin:48px auto 0;padding:24px 28px 56px;
+            border-top:2px solid var(--ink);font-size:14px;color:var(--muted)}
 footer.site a{color:var(--gate);font-weight:600}
 footer.site .runline{font:400 12px/1.6 var(--mono);color:var(--muted);margin-top:12px}
 footer.site .footer-legal{margin-top:18px}
 footer.site .disclosure{margin:14px 0}
 
 /* ---- prose pages ---- */
-.prose{max-width:68ch;padding:44px 0 0}
+.prose{max-width:68ch;margin:0 auto;padding:44px 0 0}
 /* Archivo 900, not var(--display) (the system-font stack) -- every other
    heading/label on the site already runs on --display fine at UI sizes,
    but a prose H1 is the single largest, most prominent text on any blog
@@ -1065,11 +1102,17 @@ footer.site .disclosure{margin:14px 0}
    the old -.035em: that was tuned to compensate a thin system face at
    large size, Archivo's own weight doesn't need as much negative tracking
    to read as intentional. */
-.prose h1{font-family:var(--brand-font);font-size:clamp(2rem,5vw,2.9rem);font-weight:900;
+.prose h1{font-family:var(--brand-font);font-size:var(--fs-display);font-weight:900;
           letter-spacing:-.015em;line-height:1.1;margin:0 0 8px;text-wrap:balance}
-.prose .lede{font-size:1.15rem;color:var(--ink-soft);margin:0 0 30px}
-.prose h2{font-size:1.32rem;font-weight:800;letter-spacing:-.015em;margin:40px 0 16px}
-.prose h3{font-size:1.05rem;font-weight:700;letter-spacing:-.01em;margin:26px 0 8px}
+.prose .lede{font-size:var(--fs-lede);color:var(--ink-soft);margin:0 0 30px}
+/* scroll-margin-top on both (2026-09-05 fix): the sticky topnav (67px) was
+   covering the heading a TOC/anchor link jumps to -- every one of a post's
+   [[toc]] links landed the reader on a hidden heading with no way to tell
+   why the page looked "empty" right after the jump. */
+.prose h2{font-size:var(--fs-h2);font-weight:800;letter-spacing:-.015em;margin:40px 0 16px;
+          scroll-margin-top:84px}
+.prose h3{font-size:var(--fs-h3);font-weight:700;letter-spacing:-.01em;margin:26px 0 8px;
+          scroll-margin-top:84px}
 .prose p{margin:0 0 16px}
 /* Boxed callouts (Key Takeaways, the [[toc]] jump-list). Was a left-accent
    stripe shared with .deal-gone's old language -- replaced 2026-09-05 with
@@ -1094,7 +1137,14 @@ footer.site .disclosure{margin:14px 0}
                   border-radius:999px;background:var(--signal)}
 .prose strong{font-weight:700;background:rgba(217,58,18,.14);padding:.05em .3em;
               border-radius:var(--r-sm);box-decoration-break:clone;-webkit-box-decoration-break:clone}
-.prose a{color:var(--gate);text-underline-offset:3px;font-weight:600}
+/* --gate-dark, not raw --gate (2026-09-05 fix): green-on-paper measured
+   ~2.94:1 live, below WCAG AA's 4.5:1 floor for normal text -- the same
+   contrast problem --gate-dark already exists to solve for white-on-green,
+   just never applied to green-as-text-color until now. --gate-dark clears
+   5.4:1 regardless of theme (see the Gate Rule note near :root's tokens). */
+.prose a{color:var(--gate-dark);text-underline-offset:3px;font-weight:600;
+         transition:color var(--dur-base) ease}
+.prose a:hover{color:var(--signal-dark)}
 .prose .stat{font-family:var(--mono);font-variant-numeric:tabular-nums}
 .prose figure.post-img{margin:22px auto;padding:14px;background:var(--card);max-width:600px;
                        border:1px solid var(--rule);border-radius:var(--r-md);text-align:center}
@@ -1106,7 +1156,12 @@ footer.site .disclosure{margin:14px 0}
 .prose figure.post-infographic{margin:26px 0}
 .prose figure.post-infographic img{width:100%;height:auto;border-radius:var(--r-md);display:block}
 .prose figure.post-hero{margin:0 0 26px}
-.prose figure.post-hero img{width:100%;height:auto;border-radius:var(--r-md);display:block}
+/* aspect-ratio (2026-09-05 fix): this is the post's LCP candidate
+   (fetchpriority=high in blog.py) and the one image on the page with no
+   intrinsic-size hint before it decodes -- every other image type here
+   (cards, covers) already reserves space via aspect-ratio. */
+.prose figure.post-hero img{width:100%;height:auto;aspect-ratio:16/9;
+                             object-fit:cover;border-radius:var(--r-md);display:block}
 .prose table{width:100%;margin:0 0 22px;border-collapse:collapse;font-size:.92rem}
 .prose th,.prose td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--rule)}
 .prose th{font:600 11px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;
@@ -1208,26 +1263,49 @@ footer.site .disclosure{margin:14px 0}
 @keyframes blog-spotlight-in{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
 @media(max-width:860px){.blog-spotlight{grid-template-columns:1fr}}
 .blog-featured{display:grid;grid-template-columns:1fr;border:1px solid var(--rule);
-                border-radius:var(--r-lg);overflow:hidden;background:var(--card)}
+                border-radius:var(--r-lg);overflow:hidden;background:var(--card);
+                transition:border-color var(--dur-base) ease,box-shadow var(--dur-base) ease}
+/* The biggest, most prominent link on the page had zero press feedback
+   before this (2026-09-05 fix) -- no :hover, no :active, nothing -- so a
+   touch tap gave no acknowledgment before navigating. It's an <article>, not
+   a link itself, so only :active applies (bubbles up from the inner <a> on
+   press); the border/shadow language matches .blog-card-compact's own. */
+.blog-featured:active{border-color:var(--muted);box-shadow:0 4px 14px rgba(0,0,0,.1)}
+@media(hover:hover){.blog-featured:hover{border-color:var(--muted);box-shadow:0 4px 14px rgba(0,0,0,.1)}}
 .blog-featured-cover{display:block;aspect-ratio:16/9;background:var(--paper-3)}
 .blog-featured-cover img{width:100%;height:100%;object-fit:cover;display:block;
                           transition:transform .3s}
-.blog-featured:hover .blog-featured-cover img{transform:scale(1.03)}
+.blog-featured:active .blog-featured-cover img{transform:scale(1.03)}
+@media(hover:hover){.blog-featured:hover .blog-featured-cover img{transform:scale(1.03)}}
 .blog-featured-body{padding:20px 24px 24px}
-.blog-featured-title{display:block;font-size:1.5rem;font-weight:800;letter-spacing:-.015em;
+.blog-featured-title{display:block;font-size:var(--fs-title-lg);font-weight:800;letter-spacing:-.015em;
                       line-height:1.2;color:var(--ink);text-decoration:none}
 .blog-featured-title:hover{color:var(--signal)}
 .blog-featured-desc{margin:10px 0 0;color:var(--ink-soft);max-width:60ch}
 .blog-featured-meta{margin:12px 0 0;font:500 11px/1 var(--mono);letter-spacing:.06em;
                      text-transform:uppercase;color:var(--muted)}
-.blog-spotlight-secondary{display:flex;flex-direction:column;gap:14px;justify-content:space-between}
-.blog-spotlight-secondary .blog-card-compact{display:flex;align-items:center;gap:12px}
-.blog-spotlight-secondary .blog-card-cover{flex-shrink:0;width:72px;height:72px;aspect-ratio:auto}
+/* Was justify-content:space-between: with exactly 3 cards and no
+   description, that stretched them into 3 visibly separated islands with
+   big dead gaps between -- flagged by the visual audit and by Che directly
+   (2026-09-05). Real content (bigger cover + a description, via
+   _blog_row_compact's show_desc=True) plus a plain top-aligned gap gives
+   each card enough height to close most of that gap on its own, instead of
+   faking it with distributed whitespace. */
+.blog-spotlight-secondary{display:flex;flex-direction:column;gap:20px}
+.blog-spotlight-secondary .blog-card-compact{display:flex;align-items:flex-start;gap:14px}
+.blog-spotlight-secondary .blog-card-cover{flex-shrink:0;width:104px;height:104px;aspect-ratio:auto}
 .blog-spotlight-secondary .blog-card-body{padding:0}
-.blog-spotlight-secondary .blog-card-title{padding:0;font-size:.9rem}
-.blog-spotlight-secondary .blog-card-date{padding:3px 0 0}
+.blog-spotlight-secondary .blog-card-title{padding:0;font-size:.95rem}
+.blog-spotlight-secondary .blog-card-desc{margin:6px 0 0;font-size:.82rem;color:var(--ink-soft);
+                                           display:-webkit-box;-webkit-line-clamp:2;
+                                           -webkit-box-orient:vertical;overflow:hidden}
+.blog-spotlight-secondary .blog-card-date{padding:6px 0 0}
 
-.blog-section-title{font-size:1.4rem;font-weight:800;letter-spacing:-.015em;margin:0 0 20px}
+/* --fs-h2, not its own literal (2026-09-05 consolidation): this was 1.4rem,
+   the audit's flagship "scale drift" example -- a second, independently
+   declared "section heading" size only 6% from .prose h2's 1.32rem. Same
+   role, now the same token. */
+.blog-section-title{font-size:var(--fs-h2);font-weight:800;letter-spacing:-.015em;margin:0 0 20px}
 /* One column per category, side by side -- this (not a taller single-file
    list) is what actually cuts the scroll: every category is visible in the
    same viewport instead of one below the other. Fixed column counts per
@@ -1246,7 +1324,13 @@ footer.site .disclosure{margin:14px 0}
 @media(max-width:480px){.blog-category-grid{grid-template-columns:1fr}}
 .blog-category-col-head{display:flex;align-items:baseline;justify-content:space-between;
                          gap:8px;margin:0 0 12px;padding-bottom:10px;border-bottom:2px solid var(--rule)}
-.blog-category-title{font-size:.98rem;font-weight:800;letter-spacing:-.005em;margin:0}
+.blog-category-title{font-size:var(--fs-title-sm);font-weight:800;letter-spacing:-.005em;margin:0}
+/* The title used to be plain text while "View all" right below it was a
+   link -- felt inconsistent (Che, 2026-09-05). Every category now has a
+   real page (see build_all()'s comment) so the title links there too. */
+.blog-category-title a{color:inherit;text-decoration:none}
+.blog-category-title a:active{color:var(--signal)}
+@media(hover:hover){.blog-category-title a:hover{color:var(--signal)}}
 .blog-category-count{font:500 10px/1 var(--mono);letter-spacing:.05em;
                       text-transform:uppercase;color:var(--muted);white-space:nowrap}
 .blog-category-col-list{display:flex;flex-direction:column;gap:12px}
@@ -1255,19 +1339,21 @@ footer.site .disclosure{margin:14px 0}
 .blog-category-more:hover{text-decoration:underline}
 .blog-category-more i{font-style:normal;display:inline-block;transition:transform var(--dur-med) ease}
 .blog-category-more:hover i{transform:translateX(3px)}
+.blog-category-note{margin:12px 0 0;font-size:.85rem;font-style:italic;color:var(--muted)}
 
 /* Compact card -- every post inside a category column, and the spotlight's
    secondary list (sized differently there via the overrides above). */
 .blog-card-compact{display:block;border:1px solid var(--rule);border-radius:var(--r-md);
                     overflow:hidden;background:var(--card);transition:border-color .15s}
-.blog-card-compact:hover{border-color:var(--muted)}
-.blog-card-compact:active{transform:translateY(1px)}
+.blog-card-compact:active{border-color:var(--muted);transform:translateY(1px)}
+@media(hover:hover){.blog-card-compact:hover{border-color:var(--muted)}}
 .blog-card-cover{display:block;aspect-ratio:16/9;background:var(--paper-3);overflow:hidden}
 .blog-card-cover img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .3s}
-.blog-card-compact:hover .blog-card-cover img{transform:scale(1.04)}
+.blog-card-compact:active .blog-card-cover img{transform:scale(1.04)}
+@media(hover:hover){.blog-card-compact:hover .blog-card-cover img{transform:scale(1.04)}}
 .blog-card-body{padding:10px 12px}
 .blog-card-title{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;
-                  overflow:hidden;font-size:.85rem;font-weight:700;
+                  overflow:hidden;font-size:var(--fs-title-xs);font-weight:700;
                   color:var(--ink);text-decoration:none;letter-spacing:-.003em;line-height:1.35}
 .blog-card-title:hover{color:var(--signal)}
 .blog-card-date{margin:6px 0 0;font:500 10px/1 var(--mono);letter-spacing:.05em;
@@ -1275,19 +1361,30 @@ footer.site .disclosure{margin:14px 0}
 
 /* The original row layout -- still used by author pages and category
    archive pages, which list posts one at a time with a real description. */
-.blog-list{max-width:68ch;margin:8px 0 40px}
+.blog-list{max-width:68ch;margin:8px auto 40px}
 .blog-row{padding:20px 0;border-top:1px solid var(--rule);display:flex;gap:18px;align-items:flex-start}
 .blog-row:last-child{border-bottom:1px solid var(--rule)}
 .blog-row-cover{flex-shrink:0;display:block;width:140px;height:74px;border-radius:var(--r-sm);
                  overflow:hidden;border:1px solid var(--rule)}
 .blog-row-cover img{width:100%;height:100%;object-fit:cover;display:block}
 .blog-row-body{min-width:0}
-.blog-row-title{display:block;font-size:1.1rem;font-weight:700;color:var(--ink);
+.blog-row-title{display:block;font-size:var(--fs-title-md);font-weight:700;color:var(--ink);
                  text-decoration:none;letter-spacing:-.01em}
 .blog-row-title:hover{color:var(--signal)}
 .blog-row-desc{margin:6px 0 0;color:var(--ink-soft)}
 .blog-row-date{margin:6px 0 0;font:500 11px/1 var(--mono);letter-spacing:.06em;
                 text-transform:uppercase;color:var(--muted)}
+
+/* "You might also like" -- a post used to end straight into the sitewide
+   footer with no recirculation at all (2026-09-05 fix, see render_post()'s
+   own comment). Full .wrap width (not .prose's 68ch) so it can run 3 real
+   cards across, same visual language as the index's category-grid cards. */
+.blog-related{max-width:1180px;margin:8px auto 40px}
+.blog-related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+@media(max-width:860px){.blog-related-grid{grid-template-columns:1fr}}
+.blog-related .blog-card-desc{margin:6px 0 0;font-size:.82rem;color:var(--ink-soft);
+                               display:-webkit-box;-webkit-line-clamp:2;
+                               -webkit-box-orient:vertical;overflow:hidden}
 
 /* ---- blog author profile ---- */
 .author-head{display:flex;gap:16px;align-items:center;margin:8px 0 20px}
@@ -1400,6 +1497,13 @@ html{scroll-behavior:smooth}
 /* ---- category landing pages: breadcrumb + fashion subnav ---- */
 .visually-hidden{position:absolute;width:1px;height:1px;padding:0;margin:-1px;
                  overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+/* Keyboard-only skip link -- first focusable element in the document, so a
+   keyboard/screen-reader user doesn't have to tab through the full nav +
+   search + hamburger on every single page load just to reach the content. */
+.skip-link{position:absolute;top:-48px;left:8px;z-index:1000;background:var(--signal);
+           color:#fff;padding:10px 16px;border-radius:var(--r-sm);font-weight:700;
+           text-decoration:none;transition:top var(--dur-base) ease}
+.skip-link:focus{top:8px}
 .crumbs{margin:26px 0 2px;font-size:13px;color:var(--muted)}
 .crumbs a{color:var(--muted);text-decoration:none}
 .crumbs a:hover{color:var(--signal)}
@@ -1467,6 +1571,7 @@ html{scroll-behavior:smooth}
   .price-now{color:var(--gate)}
   .td-now{color:var(--gate)}
   .compare-price{color:var(--gate)}
+  .prose a{color:var(--gate)}
   .best-cta{background:var(--signal-dark);border-color:var(--signal-dark)}
   .best-cta:hover{background:var(--card);color:var(--signal)}
   .src-tag{background:#45453F}
@@ -1487,7 +1592,16 @@ html{scroll-behavior:smooth}
 }
 
 @media (prefers-reduced-motion:reduce){
-  *{transition:none!important;animation:none!important;scroll-behavior:auto!important}
+  /* Animations (all movement-based on this site: card-breathe, the blog
+     spotlight's entrance, the disclosure fade) stay fully off. Transitions
+     used to be blanket-killed too, but that took out short opacity/color
+     hover feedback along with real movement -- reduced motion means fewer/
+     gentler transitions, not zero, per improve-animations' 2026-09-05
+     review. Restricting transition-property to this safe list keeps color/
+     background/border/shadow/opacity easing alive while any transform-based
+     transition on the same rule becomes instant. */
+  *{animation:none!important;scroll-behavior:auto!important}
+  *{transition-property:color,background-color,border-color,box-shadow,opacity!important}
 }
 
 /* ---- durable per-deal pages (/d/{id}.html), pilot 2026-08-14 ---- */
@@ -1581,12 +1695,13 @@ body.curator-mode #curator-badge{display:flex}
                    background:var(--paper-2);cursor:pointer;font-size:12.5px;font-weight:600}
 #curator-panel .curator-actions button.primary{background:var(--signal);color:#fff;border-color:var(--signal)}
 </style></head><body>
-<nav class="topnav"><div class="inner">
+<a class="skip-link" href="#main">Skip to content</a>
+<nav class="topnav" aria-label="Main"><div class="inner">
 <a class="logo" href="/index.html" aria-label="Half or Nothing">
 <svg class="logomark" viewBox="0 0 32 32" aria-hidden="true"><path d="M2 2h26L2 28z" fill="currentColor"/><path d="M30 4v26H4z" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round"/></svg>
 <span class="lg-half">HALF</span><span class="lg-or">or</span><span class="lg-nothing">NOTHING</span></a>
-<form class='herosearch' role='search' action='/index.html' method='get'><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' aria-hidden='true'><circle cx='11' cy='11' r='7'></circle><line x1='21' y1='21' x2='16.65' y2='16.65'></line></svg><input type='search' name='q' aria-label='Search deals' autocomplete='off'></form>
-<button type="button" id="navBtn" aria-expanded="false" aria-controls="navLinks" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button><div class="links" id="navLinks"><a href="/index.html">Deals</a><a href="/brands.html">Brands</a><a href="/amazon-picks.html">Amazon Picks</a><a href="/blog.html">Blog</a><a href="/about.html">About</a><a href="/privacy.html">Privacy</a><a href="/contact.html">Contact</a></div>
+<form class='herosearch' role='search' action='/index.html' method='get'><svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' aria-hidden='true'><circle cx='11' cy='11' r='7'></circle><line x1='21' y1='21' x2='16.65' y2='16.65'></line></svg><input type='search' name='q' aria-label='Search deals' placeholder='Search deals…' autocomplete='off'></form>
+<button type="button" id="navBtn" aria-expanded="false" aria-controls="navLinks" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button><div class="links" id="navLinks"><a href="/index.html">Deals</a><a href="/brands.html">Brands</a><a href="/amazon-picks.html">Amazon Picks</a><a href="/blog.html" aria-current="page">Blog</a><a href="/about.html">About</a><a href="/privacy.html">Privacy</a><a href="/contact.html">Contact</a></div>
 </div></nav>
 <header class="mast"><span class="mast-ghost" id="mastGhost" aria-hidden="true">&#189;</span><div class="wrap">
 <p class="brand"><span class="half">Half</span> <span class="brand-or">or</span> <span class="brand-nothing">Nothing</span></p>
@@ -1594,8 +1709,9 @@ body.curator-mode #curator-badge{display:flex}
 
 
 </div></header>
-<main class="wrap">
-<nav class='crumbs' aria-label='Breadcrumb'><a href='/index.html'>All deals</a> <span>&rsaquo;</span> <a href='/blog.html'>Blog</a> <span>&rsaquo;</span> <b>How a Deal Aggregator Site Actually Works</b></nav><div class='prose'><h1>How a Deal Aggregator Site Actually Works</h1><p class='lede'>2026-08-30 &middot; Written by <a href='/blog/author/checarlos-cruz.html'>Checarlos Cruz</a> &middot; 8 min read</p><figure class='post-hero'><img src='https://halfornothing.com/blog/covers/how-a-deal-aggregator-site-actually-works.webp' alt='How a Deal Aggregator Site Actually Works' loading='eager' fetchpriority='high' decoding='async' referrerpolicy='no-referrer'></figure><p>Most deal sites optimize for clicks, not accuracy, and it shows: expired codes, fake “original” prices, layouts built for ad impressions instead of actually helping you buy something worth buying. A deal aggregator site that&#x27;s actually useful has to work more like a filter than a billboard.</p><p>I&#x27;ve run sites the loud way before, badges, timers, the works, and Half or Nothing is the version I&#x27;d actually want to shop on myself: hourly refreshes, a hard 50% cutoff, and no interface tricks doing the persuading for me.</p><div class='callout'><h2 id='key-takeaways'>Key takeaways</h2><ul><li>A deal aggregator&#x27;s real job is filtering out marketing noise, not adding more of it.</li><li>90-day price history is what separates a real drop from an inflated “original” price, not the badge on the card.</li><li>Hourly refreshes keep the feed matched to actual Amazon and eBay inventory, not a snapshot from yesterday.</li><li>Discovery works better without artificial urgency, no timers, no “X people viewing this.”</li><li>Hand-picked curation catches what an automated feed alone can&#x27;t.</li></ul></div><div class='callout callout-toc'><p class='callout-label'>In This Article</p><nav class='post-toc' aria-label='Table of contents'><ul><li><a href='#key-takeaways'>Key takeaways</a></li><li><a href='#signal-vs-noise'>Signal vs. noise</a></li><li><a href='#how-the-curation-actually-runs'>How the curation actually runs</a></li><li><a href='#amazon-and-ebay-aren-t-treated-the-same'>Amazon and eBay aren&#x27;t treated the same</a></li><li><a href='#how-a-listing-actually-gets-verified'>How a listing actually gets verified</a></li><li><a href='#discovery-without-the-pressure-tactics'>Discovery without the pressure tactics</a></li><li><a href='#frequently-asked-questions'>Frequently asked questions</a></li></ul></nav></div><h2 id='signal-vs-noise'>Signal vs. noise</h2><p>A deal aggregator&#x27;s job is to cut down how much time you spend hunting for something worth buying. Raw marketplace feeds are chaotic, thousands of listings that don&#x27;t matter to you. Good aggregation strips that down to what does. Some sites, like <a href="https://en.wikipedia.org/wiki/Slickdeals" target="_blank" rel="noopener">Slickdeals</a>, lean on community voting for this. That works, but it&#x27;s subjective. I&#x27;d rather the number do the deciding.</p><p>Signal is a verified price drop where the math is solid. Noise is everything else: “limited time” banners that never actually end, original prices nobody ever really charged. A disciplined aggregator throws the noise out and keeps the signal.</p><h3 id='what-aggregation-actually-does'>What aggregation actually does</h3><p>It pulls listings from Amazon and eBay, the two sources with the most price-drop density, into one feed with one consistent layout. You shouldn&#x27;t have to learn a different UI for every retailer, and you shouldn&#x27;t have to keep ten tabs open to compare. Only listings that clear a real quality bar make it in.</p><h3 id='why-searching-for-this-yourself-doesn-t-really-work-anymore'>Why searching for this yourself doesn&#x27;t really work anymore</h3><p>Pricing on these platforms moves algorithmically now, a manual search only ever catches a single moment, not the trend. An aggregator watches continuously instead. And search results themselves are a trap: the top results for “best deals” are often affiliate-heavy content built to rank, not to actually save you money. A real aggregator skips that layer entirely and goes straight at the price data.</p><h2 id='how-the-curation-actually-runs'>How the curation actually runs</h2><p>Curation here is binary: a listing either clears the bar or it gets removed, nothing sits around half-verified. Expired listings get pulled immediately, which lines up with what the <a href="https://consumer.ftc.gov/articles/online-shopping" target="_blank" rel="noopener">FTC expects from online sellers</a> anyway, an advertised price should match reality.</p><p>Amazon and eBay push out more price changes in a day than any one person could track by hand, so this has to be automated at the base layer. But that doesn&#x27;t mean it&#x27;s hands-off: I go through the eBay feed myself before anything ships, and every single Amazon Pick is added by hand, because there&#x27;s no automated feed there at all.</p><h3 id='why-hourly-not-a-static-list'>Why hourly, not a static list</h3><p>A list published yesterday is a list full of dead links today, that&#x27;s just how fast Amazon and eBay inventory actually moves. Refreshing every hour keeps the site matched to real stock instead of guessing. You can watch this happen directly on the <a href="https://halfornothing.com" target="_blank" rel="noopener">hourly refresh</a>.</p><h3 id='why-this-isn-t-a-coupon-site'>Why this isn&#x27;t a coupon site</h3><p>Generic coupon databases run on user-submitted codes that fail at checkout more often than not, that&#x27;s the honest failure rate of crowdsourced codes. Curation here works differently: on eBay, the discount is always already baked into the price, no code needed, full stop. On Amazon it&#x27;s a little different, some real deals do involve a clip-or-enter coupon, and when that&#x27;s the case I find it, verify it, and add it myself instead of trusting a scraper. Either way, the target is the same: real discounts, usually 50% or deeper, checked by hand.</p><h2 id='amazon-and-ebay-aren-t-treated-the-same'>Amazon and eBay aren&#x27;t treated the same</h2><p>They&#x27;re the two biggest sources of price-drop data, but they don&#x27;t behave the same way, so they don&#x27;t get the same process. Even after a discount clears, a bad rating on the product still gets it dropped, an automated system can catch a price drop, but it can&#x27;t judge product quality on its own.</p><h3 id='amazon-specifically'>Amazon specifically</h3><p>Pricing here shifts constantly with demand and inventory, most of that movement is noise and gets filtered out, what&#x27;s left is a real deviation from the 90-day average, weighted toward sellers with a real track record. Amazon locks automated tools out on purpose, which is exactly why this is the one category where I&#x27;m doing the legwork myself, item by item, instead of letting a script handle it.</p><h3 id='ebay-specifically'>eBay specifically</h3><p>Open-box and refurbished categories on eBay tend to carry the deepest real discounts, better than standard used listings. I filter for “Buy It Now” only and skip auction-format listings entirely, since an auction price isn&#x27;t a real price until it closes. The bar is the same 50% or higher either way.</p><figure class="post-infographic"><img src="https://halfornothing.com/blog/covers/how-a-deal-aggregator-site-actually-works-infographic.jpg" alt="Signal vs. noise: the old way of marketplace noise vs the new way of curated signal, the 4-step curation process, and a system comparison table" loading="lazy" decoding="async" referrerpolicy="no-referrer"></figure><h2 id='how-a-listing-actually-gets-verified'>How a listing actually gets verified</h2><p>Five checks, every listing, no exceptions:</p><ul><li><strong>Price history.</strong> Establish a real 90-day baseline before anything else.</li><li><strong>Cross-check the “original” price</strong> against what other retailers actually charge, to catch an inflated MSRP.</li><li><strong>Confirm stock.</strong> Anything showing zero inventory gets pulled from the feed right away.</li><li><strong>Check the seller.</strong> Thin or suspicious review history is a red flag on its own.</li><li><strong>Apply the 50% rule.</strong> This is the actual filter, everything else is just supporting it.</li></ul><h3 id='how-an-inflated-price-gets-caught'>How an inflated price gets caught</h3><p>MSRP gets set artificially high all the time, specifically to make a discount look bigger than it is. The real number worth trusting is the actual average selling price, not the sticker. If something usually sells for $80 but carries a $120 MSRP, a “sale” price of $90 isn&#x27;t a deal, it&#x27;s a price hike wearing a discount badge.</p><h3 id='why-50-is-the-actual-line'>Why 50% is the actual line</h3><p>A 10% drop is just normal retail noise, it happens constantly and means nothing. A 50% cut usually means real inventory clearance or genuine price competition, which is where the actual value is. It&#x27;s a hard line: 49% doesn&#x27;t make the page, 50% does. People ask why the site doesn&#x27;t list more items, and the honest answer is I&#x27;d rather show fewer things worth clicking than pad the count with 20% off nothing.</p><h2 id='discovery-without-the-pressure-tactics'>Discovery without the pressure tactics</h2><p>Good discovery should feel calm, a clean scan through data that&#x27;s already been checked, not a countdown clock trying to rush your decision. Most sites lean on urgency because urgency drives clicks. A reliable aggregator does the opposite: it just shows you the number and lets you decide.</p><h3 id='no-fake-pressure'>No fake pressure</h3><p>“12 people viewing this right now” banners exist to short-circuit your judgment, not to inform it. A minimal interface with real pricing and real percentages doesn&#x27;t need a “hot” badge, the number already tells you what you need to know.</p><h3 id='treat-it-like-a-live-feed-because-it-is-one'>Treat it like a live feed, because it is one</h3><p>The <a href="https://halfornothing.com" target="_blank" rel="noopener">Half or Nothing</a> feed refreshes hourly specifically so new inventory shows up while it&#x27;s still available, not after it&#x27;s gone. Checking in regularly is genuinely the best way to catch something before it sells out.</p><h2 id='frequently-asked-questions'>Frequently asked questions</h2><h3 id='what-s-the-difference-between-a-deal-aggregator-and-a-coupon-site'>What&#x27;s the difference between a deal aggregator and a coupon site?</h3><p>A deal aggregator curates real, live price drops. A coupon site hands out codes that fail at checkout more often than they work. I don&#x27;t run a generic coupon database, on eBay the discount is already baked into the listing, and on Amazon, when a real coupon exists, I verify it and add it myself as part of a hand-checked listing, not a scraped code dumped into a database.</p><h3 id='how-often-do-sites-like-this-actually-update'>How often do sites like this actually update?</h3><p>This one updates every hour, which is what it actually takes to stay accurate in high-turnover categories like electronics. A list that only updates daily is stale within minutes once stock starts moving.</p><h3 id='are-the-discounts-always-real'>Are the discounts always real?</h3><p>They&#x27;re checked against 90-day price history before anything gets published, that&#x27;s the whole point of the process. Plenty of sellers inflate the MSRP to fake a bigger discount, and that check is specifically built to catch it.</p><h3 id='why-do-some-deals-disappear-so-fast'>Why do some deals disappear so fast?</h3><p>Because inventory is genuinely finite, and a deep discount (50%+) moves fast once people find it. Once stock hits zero, the listing gets pulled on the next refresh.</p><h3 id='does-this-factor-in-shipping-costs'>Does this factor in shipping costs?</h3><p>No, and it can&#x27;t really, shipping varies too much by location and by things like Amazon Prime membership to standardize. Always check the real total at checkout before you commit.</p><h3 id='how-would-i-know-if-this-is-quietly-favoring-certain-brands'>How would I know if this is quietly favoring certain brands?</h3><p>Look at how varied the feed actually is. A biased aggregator keeps pushing the same few brands regardless of how they&#x27;re actually performing on price. This one follows the discount, if something clears 50% and passes the quality checks, it&#x27;s in, there&#x27;s no paid placement happening behind that.</p><h3 id='is-a-curated-site-better-than-a-community-voted-one'>Is a curated site better than a community-voted one?</h3><p>Curated tends to be more consistent, community voting is honest but it&#x27;s still opinion, and opinion drifts with brand sentiment more than it tracks real value. A disciplined filter doesn&#x27;t have that problem.</p><h3 id='can-i-find-open-box-or-refurbished-items-here'>Can I find open-box or refurbished items here?</h3><p>Yes, and they&#x27;re often some of the best discounts on the site, especially in electronics, since that inventory is usually offloaded fast to free up warehouse space. Everything still has to clear the same bar, including “Buy It Now” availability.</p></div>
+<main class="wrap" id="main">
+<nav class='crumbs' aria-label='Breadcrumb'><a href='/index.html'>All deals</a> <span>&rsaquo;</span> <a href='/blog.html'>Blog</a> <span>&rsaquo;</span> <b>How a Deal Aggregator Site Actually Works</b></nav><div class='prose'><h1>How a Deal Aggregator Site Actually Works</h1><p class='lede'>2026-08-30 &middot; Written by <a href='/blog/author/checarlos-cruz.html'>Checarlos Cruz</a> &middot; 8 min read</p><figure class='post-hero'><img src='https://halfornothing.com/blog/covers/how-a-deal-aggregator-site-actually-works.webp' alt='How a Deal Aggregator Site Actually Works' loading='eager' fetchpriority='high' decoding='async' referrerpolicy='no-referrer'></figure><p>Most deal sites optimize for clicks, not accuracy, and it shows: expired codes, fake “original” prices, layouts built for ad impressions instead of actually helping you buy something worth buying. A deal aggregator site that&#x27;s actually useful has to work more like a filter than a billboard.</p><p>I&#x27;ve run sites the loud way before, badges, timers, the works, and Half or Nothing is the version I&#x27;d actually want to shop on myself: hourly refreshes, a hard 50% cutoff, and no interface tricks doing the persuading for me.</p><div class='callout'><h2 id='key-takeaways'>Key takeaways</h2><ul><li>A deal aggregator&#x27;s real job is filtering out marketing noise, not adding more of it.</li><li>90-day price history is what separates a real drop from an inflated “original” price, not the badge on the card.</li><li>Hourly refreshes keep the feed matched to actual Amazon and eBay inventory, not a snapshot from yesterday.</li><li>Discovery works better without artificial urgency, no timers, no “X people viewing this.”</li><li>Hand-picked curation catches what an automated feed alone can&#x27;t.</li></ul></div><div class='callout callout-toc'><p class='callout-label'>In This Article</p><nav class='post-toc' aria-label='Table of contents'><ul><li><a href='#key-takeaways'>Key takeaways</a></li><li><a href='#signal-vs-noise'>Signal vs. noise</a></li><li><a href='#how-the-curation-actually-runs'>How the curation actually runs</a></li><li><a href='#amazon-and-ebay-aren-t-treated-the-same'>Amazon and eBay aren&#x27;t treated the same</a></li><li><a href='#how-a-listing-actually-gets-verified'>How a listing actually gets verified</a></li><li><a href='#discovery-without-the-pressure-tactics'>Discovery without the pressure tactics</a></li><li><a href='#frequently-asked-questions'>Frequently asked questions</a></li></ul></nav></div><h2 id='signal-vs-noise'>Signal vs. noise</h2><p>A deal aggregator&#x27;s job is to cut down how much time you spend hunting for something worth buying. Raw marketplace feeds are chaotic, thousands of listings that don&#x27;t matter to you. Good aggregation strips that down to what does. Some sites, like <a href="https://en.wikipedia.org/wiki/Slickdeals" target="_blank" rel="noopener">Slickdeals</a>, lean on community voting for this. That works, but it&#x27;s subjective. I&#x27;d rather the number do the deciding.</p><p>Signal is a verified price drop where the math is solid. Noise is everything else: “limited time” banners that never actually end, original prices nobody ever really charged. A disciplined aggregator throws the noise out and keeps the signal.</p><h3 id='what-aggregation-actually-does'>What aggregation actually does</h3><p>It pulls listings from Amazon and eBay, the two sources with the most price-drop density, into one feed with one consistent layout. You shouldn&#x27;t have to learn a different UI for every retailer, and you shouldn&#x27;t have to keep ten tabs open to compare. Only listings that clear a real quality bar make it in.</p><h3 id='why-searching-for-this-yourself-doesn-t-really-work-anymore'>Why searching for this yourself doesn&#x27;t really work anymore</h3><p>Pricing on these platforms moves algorithmically now, a manual search only ever catches a single moment, not the trend. An aggregator watches continuously instead. And search results themselves are a trap: the top results for “best deals” are often affiliate-heavy content built to rank, not to actually save you money. A real aggregator skips that layer entirely and goes straight at the price data.</p><h2 id='how-the-curation-actually-runs'>How the curation actually runs</h2><p>Curation here is binary: a listing either clears the bar or it gets removed, nothing sits around half-verified. Expired listings get pulled immediately, which lines up with what the <a href="https://consumer.ftc.gov/articles/online-shopping" target="_blank" rel="noopener">FTC expects from online sellers</a> anyway, an advertised price should match reality.</p><p>Amazon and eBay push out more price changes in a day than any one person could track by hand, so this has to be automated at the base layer. But that doesn&#x27;t mean it&#x27;s hands-off: I go through the eBay feed myself before anything ships, and every single Amazon Pick is added by hand, because there&#x27;s no automated feed there at all.</p><h3 id='why-hourly-not-a-static-list'>Why hourly, not a static list</h3><p>A list published yesterday is a list full of dead links today, that&#x27;s just how fast Amazon and eBay inventory actually moves. Refreshing every hour keeps the site matched to real stock instead of guessing. You can watch this happen directly on the <a href="https://halfornothing.com" target="_blank" rel="noopener">hourly refresh</a>.</p><h3 id='why-this-isn-t-a-coupon-site'>Why this isn&#x27;t a coupon site</h3><p>Generic coupon databases run on user-submitted codes that fail at checkout more often than not, that&#x27;s the honest failure rate of crowdsourced codes. Curation here works differently: on eBay, the discount is always already baked into the price, no code needed, full stop. On Amazon it&#x27;s a little different, some real deals do involve a clip-or-enter coupon, and when that&#x27;s the case I find it, verify it, and add it myself instead of trusting a scraper. Either way, the target is the same: real discounts, usually 50% or deeper, checked by hand.</p><h2 id='amazon-and-ebay-aren-t-treated-the-same'>Amazon and eBay aren&#x27;t treated the same</h2><p>They&#x27;re the two biggest sources of price-drop data, but they don&#x27;t behave the same way, so they don&#x27;t get the same process. Even after a discount clears, a bad rating on the product still gets it dropped, an automated system can catch a price drop, but it can&#x27;t judge product quality on its own.</p><h3 id='amazon-specifically'>Amazon specifically</h3><p>Pricing here shifts constantly with demand and inventory, most of that movement is noise and gets filtered out, what&#x27;s left is a real deviation from the 90-day average, weighted toward sellers with a real track record. Amazon locks automated tools out on purpose, which is exactly why this is the one category where I&#x27;m doing the legwork myself, item by item, instead of letting a script handle it.</p><h3 id='ebay-specifically'>eBay specifically</h3><p>Open-box and refurbished categories on eBay tend to carry the deepest real discounts, better than standard used listings. I filter for “Buy It Now” only and skip auction-format listings entirely, since an auction price isn&#x27;t a real price until it closes. The bar is the same 50% or higher either way.</p><figure class="post-infographic"><img src="https://halfornothing.com/blog/covers/how-a-deal-aggregator-site-actually-works-infographic.jpg" alt="Signal vs. noise: the old way of marketplace noise vs the new way of curated signal, the 4-step curation process, and a system comparison table" loading="lazy" decoding="async" referrerpolicy="no-referrer"></figure><h2 id='how-a-listing-actually-gets-verified'>How a listing actually gets verified</h2><p>Five checks, every listing, no exceptions:</p><ul><li><strong>Price history.</strong> Establish a real 90-day baseline before anything else.</li><li><strong>Cross-check the “original” price</strong> against what other retailers actually charge, to catch an inflated MSRP.</li><li><strong>Confirm stock.</strong> Anything showing zero inventory gets pulled from the feed right away.</li><li><strong>Check the seller.</strong> Thin or suspicious review history is a red flag on its own.</li><li><strong>Apply the 50% rule.</strong> This is the actual filter, everything else is just supporting it.</li></ul><h3 id='how-an-inflated-price-gets-caught'>How an inflated price gets caught</h3><p>MSRP gets set artificially high all the time, specifically to make a discount look bigger than it is. The real number worth trusting is the actual average selling price, not the sticker. If something usually sells for $80 but carries a $120 MSRP, a “sale” price of $90 isn&#x27;t a deal, it&#x27;s a price hike wearing a discount badge.</p><h3 id='why-50-is-the-actual-line'>Why 50% is the actual line</h3><p>A 10% drop is just normal retail noise, it happens constantly and means nothing. A 50% cut usually means real inventory clearance or genuine price competition, which is where the actual value is. It&#x27;s a hard line: 49% doesn&#x27;t make the page, 50% does. People ask why the site doesn&#x27;t list more items, and the honest answer is I&#x27;d rather show fewer things worth clicking than pad the count with 20% off nothing.</p><h2 id='discovery-without-the-pressure-tactics'>Discovery without the pressure tactics</h2><p>Good discovery should feel calm, a clean scan through data that&#x27;s already been checked, not a countdown clock trying to rush your decision. Most sites lean on urgency because urgency drives clicks. A reliable aggregator does the opposite: it just shows you the number and lets you decide.</p><h3 id='no-fake-pressure'>No fake pressure</h3><p>“12 people viewing this right now” banners exist to short-circuit your judgment, not to inform it. A minimal interface with real pricing and real percentages doesn&#x27;t need a “hot” badge, the number already tells you what you need to know.</p><h3 id='treat-it-like-a-live-feed-because-it-is-one'>Treat it like a live feed, because it is one</h3><p>The <a href="https://halfornothing.com" target="_blank" rel="noopener">Half or Nothing</a> feed refreshes hourly specifically so new inventory shows up while it&#x27;s still available, not after it&#x27;s gone. Checking in regularly is genuinely the best way to catch something before it sells out.</p><h2 id='frequently-asked-questions'>Frequently asked questions</h2><h3 id='what-s-the-difference-between-a-deal-aggregator-and-a-coupon-site'>What&#x27;s the difference between a deal aggregator and a coupon site?</h3><p>A deal aggregator curates real, live price drops. A coupon site hands out codes that fail at checkout more often than they work. I don&#x27;t run a generic coupon database, on eBay the discount is already baked into the listing, and on Amazon, when a real coupon exists, I verify it and add it myself as part of a hand-checked listing, not a scraped code dumped into a database.</p><h3 id='how-often-do-sites-like-this-actually-update'>How often do sites like this actually update?</h3><p>This one updates every hour, which is what it actually takes to stay accurate in high-turnover categories like electronics. A list that only updates daily is stale within minutes once stock starts moving.</p><h3 id='are-the-discounts-always-real'>Are the discounts always real?</h3><p>They&#x27;re checked against 90-day price history before anything gets published, that&#x27;s the whole point of the process. Plenty of sellers inflate the MSRP to fake a bigger discount, and that check is specifically built to catch it.</p><h3 id='why-do-some-deals-disappear-so-fast'>Why do some deals disappear so fast?</h3><p>Because inventory is genuinely finite, and a deep discount (50%+) moves fast once people find it. Once stock hits zero, the listing gets pulled on the next refresh.</p><h3 id='does-this-factor-in-shipping-costs'>Does this factor in shipping costs?</h3><p>No, and it can&#x27;t really, shipping varies too much by location and by things like Amazon Prime membership to standardize. Always check the real total at checkout before you commit.</p><h3 id='how-would-i-know-if-this-is-quietly-favoring-certain-brands'>How would I know if this is quietly favoring certain brands?</h3><p>Look at how varied the feed actually is. A biased aggregator keeps pushing the same few brands regardless of how they&#x27;re actually performing on price. This one follows the discount, if something clears 50% and passes the quality checks, it&#x27;s in, there&#x27;s no paid placement happening behind that.</p><h3 id='is-a-curated-site-better-than-a-community-voted-one'>Is a curated site better than a community-voted one?</h3><p>Curated tends to be more consistent, community voting is honest but it&#x27;s still opinion, and opinion drifts with brand sentiment more than it tracks real value. A disciplined filter doesn&#x27;t have that problem.</p><h3 id='can-i-find-open-box-or-refurbished-items-here'>Can I find open-box or refurbished items here?</h3><p>Yes, and they&#x27;re often some of the best discounts on the site, especially in electronics, since that inventory is usually offloaded fast to free up warehouse space. Everything still has to clear the same bar, including “Buy It Now” availability.</p></div><div class='blog-related'><h2 class='blog-section-title'>You might also like</h2><div class='blog-related-grid'><article class='blog-card-compact' data-title='how our hourly deal refresh actually works'><a class='blog-card-cover' href='/blog/how-hourly-deal-refreshes-actually-work.html' aria-label='How Our Hourly Deal Refresh Actually Works'><img src='/blog/covers/how-hourly-deal-refreshes-actually-work.webp' alt='' loading='lazy' decoding='async'></a><div class='blog-card-body'><a class='blog-card-title' href='/blog/how-hourly-deal-refreshes-actually-work.html'>How Our Hourly Deal Refresh Actually Works</a><p class='blog-card-desc'>The five-step pipeline behind every listing on Half or Nothing, refreshed every sixty minutes, and why Amazon is the one part of it I still do by hand.</p><p class='blog-card-date'>2026-08-30</p></div></article><article class='blog-card-compact' data-title='how to verify a real online deal'><a class='blog-card-cover' href='/blog/how-to-verify-a-real-online-deal.html' aria-label='How to Verify a Real Online Deal'><img src='/blog/covers/how-to-verify-a-real-online-deal.webp' alt='' loading='lazy' decoding='async'></a><div class='blog-card-body'><a class='blog-card-title' href='/blog/how-to-verify-a-real-online-deal.html'>How to Verify a Real Online Deal</a><p class='blog-card-desc'>A clinical checklist for telling a real price drop from an inflated MSRP, built from the same rules Half or Nothing uses to filter its own listings.</p><p class='blog-card-date'>2026-08-30</p></div></article><article class='blog-card-compact' data-title='how half or nothing started'><a class='blog-card-cover' href='/blog/how-half-or-nothing-started.html' aria-label='How Half or Nothing Started'><img src='/blog/covers/how-half-or-nothing-started.webp' alt='' loading='lazy' decoding='async'></a><div class='blog-card-body'><a class='blog-card-title' href='/blog/how-half-or-nothing-started.html'>How Half or Nothing Started</a><p class='blog-card-desc'>The real story behind Half or Nothing: why a few dollars off was never enough, and how one frustrated search for real deals became a whole page.</p><p class='blog-card-date'>2026-08-26</p></div></article></div></div>
+</main>
 <footer class="site"><div class="footer-grid">
 <div class="footer-main">
 <details class="disclosure">
@@ -1634,10 +1750,9 @@ body.curator-mode #curator-badge{display:flex}
 </a></li>
 </ul>
 </div></footer>
-</main>
 <button type="button" class="back-to-top" id="backToTop" aria-label="Back to top">&#9650;</button>
 <script src="/assets/js/interaction.js?v=bb81cde38a"></script>
-<script src="/assets/js/blog-search.js?v=5207321b68"></script>
+<script src="/assets/js/blog-search.js?v=63d78cfffa"></script>
 <script type="text/javascript" src="https://js.codedrink.com/snippet.min.js" defer></script>
 <script type="text/javascript" src="/assets/js/lasso-picks.js?v=3" defer></script>
 <script type="text/javascript" src="https://s.skimresources.com/js/307865X1796159.skimlinks.js"></script>
