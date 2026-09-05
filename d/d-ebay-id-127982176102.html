@@ -33,7 +33,7 @@
 <meta name="twitter:title" content="Sky Bedding Collection Watercolor Stripe Percale Full Sheet Set Grey - -- 85% off, $30.00 (was $205.00) | Half or Nothing">
 <meta name="twitter:description" content="85% off, $30.00 (was $205.00)">
 <meta name="twitter:image" content="https://i.ebayimg.com/images/g/kPUAAeSwkhFqipD3/s-l500.jpg">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Sky Bedding Collection Watercolor Stripe Percale Full Sheet Set Grey - NWT $205","description":"85% off -- was $205.00, now $30.00 at Ebay.","image":"https://i.ebayimg.com/images/g/kPUAAeSwkhFqipD3/s-l500.jpg","offers":{"@type":"Offer","price":"30.00","priceCurrency":"USD","availability":"https://schema.org/InStock","url":"https://halfornothing.com/d/d-ebay-id-127982176102.html","priceValidUntil":"2026-09-06T03:23:31Z"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Deals","item":"https://halfornothing.com/"},{"@type":"ListItem","position":2,"name":"Home & Kitchen","item":"https://halfornothing.com/home-kitchen.html"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Sky Bedding Collection Watercolor Stripe Percale Full Sheet Set Grey - NWT $205","description":"85% off -- was $205.00, now $30.00 at Ebay.","image":"https://i.ebayimg.com/images/g/kPUAAeSwkhFqipD3/s-l500.jpg","offers":{"@type":"Offer","price":"30.00","priceCurrency":"USD","availability":"https://schema.org/InStock","url":"https://halfornothing.com/d/d-ebay-id-127982176102.html","priceValidUntil":"2026-09-06T03:46:20Z"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Deals","item":"https://halfornothing.com/"},{"@type":"ListItem","position":2,"name":"Home & Kitchen","item":"https://halfornothing.com/home-kitchen.html"}]}</script>
 <script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <style>
 /* Native cross-document View Transitions (2026-09-05) -- one line turns on
@@ -946,18 +946,28 @@ footer.site .footer-social a:hover{border-color:var(--signal);color:var(--signal
           transition:transform var(--dur-med) ease}
 .card:active .pct-pill{transform:scale(1.08)}
 @media(hover:hover){.card:hover .pct-pill{transform:scale(1.08)}}
-/* Real discounts only (data-discount is the actual computed %, never
-   fabricated) -- a soft halo ring at rest for genuinely extreme deals, plus
-   a one-shot pop the moment the card scrolls into view (piggybacking on the
-   .reveal-in class the scroll-reveal system already adds, so this needs no
-   extra JS). One-shot, not a looping pulse: DESIGN.md's "no fabricated
-   urgency" rule is about honesty, not about banning motion on a real fact,
-   but a permanent loop on every 80%+ card sitewide would cheapen the signal
-   through repetition the same way a fake countdown would through dishonesty. */
-.pct-pill-extreme{box-shadow:0 0 0 3px rgba(217,58,18,.18)}
-.card.reveal-in .pct-pill-extreme{animation:pct-pill-pop .5s cubic-bezier(.23,1,.32,1)}
-@keyframes pct-pill-pop{0%{transform:scale(1)}40%{transform:scale(1.25)}
-                          60%{transform:scale(.95)}100%{transform:scale(1)}}
+/* Real discounts only (data-discount/data-off is the actual computed %,
+   never fabricated) -- applies to both .pct-pill (main grid) and .td-off
+   (Today's Top Deals rail, a separate template, easy to miss when adding
+   this the first time). First version here was an 18%-opacity ring plus a
+   one-shot pop tied to scroll-reveal -- correct in theory, invisible in
+   practice (Che: "no veo un carajo"), since a card already on screen at
+   load has its pop finished before anyone looks. Replaced with a real,
+   continuous, slow breathing glow so there's no timing window where it's
+   simply not visible -- still just amplifying the number that's already
+   the page's one real signal, not inventing a new one, and slow/steady
+   reads as "notice this" rather than the frantic strobe a fake-urgency
+   countdown would use. */
+.pct-pill-extreme{box-shadow:0 0 0 2px var(--card),0 0 0 5px rgba(217,58,18,.45);
+                   animation:pct-pill-glow 2s ease-in-out infinite}
+.card.reveal-in .pct-pill-extreme{animation:pct-pill-pop .6s cubic-bezier(.23,1,.32,1),
+                                    pct-pill-glow 2s ease-in-out infinite}
+@keyframes pct-pill-glow{
+  0%,100%{box-shadow:0 0 0 2px var(--card),0 0 0 5px rgba(217,58,18,.3)}
+  50%{box-shadow:0 0 0 2px var(--card),0 0 0 8px rgba(217,58,18,.7)}
+}
+@keyframes pct-pill-pop{0%{transform:scale(1)}40%{transform:scale(1.35)}
+                          60%{transform:scale(.92)}100%{transform:scale(1)}}
 .src-tag{background:#555;color:#fff;font-size:11px;font-weight:700;letter-spacing:.05em;
          text-transform:uppercase;padding:3px 8px;border-radius:999px}
 .newpill{background:var(--gate);color:#fff;font-size:11px;font-weight:700;
@@ -1840,7 +1850,7 @@ body.curator-mode #curator-badge{display:flex}
 
 </div></header>
 <main class="wrap" id="main">
-<nav class='crumbs' aria-label='Breadcrumb'><a href='/index.html'>All deals</a> <span>&rsaquo;</span> <a href='/home-kitchen.html'>Home &amp; Kitchen</a> <span>&rsaquo;</span> <b>Deal</b></nav><article class='deal-page'><div class='deal-page-media'><img src='https://i.ebayimg.com/images/g/kPUAAeSwkhFqipD3/s-l500.jpg' alt='Sky Bedding Collection Watercolor Stripe Percale Full Sheet Set Grey - NWT $205' loading='eager' decoding='async' referrerpolicy='no-referrer'></div><div class='deal-page-body'><h1>Sky Bedding Collection Watercolor Stripe Percale Full Sheet Set Grey - NWT $205</h1><p class='deal-status deal-status-live'>Live now &middot; verified within the last 6 hours.</p><p class='deal-page-price'><b>$30.00</b><s>$205.00</s><span class='deal-page-pct'>85% off</span></p><a class='deal-cta' href='https://www.ebay.com/itm/127982176102?_skw=sheet+set&amp;hash=item1dcc550766%3Ag%3AkPUAAeSwkhFqipD3&amp;amdata=enc%3AAQALAAAA4ACCtXRWQnOEpyOqnQQ8KGY09QmQtCngkBm5zFUNRL0HaluAGJ%2FNY5i0ssyt5jd1tsGf1p9TKlhEFPqEDTgmW0oElXy4aLTTDk1dIR1URi%2Bbom6w6ZW2qpJbux4aMk7VVppg1zt5m7i7UvQEhPHC4Wz5zT2QybuAA5xbywUK%2F7bEVAWHpPYQfH%2BQ%2FnAHVwTkCMjn5berAZU0X6Hkp4JAaJxKM1Hbu3ut2FMbZe6JOgi%2BW2box0rOJbjQGQjCbF9pIzP8yxLNtnOSA8mD3M0l%2BFXZkL1X2I8uthRAkV1vfOY6&amp;campid=5339186549&amp;toolid=10001&amp;mkevt=1&amp;mkcid=1&amp;mkrid=711-53200-19255-0&amp;siteid=0&amp;customid=hond' target='_blank' rel='noopener sponsored'>Get this deal at Ebay &rarr;</a></div></article>
+<nav class='crumbs' aria-label='Breadcrumb'><a href='/index.html'>All deals</a> <span>&rsaquo;</span> <a href='/home-kitchen.html'>Home &amp; Kitchen</a> <span>&rsaquo;</span> <b>Deal</b></nav><article class='deal-page'><div class='deal-page-media'><img src='https://i.ebayimg.com/images/g/kPUAAeSwkhFqipD3/s-l500.jpg' alt='Sky Bedding Collection Watercolor Stripe Percale Full Sheet Set Grey - NWT $205' loading='eager' decoding='async' referrerpolicy='no-referrer'></div><div class='deal-page-body'><h1>Sky Bedding Collection Watercolor Stripe Percale Full Sheet Set Grey - NWT $205</h1><p class='deal-status deal-status-live'>Live now &middot; verified within the last 6 hours.</p><p class='deal-page-price'><b>$30.00</b><s>$205.00</s><span class='deal-page-pct'>85% off</span></p><a class='deal-cta' href='https://www.ebay.com/itm/127982176102?_skw=sheet+set&amp;hash=item1dcc550766%3Ag%3AkPUAAeSwkhFqipD3&amp;amdata=enc%3AAQALAAAA4ACCtXRWQnOEpyOqnQQ8KGY09QmQtCngkBm5zFUNRL0HaluAGJ%2FNY5i0ssyt5jd1tsGf1p9TKlhEFPqEDTgmW0oElXy4aLTTDk1dIR1URi%2Bbom6w6ZW2qpJbux4aMk7VVppg1zt5m7i7UvQEhPHC4WycRj7qrD4mccPuew7Qmn6Oo1ECTWZT3%2FaXsv1F29UFf5flw%2Feo4Bci4zDVBGUGRNO331QHR%2BIVOheHNLP%2BZtC0beTVNJ7fw%2FeBWl17LhZ6c61jIBPaU4cMQw6t3kCCDnIBjBrlHd07GsISR3xyXlwp&amp;campid=5339186549&amp;toolid=10001&amp;mkevt=1&amp;mkcid=1&amp;mkrid=711-53200-19255-0&amp;siteid=0&amp;customid=hond' target='_blank' rel='noopener sponsored'>Get this deal at Ebay &rarr;</a></div></article>
 </main>
 <footer class="site"><div class="footer-grid">
 <div class="footer-main">
