@@ -33,7 +33,7 @@
 <meta name="twitter:title" content="Palm Angels ELFIN Dark Grey Pilot Unisex Sunglasses PERI103 1007 62 -- 63% off, $103.66 (was $280.00) | Half or Nothing">
 <meta name="twitter:description" content="63% off, $103.66 (was $280.00)">
 <meta name="twitter:image" content="https://i.ebayimg.com/images/g/jTkAAeSwjPFqlUxq/s-l500.jpg">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Palm Angels ELFIN Dark Grey Pilot Unisex Sunglasses PERI103 1007 62","description":"63% off -- was $280.00, now $103.66 at Ebay.","image":"https://i.ebayimg.com/images/g/jTkAAeSwjPFqlUxq/s-l500.jpg","offers":{"@type":"Offer","price":"103.66","priceCurrency":"USD","availability":"https://schema.org/InStock","url":"https://halfornothing.com/d/d-ebay-id-168214968610.html","priceValidUntil":"2026-09-06T03:46:20Z"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Deals","item":"https://halfornothing.com/"},{"@type":"ListItem","position":2,"name":"Fashion & Accessories","item":"https://halfornothing.com/fashion.html"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Palm Angels ELFIN Dark Grey Pilot Unisex Sunglasses PERI103 1007 62","description":"63% off -- was $280.00, now $103.66 at Ebay.","image":"https://i.ebayimg.com/images/g/jTkAAeSwjPFqlUxq/s-l500.jpg","offers":{"@type":"Offer","price":"103.66","priceCurrency":"USD","availability":"https://schema.org/InStock","url":"https://halfornothing.com/d/d-ebay-id-168214968610.html","priceValidUntil":"2026-09-06T04:01:33Z"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Deals","item":"https://halfornothing.com/"},{"@type":"ListItem","position":2,"name":"Fashion & Accessories","item":"https://halfornothing.com/fashion.html"}]}</script>
 <script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <style>
 /* Native cross-document View Transitions (2026-09-05) -- one line turns on
@@ -941,11 +941,27 @@ footer.site .footer-social a:hover{border-color:var(--signal);color:var(--signal
    more weight on the number that rule already exists for, not a new
    decorative element. Bounces on hover along with the card's other hover
    feedback (transform, hover:hover-gated to match .card itself). */
-.pct-pill{background:var(--signal);color:#fff;font:800 11px/1 var(--mono);
+/* No background here either, same reasoning as .td-off below -- every
+   .pct-pill always also carries a pct-t1..pct-t5 tier class that paints it. */
+.pct-pill{color:#fff;font:800 11px/1 var(--mono);
           padding:5px 9px;border-radius:999px;letter-spacing:.03em;white-space:nowrap;
           transition:transform var(--dur-med) ease}
 .card:active .pct-pill{transform:scale(1.08)}
 @media(hover:hover){.card:hover .pct-pill{transform:scale(1.08)}}
+/* 5-step color-by-tier (2026-09-05, Che's ask): the pill's own background
+   now steps warmer/darker as the real discount % climbs, instead of one
+   flat red for every qualifying deal from 50% to 99%. Applies to both
+   .pct-pill and .td-off (see _pct_tier_class() in html_output.py) -- a
+   bare class, not scoped under either parent, so one set of rules covers
+   both templates. Anchored on the two colors that already exist for other
+   reasons (--signal, --signal-dark) for the middle-high bands, so the
+   "typical" 70-89% deal still reads as the site's own established accent
+   rather than a color invented just for this. */
+.pct-t1{background:#A66A00}
+.pct-t2{background:#C1440E}
+.pct-t3{background:var(--signal)}
+.pct-t4{background:var(--signal-dark)}
+.pct-t5{background:#7A1204}
 /* Real discounts only (data-discount/data-off is the actual computed %,
    never fabricated) -- applies to both .pct-pill (main grid) and .td-off
    (Today's Top Deals rail, a separate template, easy to miss when adding
@@ -1575,7 +1591,12 @@ html{scroll-behavior:smooth}
 .td-prices{display:flex;align-items:baseline;gap:7px;flex-wrap:wrap;margin-top:auto}
 .td-now{font:800 17px/1 var(--mono);color:var(--gate-dark);font-variant-numeric:tabular-nums}
 .td-was{font:400 12px/1 var(--mono);color:var(--muted);font-variant-numeric:tabular-nums}
-.td-off{font:800 11px/1 var(--mono);color:#fff;background:var(--signal-dark);
+/* No background here on purpose -- every .td-off always also carries one of
+   the pct-t1..pct-t5 tier classes (see _pct_tier_class()), which is what
+   actually paints it. Keeping a background here too would need to win a
+   same-specificity cascade fight against rules declared earlier in the
+   file, for a value that's always immediately overridden anyway. */
+.td-off{font:800 11px/1 var(--mono);color:#fff;
         padding:5px 8px;border-radius:999px;letter-spacing:.03em;white-space:nowrap}
 .td-src{font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;
         color:var(--muted)}
@@ -1891,7 +1912,7 @@ body.curator-mode #curator-badge{display:flex}
 </ul>
 </div></footer>
 <button type="button" class="back-to-top" id="backToTop" aria-label="Back to top">&#9650;</button>
-<script src="/assets/js/interaction.js?v=2c22184957"></script>
+<script src="/assets/js/interaction.js?v=54c7ae8567"></script>
 <script src="/assets/js/blog-search.js?v=63d78cfffa"></script>
 <script type="text/javascript" src="https://js.codedrink.com/snippet.min.js" defer></script>
 <script type="text/javascript" src="/assets/js/lasso-picks.js?v=3" defer></script>
