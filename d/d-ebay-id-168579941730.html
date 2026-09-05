@@ -33,7 +33,7 @@
 <meta name="twitter:title" content="Valentino DAYDREAM II Brown Gradient Butterfly Ladies Sunglasses VLS-1 -- 75% off, $182.52 (was $740.00) | Half or Nothing">
 <meta name="twitter:description" content="75% off, $182.52 (was $740.00)">
 <meta name="twitter:image" content="https://i.ebayimg.com/images/g/YIQAAeSw6wNqlmzh/s-l500.jpg">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Valentino DAYDREAM II Brown Gradient Butterfly Ladies Sunglasses VLS-165 B 53","description":"75% off -- was $740.00, now $182.52 at Ebay.","image":"https://i.ebayimg.com/images/g/YIQAAeSw6wNqlmzh/s-l500.jpg","offers":{"@type":"Offer","price":"182.52","priceCurrency":"USD","availability":"https://schema.org/InStock","url":"https://halfornothing.com/d/d-ebay-id-168579941730.html","priceValidUntil":"2026-09-05T22:06:24Z"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Deals","item":"https://halfornothing.com/"},{"@type":"ListItem","position":2,"name":"Fashion & Accessories","item":"https://halfornothing.com/fashion.html"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Valentino DAYDREAM II Brown Gradient Butterfly Ladies Sunglasses VLS-165 B 53","description":"75% off -- was $740.00, now $182.52 at Ebay.","image":"https://i.ebayimg.com/images/g/YIQAAeSw6wNqlmzh/s-l500.jpg","offers":{"@type":"Offer","price":"182.52","priceCurrency":"USD","availability":"https://schema.org/InStock","url":"https://halfornothing.com/d/d-ebay-id-168579941730.html","priceValidUntil":"2026-09-05T23:06:12Z"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Deals","item":"https://halfornothing.com/"},{"@type":"ListItem","position":2,"name":"Fashion & Accessories","item":"https://halfornothing.com/fashion.html"}]}</script>
 <style>
 :root{
   --dur-fast:.12s; --dur-base:.15s; --dur-med:.18s;
@@ -71,10 +71,28 @@
      self-hosted below so it never depends on a third-party font CDN the
      site's CSP doesn't otherwise allow. */
   --brand-font:"Archivo",var(--display);
+  /* Editorial accent for the blog's own intro copy (the .lede under each
+     page's H1) -- a second deliberate face, same self-hosted/no-CDN
+     reasoning as Archivo above, picked to match the serif italic subtitle
+     style already used in the hand-designed blog cover art (e.g.
+     christmas-catalog-2026.webp's "Every Gift at 50% Off or More"), so the
+     live page reads as one voice with its own cover images instead of the
+     cover doing all the editorial work alone. Scoped to blog ledes only
+     (.blog-intro .lede) -- the shared .lede class is also used on About/
+     Privacy/the deals index, which stay on --display on purpose (Che,
+     2026-09-05: only the blog gets the editorial treatment). */
+  --editorial-font:"Playfair Display",Georgia,serif;
 }
 @font-face{
   font-family:"Archivo";font-style:normal;font-weight:900;font-display:swap;
   src:url("/assets/fonts/archivo-900-latin.woff2") format("woff2");
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,
+                U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,
+                U+2212,U+2215,U+FEFF,U+FFFD;
+}
+@font-face{
+  font-family:"Playfair Display";font-style:italic;font-weight:600;font-display:swap;
+  src:url("/assets/fonts/playfair-display-italic-600.woff2") format("woff2");
   unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,
                 U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,
                 U+2212,U+2215,U+FEFF,U+FFFD;
@@ -1143,6 +1161,22 @@ footer.site .disclosure{margin:14px 0}
 .compare-card .cta{grid-area:btn;margin-top:4px}
 .compare-disclosure{grid-area:meta;font-size:10.5px;color:var(--muted);margin:2px 0 0}
 
+/* ---- blog intro banner ---- */
+/* The blog's breadcrumb/H1/lede render INSIDE .mast's own wrap div (passed
+   via page_shell()'s stats_html slot, same mechanism the deals index uses
+   for its live-stats line) instead of a separately-styled block below it.
+   First attempt (2026-09-05) recreated .mast's gradient on a second,
+   width-constrained box further down the page -- .mast itself is
+   full-bleed (edge to edge) but that box sat inside <main class="wrap">
+   (1180px, padded), so the two gradients were positioned against
+   different-sized boxes and never lined up: a patchy rectangle, not a
+   continuation (Che: "el banner esta completamente roto"). Reusing
+   .mast's actual background instead of copying it means there is nothing
+   to keep in sync and no seam to line up -- it's the same element. */
+.mast .lede{font-family:var(--editorial-font);font-style:italic;font-weight:600;
+            font-size:1.3rem;color:var(--ink);letter-spacing:-.005em;max-width:70ch;
+            margin:10px 0 0}
+
 /* ---- blog index ---- */
 /* Full .wrap width (1180px) instead of one centered 68ch column, so the
    index doesn't leave most of a desktop viewport empty. Two references,
@@ -1166,7 +1200,9 @@ footer.site .disclosure{margin:14px 0}
 /* Spotlight: one big featured story (the latest post) beside a short stack
    of the next few, site-wide -- the one asymmetric moment on an otherwise
    dense, grid-driven page. */
-.blog-spotlight{display:grid;grid-template-columns:1.6fr 1fr;gap:24px;margin:0 0 40px}
+.blog-spotlight{display:grid;grid-template-columns:1.6fr 1fr;gap:24px;margin:0 0 40px;
+                 animation:blog-spotlight-in .5s cubic-bezier(.23,1,.32,1)}
+@keyframes blog-spotlight-in{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
 @media(max-width:860px){.blog-spotlight{grid-template-columns:1fr}}
 .blog-featured{display:grid;grid-template-columns:1fr;border:1px solid var(--rule);
                 border-radius:var(--r-lg);overflow:hidden;background:var(--card)}
@@ -1175,23 +1211,20 @@ footer.site .disclosure{margin:14px 0}
                           transition:transform .3s}
 .blog-featured:hover .blog-featured-cover img{transform:scale(1.03)}
 .blog-featured-body{padding:20px 24px 24px}
-.blog-featured-eyebrow{margin:0 0 8px;font:700 11px/1 var(--mono);letter-spacing:.08em;
-                        text-transform:uppercase;color:var(--signal)}
 .blog-featured-title{display:block;font-size:1.5rem;font-weight:800;letter-spacing:-.015em;
                       line-height:1.2;color:var(--ink);text-decoration:none}
 .blog-featured-title:hover{color:var(--signal)}
 .blog-featured-desc{margin:10px 0 0;color:var(--ink-soft);max-width:60ch}
 .blog-featured-meta{margin:12px 0 0;font:500 11px/1 var(--mono);letter-spacing:.06em;
                      text-transform:uppercase;color:var(--muted)}
-.blog-spotlight-secondary{display:flex;flex-direction:column;gap:14px}
+.blog-spotlight-secondary{display:flex;flex-direction:column;gap:14px;justify-content:space-between}
 .blog-spotlight-secondary .blog-card-compact{display:flex;align-items:center;gap:12px}
 .blog-spotlight-secondary .blog-card-cover{flex-shrink:0;width:72px;height:72px;aspect-ratio:auto}
 .blog-spotlight-secondary .blog-card-body{padding:0}
 .blog-spotlight-secondary .blog-card-title{padding:0;font-size:.9rem}
 .blog-spotlight-secondary .blog-card-date{padding:3px 0 0}
 
-.blog-section-title{font-size:1.32rem;font-weight:800;letter-spacing:-.015em;
-                     margin:0 0 20px;padding-left:16px;border-left:4px solid var(--signal)}
+.blog-section-title{font-size:1.4rem;font-weight:800;letter-spacing:-.015em;margin:0 0 20px}
 /* One column per category, side by side -- this (not a taller single-file
    list) is what actually cuts the scroll: every category is visible in the
    same viewport instead of one below the other. Fixed column counts per
@@ -1204,7 +1237,7 @@ footer.site .disclosure{margin:14px 0}
    the mismatched-row-height gap entirely for the common desktop case
    (Che caught this 2026-09-05: empty space between Gift Guides and the
    Trust & How It Works row below it). */
-.blog-category-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:28px}
+.blog-category-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:28px;align-items:start}
 @media(max-width:1100px){.blog-category-grid{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:700px){.blog-category-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:480px){.blog-category-grid{grid-template-columns:1fr}}
@@ -1217,6 +1250,8 @@ footer.site .disclosure{margin:14px 0}
 .blog-category-more{display:inline-block;margin-top:12px;font-weight:600;color:var(--signal);
                      text-decoration:none;font-size:.88rem}
 .blog-category-more:hover{text-decoration:underline}
+.blog-category-more i{font-style:normal;display:inline-block;transition:transform var(--dur-med) ease}
+.blog-category-more:hover i{transform:translateX(3px)}
 
 /* Compact card -- every post inside a category column, and the spotlight's
    secondary list (sized differently there via the overrides above). */
@@ -1228,7 +1263,8 @@ footer.site .disclosure{margin:14px 0}
 .blog-card-cover img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .3s}
 .blog-card-compact:hover .blog-card-cover img{transform:scale(1.04)}
 .blog-card-body{padding:10px 12px}
-.blog-card-title{display:block;font-size:.85rem;font-weight:700;
+.blog-card-title{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;
+                  overflow:hidden;font-size:.85rem;font-weight:700;
                   color:var(--ink);text-decoration:none;letter-spacing:-.003em;line-height:1.35}
 .blog-card-title:hover{color:var(--signal)}
 .blog-card-date{margin:6px 0 0;font:500 10px/1 var(--mono);letter-spacing:.05em;
