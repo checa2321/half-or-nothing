@@ -1033,9 +1033,13 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
 .empty-state{padding:60px 12px;color:var(--muted);text-align:center;grid-column:1/-1}
 /* Shown when a ?deal= link from a social post outlives its listing. Uses the
    signal colour because it is answering a question the visitor actually
-   asked, not decorating the page. */
-.deal-gone{margin:0 0 18px;padding:14px 16px;border:2px solid var(--signal);
-           border-left-width:6px;background:var(--card);color:var(--ink);
+   asked, not decorating the page. Was a 6px left stripe on a 2px border --
+   the side-tab tell, plus a thicker-than-anywhere-else border; a uniform
+   1px border plus a light signal tint gives it the same real weight
+   without either (2026-09-05 cleanup, matches .disclosure's plain-border
+   precedent from the 2026-08-24 polish). */
+.deal-gone{margin:0 0 18px;padding:14px 16px;border:1px solid var(--signal);
+           background:rgba(217,58,18,.08);color:var(--ink);
            font-size:14px;line-height:1.5}
 .deal-gone b{display:block;margin-bottom:2px}
 
@@ -1064,19 +1068,18 @@ footer.site .disclosure{margin:14px 0}
 .prose h1{font-family:var(--brand-font);font-size:clamp(2rem,5vw,2.9rem);font-weight:900;
           letter-spacing:-.015em;line-height:1.1;margin:0 0 8px;text-wrap:balance}
 .prose .lede{font-size:1.15rem;color:var(--ink-soft);margin:0 0 30px}
-.prose h2{font-size:1.32rem;font-weight:800;letter-spacing:-.015em;margin:40px 0 16px;
-          padding-left:16px;border-left:4px solid var(--signal)}
+.prose h2{font-size:1.32rem;font-weight:800;letter-spacing:-.015em;margin:40px 0 16px}
 .prose h3{font-size:1.05rem;font-weight:700;letter-spacing:-.01em;margin:26px 0 8px}
 .prose p{margin:0 0 16px}
-/* Boxed callouts (Key Takeaways, the [[toc]] jump-list): same left-accent-
-   border language as .deal-gone elsewhere on the site, not a new pattern.
-   Two accent colors (signal/gate) so the two boxes read as visually
-   distinct when they sit back to back. */
+/* Boxed callouts (Key Takeaways, the [[toc]] jump-list). Was a left-accent
+   stripe shared with .deal-gone's old language -- replaced 2026-09-05 with
+   a uniform 1px border in the same two accent colors, so the two box types
+   still read as visually distinct sitting back to back, without the
+   side-tab tell. */
 .prose .callout{margin:0 0 26px;padding:18px 20px 20px;background:var(--card);
-                border:1px solid var(--rule);border-left:4px solid var(--signal);
-                border-radius:var(--r-sm)}
-.prose .callout.callout-toc{border-left-color:var(--gate)}
-.prose .callout h2{margin:0 0 12px;padding-left:0;border-left:none;font-size:1.15rem}
+                border:1px solid var(--signal);border-radius:var(--r-sm)}
+.prose .callout.callout-toc{border-color:var(--gate)}
+.prose .callout h2{margin:0 0 12px;font-size:1.15rem}
 .prose .callout ul{margin:0}
 .prose .callout li:last-child{margin-bottom:0}
 .prose nav.post-toc ul{margin:0;padding-left:0;list-style:none;columns:1}
@@ -1200,7 +1203,9 @@ footer.site .disclosure{margin:14px 0}
 /* Spotlight: one big featured story (the latest post) beside a short stack
    of the next few, site-wide -- the one asymmetric moment on an otherwise
    dense, grid-driven page. */
-.blog-spotlight{display:grid;grid-template-columns:1.6fr 1fr;gap:24px;margin:0 0 40px}
+.blog-spotlight{display:grid;grid-template-columns:1.6fr 1fr;gap:24px;margin:0 0 40px;
+                 animation:blog-spotlight-in .5s cubic-bezier(.23,1,.32,1)}
+@keyframes blog-spotlight-in{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
 @media(max-width:860px){.blog-spotlight{grid-template-columns:1fr}}
 .blog-featured{display:grid;grid-template-columns:1fr;border:1px solid var(--rule);
                 border-radius:var(--r-lg);overflow:hidden;background:var(--card)}
@@ -1209,23 +1214,20 @@ footer.site .disclosure{margin:14px 0}
                           transition:transform .3s}
 .blog-featured:hover .blog-featured-cover img{transform:scale(1.03)}
 .blog-featured-body{padding:20px 24px 24px}
-.blog-featured-eyebrow{margin:0 0 8px;font:700 11px/1 var(--mono);letter-spacing:.08em;
-                        text-transform:uppercase;color:var(--signal)}
 .blog-featured-title{display:block;font-size:1.5rem;font-weight:800;letter-spacing:-.015em;
                       line-height:1.2;color:var(--ink);text-decoration:none}
 .blog-featured-title:hover{color:var(--signal)}
 .blog-featured-desc{margin:10px 0 0;color:var(--ink-soft);max-width:60ch}
 .blog-featured-meta{margin:12px 0 0;font:500 11px/1 var(--mono);letter-spacing:.06em;
                      text-transform:uppercase;color:var(--muted)}
-.blog-spotlight-secondary{display:flex;flex-direction:column;gap:14px}
+.blog-spotlight-secondary{display:flex;flex-direction:column;gap:14px;justify-content:space-between}
 .blog-spotlight-secondary .blog-card-compact{display:flex;align-items:center;gap:12px}
 .blog-spotlight-secondary .blog-card-cover{flex-shrink:0;width:72px;height:72px;aspect-ratio:auto}
 .blog-spotlight-secondary .blog-card-body{padding:0}
 .blog-spotlight-secondary .blog-card-title{padding:0;font-size:.9rem}
 .blog-spotlight-secondary .blog-card-date{padding:3px 0 0}
 
-.blog-section-title{font-size:1.32rem;font-weight:800;letter-spacing:-.015em;
-                     margin:0 0 20px;padding-left:16px;border-left:4px solid var(--signal)}
+.blog-section-title{font-size:1.4rem;font-weight:800;letter-spacing:-.015em;margin:0 0 20px}
 /* One column per category, side by side -- this (not a taller single-file
    list) is what actually cuts the scroll: every category is visible in the
    same viewport instead of one below the other. Fixed column counts per
@@ -1238,7 +1240,7 @@ footer.site .disclosure{margin:14px 0}
    the mismatched-row-height gap entirely for the common desktop case
    (Che caught this 2026-09-05: empty space between Gift Guides and the
    Trust & How It Works row below it). */
-.blog-category-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:28px}
+.blog-category-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:28px;align-items:start}
 @media(max-width:1100px){.blog-category-grid{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:700px){.blog-category-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:480px){.blog-category-grid{grid-template-columns:1fr}}
@@ -1251,6 +1253,8 @@ footer.site .disclosure{margin:14px 0}
 .blog-category-more{display:inline-block;margin-top:12px;font-weight:600;color:var(--signal);
                      text-decoration:none;font-size:.88rem}
 .blog-category-more:hover{text-decoration:underline}
+.blog-category-more i{font-style:normal;display:inline-block;transition:transform var(--dur-med) ease}
+.blog-category-more:hover i{transform:translateX(3px)}
 
 /* Compact card -- every post inside a category column, and the spotlight's
    secondary list (sized differently there via the overrides above). */
@@ -1262,7 +1266,8 @@ footer.site .disclosure{margin:14px 0}
 .blog-card-cover img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .3s}
 .blog-card-compact:hover .blog-card-cover img{transform:scale(1.04)}
 .blog-card-body{padding:10px 12px}
-.blog-card-title{display:block;font-size:.85rem;font-weight:700;
+.blog-card-title{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;
+                  overflow:hidden;font-size:.85rem;font-weight:700;
                   color:var(--ink);text-decoration:none;letter-spacing:-.003em;line-height:1.35}
 .blog-card-title:hover{color:var(--signal)}
 .blog-card-date{margin:6px 0 0;font:500 10px/1 var(--mono);letter-spacing:.05em;
