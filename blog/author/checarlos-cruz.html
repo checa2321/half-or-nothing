@@ -1131,11 +1131,86 @@ footer.site .disclosure{margin:14px 0}
 .compare-disclosure{grid-area:meta;font-size:10.5px;color:var(--muted);margin:2px 0 0}
 
 /* ---- blog index ---- */
-/* Same left-accent-border language as .prose h2 (see above), since these
-   category headings sit outside .prose and don't inherit that rule. */
-.blog-category-title{font-size:1.32rem;font-weight:800;letter-spacing:-.015em;
-                      margin:32px 0 4px;padding-left:16px;border-left:4px solid var(--signal)}
-.blog-category:first-child .blog-category-title{margin-top:8px}
+/* Full .wrap width (1180px) instead of one centered 68ch column, so the
+   index doesn't leave most of a desktop viewport empty. Two references,
+   synthesized rather than copied: dealseek.com/deal-news (a featured card
+   paired with a few more, sections below) and koupon.ai/articles/deal-news
+   (categories as side-by-side columns instead of one long vertical stack,
+   which is the part that actually solves "too much scroll between
+   categories" -- Che, 2026-09-05). */
+.blog-search{position:relative;max-width:420px;margin:8px 0 28px}
+.blog-search svg{position:absolute;left:14px;top:50%;transform:translateY(-50%);
+                  width:18px;height:18px;color:var(--muted);pointer-events:none}
+.blog-search input{width:100%;box-sizing:border-box;padding:11px 14px 11px 42px;
+                    border:1px solid var(--rule);border-radius:var(--r-sm);
+                    background:var(--card);color:var(--ink);font-size:.95rem;
+                    transition:border-color .15s,box-shadow .15s}
+.blog-search input:hover{border-color:var(--muted)}
+.blog-search input:focus{outline:none;border-color:var(--signal);
+                          box-shadow:0 0 0 3px rgba(217,58,18,.12)}
+.blog-search-empty{display:none;color:var(--ink-soft);margin:-8px 0 28px}
+
+/* Spotlight: one big featured story (the latest post) beside a short stack
+   of the next few, site-wide -- the one asymmetric moment on an otherwise
+   dense, grid-driven page. */
+.blog-spotlight{display:grid;grid-template-columns:1.6fr 1fr;gap:24px;margin:0 0 40px}
+@media(max-width:860px){.blog-spotlight{grid-template-columns:1fr}}
+.blog-featured{display:grid;grid-template-columns:1fr;border:1px solid var(--rule);
+                border-radius:var(--r-lg);overflow:hidden;background:var(--card)}
+.blog-featured-cover{display:block;aspect-ratio:16/9;background:var(--paper-3)}
+.blog-featured-cover img{width:100%;height:100%;object-fit:cover;display:block;
+                          transition:transform .3s}
+.blog-featured:hover .blog-featured-cover img{transform:scale(1.03)}
+.blog-featured-body{padding:20px 24px 24px}
+.blog-featured-eyebrow{margin:0 0 8px;font:700 11px/1 var(--mono);letter-spacing:.08em;
+                        text-transform:uppercase;color:var(--signal)}
+.blog-featured-title{display:block;font-size:1.5rem;font-weight:800;letter-spacing:-.015em;
+                      line-height:1.2;color:var(--ink);text-decoration:none}
+.blog-featured-title:hover{color:var(--signal)}
+.blog-featured-desc{margin:10px 0 0;color:var(--ink-soft);max-width:60ch}
+.blog-featured-meta{margin:12px 0 0;font:500 11px/1 var(--mono);letter-spacing:.06em;
+                     text-transform:uppercase;color:var(--muted)}
+.blog-spotlight-secondary{display:flex;flex-direction:column;gap:14px}
+.blog-spotlight-secondary .blog-card-compact{display:flex;align-items:center;gap:12px}
+.blog-spotlight-secondary .blog-card-cover{flex-shrink:0;width:72px;height:72px;aspect-ratio:auto}
+.blog-spotlight-secondary .blog-card-body{padding:0}
+.blog-spotlight-secondary .blog-card-title{padding:0;font-size:.9rem}
+.blog-spotlight-secondary .blog-card-date{padding:3px 0 0}
+
+.blog-section-title{font-size:1.32rem;font-weight:800;letter-spacing:-.015em;
+                     margin:0 0 20px;padding-left:16px;border-left:4px solid var(--signal)}
+/* One column per category, side by side -- this (not a taller single-file
+   list) is what actually cuts the scroll: every category is visible in the
+   same viewport instead of one below the other. */
+.blog-category-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:28px}
+.blog-category-col-head{display:flex;align-items:baseline;justify-content:space-between;
+                         gap:8px;margin:0 0 12px;padding-bottom:10px;border-bottom:2px solid var(--rule)}
+.blog-category-title{font-size:.98rem;font-weight:800;letter-spacing:-.005em;margin:0}
+.blog-category-count{font:500 10px/1 var(--mono);letter-spacing:.05em;
+                      text-transform:uppercase;color:var(--muted);white-space:nowrap}
+.blog-category-col-list{display:flex;flex-direction:column;gap:12px}
+.blog-category-more{display:inline-block;margin-top:12px;font-weight:600;color:var(--signal);
+                     text-decoration:none;font-size:.88rem}
+.blog-category-more:hover{text-decoration:underline}
+
+/* Compact card -- every post inside a category column, and the spotlight's
+   secondary list (sized differently there via the overrides above). */
+.blog-card-compact{display:block;border:1px solid var(--rule);border-radius:var(--r-md);
+                    overflow:hidden;background:var(--card);transition:border-color .15s}
+.blog-card-compact:hover{border-color:var(--muted)}
+.blog-card-compact:active{transform:translateY(1px)}
+.blog-card-cover{display:block;aspect-ratio:16/9;background:var(--paper-3);overflow:hidden}
+.blog-card-cover img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .3s}
+.blog-card-compact:hover .blog-card-cover img{transform:scale(1.04)}
+.blog-card-body{padding:10px 12px}
+.blog-card-title{display:block;font-size:.85rem;font-weight:700;
+                  color:var(--ink);text-decoration:none;letter-spacing:-.003em;line-height:1.35}
+.blog-card-title:hover{color:var(--signal)}
+.blog-card-date{margin:6px 0 0;font:500 10px/1 var(--mono);letter-spacing:.05em;
+                 text-transform:uppercase;color:var(--muted)}
+
+/* The original row layout -- still used by author pages and category
+   archive pages, which list posts one at a time with a real description. */
 .blog-list{max-width:68ch;margin:8px 0 40px}
 .blog-row{padding:20px 0;border-top:1px solid var(--rule);display:flex;gap:18px;align-items:flex-start}
 .blog-row:last-child{border-bottom:1px solid var(--rule)}
@@ -1456,7 +1531,7 @@ body.curator-mode #curator-badge{display:flex}
 
 </div></header>
 <main class="wrap">
-<nav class='crumbs' aria-label='Breadcrumb'><a href='/index.html'>All deals</a> <span>&rsaquo;</span> <a href='/blog.html'>Blog</a> <span>&rsaquo;</span> <b>Checarlos Cruz</b></nav><div class='prose'><div class='author-head'><img class='author-avatar' src='/authors/checarlos-cruz.jpg' alt='Checarlos Cruz'><h1>Checarlos Cruz</h1></div><p class='author-bio'>I&#x27;m Che, based in Corpus Christi, Texas. I hold a Doctor of Medicine degree from the University of Science, Arts and Technology in Montserrat. I run Hermes, a platform behind several trading and prediction-market projects, and Half or Nothing, a deals site refreshed hourly. Outside of that, my interests range widely, and I make music as a creative outlet.</p></div><div class='blog-list'><article class='blog-row'><a class='blog-row-cover' href='/blog/how-a-deal-aggregator-site-actually-works.html' aria-label='How a Deal Aggregator Site Actually Works'><img src='/blog/covers/how-a-deal-aggregator-site-actually-works.webp' alt='' loading='lazy' decoding='async'></a><div class='blog-row-body'><a class='blog-row-title' href='/blog/how-a-deal-aggregator-site-actually-works.html'>How a Deal Aggregator Site Actually Works</a><p class='blog-row-desc'>The difference between signal and noise in deal aggregation, and why Half or Nothing runs on data instead of urgency banners.</p><p class='blog-row-date'>2026-08-30</p></div></article><article class='blog-row'><a class='blog-row-cover' href='/blog/how-hourly-deal-refreshes-actually-work.html' aria-label='How Our Hourly Deal Refresh Actually Works'><img src='/blog/covers/how-hourly-deal-refreshes-actually-work.webp' alt='' loading='lazy' decoding='async'></a><div class='blog-row-body'><a class='blog-row-title' href='/blog/how-hourly-deal-refreshes-actually-work.html'>How Our Hourly Deal Refresh Actually Works</a><p class='blog-row-desc'>The five-step pipeline behind every listing on Half or Nothing, refreshed every sixty minutes, and why Amazon is the one part of it I still do by hand.</p><p class='blog-row-date'>2026-08-30</p></div></article><article class='blog-row'><a class='blog-row-cover' href='/blog/how-to-verify-a-real-online-deal.html' aria-label='How to Verify a Real Online Deal'><img src='/blog/covers/how-to-verify-a-real-online-deal.webp' alt='' loading='lazy' decoding='async'></a><div class='blog-row-body'><a class='blog-row-title' href='/blog/how-to-verify-a-real-online-deal.html'>How to Verify a Real Online Deal</a><p class='blog-row-desc'>A clinical checklist for telling a real price drop from an inflated MSRP, built from the same rules Half or Nothing uses to filter its own listings.</p><p class='blog-row-date'>2026-08-30</p></div></article><article class='blog-row'><a class='blog-row-cover' href='/blog/gucci-deals-right-now.html' aria-label='10 Gucci Deals on Half or Nothing Right Now'><img src='/blog/covers/gucci-deals-right-now.webp' alt='' loading='lazy' decoding='async'></a><div class='blog-row-body'><a class='blog-row-title' href='/blog/gucci-deals-right-now.html'>10 Gucci Deals on Half or Nothing Right Now</a><p class='blog-row-desc'>239 live Gucci deals are sitting at 50% off or more right now, averaging 59.2% off. Bags, watches, and one silk dress, ranked by original retail price.</p><p class='blog-row-date'>2026-08-29</p></div></article><article class='blog-row'><a class='blog-row-cover' href='/blog/most-expensive-handbags-right-now.html' aria-label='The 10 Most Expensive Handbags on Half or Nothing Right Now'><img src='/blog/covers/most-expensive-handbags-right-now.webp' alt='' loading='lazy' decoding='async'></a><div class='blog-row-body'><a class='blog-row-title' href='/blog/most-expensive-handbags-right-now.html'>The 10 Most Expensive Handbags on Half or Nothing Right Now</a><p class='blog-row-desc'>Hermes, Chanel, Louis Vuitton and Celine, all at 50% off or more. Here are the 10 highest-priced handbags live on Half or Nothing right now, ranked by original retail price.</p><p class='blog-row-date'>2026-08-29</p></div></article><article class='blog-row'><a class='blog-row-cover' href='/blog/most-expensive-watches-right-now.html' aria-label='The 10 Most Expensive Watches on Half or Nothing Right Now'><img src='/blog/covers/most-expensive-watches-right-now.webp' alt='' loading='lazy' decoding='async'></a><div class='blog-row-body'><a class='blog-row-title' href='/blog/most-expensive-watches-right-now.html'>The 10 Most Expensive Watches on Half or Nothing Right Now</a><p class='blog-row-desc'>A $12,800 Blancpain down to a $4,400 Oris, all at 50% off or more. The 10 highest-priced watches live on Half or Nothing right now, ranked by original retail price.</p><p class='blog-row-date'>2026-08-29</p></div></article><article class='blog-row'><a class='blog-row-cover' href='/blog/no-running-water-portable-shower-picks.html' aria-label='4 Portable Showers for Puerto Rico&#x27;s Water Crisis, Compared'><img src='/blog/covers/no-running-water-portable-shower-picks.webp' alt='' loading='lazy' decoding='async'></a><div class='blog-row-body'><a class='blog-row-title' href='/blog/no-running-water-portable-shower-picks.html'>4 Portable Showers for Puerto Rico&#x27;s Water Crisis, Compared</a><p class='blog-row-desc'>Puerto Rico&#x27;s water crisis is real and ongoing. Here&#x27;s the actual situation, and four portable showers we compared as one small way to cope.</p><p class='blog-row-date'>2026-08-27</p></div></article><article class='blog-row'><a class='blog-row-cover' href='/blog/6-real-price-drops-we-tracked.html' aria-label='6 Real Price Drops We Actually Tracked'><img src='/blog/covers/6-real-price-drops-we-tracked.webp' alt='' loading='lazy' decoding='async'></a><div class='blog-row-body'><a class='blog-row-title' href='/blog/6-real-price-drops-we-tracked.html'>6 Real Price Drops We Actually Tracked</a><p class='blog-row-desc'>Six listings where our own price history shows the price genuinely moved, with the real drop we measured next to the discount the seller claims.</p><p class='blog-row-date'>2026-08-24</p></div></article><article class='blog-row'><a class='blog-row-cover' href='/blog/what-our-price-tracking-actually-proves.html' aria-label='What Our Price Tracking Actually Proves (And What It Doesn&#x27;t)'><img src='/blog/covers/what-our-price-tracking-actually-proves.webp' alt='' loading='lazy' decoding='async'></a><div class='blog-row-body'><a class='blog-row-title' href='/blog/what-our-price-tracking-actually-proves.html'>What Our Price Tracking Actually Proves (And What It Doesn&#x27;t)</a><p class='blog-row-desc'>A real pattern our own price history can&#x27;t verify one way or the other, and why I&#x27;m telling you instead of quietly hiding it.</p><p class='blog-row-date'>2026-08-24</p></div></article></div>
+<nav class='crumbs' aria-label='Breadcrumb'><a href='/index.html'>All deals</a> <span>&rsaquo;</span> <a href='/blog.html'>Blog</a> <span>&rsaquo;</span> <b>Checarlos Cruz</b></nav><div class='prose'><div class='author-head'><img class='author-avatar' src='/authors/checarlos-cruz.jpg' alt='Checarlos Cruz'><h1>Checarlos Cruz</h1></div><p class='author-bio'>I&#x27;m Che, based in Corpus Christi, Texas. I hold a Doctor of Medicine degree from the University of Science, Arts and Technology in Montserrat. I run Hermes, a platform behind several trading and prediction-market projects, and Half or Nothing, a deals site refreshed hourly. Outside of that, my interests range widely, and I make music as a creative outlet.</p></div><div class='blog-list'><article class='blog-row' data-title='how a deal aggregator site actually works'><a class='blog-row-cover' href='/blog/how-a-deal-aggregator-site-actually-works.html' aria-label='How a Deal Aggregator Site Actually Works'><img src='/blog/covers/how-a-deal-aggregator-site-actually-works.webp' alt='' loading='lazy' decoding='async'></a><div class='blog-row-body'><a class='blog-row-title' href='/blog/how-a-deal-aggregator-site-actually-works.html'>How a Deal Aggregator Site Actually Works</a><p class='blog-row-desc'>The difference between signal and noise in deal aggregation, and why Half or Nothing runs on data instead of urgency banners.</p><p class='blog-row-date'>2026-08-30</p></div></article><article class='blog-row' data-title='how our hourly deal refresh actually works'><a class='blog-row-cover' href='/blog/how-hourly-deal-refreshes-actually-work.html' aria-label='How Our Hourly Deal Refresh Actually Works'><img src='/blog/covers/how-hourly-deal-refreshes-actually-work.webp' alt='' loading='lazy' decoding='async'></a><div class='blog-row-body'><a class='blog-row-title' href='/blog/how-hourly-deal-refreshes-actually-work.html'>How Our Hourly Deal Refresh Actually Works</a><p class='blog-row-desc'>The five-step pipeline behind every listing on Half or Nothing, refreshed every sixty minutes, and why Amazon is the one part of it I still do by hand.</p><p class='blog-row-date'>2026-08-30</p></div></article><article class='blog-row' data-title='how to verify a real online deal'><a class='blog-row-cover' href='/blog/how-to-verify-a-real-online-deal.html' aria-label='How to Verify a Real Online Deal'><img src='/blog/covers/how-to-verify-a-real-online-deal.webp' alt='' loading='lazy' decoding='async'></a><div class='blog-row-body'><a class='blog-row-title' href='/blog/how-to-verify-a-real-online-deal.html'>How to Verify a Real Online Deal</a><p class='blog-row-desc'>A clinical checklist for telling a real price drop from an inflated MSRP, built from the same rules Half or Nothing uses to filter its own listings.</p><p class='blog-row-date'>2026-08-30</p></div></article><article class='blog-row' data-title='10 gucci deals on half or nothing right now'><a class='blog-row-cover' href='/blog/gucci-deals-right-now.html' aria-label='10 Gucci Deals on Half or Nothing Right Now'><img src='/blog/covers/gucci-deals-right-now.webp' alt='' loading='lazy' decoding='async'></a><div class='blog-row-body'><a class='blog-row-title' href='/blog/gucci-deals-right-now.html'>10 Gucci Deals on Half or Nothing Right Now</a><p class='blog-row-desc'>239 live Gucci deals are sitting at 50% off or more right now, averaging 59.2% off. Bags, watches, and one silk dress, ranked by original retail price.</p><p class='blog-row-date'>2026-08-29</p></div></article><article class='blog-row' data-title='the 10 most expensive handbags on half or nothing right now'><a class='blog-row-cover' href='/blog/most-expensive-handbags-right-now.html' aria-label='The 10 Most Expensive Handbags on Half or Nothing Right Now'><img src='/blog/covers/most-expensive-handbags-right-now.webp' alt='' loading='lazy' decoding='async'></a><div class='blog-row-body'><a class='blog-row-title' href='/blog/most-expensive-handbags-right-now.html'>The 10 Most Expensive Handbags on Half or Nothing Right Now</a><p class='blog-row-desc'>Hermes, Chanel, Louis Vuitton and Celine, all at 50% off or more. Here are the 10 highest-priced handbags live on Half or Nothing right now, ranked by original retail price.</p><p class='blog-row-date'>2026-08-29</p></div></article><article class='blog-row' data-title='the 10 most expensive watches on half or nothing right now'><a class='blog-row-cover' href='/blog/most-expensive-watches-right-now.html' aria-label='The 10 Most Expensive Watches on Half or Nothing Right Now'><img src='/blog/covers/most-expensive-watches-right-now.webp' alt='' loading='lazy' decoding='async'></a><div class='blog-row-body'><a class='blog-row-title' href='/blog/most-expensive-watches-right-now.html'>The 10 Most Expensive Watches on Half or Nothing Right Now</a><p class='blog-row-desc'>A $12,800 Blancpain down to a $4,400 Oris, all at 50% off or more. The 10 highest-priced watches live on Half or Nothing right now, ranked by original retail price.</p><p class='blog-row-date'>2026-08-29</p></div></article><article class='blog-row' data-title='4 portable showers for puerto rico&#x27;s water crisis, compared'><a class='blog-row-cover' href='/blog/no-running-water-portable-shower-picks.html' aria-label='4 Portable Showers for Puerto Rico&#x27;s Water Crisis, Compared'><img src='/blog/covers/no-running-water-portable-shower-picks.webp' alt='' loading='lazy' decoding='async'></a><div class='blog-row-body'><a class='blog-row-title' href='/blog/no-running-water-portable-shower-picks.html'>4 Portable Showers for Puerto Rico&#x27;s Water Crisis, Compared</a><p class='blog-row-desc'>Puerto Rico&#x27;s water crisis is real and ongoing. Here&#x27;s the actual situation, and four portable showers we compared as one small way to cope.</p><p class='blog-row-date'>2026-08-27</p></div></article><article class='blog-row' data-title='6 real price drops we actually tracked'><a class='blog-row-cover' href='/blog/6-real-price-drops-we-tracked.html' aria-label='6 Real Price Drops We Actually Tracked'><img src='/blog/covers/6-real-price-drops-we-tracked.webp' alt='' loading='lazy' decoding='async'></a><div class='blog-row-body'><a class='blog-row-title' href='/blog/6-real-price-drops-we-tracked.html'>6 Real Price Drops We Actually Tracked</a><p class='blog-row-desc'>Six listings where our own price history shows the price genuinely moved, with the real drop we measured next to the discount the seller claims.</p><p class='blog-row-date'>2026-08-24</p></div></article><article class='blog-row' data-title='what our price tracking actually proves (and what it doesn&#x27;t)'><a class='blog-row-cover' href='/blog/what-our-price-tracking-actually-proves.html' aria-label='What Our Price Tracking Actually Proves (And What It Doesn&#x27;t)'><img src='/blog/covers/what-our-price-tracking-actually-proves.webp' alt='' loading='lazy' decoding='async'></a><div class='blog-row-body'><a class='blog-row-title' href='/blog/what-our-price-tracking-actually-proves.html'>What Our Price Tracking Actually Proves (And What It Doesn&#x27;t)</a><p class='blog-row-desc'>A real pattern our own price history can&#x27;t verify one way or the other, and why I&#x27;m telling you instead of quietly hiding it.</p><p class='blog-row-date'>2026-08-24</p></div></article></div>
 <footer class="site"><div class="footer-grid">
 <div class="footer-main">
 <details class="disclosure">
@@ -1498,6 +1573,7 @@ body.curator-mode #curator-badge{display:flex}
 </main>
 <button type="button" class="back-to-top" id="backToTop" aria-label="Back to top">&#9650;</button>
 <script src="/assets/js/interaction.js?v=bb81cde38a"></script>
+<script src="/assets/js/blog-search.js?v=3a6053fbd9"></script>
 <script type="text/javascript" src="https://js.codedrink.com/snippet.min.js" defer></script>
 <script type="text/javascript" src="/assets/js/lasso-picks.js?v=3" defer></script>
 <script type="text/javascript" src="https://s.skimresources.com/js/307865X1796159.skimlinks.js"></script>
