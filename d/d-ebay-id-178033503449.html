@@ -33,7 +33,7 @@
 <meta name="twitter:title" content="Ferragamo Green Square Men&#x27;s Sunglasses SF2846SCP 212 53 SF2846SCP 212 -- 84% off, $59.14 (was $370.00) | Half or Nothing">
 <meta name="twitter:description" content="84% off, $59.14 (was $370.00)">
 <meta name="twitter:image" content="https://i.ebayimg.com/images/g/TmQAAeSwKVxqlUun/s-l500.jpg">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Ferragamo Green Square Men's Sunglasses SF2846SCP 212 53 SF2846SCP 212 53","description":"84% off -- was $370.00, now $59.14 at Ebay.","image":"https://i.ebayimg.com/images/g/TmQAAeSwKVxqlUun/s-l500.jpg","offers":{"@type":"Offer","price":"59.14","priceCurrency":"USD","availability":"https://schema.org/InStock","url":"https://halfornothing.com/d/d-ebay-id-178033503449.html","priceValidUntil":"2026-09-06T05:06:20Z"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Deals","item":"https://halfornothing.com/"},{"@type":"ListItem","position":2,"name":"Fashion & Accessories","item":"https://halfornothing.com/fashion.html"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Ferragamo Green Square Men's Sunglasses SF2846SCP 212 53 SF2846SCP 212 53","description":"84% off -- was $370.00, now $59.14 at Ebay.","image":"https://i.ebayimg.com/images/g/TmQAAeSwKVxqlUun/s-l500.jpg","offers":{"@type":"Offer","price":"59.14","priceCurrency":"USD","availability":"https://schema.org/InStock","url":"https://halfornothing.com/d/d-ebay-id-178033503449.html","priceValidUntil":"2026-09-06T05:57:37Z"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Deals","item":"https://halfornothing.com/"},{"@type":"ListItem","position":2,"name":"Fashion & Accessories","item":"https://halfornothing.com/fashion.html"}]}</script>
 <script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <style>
 /* Native cross-document View Transitions (2026-09-05) -- one line turns on
@@ -856,8 +856,15 @@ footer.site .footer-social a:hover{border-color:var(--signal);color:var(--signal
    so the main grid and the rail read as one card language -- image on top,
    details stacked below, instead of the old thumbnail-left row. */
 .card{background:var(--card);border-radius:var(--r-md);border:1px solid var(--rule);
-      box-shadow:0 1px 3px rgba(0,0,0,.06);display:flex;flex-direction:column;
+      box-shadow:0 1px 3px rgba(0,0,0,.06);display:flex;flex-direction:column;min-width:0;
       transition:box-shadow var(--dur-base) ease,border-color var(--dur-base) ease;position:relative}
+/* min-width:0 above overrides the grid-item default of min-width:auto, which
+   otherwise floors each card at its own content's min-content width. A card
+   whose title/price/button text happens to need more room than its fair
+   1fr share was enough to blow out 3 of the 4 grid columns to ~427px each
+   while the 4th got squeezed to ~176px -- since the underlying deal data
+   refreshes hourly, this was latent and only actually surfaced once a
+   specific listing's content tripped it (caught 2026-09-05, live site). */
 /* .card is a <div> (the real link is the inner title/thumb <a>), so only
    :active applies -- it still fires correctly since a mouse-down inside the
    card bubbles :active up to it, giving touch a visible response before the
