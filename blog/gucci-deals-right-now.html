@@ -1162,29 +1162,20 @@ footer.site .disclosure{margin:14px 0}
 .compare-disclosure{grid-area:meta;font-size:10.5px;color:var(--muted);margin:2px 0 0}
 
 /* ---- blog intro banner ---- */
-/* Extends the hero .mast's own gradient down through the breadcrumb, H1,
-   and lede -- so the colored band reads as one continuous banner ending
-   right above the search box, instead of a hard cut after the tagline
-   with the H1 sitting on plain background right below it (Che, 2026-09-05,
-   marked up a screenshot asking for exactly this). Re-applies .mast's own
-   background rather than trying to stretch .mast itself, since .mast is
-   shared page_shell() chrome used by every page on the site (deals grid,
-   About, Amazon Picks...) -- only blog pages get this treatment, opted in
-   by wrapping their intro in .blog-intro, and the `:has()` selectors below
-   suppress .mast's own bottom edge (padding + rainbow hairline) only when
-   it's immediately followed by one, so no other page is affected. */
-.blog-intro{margin:0 -1px;padding:8px 0 28px;position:relative;
-            background:
-              radial-gradient(900px 340px at 86% 14%, rgba(217,58,18,.26), transparent 62%),
-              radial-gradient(720px 320px at 62% 104%, rgba(240,165,0,.32), transparent 60%),
-              radial-gradient(700px 320px at 104% 86%, rgba(0,168,99,.24), transparent 62%),
-              linear-gradient(100deg, var(--card) 0%, var(--card) 32%, #FFF2E4 68%, #FFE6D2 100%)}
-.blog-intro::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;
-                    background:linear-gradient(90deg,var(--signal),var(--picks) 42%,var(--picks-light) 62%,var(--gate))}
-.mast:has(+ main .blog-intro){padding-bottom:0;margin-bottom:-1px}
-.mast:has(+ main .blog-intro)::after{display:none}
-.blog-intro .lede{font-family:var(--editorial-font);font-style:italic;font-weight:600;
-                   font-size:1.3rem;color:var(--ink);letter-spacing:-.005em;max-width:70ch}
+/* The blog's breadcrumb/H1/lede render INSIDE .mast's own wrap div (passed
+   via page_shell()'s stats_html slot, same mechanism the deals index uses
+   for its live-stats line) instead of a separately-styled block below it.
+   First attempt (2026-09-05) recreated .mast's gradient on a second,
+   width-constrained box further down the page -- .mast itself is
+   full-bleed (edge to edge) but that box sat inside <main class="wrap">
+   (1180px, padded), so the two gradients were positioned against
+   different-sized boxes and never lined up: a patchy rectangle, not a
+   continuation (Che: "el banner esta completamente roto"). Reusing
+   .mast's actual background instead of copying it means there is nothing
+   to keep in sync and no seam to line up -- it's the same element. */
+.mast .lede{font-family:var(--editorial-font);font-style:italic;font-weight:600;
+            font-size:1.3rem;color:var(--ink);letter-spacing:-.005em;max-width:70ch;
+            margin:10px 0 0}
 
 /* ---- blog index ---- */
 /* Full .wrap width (1180px) instead of one centered 68ch column, so the
