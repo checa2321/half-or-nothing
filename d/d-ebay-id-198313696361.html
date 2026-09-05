@@ -35,6 +35,18 @@
 <meta name="twitter:image" content="https://i.ebayimg.com/images/g/kWoAAOSwyEpoFDxR/s-l500.jpg">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"US Dental Polishing Strips Composite Sanding Finishing Abrasive Strips 6m/roll","description":"67% off -- was $34.98, now $11.49 at Ebay.","image":"https://i.ebayimg.com/images/g/kWoAAOSwyEpoFDxR/s-l500.jpg","offers":{"@type":"Offer","price":"11.49","priceCurrency":"USD","availability":"https://schema.org/Discontinued","url":"https://halfornothing.com/d/d-ebay-id-198313696361.html"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Deals","item":"https://halfornothing.com/"},{"@type":"ListItem","position":2,"name":"Travel & Experiences","item":"https://halfornothing.com/travel.html"}]}</script>
 <style>
+/* Native cross-document View Transitions (2026-09-05) -- one line turns on
+   a browser-native fade between full page navigations (category to
+   category, etc.), no router, no JS, no bundle-size cost. Chrome/Edge
+   support it today and cross-fade automatically once opted in; every other
+   browser just ignores the unknown at-rule and does its normal navigation
+   -- there is no broken or degraded state to handle. Gated behind
+   prefers-reduced-motion the same way every other animation on this site
+   is, since @view-transition can sit inside a media query like any other
+   at-rule. */
+@media not (prefers-reduced-motion: reduce){
+  @view-transition{navigation:auto}
+}
 :root{
   --dur-fast:.12s; --dur-base:.15s; --dur-med:.18s;
   /* Heading/title scale (2026-09-05): pulled every ad-hoc heading/title
@@ -852,6 +864,30 @@ footer.site .footer-social a:hover{border-color:var(--signal);color:var(--signal
   100%{transform:scale(1)}
 }
 @media(prefers-reduced-motion:reduce){.card.v{animation:none}}
+
+/* Scroll-reveal (2026-09-05): fade+slide each card in as it crosses into
+   view (interaction.js's IntersectionObserver adds .reveal then .reveal-in
+   -- see its own comment for why .reveal alone, not a default base-state,
+   so a JS failure never leaves a card stuck invisible). Staggered per
+   column so a row cascades in left-to-right instead of popping in as one
+   block; the two narrower breakpoints get their own stagger matching
+   .grid's own 2-col/1-col column counts one breakpoint up. Reduced motion
+   still fades (opacity is in this site's allowed-transition list under
+   that media query) but snaps the slide instantly -- no movement, still a
+   fade, same contract as everything else added this session. */
+.card.reveal{opacity:0;transform:translateY(24px);
+             transition:opacity .5s ease,transform .5s cubic-bezier(.23,1,.32,1)}
+.card.reveal.reveal-in{opacity:1;transform:translateY(0)}
+.card.reveal:nth-child(4n+2).reveal-in{transition-delay:.06s}
+.card.reveal:nth-child(4n+3).reveal-in{transition-delay:.12s}
+.card.reveal:nth-child(4n+4).reveal-in{transition-delay:.18s}
+@media(max-width:980px){
+  .card.reveal:nth-child(4n+3).reveal-in{transition-delay:0s}
+  .card.reveal:nth-child(2n).reveal-in{transition-delay:.08s}
+}
+@media(max-width:560px){
+  .card.reveal:nth-child(n).reveal-in{transition-delay:0s}
+}
 
 .thumb{width:100%;height:170px;flex-shrink:0;margin:0;border-radius:var(--r-md) var(--r-md) 0 0;
        overflow:hidden;background:#fff;display:block;
@@ -1770,7 +1806,7 @@ body.curator-mode #curator-badge{display:flex}
 </ul>
 </div></footer>
 <button type="button" class="back-to-top" id="backToTop" aria-label="Back to top">&#9650;</button>
-<script src="/assets/js/interaction.js?v=18cbaf0e60"></script>
+<script src="/assets/js/interaction.js?v=899565993f"></script>
 <script src="/assets/js/blog-search.js?v=63d78cfffa"></script>
 <script type="text/javascript" src="https://js.codedrink.com/snippet.min.js" defer></script>
 <script type="text/javascript" src="/assets/js/lasso-picks.js?v=3" defer></script>

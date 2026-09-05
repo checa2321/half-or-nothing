@@ -33,8 +33,20 @@
 <meta name="twitter:title" content="Saint Laurent Grey Rectangular Ladies Sunglasses SL M140/F 001 56 SL M -- 61% off, $206.69 (was $530.00) | Half or Nothing">
 <meta name="twitter:description" content="61% off, $206.69 (was $530.00)">
 <meta name="twitter:image" content="https://i.ebayimg.com/images/g/RzsAAeSwL3VqlUzV/s-l500.jpg">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Saint Laurent Grey Rectangular Ladies Sunglasses SL M140/F 001 56 SL M140/F 001","description":"61% off -- was $530.00, now $206.69 at Ebay.","image":"https://i.ebayimg.com/images/g/RzsAAeSwL3VqlUzV/s-l500.jpg","offers":{"@type":"Offer","price":"206.69","priceCurrency":"USD","availability":"https://schema.org/InStock","url":"https://halfornothing.com/d/d-ebay-id-158083488563.html","priceValidUntil":"2026-09-06T02:06:04Z"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Deals","item":"https://halfornothing.com/"},{"@type":"ListItem","position":2,"name":"Fashion & Accessories","item":"https://halfornothing.com/fashion.html"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Saint Laurent Grey Rectangular Ladies Sunglasses SL M140/F 001 56 SL M140/F 001","description":"61% off -- was $530.00, now $206.69 at Ebay.","image":"https://i.ebayimg.com/images/g/RzsAAeSwL3VqlUzV/s-l500.jpg","offers":{"@type":"Offer","price":"206.69","priceCurrency":"USD","availability":"https://schema.org/InStock","url":"https://halfornothing.com/d/d-ebay-id-158083488563.html","priceValidUntil":"2026-09-06T02:25:37Z"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Deals","item":"https://halfornothing.com/"},{"@type":"ListItem","position":2,"name":"Fashion & Accessories","item":"https://halfornothing.com/fashion.html"}]}</script>
 <style>
+/* Native cross-document View Transitions (2026-09-05) -- one line turns on
+   a browser-native fade between full page navigations (category to
+   category, etc.), no router, no JS, no bundle-size cost. Chrome/Edge
+   support it today and cross-fade automatically once opted in; every other
+   browser just ignores the unknown at-rule and does its normal navigation
+   -- there is no broken or degraded state to handle. Gated behind
+   prefers-reduced-motion the same way every other animation on this site
+   is, since @view-transition can sit inside a media query like any other
+   at-rule. */
+@media not (prefers-reduced-motion: reduce){
+  @view-transition{navigation:auto}
+}
 :root{
   --dur-fast:.12s; --dur-base:.15s; --dur-med:.18s;
   /* Heading/title scale (2026-09-05): pulled every ad-hoc heading/title
@@ -852,6 +864,30 @@ footer.site .footer-social a:hover{border-color:var(--signal);color:var(--signal
   100%{transform:scale(1)}
 }
 @media(prefers-reduced-motion:reduce){.card.v{animation:none}}
+
+/* Scroll-reveal (2026-09-05): fade+slide each card in as it crosses into
+   view (interaction.js's IntersectionObserver adds .reveal then .reveal-in
+   -- see its own comment for why .reveal alone, not a default base-state,
+   so a JS failure never leaves a card stuck invisible). Staggered per
+   column so a row cascades in left-to-right instead of popping in as one
+   block; the two narrower breakpoints get their own stagger matching
+   .grid's own 2-col/1-col column counts one breakpoint up. Reduced motion
+   still fades (opacity is in this site's allowed-transition list under
+   that media query) but snaps the slide instantly -- no movement, still a
+   fade, same contract as everything else added this session. */
+.card.reveal{opacity:0;transform:translateY(24px);
+             transition:opacity .5s ease,transform .5s cubic-bezier(.23,1,.32,1)}
+.card.reveal.reveal-in{opacity:1;transform:translateY(0)}
+.card.reveal:nth-child(4n+2).reveal-in{transition-delay:.06s}
+.card.reveal:nth-child(4n+3).reveal-in{transition-delay:.12s}
+.card.reveal:nth-child(4n+4).reveal-in{transition-delay:.18s}
+@media(max-width:980px){
+  .card.reveal:nth-child(4n+3).reveal-in{transition-delay:0s}
+  .card.reveal:nth-child(2n).reveal-in{transition-delay:.08s}
+}
+@media(max-width:560px){
+  .card.reveal:nth-child(n).reveal-in{transition-delay:0s}
+}
 
 .thumb{width:100%;height:170px;flex-shrink:0;margin:0;border-radius:var(--r-md) var(--r-md) 0 0;
        overflow:hidden;background:#fff;display:block;
@@ -1729,7 +1765,7 @@ body.curator-mode #curator-badge{display:flex}
 
 </div></header>
 <main class="wrap" id="main">
-<nav class='crumbs' aria-label='Breadcrumb'><a href='/index.html'>All deals</a> <span>&rsaquo;</span> <a href='/fashion.html'>Fashion &amp; Accessories</a> <span>&rsaquo;</span> <b>Deal</b></nav><article class='deal-page'><div class='deal-page-media'><img src='https://i.ebayimg.com/images/g/RzsAAeSwL3VqlUzV/s-l500.jpg' alt='Saint Laurent Grey Rectangular Ladies Sunglasses SL M140/F 001 56 SL M140/F 001' loading='eager' decoding='async' referrerpolicy='no-referrer'></div><div class='deal-page-body'><h1>Saint Laurent Grey Rectangular Ladies Sunglasses SL M140/F 001 56 SL M140/F 001</h1><p class='deal-status deal-status-live'>Live now &middot; verified within the last 6 hours.</p><p class='deal-page-price'><b>$206.69</b><s>$530.00</s><span class='deal-page-pct'>61% off</span></p><a class='deal-cta' href='https://www.ebay.com/itm/158083488563?_skw=sunglasses&amp;hash=item24ce829b33%3Ag%3ARzsAAeSwL3VqlUzV&amp;amdata=enc%3AAQALAAAA8ACCtXRWQnOEpyOqnQQ8KGbyVobfcK63SBi4gybzL8TDyJtvU%2BFMEQwtD%2FvpDajCZlXe7UHOaXK1FjVWswBTJqZpfaMjMgr76EfcZgK%2BeGs6%2FsgIeDopiFLJFu%2FeY1h8PXwfnlRdWWSQtuh9ju9dw3hUpPs1C4FI9Jx1W4z048l6Li42PEs32qGC7aos%2F9nPVBeB7LTyK4E%2FYH3TDCsSaBDwWV4y3p9LWxxUDOzTH6Mji67xzA%2B7aSES5Wnmgd%2F6hx5FphN0%2B%2BXzUWD6Q41nXoJ8idFZ21r2njSq8edx3C1a%2FIHZAVFzcjT7FWpCVC0%2FPg%3D%3D&amp;campid=5339186549&amp;toolid=10001&amp;mkevt=1&amp;mkcid=1&amp;mkrid=711-53200-19255-0&amp;siteid=0&amp;customid=hond' target='_blank' rel='noopener sponsored'>Get this deal at Ebay &rarr;</a></div></article>
+<nav class='crumbs' aria-label='Breadcrumb'><a href='/index.html'>All deals</a> <span>&rsaquo;</span> <a href='/fashion.html'>Fashion &amp; Accessories</a> <span>&rsaquo;</span> <b>Deal</b></nav><article class='deal-page'><div class='deal-page-media'><img src='https://i.ebayimg.com/images/g/RzsAAeSwL3VqlUzV/s-l500.jpg' alt='Saint Laurent Grey Rectangular Ladies Sunglasses SL M140/F 001 56 SL M140/F 001' loading='eager' decoding='async' referrerpolicy='no-referrer'></div><div class='deal-page-body'><h1>Saint Laurent Grey Rectangular Ladies Sunglasses SL M140/F 001 56 SL M140/F 001</h1><p class='deal-status deal-status-live'>Live now &middot; verified within the last 6 hours.</p><p class='deal-page-price'><b>$206.69</b><s>$530.00</s><span class='deal-page-pct'>61% off</span></p><a class='deal-cta' href='https://www.ebay.com/itm/158083488563?_skw=sunglasses&amp;hash=item24ce829b33%3Ag%3ARzsAAeSwL3VqlUzV&amp;amdata=enc%3AAQALAAAA8ACCtXRWQnOEpyOqnQQ8KGbyVobfcK63SBi4gybzL8TDyJtvU%2BFMEQwtD%2FvpDajCZlXe7UHOaXK1FjVWswBTJqZpfaMjMgr76EfcZgK%2BeGs6%2FsgIeDopiFLJFu%2FeY1h8PXwfnlRdWWSQtuh9ju9dw3h1sr%2Bf6uhNmi7dpzwkZ9XB0rzspWJVh4F2wXKNACe1m0HVnqy3i2d5k57x6eBwE6MAHrxmKsgvXKwtQqzK4JPRMomsY2IAo21N2YRIOLqZ7bmqOJG3qKtA%2FhKl37BW6JifcRZJIlDuIDKOP6tmo%2B4Tk5xt%2Ffjl2H%2BHZfD5QTdnhw%3D%3D&amp;campid=5339186549&amp;toolid=10001&amp;mkevt=1&amp;mkcid=1&amp;mkrid=711-53200-19255-0&amp;siteid=0&amp;customid=hond' target='_blank' rel='noopener sponsored'>Get this deal at Ebay &rarr;</a></div></article>
 </main>
 <footer class="site"><div class="footer-grid">
 <div class="footer-main">
@@ -1770,7 +1806,7 @@ body.curator-mode #curator-badge{display:flex}
 </ul>
 </div></footer>
 <button type="button" class="back-to-top" id="backToTop" aria-label="Back to top">&#9650;</button>
-<script src="/assets/js/interaction.js?v=18cbaf0e60"></script>
+<script src="/assets/js/interaction.js?v=899565993f"></script>
 <script src="/assets/js/blog-search.js?v=63d78cfffa"></script>
 <script type="text/javascript" src="https://js.codedrink.com/snippet.min.js" defer></script>
 <script type="text/javascript" src="/assets/js/lasso-picks.js?v=3" defer></script>

@@ -33,8 +33,20 @@
 <meta name="twitter:title" content="Sky Bedding Collection Watercolor Stripe Percale Full Sheet Set Grey - -- 85% off, $30.00 (was $205.00) | Half or Nothing">
 <meta name="twitter:description" content="85% off, $30.00 (was $205.00)">
 <meta name="twitter:image" content="https://i.ebayimg.com/images/g/kPUAAeSwkhFqipD3/s-l500.jpg">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Sky Bedding Collection Watercolor Stripe Percale Full Sheet Set Grey - NWT $205","description":"85% off -- was $205.00, now $30.00 at Ebay.","image":"https://i.ebayimg.com/images/g/kPUAAeSwkhFqipD3/s-l500.jpg","offers":{"@type":"Offer","price":"30.00","priceCurrency":"USD","availability":"https://schema.org/InStock","url":"https://halfornothing.com/d/d-ebay-id-127982176102.html","priceValidUntil":"2026-09-06T02:06:04Z"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Deals","item":"https://halfornothing.com/"},{"@type":"ListItem","position":2,"name":"Home & Kitchen","item":"https://halfornothing.com/home-kitchen.html"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Sky Bedding Collection Watercolor Stripe Percale Full Sheet Set Grey - NWT $205","description":"85% off -- was $205.00, now $30.00 at Ebay.","image":"https://i.ebayimg.com/images/g/kPUAAeSwkhFqipD3/s-l500.jpg","offers":{"@type":"Offer","price":"30.00","priceCurrency":"USD","availability":"https://schema.org/InStock","url":"https://halfornothing.com/d/d-ebay-id-127982176102.html","priceValidUntil":"2026-09-06T02:25:37Z"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Deals","item":"https://halfornothing.com/"},{"@type":"ListItem","position":2,"name":"Home & Kitchen","item":"https://halfornothing.com/home-kitchen.html"}]}</script>
 <style>
+/* Native cross-document View Transitions (2026-09-05) -- one line turns on
+   a browser-native fade between full page navigations (category to
+   category, etc.), no router, no JS, no bundle-size cost. Chrome/Edge
+   support it today and cross-fade automatically once opted in; every other
+   browser just ignores the unknown at-rule and does its normal navigation
+   -- there is no broken or degraded state to handle. Gated behind
+   prefers-reduced-motion the same way every other animation on this site
+   is, since @view-transition can sit inside a media query like any other
+   at-rule. */
+@media not (prefers-reduced-motion: reduce){
+  @view-transition{navigation:auto}
+}
 :root{
   --dur-fast:.12s; --dur-base:.15s; --dur-med:.18s;
   /* Heading/title scale (2026-09-05): pulled every ad-hoc heading/title
@@ -852,6 +864,30 @@ footer.site .footer-social a:hover{border-color:var(--signal);color:var(--signal
   100%{transform:scale(1)}
 }
 @media(prefers-reduced-motion:reduce){.card.v{animation:none}}
+
+/* Scroll-reveal (2026-09-05): fade+slide each card in as it crosses into
+   view (interaction.js's IntersectionObserver adds .reveal then .reveal-in
+   -- see its own comment for why .reveal alone, not a default base-state,
+   so a JS failure never leaves a card stuck invisible). Staggered per
+   column so a row cascades in left-to-right instead of popping in as one
+   block; the two narrower breakpoints get their own stagger matching
+   .grid's own 2-col/1-col column counts one breakpoint up. Reduced motion
+   still fades (opacity is in this site's allowed-transition list under
+   that media query) but snaps the slide instantly -- no movement, still a
+   fade, same contract as everything else added this session. */
+.card.reveal{opacity:0;transform:translateY(24px);
+             transition:opacity .5s ease,transform .5s cubic-bezier(.23,1,.32,1)}
+.card.reveal.reveal-in{opacity:1;transform:translateY(0)}
+.card.reveal:nth-child(4n+2).reveal-in{transition-delay:.06s}
+.card.reveal:nth-child(4n+3).reveal-in{transition-delay:.12s}
+.card.reveal:nth-child(4n+4).reveal-in{transition-delay:.18s}
+@media(max-width:980px){
+  .card.reveal:nth-child(4n+3).reveal-in{transition-delay:0s}
+  .card.reveal:nth-child(2n).reveal-in{transition-delay:.08s}
+}
+@media(max-width:560px){
+  .card.reveal:nth-child(n).reveal-in{transition-delay:0s}
+}
 
 .thumb{width:100%;height:170px;flex-shrink:0;margin:0;border-radius:var(--r-md) var(--r-md) 0 0;
        overflow:hidden;background:#fff;display:block;
@@ -1729,7 +1765,7 @@ body.curator-mode #curator-badge{display:flex}
 
 </div></header>
 <main class="wrap" id="main">
-<nav class='crumbs' aria-label='Breadcrumb'><a href='/index.html'>All deals</a> <span>&rsaquo;</span> <a href='/home-kitchen.html'>Home &amp; Kitchen</a> <span>&rsaquo;</span> <b>Deal</b></nav><article class='deal-page'><div class='deal-page-media'><img src='https://i.ebayimg.com/images/g/kPUAAeSwkhFqipD3/s-l500.jpg' alt='Sky Bedding Collection Watercolor Stripe Percale Full Sheet Set Grey - NWT $205' loading='eager' decoding='async' referrerpolicy='no-referrer'></div><div class='deal-page-body'><h1>Sky Bedding Collection Watercolor Stripe Percale Full Sheet Set Grey - NWT $205</h1><p class='deal-status deal-status-live'>Live now &middot; verified within the last 6 hours.</p><p class='deal-page-price'><b>$30.00</b><s>$205.00</s><span class='deal-page-pct'>85% off</span></p><a class='deal-cta' href='https://www.ebay.com/itm/127982176102?_skw=sheet+set&amp;hash=item1dcc550766%3Ag%3AkPUAAeSwkhFqipD3&amp;amdata=enc%3AAQALAAAA4ACCtXRWQnOEpyOqnQQ8KGY09QmQtCngkBm5zFUNRL0HaluAGJ%2FNY5i0ssyt5jd1tsGf1p9TKlhEFPqEDTgmW0oElXy4aLTTDk1dIR1URi%2Bbom6w6ZW2qpJbux4aMk7VVppg1zt5m7i7UvQEhPHC4WxMv0zpRvLziv0mQFz2R7LwA22OEH%2F1g4uK0QxjHADuYHFhIGiui1DiIkW%2B9KlTPngNWWSoLGDGesnT1yO5cj5pcUamSP%2BhONnUJ0fOBqOdtmG4RTGqnzXhQwkWb%2FtR7t5wDySKIXMWK1h7rScofNB6&amp;campid=5339186549&amp;toolid=10001&amp;mkevt=1&amp;mkcid=1&amp;mkrid=711-53200-19255-0&amp;siteid=0&amp;customid=hond' target='_blank' rel='noopener sponsored'>Get this deal at Ebay &rarr;</a></div></article>
+<nav class='crumbs' aria-label='Breadcrumb'><a href='/index.html'>All deals</a> <span>&rsaquo;</span> <a href='/home-kitchen.html'>Home &amp; Kitchen</a> <span>&rsaquo;</span> <b>Deal</b></nav><article class='deal-page'><div class='deal-page-media'><img src='https://i.ebayimg.com/images/g/kPUAAeSwkhFqipD3/s-l500.jpg' alt='Sky Bedding Collection Watercolor Stripe Percale Full Sheet Set Grey - NWT $205' loading='eager' decoding='async' referrerpolicy='no-referrer'></div><div class='deal-page-body'><h1>Sky Bedding Collection Watercolor Stripe Percale Full Sheet Set Grey - NWT $205</h1><p class='deal-status deal-status-live'>Live now &middot; verified within the last 6 hours.</p><p class='deal-page-price'><b>$30.00</b><s>$205.00</s><span class='deal-page-pct'>85% off</span></p><a class='deal-cta' href='https://www.ebay.com/itm/127982176102?_skw=sheet+set&amp;hash=item1dcc550766%3Ag%3AkPUAAeSwkhFqipD3&amp;amdata=enc%3AAQALAAAA4ACCtXRWQnOEpyOqnQQ8KGY09QmQtCngkBm5zFUNRL0HaluAGJ%2FNY5i0ssyt5jd1tsGf1p9TKlhEFPqEDTgmW0oElXy4aLTTDk1dIR1URi%2Bbom6w6ZW2qpJbux4aMk7VVppg1zt5m7i7UvQEhPHC4WyRuKQQB0kOHCp%2BFbj7pyQ6bAO9vs9lBOWUmNdfinNG7Qqe6etAhMCob28nZI%2FL1DjALEPJgZN9ybEuVPlzlCkcrWHMvRsCoB3iJ%2F8LhFeXU8WnNVxHc9%2FsTmaQQrsVuXxFpajwlqD%2BINz8cNbHQf8f&amp;campid=5339186549&amp;toolid=10001&amp;mkevt=1&amp;mkcid=1&amp;mkrid=711-53200-19255-0&amp;siteid=0&amp;customid=hond' target='_blank' rel='noopener sponsored'>Get this deal at Ebay &rarr;</a></div></article>
 </main>
 <footer class="site"><div class="footer-grid">
 <div class="footer-main">
@@ -1770,7 +1806,7 @@ body.curator-mode #curator-badge{display:flex}
 </ul>
 </div></footer>
 <button type="button" class="back-to-top" id="backToTop" aria-label="Back to top">&#9650;</button>
-<script src="/assets/js/interaction.js?v=18cbaf0e60"></script>
+<script src="/assets/js/interaction.js?v=899565993f"></script>
 <script src="/assets/js/blog-search.js?v=63d78cfffa"></script>
 <script type="text/javascript" src="https://js.codedrink.com/snippet.min.js" defer></script>
 <script type="text/javascript" src="/assets/js/lasso-picks.js?v=3" defer></script>
