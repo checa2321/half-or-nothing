@@ -9,6 +9,11 @@
   if (!input) return;
 
   var candidates = document.querySelectorAll("[data-title]");
+  // Each of these hides itself once none of its own [data-title] children
+  // are visible -- otherwise a filtered-out category is left showing a
+  // bare header (title + count) over empty space, or the whole spotlight
+  // row collapses to just the search box with nothing under it.
+  var groups = document.querySelectorAll(".blog-category-col, .blog-spotlight");
   var emptyState = document.getElementById("blog-search-empty");
 
   input.addEventListener("input", function () {
@@ -18,6 +23,13 @@
       var match = !q || el.getAttribute("data-title").indexOf(q) !== -1;
       el.style.display = match ? "" : "none";
       if (match) visible++;
+    });
+    groups.forEach(function (group) {
+      var count = 0;
+      group.querySelectorAll("[data-title]").forEach(function (el) {
+        if (el.style.display !== "none") count++;
+      });
+      group.style.display = count > 0 ? "" : "none";
     });
     if (emptyState) {
       emptyState.style.display = q && visible === 0 ? "block" : "none";

@@ -1181,8 +1181,20 @@ footer.site .disclosure{margin:14px 0}
                      margin:0 0 20px;padding-left:16px;border-left:4px solid var(--signal)}
 /* One column per category, side by side -- this (not a taller single-file
    list) is what actually cuts the scroll: every category is visible in the
-   same viewport instead of one below the other. */
-.blog-category-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:28px}
+   same viewport instead of one below the other. Fixed column counts per
+   breakpoint (not auto-fit) on purpose: auto-fit wraps a short category
+   (1-2 posts) onto the same row as a full one (3 posts), and a CSS grid
+   row's height always matches its tallest cell -- so the short column sits
+   inside a tall row-track with visible dead space under its own content,
+   before the next row even starts. Five categories fit one row at .wrap's
+   1180px, so this keeps every category in a single row there and avoids
+   the mismatched-row-height gap entirely for the common desktop case
+   (Che caught this 2026-09-05: empty space between Gift Guides and the
+   Trust & How It Works row below it). */
+.blog-category-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:28px}
+@media(max-width:1100px){.blog-category-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:700px){.blog-category-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.blog-category-grid{grid-template-columns:1fr}}
 .blog-category-col-head{display:flex;align-items:baseline;justify-content:space-between;
                          gap:8px;margin:0 0 12px;padding-bottom:10px;border-bottom:2px solid var(--rule)}
 .blog-category-title{font-size:.98rem;font-weight:800;letter-spacing:-.005em;margin:0}
@@ -1573,7 +1585,7 @@ body.curator-mode #curator-badge{display:flex}
 </main>
 <button type="button" class="back-to-top" id="backToTop" aria-label="Back to top">&#9650;</button>
 <script src="/assets/js/interaction.js?v=bb81cde38a"></script>
-<script src="/assets/js/blog-search.js?v=3a6053fbd9"></script>
+<script src="/assets/js/blog-search.js?v=5207321b68"></script>
 <script type="text/javascript" src="https://js.codedrink.com/snippet.min.js" defer></script>
 <script type="text/javascript" src="/assets/js/lasso-picks.js?v=3" defer></script>
 <script type="text/javascript" src="https://s.skimresources.com/js/307865X1796159.skimlinks.js"></script>
