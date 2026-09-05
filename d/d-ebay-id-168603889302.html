@@ -33,7 +33,7 @@
 <meta name="twitter:title" content="Guess Factory Grey Gradient Square Ladies Sunglasses GF0395 57B 60 -- 74% off, $15.89 (was $60.00) | Half or Nothing">
 <meta name="twitter:description" content="74% off, $15.89 (was $60.00)">
 <meta name="twitter:image" content="https://i.ebayimg.com/images/g/-4kAAeSwGGJqlUs1/s-l500.jpg">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Guess Factory Grey Gradient Square Ladies Sunglasses GF0395 57B 60","description":"74% off -- was $60.00, now $15.89 at Ebay.","image":"https://i.ebayimg.com/images/g/-4kAAeSwGGJqlUs1/s-l500.jpg","offers":{"@type":"Offer","price":"15.89","priceCurrency":"USD","availability":"https://schema.org/InStock","url":"https://halfornothing.com/d/d-ebay-id-168603889302.html","priceValidUntil":"2026-09-05T20:05:46Z"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Deals","item":"https://halfornothing.com/"},{"@type":"ListItem","position":2,"name":"Fashion & Accessories","item":"https://halfornothing.com/fashion.html"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Guess Factory Grey Gradient Square Ladies Sunglasses GF0395 57B 60","description":"74% off -- was $60.00, now $15.89 at Ebay.","image":"https://i.ebayimg.com/images/g/-4kAAeSwGGJqlUs1/s-l500.jpg","offers":{"@type":"Offer","price":"15.89","priceCurrency":"USD","availability":"https://schema.org/InStock","url":"https://halfornothing.com/d/d-ebay-id-168603889302.html","priceValidUntil":"2026-09-05T21:06:04Z"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Deals","item":"https://halfornothing.com/"},{"@type":"ListItem","position":2,"name":"Fashion & Accessories","item":"https://halfornothing.com/fashion.html"}]}</script>
 <style>
 :root{
   --dur-fast:.12s; --dur-base:.15s; --dur-med:.18s;
@@ -1131,11 +1131,86 @@ footer.site .disclosure{margin:14px 0}
 .compare-disclosure{grid-area:meta;font-size:10.5px;color:var(--muted);margin:2px 0 0}
 
 /* ---- blog index ---- */
-/* Same left-accent-border language as .prose h2 (see above), since these
-   category headings sit outside .prose and don't inherit that rule. */
-.blog-category-title{font-size:1.32rem;font-weight:800;letter-spacing:-.015em;
-                      margin:32px 0 4px;padding-left:16px;border-left:4px solid var(--signal)}
-.blog-category:first-child .blog-category-title{margin-top:8px}
+/* Full .wrap width (1180px) instead of one centered 68ch column, so the
+   index doesn't leave most of a desktop viewport empty. Two references,
+   synthesized rather than copied: dealseek.com/deal-news (a featured card
+   paired with a few more, sections below) and koupon.ai/articles/deal-news
+   (categories as side-by-side columns instead of one long vertical stack,
+   which is the part that actually solves "too much scroll between
+   categories" -- Che, 2026-09-05). */
+.blog-search{position:relative;max-width:420px;margin:8px 0 28px}
+.blog-search svg{position:absolute;left:14px;top:50%;transform:translateY(-50%);
+                  width:18px;height:18px;color:var(--muted);pointer-events:none}
+.blog-search input{width:100%;box-sizing:border-box;padding:11px 14px 11px 42px;
+                    border:1px solid var(--rule);border-radius:var(--r-sm);
+                    background:var(--card);color:var(--ink);font-size:.95rem;
+                    transition:border-color .15s,box-shadow .15s}
+.blog-search input:hover{border-color:var(--muted)}
+.blog-search input:focus{outline:none;border-color:var(--signal);
+                          box-shadow:0 0 0 3px rgba(217,58,18,.12)}
+.blog-search-empty{display:none;color:var(--ink-soft);margin:-8px 0 28px}
+
+/* Spotlight: one big featured story (the latest post) beside a short stack
+   of the next few, site-wide -- the one asymmetric moment on an otherwise
+   dense, grid-driven page. */
+.blog-spotlight{display:grid;grid-template-columns:1.6fr 1fr;gap:24px;margin:0 0 40px}
+@media(max-width:860px){.blog-spotlight{grid-template-columns:1fr}}
+.blog-featured{display:grid;grid-template-columns:1fr;border:1px solid var(--rule);
+                border-radius:var(--r-lg);overflow:hidden;background:var(--card)}
+.blog-featured-cover{display:block;aspect-ratio:16/9;background:var(--paper-3)}
+.blog-featured-cover img{width:100%;height:100%;object-fit:cover;display:block;
+                          transition:transform .3s}
+.blog-featured:hover .blog-featured-cover img{transform:scale(1.03)}
+.blog-featured-body{padding:20px 24px 24px}
+.blog-featured-eyebrow{margin:0 0 8px;font:700 11px/1 var(--mono);letter-spacing:.08em;
+                        text-transform:uppercase;color:var(--signal)}
+.blog-featured-title{display:block;font-size:1.5rem;font-weight:800;letter-spacing:-.015em;
+                      line-height:1.2;color:var(--ink);text-decoration:none}
+.blog-featured-title:hover{color:var(--signal)}
+.blog-featured-desc{margin:10px 0 0;color:var(--ink-soft);max-width:60ch}
+.blog-featured-meta{margin:12px 0 0;font:500 11px/1 var(--mono);letter-spacing:.06em;
+                     text-transform:uppercase;color:var(--muted)}
+.blog-spotlight-secondary{display:flex;flex-direction:column;gap:14px}
+.blog-spotlight-secondary .blog-card-compact{display:flex;align-items:center;gap:12px}
+.blog-spotlight-secondary .blog-card-cover{flex-shrink:0;width:72px;height:72px;aspect-ratio:auto}
+.blog-spotlight-secondary .blog-card-body{padding:0}
+.blog-spotlight-secondary .blog-card-title{padding:0;font-size:.9rem}
+.blog-spotlight-secondary .blog-card-date{padding:3px 0 0}
+
+.blog-section-title{font-size:1.32rem;font-weight:800;letter-spacing:-.015em;
+                     margin:0 0 20px;padding-left:16px;border-left:4px solid var(--signal)}
+/* One column per category, side by side -- this (not a taller single-file
+   list) is what actually cuts the scroll: every category is visible in the
+   same viewport instead of one below the other. */
+.blog-category-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:28px}
+.blog-category-col-head{display:flex;align-items:baseline;justify-content:space-between;
+                         gap:8px;margin:0 0 12px;padding-bottom:10px;border-bottom:2px solid var(--rule)}
+.blog-category-title{font-size:.98rem;font-weight:800;letter-spacing:-.005em;margin:0}
+.blog-category-count{font:500 10px/1 var(--mono);letter-spacing:.05em;
+                      text-transform:uppercase;color:var(--muted);white-space:nowrap}
+.blog-category-col-list{display:flex;flex-direction:column;gap:12px}
+.blog-category-more{display:inline-block;margin-top:12px;font-weight:600;color:var(--signal);
+                     text-decoration:none;font-size:.88rem}
+.blog-category-more:hover{text-decoration:underline}
+
+/* Compact card -- every post inside a category column, and the spotlight's
+   secondary list (sized differently there via the overrides above). */
+.blog-card-compact{display:block;border:1px solid var(--rule);border-radius:var(--r-md);
+                    overflow:hidden;background:var(--card);transition:border-color .15s}
+.blog-card-compact:hover{border-color:var(--muted)}
+.blog-card-compact:active{transform:translateY(1px)}
+.blog-card-cover{display:block;aspect-ratio:16/9;background:var(--paper-3);overflow:hidden}
+.blog-card-cover img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .3s}
+.blog-card-compact:hover .blog-card-cover img{transform:scale(1.04)}
+.blog-card-body{padding:10px 12px}
+.blog-card-title{display:block;font-size:.85rem;font-weight:700;
+                  color:var(--ink);text-decoration:none;letter-spacing:-.003em;line-height:1.35}
+.blog-card-title:hover{color:var(--signal)}
+.blog-card-date{margin:6px 0 0;font:500 10px/1 var(--mono);letter-spacing:.05em;
+                 text-transform:uppercase;color:var(--muted)}
+
+/* The original row layout -- still used by author pages and category
+   archive pages, which list posts one at a time with a real description. */
 .blog-list{max-width:68ch;margin:8px 0 40px}
 .blog-row{padding:20px 0;border-top:1px solid var(--rule);display:flex;gap:18px;align-items:flex-start}
 .blog-row:last-child{border-bottom:1px solid var(--rule)}
@@ -1498,6 +1573,7 @@ body.curator-mode #curator-badge{display:flex}
 </main>
 <button type="button" class="back-to-top" id="backToTop" aria-label="Back to top">&#9650;</button>
 <script src="/assets/js/interaction.js?v=bb81cde38a"></script>
+<script src="/assets/js/blog-search.js?v=3a6053fbd9"></script>
 <script type="text/javascript" src="https://js.codedrink.com/snippet.min.js" defer></script>
 <script type="text/javascript" src="/assets/js/lasso-picks.js?v=3" defer></script>
 <script type="text/javascript" src="https://s.skimresources.com/js/307865X1796159.skimlinks.js"></script>

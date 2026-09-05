@@ -11667,8 +11667,8 @@
   <url>
     <loc>https://halfornothing.com/d/d-ebay-id-198598326590.html</loc>
     <lastmod>2026-09-05</lastmod>
-    <changefreq>hourly</changefreq>
-    <priority>0.6</priority>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
   </url>
   <url>
     <loc>https://halfornothing.com/d/d-ebay-id-198598326603.html</loc>
@@ -11715,8 +11715,8 @@
   <url>
     <loc>https://halfornothing.com/d/d-ebay-id-198612688575.html</loc>
     <lastmod>2026-09-05</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
+    <changefreq>hourly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://halfornothing.com/d/d-ebay-id-200298835063.html</loc>
@@ -16029,8 +16029,8 @@
   <url>
     <loc>https://halfornothing.com/d/d-ebay-id-358749416700.html</loc>
     <lastmod>2026-09-05</lastmod>
-    <changefreq>hourly</changefreq>
-    <priority>0.6</priority>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
   </url>
   <url>
     <loc>https://halfornothing.com/d/d-ebay-id-358749591669.html</loc>
@@ -19846,6 +19846,18 @@
     <loc>https://halfornothing.com/blog/author/dann-nazario.html</loc>
     <lastmod>2026-09-05</lastmod>
     <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://halfornothing.com/blog/category/brand-category-guides.html</loc>
+    <lastmod>2026-09-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://halfornothing.com/blog/category/trust-how-it-works.html</loc>
+    <lastmod>2026-09-05</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.4</priority>
   </url>
 </urlset>
