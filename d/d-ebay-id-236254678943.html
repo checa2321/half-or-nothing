@@ -33,7 +33,7 @@
 <meta name="twitter:title" content="HolaHatha Portable High Density Solid EVA Foam Roller for Yoga and Gym -- 84% off, $17.99 (was $114.99) | Half or Nothing">
 <meta name="twitter:description" content="84% off, $17.99 (was $114.99)">
 <meta name="twitter:image" content="https://i.ebayimg.com/images/g/b5UAAeSwiTNqiI8v/s-l500.jpg">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"HolaHatha Portable High Density Solid EVA Foam Roller for Yoga and Gym Workouts","description":"84% off -- was $114.99, now $17.99 at Ebay.","image":"https://i.ebayimg.com/images/g/b5UAAeSwiTNqiI8v/s-l500.jpg","offers":{"@type":"Offer","price":"17.99","priceCurrency":"USD","availability":"https://schema.org/InStock","url":"https://halfornothing.com/d/d-ebay-id-236254678943.html","priceValidUntil":"2026-09-05T09:05:51Z"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Deals","item":"https://halfornothing.com/"},{"@type":"ListItem","position":2,"name":"Outdoor & Sports","item":"https://halfornothing.com/outdoor-sports.html"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"HolaHatha Portable High Density Solid EVA Foam Roller for Yoga and Gym Workouts","description":"84% off -- was $114.99, now $17.99 at Ebay.","image":"https://i.ebayimg.com/images/g/b5UAAeSwiTNqiI8v/s-l500.jpg","offers":{"@type":"Offer","price":"17.99","priceCurrency":"USD","availability":"https://schema.org/InStock","url":"https://halfornothing.com/d/d-ebay-id-236254678943.html","priceValidUntil":"2026-09-05T11:05:55Z"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Deals","item":"https://halfornothing.com/"},{"@type":"ListItem","position":2,"name":"Outdoor & Sports","item":"https://halfornothing.com/outdoor-sports.html"}]}</script>
 <style>
 :root{
   --dur-fast:.12s; --dur-base:.15s; --dur-med:.18s;
@@ -44,6 +44,12 @@
      hand against the sRGB relative-luminance formula, same method as the
      --signal-dark contrast fix earlier this session (2026-08-24). */
   --gate-dark:#0B7A4C;
+  /* Amazon Picks' gold/orange (picked to stay clear of --signal and --gate,
+     see SOURCE_META comment above) was three repeated hex literals with no
+     name. Promoted to tokens here. White text on --picks/--picks-light
+     measures 2.6:1/2.2:1 against WCAG's 4.5:1 floor -- every place these
+     paint a background now sets --ink for the label instead of white. */
+  --picks:#E8890C; --picks-dark:#C97108; --picks-light:#F0A500;
   --paper:#FFFFFF; --paper-2:#F9F9F7; --paper-3:#EFEFEA; --card:#FFFFFF;
   --ink:#1a1a1a; --ink-soft:#3B3B36; --muted:#666; --rule:#E0E0E0;
   /* Shape scale (2026-09-03 taste-skill audit): consolidates ~11 stray
@@ -171,7 +177,7 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
 /* Same gradient hairline that closes the Amazon Picks band, so the two
    coloured edges on the page read as one motif rather than two accidents. */
 .mast::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;
-             background:linear-gradient(90deg,var(--signal),#E8890C 42%,#F0A500 62%,var(--gate))}
+             background:linear-gradient(90deg,var(--signal),var(--picks) 42%,var(--picks-light) 62%,var(--gate))}
 /* Sits at the content column's right edge -- the x where the Top Deals
    carousel ends -- which is Che's call (2026-08-13) and pure arithmetic off
    .wrap's own max-width and padding, so the JS that used to measure the nav's
@@ -186,7 +192,7 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
    behind the stats line it overlaps. */
 @supports((-webkit-background-clip:text) or (background-clip:text)){
   .mast-ghost{color:transparent;-webkit-text-stroke:0;
-              background:linear-gradient(150deg,var(--signal),#F0A500 55%,var(--gate));
+              background:linear-gradient(150deg,var(--signal),var(--picks-light) 55%,var(--gate));
               -webkit-background-clip:text;background-clip:text;opacity:.3}
 }
 @media(max-width:760px){.mast-ghost{display:none}}
@@ -367,11 +373,18 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
    more padding -- the one thing in .picks-meta that looks like a button
    because it's the only interactive one. */
 #picksCatBtn{font:700 13px/1 var(--display);letter-spacing:.01em;
-             color:#fff;background:linear-gradient(135deg,#F0A500,#E8890C);
+             /* was color:#fff -- white on this gradient measures 2.2-2.6:1,
+                well under WCAG's 4.5:1 floor. Literal #1a1a1a, not var(--ink):
+                this gradient background is the same in both themes, but
+                --ink flips to a light colour in dark mode (see the theme
+                override below), which would put light text back on a light
+                gradient -- caught live on 2026-09-04, first fix shipped
+                broken in dark mode. */
+             color:#1a1a1a;background:linear-gradient(135deg,var(--picks-light),var(--picks));
              border:none;border-radius:999px;padding:9px 18px;cursor:pointer;
              box-shadow:0 2px 6px rgba(232,137,12,.35)}
-@media(hover:hover){#picksCatBtn:hover{background:linear-gradient(135deg,#E8890C,#C97108)}}
-#picksCatBtn:active{background:#C97108}
+@media(hover:hover){#picksCatBtn:hover{background:linear-gradient(135deg,var(--picks),var(--picks-dark))}}
+#picksCatBtn:active{background:var(--picks-dark)}
 /* z-index bumped past the deals-page panel's 40: the Lasso embeds in the
    grid directly below this panel render as iframes, which can create their
    own stacking context that ignores a same-level z-index and paints over a
@@ -404,13 +417,15 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
    thing on the page a human chose, so they get an accent the machine-made
    cards (all --signal red) never use. */
 .picks::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;
-               background:linear-gradient(90deg,#F0A500,#E8890C 45%,var(--signal))}
+               background:linear-gradient(90deg,var(--picks-light),var(--picks) 45%,var(--signal))}
 @media(max-width:640px){.picks{padding:20px 14px 22px;border-radius:var(--r-lg)}}
 .picks-head{margin-bottom:18px}
 .picks-eyebrow{display:inline-flex;align-items:center;gap:7px;
                font:700 10px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;
-               color:#B8791A;margin-bottom:9px}
-.picks-eyebrow::before{content:"";width:16px;height:2px;background:#E8890C}
+               /* was #B8791A -- 3.75:1 on --paper-2, under AA's 4.5:1 for
+                  10px text. Darkened, same hue. */
+               color:#8C5C0E;margin-bottom:9px}
+.picks-eyebrow::before{content:"";width:16px;height:2px;background:var(--picks)}
 .picks-head h2{margin:0;font:800 clamp(1.3rem,3.4vw,1.75rem)/1.15 var(--display);
                letter-spacing:-.02em;color:var(--ink)}
 .picks-head p{margin:9px 0 0;font-size:13.5px;line-height:1.55;color:var(--ink-soft);max-width:62ch}
@@ -988,6 +1003,14 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
      border:none;cursor:pointer;transition:filter var(--dur-base),transform var(--dur-fast) ease-out;margin-top:2px}
 .cta:hover{filter:brightness(.85)}
 .cta:active{transform:scale(.97)}
+/* Windows/browser forced-colors mode strips background-only buttons down to
+   the page's default text colour with no visible edge -- .cta, .pct-pill,
+   #catApply and #picksCatBtn all signal "button" purely through fill, so
+   without this they'd be unreadable rectangles in that mode. Border-only;
+   doesn't touch normal rendering. */
+@media(forced-colors:active){
+  .cta,.pct-pill,#catApply,#picksCatBtn{border:1px solid ButtonText}
+}
 
 .empty-state{padding:60px 12px;color:var(--muted);text-align:center;grid-column:1/-1}
 /* Shown when a ?deal= link from a social post outlives its listing. Uses the
