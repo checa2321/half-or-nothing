@@ -33,7 +33,7 @@
 <meta name="twitter:title" content="Valentino SETTE Green Cat Eye Ladies Sunglasses VLS-166 B 52 VLS-166 B -- 76% off, $182.52 (was $765.00) | Half or Nothing">
 <meta name="twitter:description" content="76% off, $182.52 (was $765.00)">
 <meta name="twitter:image" content="https://i.ebayimg.com/images/g/AkkAAeSwaONqlm0a/s-l500.jpg">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Valentino SETTE Green Cat Eye Ladies Sunglasses VLS-166 B 52 VLS-166 B 52","description":"76% off -- was $765.00, now $182.52 at Ebay.","image":"https://i.ebayimg.com/images/g/AkkAAeSwaONqlm0a/s-l500.jpg","offers":{"@type":"Offer","price":"182.52","priceCurrency":"USD","availability":"https://schema.org/InStock","url":"https://halfornothing.com/d/d-ebay-id-168579941714.html","priceValidUntil":"2026-09-05T21:06:04Z"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Deals","item":"https://halfornothing.com/"},{"@type":"ListItem","position":2,"name":"Fashion & Accessories","item":"https://halfornothing.com/fashion.html"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Valentino SETTE Green Cat Eye Ladies Sunglasses VLS-166 B 52 VLS-166 B 52","description":"76% off -- was $765.00, now $182.52 at Ebay.","image":"https://i.ebayimg.com/images/g/AkkAAeSwaONqlm0a/s-l500.jpg","offers":{"@type":"Offer","price":"182.52","priceCurrency":"USD","availability":"https://schema.org/InStock","url":"https://halfornothing.com/d/d-ebay-id-168579941714.html","priceValidUntil":"2026-09-05T22:06:24Z"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Deals","item":"https://halfornothing.com/"},{"@type":"ListItem","position":2,"name":"Fashion & Accessories","item":"https://halfornothing.com/fashion.html"}]}</script>
 <style>
 :root{
   --dur-fast:.12s; --dur-base:.15s; --dur-med:.18s;
@@ -1030,8 +1030,21 @@ footer.site .disclosure{margin:14px 0}
 
 /* ---- prose pages ---- */
 .prose{max-width:68ch;padding:44px 0 0}
-.prose h1{font-size:clamp(2rem,5vw,2.9rem);font-weight:900;letter-spacing:-.035em;
-          line-height:1.05;margin:0 0 8px;text-wrap:balance}
+/* Archivo 900, not var(--display) (the system-font stack) -- every other
+   heading/label on the site already runs on --display fine at UI sizes,
+   but a prose H1 is the single largest, most prominent text on any blog
+   page, and a generic system face reads as flat/cheap once you scale it up
+   to display size. --brand-font (Archivo) is already self-hosted and
+   loaded on every page for the wordmark, so this ties the blog's biggest
+   moment to the one deliberate typographic choice the site already made,
+   at zero extra network cost, instead of it defaulting to none at all
+   (Che, 2026-09-05: "lo mas blando, generico" -- the H1 was the one place
+   on the site with no real typographic identity). Tracking loosened from
+   the old -.035em: that was tuned to compensate a thin system face at
+   large size, Archivo's own weight doesn't need as much negative tracking
+   to read as intentional. */
+.prose h1{font-family:var(--brand-font);font-size:clamp(2rem,5vw,2.9rem);font-weight:900;
+          letter-spacing:-.015em;line-height:1.1;margin:0 0 8px;text-wrap:balance}
 .prose .lede{font-size:1.15rem;color:var(--ink-soft);margin:0 0 30px}
 .prose h2{font-size:1.32rem;font-weight:800;letter-spacing:-.015em;margin:40px 0 16px;
           padding-left:16px;border-left:4px solid var(--signal)}
@@ -1181,8 +1194,20 @@ footer.site .disclosure{margin:14px 0}
                      margin:0 0 20px;padding-left:16px;border-left:4px solid var(--signal)}
 /* One column per category, side by side -- this (not a taller single-file
    list) is what actually cuts the scroll: every category is visible in the
-   same viewport instead of one below the other. */
-.blog-category-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:28px}
+   same viewport instead of one below the other. Fixed column counts per
+   breakpoint (not auto-fit) on purpose: auto-fit wraps a short category
+   (1-2 posts) onto the same row as a full one (3 posts), and a CSS grid
+   row's height always matches its tallest cell -- so the short column sits
+   inside a tall row-track with visible dead space under its own content,
+   before the next row even starts. Five categories fit one row at .wrap's
+   1180px, so this keeps every category in a single row there and avoids
+   the mismatched-row-height gap entirely for the common desktop case
+   (Che caught this 2026-09-05: empty space between Gift Guides and the
+   Trust & How It Works row below it). */
+.blog-category-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:28px}
+@media(max-width:1100px){.blog-category-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:700px){.blog-category-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.blog-category-grid{grid-template-columns:1fr}}
 .blog-category-col-head{display:flex;align-items:baseline;justify-content:space-between;
                          gap:8px;margin:0 0 12px;padding-bottom:10px;border-bottom:2px solid var(--rule)}
 .blog-category-title{font-size:.98rem;font-weight:800;letter-spacing:-.005em;margin:0}
@@ -1531,7 +1556,7 @@ body.curator-mode #curator-badge{display:flex}
 
 </div></header>
 <main class="wrap">
-<nav class='crumbs' aria-label='Breadcrumb'><a href='/index.html'>All deals</a> <span>&rsaquo;</span> <a href='/fashion.html'>Fashion &amp; Accessories</a> <span>&rsaquo;</span> <b>Deal</b></nav><article class='deal-page'><div class='deal-page-media'><img src='https://i.ebayimg.com/images/g/AkkAAeSwaONqlm0a/s-l500.jpg' alt='Valentino SETTE Green Cat Eye Ladies Sunglasses VLS-166 B 52 VLS-166 B 52' loading='eager' decoding='async' referrerpolicy='no-referrer'></div><div class='deal-page-body'><h1>Valentino SETTE Green Cat Eye Ladies Sunglasses VLS-166 B 52 VLS-166 B 52</h1><p class='deal-status deal-status-live'>Live now &middot; verified within the last 6 hours.</p><p class='deal-page-price'><b>$182.52</b><s>$765.00</s><span class='deal-page-pct'>76% off</span></p><a class='deal-cta' href='https://www.ebay.com/itm/168579941714?_skw=sunglasses&amp;hash=item274025c552%3Ag%3AAkkAAeSwaONqlm0a&amp;amdata=enc%3AAQALAAAA8ACCtXRWQnOEpyOqnQQ8KGZSmHqlc%2BtWAgzdb8Ktu9Bizgx0zwaav03AClAO6luusyBTvZbzT4GX4nt5J%2B6Z0vWUaST0F40ch8Nl3Bf%2Fge9kbLRnwguwdfraOZ0jQ%2B8fX%2B75PTBUZNH9w4MbRcs%2BQ4PadAoioWzMiO18wqUUYAPNhhzeV6axlan7INgX7a2J96F%2FxVR13plb1XvTSF38J6a1CwcR%2FbZeQhFVn%2BJiz04Ga8HefFRpIw1wFv4kCpmUOsavEpd03XiUjc%2BSgY9Tz3s7QO0jS01KeYU2752jjXZuRJx1rJg%2FlTcafSeBvUsisA%3D%3D&amp;campid=5339186549&amp;toolid=10001&amp;mkevt=1&amp;mkcid=1&amp;mkrid=711-53200-19255-0&amp;siteid=0&amp;customid=hond' target='_blank' rel='noopener sponsored'>Get this deal at Ebay &rarr;</a></div></article>
+<nav class='crumbs' aria-label='Breadcrumb'><a href='/index.html'>All deals</a> <span>&rsaquo;</span> <a href='/fashion.html'>Fashion &amp; Accessories</a> <span>&rsaquo;</span> <b>Deal</b></nav><article class='deal-page'><div class='deal-page-media'><img src='https://i.ebayimg.com/images/g/AkkAAeSwaONqlm0a/s-l500.jpg' alt='Valentino SETTE Green Cat Eye Ladies Sunglasses VLS-166 B 52 VLS-166 B 52' loading='eager' decoding='async' referrerpolicy='no-referrer'></div><div class='deal-page-body'><h1>Valentino SETTE Green Cat Eye Ladies Sunglasses VLS-166 B 52 VLS-166 B 52</h1><p class='deal-status deal-status-live'>Live now &middot; verified within the last 6 hours.</p><p class='deal-page-price'><b>$182.52</b><s>$765.00</s><span class='deal-page-pct'>76% off</span></p><a class='deal-cta' href='https://www.ebay.com/itm/168579941714?_skw=sunglasses&amp;hash=item274025c552%3Ag%3AAkkAAeSwaONqlm0a&amp;amdata=enc%3AAQALAAAA8ACCtXRWQnOEpyOqnQQ8KGZSmHqlc%2BtWAgzdb8Ktu9Bizgx0zwaav03AClAO6luusyBTvZbzT4GX4nt5J%2B6Z0vWUaST0F40ch8Nl3Bf%2Fge9kbLRnwguwdfraOZ0jQ%2B8fX%2B75PTBUZNH9w4MbRcs%2BQ4OG9s9M4PtXPoF6sfH%2FJf2Lhyc5MV1y4hY0n7nCb5Gk7wdmdZ%2Bp1qC%2B0yZ0YU4%2BR%2BQNtLfbpHw7hEcGTKN%2BM8jh4HEPnBoS4IjR5By1y4AjahQ3ZsDaXak4PanTs4H0FxibJCdRIakI5q8lJLGAcWFP119BTbYxBKnqkffMZLUTrQ%3D%3D&amp;campid=5339186549&amp;toolid=10001&amp;mkevt=1&amp;mkcid=1&amp;mkrid=711-53200-19255-0&amp;siteid=0&amp;customid=hond' target='_blank' rel='noopener sponsored'>Get this deal at Ebay &rarr;</a></div></article>
 <footer class="site"><div class="footer-grid">
 <div class="footer-main">
 <details class="disclosure">
@@ -1573,7 +1598,7 @@ body.curator-mode #curator-badge{display:flex}
 </main>
 <button type="button" class="back-to-top" id="backToTop" aria-label="Back to top">&#9650;</button>
 <script src="/assets/js/interaction.js?v=bb81cde38a"></script>
-<script src="/assets/js/blog-search.js?v=3a6053fbd9"></script>
+<script src="/assets/js/blog-search.js?v=5207321b68"></script>
 <script type="text/javascript" src="https://js.codedrink.com/snippet.min.js" defer></script>
 <script type="text/javascript" src="/assets/js/lasso-picks.js?v=3" defer></script>
 <script type="text/javascript" src="https://s.skimresources.com/js/307865X1796159.skimlinks.js"></script>
