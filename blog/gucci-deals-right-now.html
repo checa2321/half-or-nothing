@@ -71,10 +71,28 @@
      self-hosted below so it never depends on a third-party font CDN the
      site's CSP doesn't otherwise allow. */
   --brand-font:"Archivo",var(--display);
+  /* Editorial accent for the blog's own intro copy (the .lede under each
+     page's H1) -- a second deliberate face, same self-hosted/no-CDN
+     reasoning as Archivo above, picked to match the serif italic subtitle
+     style already used in the hand-designed blog cover art (e.g.
+     christmas-catalog-2026.webp's "Every Gift at 50% Off or More"), so the
+     live page reads as one voice with its own cover images instead of the
+     cover doing all the editorial work alone. Scoped to blog ledes only
+     (.blog-intro .lede) -- the shared .lede class is also used on About/
+     Privacy/the deals index, which stay on --display on purpose (Che,
+     2026-09-05: only the blog gets the editorial treatment). */
+  --editorial-font:"Playfair Display",Georgia,serif;
 }
 @font-face{
   font-family:"Archivo";font-style:normal;font-weight:900;font-display:swap;
   src:url("/assets/fonts/archivo-900-latin.woff2") format("woff2");
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,
+                U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,
+                U+2212,U+2215,U+FEFF,U+FFFD;
+}
+@font-face{
+  font-family:"Playfair Display";font-style:italic;font-weight:600;font-display:swap;
+  src:url("/assets/fonts/playfair-display-italic-600.woff2") format("woff2");
   unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,
                 U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,
                 U+2212,U+2215,U+FEFF,U+FFFD;
@@ -1142,6 +1160,31 @@ footer.site .disclosure{margin:14px 0}
                gap:8px;flex-wrap:wrap}
 .compare-card .cta{grid-area:btn;margin-top:4px}
 .compare-disclosure{grid-area:meta;font-size:10.5px;color:var(--muted);margin:2px 0 0}
+
+/* ---- blog intro banner ---- */
+/* Extends the hero .mast's own gradient down through the breadcrumb, H1,
+   and lede -- so the colored band reads as one continuous banner ending
+   right above the search box, instead of a hard cut after the tagline
+   with the H1 sitting on plain background right below it (Che, 2026-09-05,
+   marked up a screenshot asking for exactly this). Re-applies .mast's own
+   background rather than trying to stretch .mast itself, since .mast is
+   shared page_shell() chrome used by every page on the site (deals grid,
+   About, Amazon Picks...) -- only blog pages get this treatment, opted in
+   by wrapping their intro in .blog-intro, and the `:has()` selectors below
+   suppress .mast's own bottom edge (padding + rainbow hairline) only when
+   it's immediately followed by one, so no other page is affected. */
+.blog-intro{margin:0 -1px;padding:8px 0 28px;position:relative;
+            background:
+              radial-gradient(900px 340px at 86% 14%, rgba(217,58,18,.26), transparent 62%),
+              radial-gradient(720px 320px at 62% 104%, rgba(240,165,0,.32), transparent 60%),
+              radial-gradient(700px 320px at 104% 86%, rgba(0,168,99,.24), transparent 62%),
+              linear-gradient(100deg, var(--card) 0%, var(--card) 32%, #FFF2E4 68%, #FFE6D2 100%)}
+.blog-intro::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;
+                    background:linear-gradient(90deg,var(--signal),var(--picks) 42%,var(--picks-light) 62%,var(--gate))}
+.mast:has(+ main .blog-intro){padding-bottom:0;margin-bottom:-1px}
+.mast:has(+ main .blog-intro)::after{display:none}
+.blog-intro .lede{font-family:var(--editorial-font);font-style:italic;font-weight:600;
+                   font-size:1.3rem;color:var(--ink);letter-spacing:-.005em;max-width:70ch}
 
 /* ---- blog index ---- */
 /* Full .wrap width (1180px) instead of one centered 68ch column, so the
