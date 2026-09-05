@@ -33,7 +33,7 @@
 <meta name="twitter:title" content="Prada Petrol Green Shield Ladies Sunglasses PR 23YS 26B40K 51 PR 23YS  -- 67% off, $190.79 (was $574.00) | Half or Nothing">
 <meta name="twitter:description" content="67% off, $190.79 (was $574.00)">
 <meta name="twitter:image" content="https://i.ebayimg.com/images/g/KSIAAeSwFh9qlUw3/s-l500.jpg">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Prada Petrol Green Shield Ladies Sunglasses PR 23YS 26B40K 51 PR 23YS 26B40K 51","description":"67% off -- was $574.00, now $190.79 at Ebay.","image":"https://i.ebayimg.com/images/g/KSIAAeSwFh9qlUw3/s-l500.jpg","offers":{"@type":"Offer","price":"190.79","priceCurrency":"USD","availability":"https://schema.org/InStock","url":"https://halfornothing.com/d/d-ebay-id-168572113631.html","priceValidUntil":"2026-09-06T01:06:17Z"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Deals","item":"https://halfornothing.com/"},{"@type":"ListItem","position":2,"name":"Fashion & Accessories","item":"https://halfornothing.com/fashion.html"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Prada Petrol Green Shield Ladies Sunglasses PR 23YS 26B40K 51 PR 23YS 26B40K 51","description":"67% off -- was $574.00, now $190.79 at Ebay.","image":"https://i.ebayimg.com/images/g/KSIAAeSwFh9qlUw3/s-l500.jpg","offers":{"@type":"Offer","price":"190.79","priceCurrency":"USD","availability":"https://schema.org/InStock","url":"https://halfornothing.com/d/d-ebay-id-168572113631.html","priceValidUntil":"2026-09-06T02:06:05Z"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Deals","item":"https://halfornothing.com/"},{"@type":"ListItem","position":2,"name":"Fashion & Accessories","item":"https://halfornothing.com/fashion.html"}]}</script>
 <style>
 :root{
   --dur-fast:.12s; --dur-base:.15s; --dur-med:.18s;
@@ -861,6 +861,25 @@ footer.site .footer-social a:hover{border-color:var(--signal);color:var(--signal
 .card:hover .thumb img{transform:scale(1.05)}
 .thumb.noimg{display:flex;align-items:center;justify-content:center;
              color:#bbb;font-size:11px;font-family:var(--mono)}
+
+/* Skeleton placeholders (2026-09-05) -- appended by interaction.js at the
+   tail of the grid while the rest of the catalogue loads from deals.json in
+   the background (see its own comment for why). Deliberately its own class,
+   not .card, so it's invisible to every piece of card-selection logic
+   (search, filters, the variant modal) -- a fake listing in that set would
+   be clickable and countable as real inventory. Dimensions match .card/
+   .thumb exactly so nothing shifts when a real card takes its place. */
+.card-skeleton{background:var(--card);border-radius:var(--r-md);border:1px solid var(--rule);
+               overflow:hidden}
+.card-skeleton-thumb{height:170px;background:var(--paper-3)}
+.card-skeleton-body{padding:14px 16px 16px;display:flex;flex-direction:column;gap:10px}
+.card-skeleton-line{height:12px;border-radius:var(--r-sm);background:var(--paper-3)}
+.card-skeleton-price{height:18px;margin-top:4px}
+.card-skeleton-thumb,.card-skeleton-line{
+  background-image:linear-gradient(90deg,var(--paper-3) 0%,var(--rule) 50%,var(--paper-3) 100%);
+  background-size:200% 100%;animation:card-skeleton-shimmer 1.4s ease-in-out infinite}
+@keyframes card-skeleton-shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
+@media(prefers-reduced-motion:reduce){.card-skeleton-thumb,.card-skeleton-line{animation:none}}
 
 .pct-pill{background:var(--signal);color:#fff;font:800 11px/1 var(--mono);
           padding:5px 9px;border-radius:999px;letter-spacing:.03em;white-space:nowrap}
@@ -1710,7 +1729,7 @@ body.curator-mode #curator-badge{display:flex}
 
 </div></header>
 <main class="wrap" id="main">
-<nav class='crumbs' aria-label='Breadcrumb'><a href='/index.html'>All deals</a> <span>&rsaquo;</span> <a href='/fashion.html'>Fashion &amp; Accessories</a> <span>&rsaquo;</span> <b>Deal</b></nav><article class='deal-page'><div class='deal-page-media'><img src='https://i.ebayimg.com/images/g/KSIAAeSwFh9qlUw3/s-l500.jpg' alt='Prada Petrol Green Shield Ladies Sunglasses PR 23YS 26B40K 51 PR 23YS 26B40K 51' loading='eager' decoding='async' referrerpolicy='no-referrer'></div><div class='deal-page-body'><h1>Prada Petrol Green Shield Ladies Sunglasses PR 23YS 26B40K 51 PR 23YS 26B40K 51</h1><p class='deal-status deal-status-live'>Live now &middot; verified within the last 6 hours.</p><p class='deal-page-price'><b>$190.79</b><s>$574.00</s><span class='deal-page-pct'>67% off</span></p><a class='deal-cta' href='https://www.ebay.com/itm/168572113631?_skw=sunglasses&amp;hash=item273fae52df%3Ag%3AKSIAAeSwFh9qlUw3&amp;amdata=enc%3AAQALAAAA8ACCtXRWQnOEpyOqnQQ8KGb5%2Bv0PFm9FQh0%2Bikqn0Vz3R9vyJOI%2FQzYJDL3AhNfw%2FUTvtqmf2DEj%2F60yDm10gojMAMjk0ewS8%2Bm2k08Aftc5BA09kFSPhpWuZr6rgr8Zs9j%2FXzKw0%2BAgehcoQbI5LeD4M3lAtGuOSK1xDeuEM87LgMPaFCVQgmFJjz4V37suaa8xeY1h8LNiwA%2B3fXWV%2FE1adOuLSqyo4qh3vbORqm%2B8LDk1TyqEbOv3zW2yn6IfBYTUYP8iLjcNlIdHPJA%2BJkmHrcnysOcZvtICdmW6pfFo%2BoJ2F5FIh0ZdQ6Hjswcimg%3D%3D&amp;campid=5339186549&amp;toolid=10001&amp;mkevt=1&amp;mkcid=1&amp;mkrid=711-53200-19255-0&amp;siteid=0&amp;customid=hond' target='_blank' rel='noopener sponsored'>Get this deal at Ebay &rarr;</a></div></article>
+<nav class='crumbs' aria-label='Breadcrumb'><a href='/index.html'>All deals</a> <span>&rsaquo;</span> <a href='/fashion.html'>Fashion &amp; Accessories</a> <span>&rsaquo;</span> <b>Deal</b></nav><article class='deal-page'><div class='deal-page-media'><img src='https://i.ebayimg.com/images/g/KSIAAeSwFh9qlUw3/s-l500.jpg' alt='Prada Petrol Green Shield Ladies Sunglasses PR 23YS 26B40K 51 PR 23YS 26B40K 51' loading='eager' decoding='async' referrerpolicy='no-referrer'></div><div class='deal-page-body'><h1>Prada Petrol Green Shield Ladies Sunglasses PR 23YS 26B40K 51 PR 23YS 26B40K 51</h1><p class='deal-status deal-status-live'>Live now &middot; verified within the last 6 hours.</p><p class='deal-page-price'><b>$190.79</b><s>$574.00</s><span class='deal-page-pct'>67% off</span></p><a class='deal-cta' href='https://www.ebay.com/itm/168572113631?_skw=sunglasses&amp;hash=item273fae52df%3Ag%3AKSIAAeSwFh9qlUw3&amp;amdata=enc%3AAQALAAAA8ACCtXRWQnOEpyOqnQQ8KGb5%2Bv0PFm9FQh0%2Bikqn0Vz3R9vyJOI%2FQzYJDL3AhNfw%2FUTvtqmf2DEj%2F60yDm10gojMAMjk0ewS8%2Bm2k08Aftc5BA09kFSPhpWuZr6rgr8Zs9j%2FXzKw0%2BAgehcoQbI5LeDGw7ikytf4hSqk0ex4VK5MAuZH6xgf5ojp9UBXSCuk3tkupblfRUzRlWHsOFjzxLaUfayQy46dN1m5IYTMt3YUhTnc8SGXgWYeRjD0wVL6rclOwipgpIOh5%2B%2F8RlVSByWwhKpWmqfXiN3FikkCMZHU5McGifUKlTkmt9d1K5P3jw%3D%3D&amp;campid=5339186549&amp;toolid=10001&amp;mkevt=1&amp;mkcid=1&amp;mkrid=711-53200-19255-0&amp;siteid=0&amp;customid=hond' target='_blank' rel='noopener sponsored'>Get this deal at Ebay &rarr;</a></div></article>
 </main>
 <footer class="site"><div class="footer-grid">
 <div class="footer-main">
@@ -1751,7 +1770,7 @@ body.curator-mode #curator-badge{display:flex}
 </ul>
 </div></footer>
 <button type="button" class="back-to-top" id="backToTop" aria-label="Back to top">&#9650;</button>
-<script src="/assets/js/interaction.js?v=bb81cde38a"></script>
+<script src="/assets/js/interaction.js?v=18cbaf0e60"></script>
 <script src="/assets/js/blog-search.js?v=63d78cfffa"></script>
 <script type="text/javascript" src="https://js.codedrink.com/snippet.min.js" defer></script>
 <script type="text/javascript" src="/assets/js/lasso-picks.js?v=3" defer></script>
