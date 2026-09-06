@@ -33,7 +33,7 @@
 <meta name="twitter:title" content="Guess Factory Brown Gradient Butterfly Ladies Sunglasses GF0410 32F 59 -- 76% off, $14.62 (was $60.00) | Half or Nothing">
 <meta name="twitter:description" content="76% off, $14.62 (was $60.00)">
 <meta name="twitter:image" content="https://i.ebayimg.com/images/g/N5kAAeSwNRJqlUx5/s-l500.jpg">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Guess Factory Brown Gradient Butterfly Ladies Sunglasses GF0410 32F 59","description":"76% off -- was $60.00, now $14.62 at Ebay.","image":"https://i.ebayimg.com/images/g/N5kAAeSwNRJqlUx5/s-l500.jpg","offers":{"@type":"Offer","price":"14.62","priceCurrency":"USD","availability":"https://schema.org/InStock","url":"https://halfornothing.com/d/d-ebay-id-157595586265.html","priceValidUntil":"2026-09-06T07:06:22Z"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Deals","item":"https://halfornothing.com/"},{"@type":"ListItem","position":2,"name":"Fashion & Accessories","item":"https://halfornothing.com/fashion.html"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Guess Factory Brown Gradient Butterfly Ladies Sunglasses GF0410 32F 59","description":"76% off -- was $60.00, now $14.62 at Ebay.","image":"https://i.ebayimg.com/images/g/N5kAAeSwNRJqlUx5/s-l500.jpg","offers":{"@type":"Offer","price":"14.62","priceCurrency":"USD","availability":"https://schema.org/InStock","url":"https://halfornothing.com/d/d-ebay-id-157595586265.html","priceValidUntil":"2026-09-06T07:31:27Z"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Deals","item":"https://halfornothing.com/"},{"@type":"ListItem","position":2,"name":"Fashion & Accessories","item":"https://halfornothing.com/fashion.html"}]}</script>
 <script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <style>
 /* Native cross-document View Transitions (2026-09-05) -- one line turns on
@@ -981,13 +981,18 @@ footer.site .footer-social a:hover{border-color:var(--signal);color:var(--signal
    the page's one real signal, not inventing a new one, and slow/steady
    reads as "notice this" rather than the frantic strobe a fake-urgency
    countdown would use. */
-.pct-pill-extreme{box-shadow:0 0 0 2px var(--card),0 0 0 5px rgba(217,58,18,.45);
-                   animation:pct-pill-glow 2s ease-in-out infinite}
+/* 2026-09-05: widened further -- Che still couldn't spot the glow at the
+   first (18%-opacity, one-shot) or second (30-70%, 5-8px ring) pass. This
+   round adds a real transform pulse on the pill itself (not just the ring)
+   so there's actual size movement in peripheral vision, not only an
+   opacity/blur change that's easy to miss against a busy grid. */
+.pct-pill-extreme{box-shadow:0 0 0 2px var(--card),0 0 0 7px rgba(217,58,18,.6);
+                   animation:pct-pill-glow 1.6s ease-in-out infinite}
 .card.reveal-in .pct-pill-extreme{animation:pct-pill-pop .6s cubic-bezier(.23,1,.32,1),
-                                    pct-pill-glow 2s ease-in-out infinite}
+                                    pct-pill-glow 1.6s ease-in-out infinite}
 @keyframes pct-pill-glow{
-  0%,100%{box-shadow:0 0 0 2px var(--card),0 0 0 5px rgba(217,58,18,.3)}
-  50%{box-shadow:0 0 0 2px var(--card),0 0 0 8px rgba(217,58,18,.7)}
+  0%,100%{box-shadow:0 0 0 2px var(--card),0 0 0 4px rgba(217,58,18,.55);transform:scale(1)}
+  50%{box-shadow:0 0 0 2px var(--card),0 0 0 11px rgba(217,58,18,.95);transform:scale(1.07)}
 }
 @keyframes pct-pill-pop{0%{transform:scale(1)}40%{transform:scale(1.35)}
                           60%{transform:scale(.92)}100%{transform:scale(1)}}
