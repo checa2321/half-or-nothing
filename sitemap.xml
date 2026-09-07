@@ -1401,8 +1401,8 @@
   <url>
     <loc>https://halfornothing.com/d/d-ebay-id-126906952517.html</loc>
     <lastmod>2026-09-07</lastmod>
-    <changefreq>hourly</changefreq>
-    <priority>0.6</priority>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
   </url>
   <url>
     <loc>https://halfornothing.com/d/d-ebay-id-126924406571.html</loc>
@@ -3531,8 +3531,8 @@
   <url>
     <loc>https://halfornothing.com/d/d-ebay-id-158013671754.html</loc>
     <lastmod>2026-09-07</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
+    <changefreq>hourly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://halfornothing.com/d/d-ebay-id-158013671768.html</loc>
@@ -4455,8 +4455,8 @@
   <url>
     <loc>https://halfornothing.com/d/d-ebay-id-158145777721.html</loc>
     <lastmod>2026-09-07</lastmod>
-    <changefreq>hourly</changefreq>
-    <priority>0.6</priority>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
   </url>
   <url>
     <loc>https://halfornothing.com/d/d-ebay-id-158147395060.html</loc>
@@ -7455,8 +7455,8 @@
   <url>
     <loc>https://halfornothing.com/d/d-ebay-id-168582565706.html</loc>
     <lastmod>2026-09-07</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
+    <changefreq>hourly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://halfornothing.com/d/d-ebay-id-168583790168.html</loc>
@@ -12895,6 +12895,12 @@
     <priority>0.3</priority>
   </url>
   <url>
+    <loc>https://halfornothing.com/d/d-ebay-id-236651659936.html</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://halfornothing.com/d/d-ebay-id-236655499017.html</loc>
     <lastmod>2026-09-07</lastmod>
     <changefreq>hourly</changefreq>
@@ -17349,8 +17355,8 @@
   <url>
     <loc>https://halfornothing.com/d/d-ebay-id-387631462922.html</loc>
     <lastmod>2026-09-07</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
+    <changefreq>hourly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://halfornothing.com/d/d-ebay-id-387945543724.html</loc>
@@ -18527,12 +18533,6 @@
     <lastmod>2026-09-07</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://halfornothing.com/d/d-ebay-id-236651659936.html</loc>
-    <lastmod>2026-09-07</lastmod>
-    <changefreq>hourly</changefreq>
-    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://halfornothing.com/amazon-picks.html</loc>
