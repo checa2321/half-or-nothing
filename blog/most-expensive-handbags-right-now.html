@@ -14,6 +14,7 @@
 <meta name="p:domain_verify" content="b06c80659cb177658cb0a074eb84ed5a"/>
 <meta name="facebook-domain-verification" content="102jd0a5hrhgjx2lcmhxphz3614sa3" />
 <meta name="mitgo-verification" content="46ae6829-e2d7-444b-8d2a-5aafdcff824e" />
+<meta name="mitgo-verification" content="be15fd77-7c06-4181-96d0-6896704542e9" />
 
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><path d='M2 2h26L2 28z' fill='%23D93A12'/><path d='M30 4v26H4z' fill='none' stroke='%23D93A12' stroke-width='2.6' stroke-linejoin='round'/></svg>">
 <link rel="manifest" href="/manifest.webmanifest">
@@ -497,6 +498,14 @@ footer.site .footer-social a:hover{border-color:var(--signal);color:var(--signal
 .picks-meta span{font:600 10.5px/1 var(--mono);letter-spacing:.05em;text-transform:uppercase;
                  color:var(--muted);background:var(--card);border:1px solid var(--rule);
                  border-radius:999px;padding:6px 11px}
+/* Same "odd one out" treatment as #picksCatBtn just above -- a plain-text
+   link in this row reads as another info pill, not a link to follow us
+   elsewhere (see that comment for the Che quote this pattern originated
+   from). Solid orange fill makes it the row's one clickable action. */
+.picks-follow-cta{font:700 10.5px/1 var(--display);letter-spacing:.03em;text-decoration:none;
+                 color:#1a1a1a;background:linear-gradient(135deg,var(--picks-light),var(--picks));
+                 border-radius:999px;padding:6px 14px;box-shadow:0 2px 6px rgba(232,137,12,.35)}
+@media(hover:hover){.picks-follow-cta:hover{background:linear-gradient(135deg,var(--picks),var(--picks-dark))}}
 .picks-see-all{font:700 12.5px/1 var(--display);color:var(--signal);text-decoration:none;
                display:inline-block;padding:7px 0}
 .picks-see-all:hover{text-decoration:underline}
