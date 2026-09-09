@@ -1443,6 +1443,7 @@ footer.site .disclosure{margin:14px 0}
 .blog-category-more i{font-style:normal;display:inline-block;transition:transform var(--dur-med) ease}
 .blog-category-more:hover i{transform:translateX(3px)}
 .blog-category-note{margin:12px 0 0;font-size:.85rem;font-style:italic;color:var(--muted)}
+.blog-category-desc{margin:0 0 12px;font-size:.85rem;color:var(--muted)}
 
 /* Compact card -- every post inside a category column, and the spotlight's
    secondary list (sized differently there via the overrides above). */
