@@ -2835,8 +2835,8 @@
   <url>
     <loc>https://halfornothing.com/d/d-ebay-id-157915855034.html</loc>
     <lastmod>2026-09-10</lastmod>
-    <changefreq>hourly</changefreq>
-    <priority>0.6</priority>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
   </url>
   <url>
     <loc>https://halfornothing.com/d/d-ebay-id-157917083108.html</loc>
@@ -3555,8 +3555,8 @@
   <url>
     <loc>https://halfornothing.com/d/d-ebay-id-158011637903.html</loc>
     <lastmod>2026-09-10</lastmod>
-    <changefreq>hourly</changefreq>
-    <priority>0.6</priority>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
   </url>
   <url>
     <loc>https://halfornothing.com/d/d-ebay-id-158011637937.html</loc>
@@ -4317,8 +4317,8 @@
   <url>
     <loc>https://halfornothing.com/d/d-ebay-id-158109199645.html</loc>
     <lastmod>2026-09-10</lastmod>
-    <changefreq>hourly</changefreq>
-    <priority>0.6</priority>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
   </url>
   <url>
     <loc>https://halfornothing.com/d/d-ebay-id-158110191426.html</loc>
@@ -8751,8 +8751,8 @@
   <url>
     <loc>https://halfornothing.com/d/d-ebay-id-178169817539.html</loc>
     <lastmod>2026-09-10</lastmod>
-    <changefreq>hourly</changefreq>
-    <priority>0.6</priority>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
   </url>
   <url>
     <loc>https://halfornothing.com/d/d-ebay-id-178170435204.html</loc>
@@ -14361,8 +14361,8 @@
   <url>
     <loc>https://halfornothing.com/d/d-ebay-id-295543980669.html</loc>
     <lastmod>2026-09-10</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
+    <changefreq>hourly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://halfornothing.com/d/d-ebay-id-295676371086.html</loc>
@@ -19150,6 +19150,12 @@
     <loc>https://halfornothing.com/blog.html</loc>
     <lastmod>2026-09-10</lastmod>
     <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://halfornothing.com/blog/karhu-retro-sneakers-trending-deals.html</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
