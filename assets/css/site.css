@@ -1320,6 +1320,14 @@ footer.site .disclosure{margin:14px 0}
                margin:2px 0 0;font-variant-numeric:tabular-nums;display:flex;align-items:baseline;
                gap:8px;flex-wrap:wrap}
 .compare-card .cta{grid-area:btn;margin-top:4px}
+/* .prose a{color:var(--gate-dark)} (blog body links) has higher specificity
+   than .cta{color:#fff} (element+class beats a lone class) and was winning,
+   turning the button's text the same --gate-dark as its own background --
+   invisible in light mode, barely-there in dark. The dark-mode override
+   (:not([data-theme="light"]) .prose a{color:var(--gate)}) is even more
+   specific (0,2,1), so this needs div.prose a.cta at 0,2,2 to clear both,
+   not just .prose .cta (Che caught this on the Karhu post, 2026-09-09). */
+div.prose a.cta{color:#fff}
 .compare-disclosure{grid-area:meta;font-size:10.5px;color:var(--muted);margin:2px 0 0}
 
 /* ---- blog intro banner ---- */
