@@ -9561,8 +9561,8 @@
   <url>
     <loc>https://halfornothing.com/d/d-ebay-id-178251755889.html</loc>
     <lastmod>2026-09-11</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
+    <changefreq>hourly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://halfornothing.com/d/d-ebay-id-178253878815.html</loc>
@@ -14739,8 +14739,8 @@
   <url>
     <loc>https://halfornothing.com/d/d-ebay-id-298123732786.html</loc>
     <lastmod>2026-09-11</lastmod>
-    <changefreq>hourly</changefreq>
-    <priority>0.6</priority>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
   </url>
   <url>
     <loc>https://halfornothing.com/d/d-ebay-id-298166167830.html</loc>
@@ -16951,6 +16951,12 @@
     <priority>0.3</priority>
   </url>
   <url>
+    <loc>https://halfornothing.com/d/d-ebay-id-358846229073.html</loc>
+    <lastmod>2026-09-11</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://halfornothing.com/d/d-ebay-id-358856370108.html</loc>
     <lastmod>2026-09-11</lastmod>
     <changefreq>yearly</changefreq>
@@ -18661,6 +18667,12 @@
     <priority>0.3</priority>
   </url>
   <url>
+    <loc>https://halfornothing.com/d/d-ebay-id-406755185510.html</loc>
+    <lastmod>2026-09-11</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://halfornothing.com/d/d-ebay-id-406756643404.html</loc>
     <lastmod>2026-09-11</lastmod>
     <changefreq>yearly</changefreq>
@@ -19201,13 +19213,13 @@
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://halfornothing.com/d/d-ebay-id-406755185510.html</loc>
+    <loc>https://halfornothing.com/d/d-ebay-id-327152468851.html</loc>
     <lastmod>2026-09-11</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://halfornothing.com/d/d-ebay-id-358846229073.html</loc>
+    <loc>https://halfornothing.com/d/d-ebay-id-298494495746.html</loc>
     <lastmod>2026-09-11</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.6</priority>
