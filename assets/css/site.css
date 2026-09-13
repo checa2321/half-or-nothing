@@ -1177,6 +1177,12 @@ footer.site .footer-social a:hover{border-color:var(--signal);color:var(--signal
            background:rgba(217,58,18,.08);color:var(--ink);
            font-size:14px;line-height:1.5}
 .deal-gone b{display:block;margin-bottom:2px}
+/* Appended by interaction.js's dealGoneNotice() only when the deal's durable
+   /d/ page actually exists (HEAD-checked). Inline-block so it reads as an
+   action rather than as more body copy. */
+.deal-gone-link{display:block;width:fit-content;margin-top:10px;font-weight:600;
+           color:var(--signal);text-decoration:underline;text-underline-offset:3px}
+.deal-gone-link:hover,.deal-gone-link:focus-visible{text-decoration-thickness:2px}
 
 /* max-width/margin/padding merged in directly (2026-09-05) -- footer used to
    inherit them for free by sitting inside <main class="wrap">, but that also

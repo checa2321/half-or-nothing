@@ -1069,6 +1069,26 @@
       + "at 50% off or better.";
     var main = document.querySelector('main.wrap');
     if (main) main.insertBefore(box, main.firstChild);
+
+    // Most of these deals still have a durable /d/ page holding what the deal
+    // actually was: final price, how long it ran, a way back to its category
+    // (see deal_pages.py). Measured 2026-09-13, 764 of the 767 registered
+    // promoted links that no longer resolve DO have one. Landing on a generic
+    // grid instead of that page throws away the one thing the visitor came
+    // for. HEAD-checked before the link is shown so the 3-in-767 case that
+    // has no page never gets offered a 404.
+    var id = new URLSearchParams(location.search).get('deal')
+             || (location.hash || '').slice(1);
+    if (!id || !/^d-[a-z0-9-]+$/i.test(id) || !window.fetch) return;
+    var href = '/d/' + encodeURIComponent(id) + '.html';
+    fetch(href, { method: 'HEAD' }).then(function(r){
+      if (!r.ok) return;
+      var a = document.createElement('a');
+      a.className = 'deal-gone-link';
+      a.href = href;
+      a.textContent = 'See what this deal was →';
+      box.appendChild(a);
+    }).catch(function(){ /* offline or blocked: the notice alone still stands */ });
   }
 
   function gotoDeepLink(){
