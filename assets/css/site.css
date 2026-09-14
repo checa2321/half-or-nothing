@@ -1663,6 +1663,16 @@ html{scroll-behavior:smooth}
 .cat-intro p{font:400 15px/1.6 var(--display);color:var(--ink-soft);margin:0}
 .cat-intro a{color:var(--signal);text-decoration:none;border-bottom:1px solid currentColor}
 .cat-intro a:hover{color:var(--signal-dark)}
+.site-faq{margin:22px 0;max-width:78ch}
+.site-faq h2{font:700 22px/1.25 var(--display);color:var(--ink);margin:0 0 12px}
+.site-faq details{border-top:1px solid var(--rule);padding:12px 0}
+.site-faq details:last-of-type{border-bottom:1px solid var(--rule)}
+.site-faq summary{font:600 15px/1.4 var(--display);color:var(--ink);cursor:pointer;list-style:none}
+.site-faq summary::-webkit-details-marker{display:none}
+.site-faq summary:after{content:'+';float:right;color:var(--muted);font-weight:400}
+.site-faq details[open] summary:after{content:'2'}
+.site-faq details p{font:400 15px/1.6 var(--display);color:var(--ink-soft);margin:8px 0 0}
+.site-faq details a{color:var(--signal);text-decoration:none;border-bottom:1px solid currentColor}
 /* Pill-style subnav rows -- Shop / Shop by price / Shop by type. Same
    border-radius:999px pill language as #dealSort ("Highest discount") and
    the category filter button, so this reads as the same control family
