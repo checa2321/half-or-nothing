@@ -1553,6 +1553,18 @@ html{scroll-behavior:smooth}
 .td-count{font:500 12px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
 
 .td-rail{position:relative}
+/* Right-edge fade hinting "swipe for more" -- on mobile the scroll arrows
+   are hidden (.td-arrow{display:none} below 820px) and the scrollbar is
+   hidden everywhere (scrollbar-width:none above), so a card cut off flush
+   at the container edge was the ONLY visual signal a rail scrolls at all --
+   read as a broken/cut-off layout rather than "swipe for more" (Che,
+   2026-09-14, seen on his own phone). This fade is the replacement signal;
+   only shown where the arrows are hidden, so desktop is unaffected. */
+@media(max-width:820px){
+  .td-rail::after,.br-rail::after{content:'';position:absolute;top:0;right:0;
+    bottom:0;width:28px;background:linear-gradient(to right,transparent,var(--card));
+    pointer-events:none}
+}
 .td-viewport{overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;
              scroll-behavior:smooth;scrollbar-width:none;-ms-overflow-style:none;
              margin:0 -4px;padding:4px}
@@ -1630,6 +1642,7 @@ html{scroll-behavior:smooth}
 .br-viewall{font:600 12px/1 var(--mono);color:var(--muted);text-decoration:none;
             margin-left:auto;white-space:nowrap}
 .br-viewall:hover{color:var(--signal)}
+.br-rail{position:relative}
 .br-track{overflow-x:auto;overflow-y:hidden;scroll-snap-type:x proximity;
           scrollbar-width:none;-ms-overflow-style:none;margin:0 -4px;padding:4px}
 .br-track::-webkit-scrollbar{display:none}
