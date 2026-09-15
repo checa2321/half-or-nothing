@@ -971,6 +971,16 @@ footer.site .footer-social a:hover{border-color:var(--signal);color:var(--signal
          text-transform:uppercase;padding:3px 8px;border-radius:999px}
 .newpill{background:var(--gate);color:#fff;font-size:11px;font-weight:700;
          letter-spacing:.05em;text-transform:uppercase;padding:3px 8px;border-radius:999px}
+/* Static confirmation that a listing cleared the site's own 50% filter --
+   deliberately carries no date, price history or trend so it can't read as
+   price tracking/alerting functionality (Amazon Associates Participation
+   Requirements 6(y): "your Site must not have price tracking and/or price
+   alerting functionality", confirmed 2026-09-15 against the live policy
+   page -- broader than "Amazon products only", applies site-wide since the
+   site holds an Associates account regardless of what's currently shown). */
+.verified-badge{color:var(--muted);font-size:11px;font-weight:600;text-decoration:none;
+                 display:inline-flex;align-items:center;gap:3px}
+.verified-badge:hover{color:var(--ink);text-decoration:underline}
 
 .card .body{padding:14px 16px 16px;position:relative;flex:1;min-width:0;
             display:flex;flex-direction:column;gap:7px}
