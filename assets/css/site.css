@@ -277,6 +277,11 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
        gap:8px 18px;align-items:baseline;position:relative}
 .stats>span{display:flex;align-items:baseline;gap:6px}
 .stats b{color:var(--ink);font-weight:700;font-size:16px;font-variant-numeric:tabular-nums}
+/* Track-record row (2026-09-15): same bar, deliberately smaller/quieter than
+   the live-count row above it -- it's a supporting credibility fact, not the
+   page's main number. */
+.stats.track-record{margin-top:8px}
+.stats.track-record b{font-size:13px}
 
 /* ---- trust strip: clean and minimal ---- */
 /* ---- footer trust line + disclosure accordion + social ---- */
