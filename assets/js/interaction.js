@@ -466,13 +466,20 @@
   // ever added here, right before observing, so a browser with no
   // IntersectionObserver (or JS that fails to run at all) leaves cards in
   // their normal, always-visible state rather than stuck invisible.
-  // Re-triggerable both directions (Che, 2026-09-05): toggles reveal-in
-  // instead of adding it once and unobserving, so scrolling back up past a
-  // card fades it back out the same way scrolling down faded it in --
-  // keeps observing indefinitely rather than a one-shot reveal.
+  // One-shot (Che, 2026-09-17): the previous re-triggerable-both-directions
+  // behavior (toggling reveal-in on every crossing, added 2026-09-05) meant
+  // every card on the page replayed its fade/transform transition on every
+  // single scroll-direction change -- up to ~1,000 cards' worth of restarted
+  // transitions per scroll pass, which read as the page feeling slow/heavy
+  // rather than as a nice reveal. Now it adds reveal-in once and unobserves,
+  // same as a standard scroll-reveal: a card that's played its entrance
+  // stays visible, full stop.
   var revealObserver = window.IntersectionObserver ? new IntersectionObserver(function(entries){
     entries.forEach(function(entry){
-      entry.target.classList.toggle('reveal-in', entry.isIntersecting);
+      if (entry.isIntersecting) {
+        entry.target.classList.add('reveal-in');
+        revealObserver.unobserve(entry.target);
+      }
     });
   }, {rootMargin: '0px 0px -40px 0px'}) : null;
   function observeReveal(cards){
