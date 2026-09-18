@@ -1173,6 +1173,44 @@
   // failed or blocked fetch degrades to "the first 60 deals work" rather
   // than to an empty page.
   var feedUrl = grid.getAttribute('data-feed');
+
+  // A ?deal= link whose card isn't in deals.json isn't necessarily dead:
+  // deals.json is capped (INDEX_FEED_MAX) while the per-category feeds are
+  // not, so a live deal that missed the cap used to hit the "ended" banner
+  // (a Burberry bag with 3 in stock on eBay, 2026-09-18). deal-index.json
+  // maps every public deal id to a category feed that holds it: look the id
+  // up there, pull just that feed, add the one card and go to it. Resolves
+  // true only when the card was found and scrolled to; false means "really
+  // not here", which is when the banner is honest to show.
+  function loadDeepLinkFromIndex(){
+    var id = new URLSearchParams(location.search).get('deal') || (location.hash || '').slice(1);
+    if (!id || !/^d-[a-z0-9-]+$/i.test(id) || !window.fetch) return Promise.resolve(false);
+    function getJson(url){
+      return fetch(url, {cache: 'default'}).then(function(r){
+        return r.ok ? r.json() : Promise.reject(r.status);
+      });
+    }
+    return getJson('/deal-index.json').then(function(idx){
+      var feeds = idx.feeds || {}, slug = null;
+      for (var s in feeds){
+        if (feeds[s].indexOf(id) !== -1){ slug = s; break; }
+      }
+      if (!slug) return false;
+      return getJson('/deals-' + slug + '.json').then(function(feed){
+        var row = null;
+        (feed.deals || []).some(function(d){ if (d.id === id){ row = d; return true; } return false; });
+        if (!row) return false;
+        var card = buildCard(row);
+        grid.appendChild(card);
+        observeReveal([card]);
+        allCards = Array.prototype.filter.call(grid.children, function(el){
+          return el.classList.contains('card');
+        });
+        return gotoDeepLink();
+      });
+    }).catch(function(){ return false; });
+  }
+
   // No feed to wait for (the local view), so a miss is already conclusive.
   if ((!feedUrl || !window.fetch) && !deepLinked && wantedDeal()) dealGoneNotice();
   // Skeleton placeholders (2026-09-05): FIRST_PAINT_CARDS (60) already fills
@@ -1278,7 +1316,17 @@
           // Only now, with the whole catalogue loaded, is a miss really a
           // miss. Saying so before the fetch resolved would cry wolf at
           // every deep link to a card that simply hadn't arrived yet.
-          if (wantedDeal()) dealGoneNotice();
+          if (wantedDeal()) {
+            // Only the homepage's capped feed can miss a live deal; a
+            // category page's own feed is uncapped, so a miss there is real.
+            if (feedUrl === '/deals.json') {
+              loadDeepLinkFromIndex().then(function(found){
+                if (found) deepLinked = true; else dealGoneNotice();
+              });
+            } else {
+              dealGoneNotice();
+            }
+          }
         }
       })
       .catch(function(){
