@@ -1071,8 +1071,12 @@
     var box = document.createElement('div');
     box.id = 'dealGone';
     box.className = 'deal-gone';
-    box.innerHTML = "<b>That deal has ended.</b> The listing you followed sold out or "
-      + "was taken down at the retailer. Everything below is live right now, "
+    // Worded as "not on this page" rather than "ended": a miss here only means
+    // the card isn't in the feed(s) this page loaded (the index feed is capped
+    // at INDEX_FEED_MAX), not that the retailer listing is gone. Confirmed
+    // 2026-09-18 on a Burberry bag that was live on eBay with 3 in stock.
+    box.innerHTML = "<b>This deal isn't on this page right now.</b> It may have sold out "
+      + "or moved. Everything below is live right now, "
       + "at 50% off or better.";
     var main = document.querySelector('main.wrap');
     if (main) main.insertBefore(box, main.firstChild);
