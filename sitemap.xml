@@ -85,6 +85,12 @@
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://halfornothing.com/watches.html</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://halfornothing.com/collectibles-art.html</loc>
     <lastmod>2026-09-19</lastmod>
     <changefreq>hourly</changefreq>
@@ -145,6 +151,12 @@
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://halfornothing.com/fashion-workwear.html</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://halfornothing.com/beauty-fragrances-women.html</loc>
     <lastmod>2026-09-19</lastmod>
     <changefreq>hourly</changefreq>
@@ -199,13 +211,31 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://halfornothing.com/electronics-mounts.html</loc>
+    <loc>https://halfornothing.com/beauty-grooming-tools.html</loc>
     <lastmod>2026-09-19</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://halfornothing.com/electronics-marine.html</loc>
+    <loc>https://halfornothing.com/beauty-health-care.html</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://halfornothing.com/beauty-medical-mobility.html</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://halfornothing.com/beauty-salon-equipment.html</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://halfornothing.com/beauty-tattoos-body-art.html</loc>
     <lastmod>2026-09-19</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.9</priority>
@@ -242,6 +272,12 @@
   </url>
   <url>
     <loc>https://halfornothing.com/electronics-audio.html</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://halfornothing.com/electronics-tvs.html</loc>
     <lastmod>2026-09-19</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.9</priority>
@@ -355,6 +391,12 @@
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://halfornothing.com/collectibles-fan-gear.html</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://halfornothing.com/media-magazines.html</loc>
     <lastmod>2026-09-19</lastmod>
     <changefreq>hourly</changefreq>
@@ -403,13 +445,25 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://halfornothing.com/music-instruments.html</loc>
+    <loc>https://halfornothing.com/music-car-audio.html</loc>
     <lastmod>2026-09-19</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://halfornothing.com/auto-car-audio.html</loc>
+    <loc>https://halfornothing.com/music-marine-audio.html</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://halfornothing.com/music-speakers.html</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://halfornothing.com/music-stands-mounts.html</loc>
     <lastmod>2026-09-19</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.9</priority>
@@ -481,12 +535,6 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://halfornothing.com/jewelry-wristwatches.html</loc>
-    <lastmod>2026-09-19</lastmod>
-    <changefreq>hourly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
     <loc>https://halfornothing.com/jewelry-necklaces.html</loc>
     <lastmod>2026-09-19</lastmod>
     <changefreq>hourly</changefreq>
@@ -506,6 +554,36 @@
   </url>
   <url>
     <loc>https://halfornothing.com/jewelry-bracelets-earrings.html</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://halfornothing.com/jewelry-anklets.html</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://halfornothing.com/jewelry-body-jewelry.html</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://halfornothing.com/jewelry-earrings.html</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://halfornothing.com/jewelry-jewelry-sets.html</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://halfornothing.com/jewelry-supplies-findings.html</loc>
     <lastmod>2026-09-19</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.9</priority>
@@ -535,13 +613,31 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://halfornothing.com/outdoor-fan-gear.html</loc>
+    <loc>https://halfornothing.com/outdoor-winter.html</loc>
     <lastmod>2026-09-19</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://halfornothing.com/outdoor-winter.html</loc>
+    <loc>https://halfornothing.com/watches-other-watches.html</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://halfornothing.com/watches-pocket-watches.html</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://halfornothing.com/watches-vintage-collectible.html</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://halfornothing.com/watches-wristwatches.html</loc>
     <lastmod>2026-09-19</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.9</priority>
