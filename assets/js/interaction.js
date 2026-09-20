@@ -859,7 +859,6 @@
     // two copies of this same condition below, or the 2026-09-04 deep-link
     // bug (index computed against a differently-sorted list) comes back.
     filtered = filtered.slice().sort(sortCompare);
-    filtered.forEach(function(c){ grid.appendChild(c); });
 
     // Cumulative, not paged: state.page counts how many batches are revealed,
     // so loading more appends below what you were already reading instead of
@@ -867,9 +866,22 @@
     var totalPages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
     if (state.page > totalPages) state.page = totalPages;
     var shown = Math.min(filtered.length, state.page * PAGE_SIZE);
-    var visibleSet = new Set(filtered.slice(0, shown));
+    var visible = filtered.slice(0, shown);
+    var visibleSet = new Set(visible);
 
-    allCards.forEach(function(c){ c.style.display = visibleSet.has(c) ? '' : 'none'; });
+    // Only the current page's cards actually live in the document. matches()
+    // and sortCompare() still read every built card's own attributes, so
+    // search/sort keep working across the whole feed unchanged -- but a card
+    // outside the visible window is DETACHED, not just display:none'd. A
+    // 10,000-deal feed used to mean 10,000 live nodes the instant it fetched
+    // (measured 2026-09-20: 282k total DOM nodes on the home page, vs
+    // ~7-23k on Slickdeals/DealNews for the same idea). appendChild-ing only
+    // `visible` and removing everything else keeps the live tree to what's
+    // actually on screen plus whatever pages were already loaded.
+    visible.forEach(function(c){ grid.appendChild(c); });
+    allCards.forEach(function(c){
+      if (!visibleSet.has(c) && c.parentNode === grid) grid.removeChild(c);
+    });
 
     if (emptyEl) emptyEl.style.display = filtered.length ? 'none' : '';
     var remaining = filtered.length - shown;
@@ -935,19 +947,26 @@
       allCards.forEach(function(c){ have[c.id] = true; });
       var frag = document.createDocumentFragment();
       var added = 0;
+      var newCards = [];
       feeds.forEach(function(feed){
         (feed.deals || []).forEach(function(d){
           if (have[d.id]) return;
           have[d.id] = true;
-          frag.appendChild(buildCard(d));
+          var newCard = buildCard(d);
+          frag.appendChild(newCard);
+          newCards.push(newCard);
           added++;
         });
       });
       if (added) {
         grid.appendChild(frag);
-        allCards = Array.prototype.filter.call(grid.children, function(el){
-          return el.classList.contains('card');
-        });
+        // Append, never re-read from grid.children: render() (below) detaches
+        // any card outside the current page, so re-querying the live DOM
+        // here would silently drop every card it already pruned out of
+        // allCards for good -- confirmed this would have quietly emptied
+        // most of the catalogue out of search/sort the first time anyone
+        // touched a category filter (Che's SEO review, 2026-09-20).
+        allCards = allCards.concat(newCards);
       }
       done();
     });
@@ -1203,9 +1222,9 @@
         var card = buildCard(row);
         grid.appendChild(card);
         observeReveal([card]);
-        allCards = Array.prototype.filter.call(grid.children, function(el){
-          return el.classList.contains('card');
-        });
+        // Append, don't re-read grid.children -- see the matching comment in
+        // ensureCategoryCoverage above.
+        allCards.push(card);
         return gotoDeepLink();
       });
     }).catch(function(){ return false; });
@@ -1305,9 +1324,13 @@
         grid.appendChild(frag);
         observeReveal(newCards);
 
-        allCards = Array.prototype.filter.call(grid.children, function(el){
-          return el.classList.contains('card');
-        });
+        // Append, don't re-read grid.children: the very first render() call
+        // (right after the initial server-rendered paint, before this fetch
+        // even started) already detaches anything past page 1, so a
+        // grid.children re-scan here would permanently lose whichever of
+        // the FIRST_PAINT_CARDS didn't make page 1 -- see the matching
+        // comment on ensureCategoryCoverage above.
+        allCards = allCards.concat(newCards);
         // A deep link may point at a card that only just arrived, so try it
         // again now that the full set is present.
         if (!deepLinked) { deepLinked = gotoDeepLink(); }
