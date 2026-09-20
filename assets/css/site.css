@@ -294,6 +294,11 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
    page's main number. */
 .stats.track-record{margin-top:8px}
 .stats.track-record b{font-size:13px}
+/* Category page freshness line ("Verified 2 hours ago, last refresh...") --
+   a real sentence, not a stat pill, so it resets .stats' uppercase mono
+   styling back to normal running text (Task 2, Che's competitor-gap SEO
+   review, 2026-09-20). */
+.freshness-line{font:400 12px/1.4 var(--display);letter-spacing:0;text-transform:none;color:var(--muted)}
 
 /* ---- trust strip: clean and minimal ---- */
 /* ---- footer trust line + disclosure accordion + social ---- */
@@ -1708,6 +1713,22 @@ html{scroll-behavior:smooth}
 .cat-intro p{font:400 15px/1.6 var(--display);color:var(--ink-soft);margin:0}
 .cat-intro a{color:var(--signal);text-decoration:none;border-bottom:1px solid currentColor}
 .cat-intro a:hover{color:var(--signal-dark)}
+/* Category page SEO sections (How We Verify / Why 50% / FAQ / Related) --
+   same type ramp as .cat-intro, just spaced out as separate blocks below
+   the grid instead of one intro paragraph (Task 2, Che's competitor-gap
+   SEO review, 2026-09-20). */
+.cat-seo-section{margin:28px 0;max-width:78ch}
+.cat-seo-section h2{font:700 20px/1.25 var(--display);color:var(--ink);margin:0 0 8px}
+.cat-seo-section p{font:400 15px/1.6 var(--display);color:var(--ink-soft);margin:0 0 8px}
+.cat-seo-section a{color:var(--signal);text-decoration:none;border-bottom:1px solid currentColor}
+.cat-seo-section a:hover{color:var(--signal-dark)}
+.cat-seo-section details{margin:0 0 10px;font:400 15px/1.5 var(--display);color:var(--ink-soft)}
+.cat-seo-section summary{font-weight:600;color:var(--ink);cursor:pointer}
+.cat-seo-section.related-cats p{display:flex;flex-wrap:wrap;gap:8px 16px}
+/* brands.html's full brand-hub link list -- same idea as related-cats but
+   many more items, so a tighter gap and smaller type keep it from running
+   pages long (Task 3, Che's competitor-gap SEO review, 2026-09-20). */
+.brand-hub-links{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:13.5px}
 .site-faq{margin:22px 0;max-width:78ch}
 .site-faq h2{font:700 22px/1.25 var(--display);color:var(--ink);margin:0 0 12px}
 .site-faq details{border-top:1px solid var(--rule);padding:12px 0}
