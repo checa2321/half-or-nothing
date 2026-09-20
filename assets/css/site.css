@@ -1713,6 +1713,14 @@ html{scroll-behavior:smooth}
 .cat-intro p{font:400 15px/1.6 var(--display);color:var(--ink-soft);margin:0}
 .cat-intro a{color:var(--signal);text-decoration:none;border-bottom:1px solid currentColor}
 .cat-intro a:hover{color:var(--signal-dark)}
+/* Phone homepage (SEO audit 2026-09-20): the answer-first intro pushed the first deal card to
+   y=903 on a 375x812 screen, so no deal was visible without scrolling. Visual order only: the
+   intro stays first in the HTML for crawlers and LLMs, the Top Deals rail is pulled above it. */
+@media (max-width:600px){
+  main.wrap:has(> .topdeals){display:flex;flex-direction:column}
+  main.wrap:has(> .topdeals) > *{min-width:0}
+  main.wrap:has(> .topdeals) > .topdeals{order:-1}
+}
 /* Category page SEO sections (How We Verify / Why 50% / FAQ / Related) --
    same type ramp as .cat-intro, just spaced out as separate blocks below
    the grid instead of one intro paragraph (Task 2, Che's competitor-gap
