@@ -230,6 +230,18 @@ body{margin:0;background:var(--paper-2);color:var(--ink);
 }
 .rule-line{font-size:1.15rem;font-weight:400;margin:10px 0 0;color:var(--muted);
            position:relative;max-width:640px;line-height:1.5}
+/* Homepage-only <h1> kicker: the wordmark stays exactly as it is, this is a
+   second, smaller line appended inside the same <h1> so a real, visible
+   value-prop phrase sits in the page's one heading -- index.html only, see
+   page_shell()'s h1_kicker param. No new type step: Body weight/size (same
+   as .rule-line right above it) on the native stack, per DESIGN.md's One
+   Wordmark Font Rule (Archivo stays in exactly the two places it's already
+   in). .pct reuses the Numeric/Label weight+color, already reserved for
+   "the discount percentage, the highest-attention numeric signal" -- this
+   is that same number. */
+.kw-sub{display:block;font-weight:400;color:var(--ink-soft);margin-top:6px;
+        font-size:1.15rem;line-height:1.5}
+.kw-sub .pct{color:var(--signal);font-weight:800}
 
 /* search, with the rotating hint layered over a transparent input */
 .herosearch{position:relative;display:flex;align-items:center;gap:10px;
