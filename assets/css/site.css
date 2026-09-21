@@ -1534,6 +1534,10 @@ div.prose a.cta{color:#fff}
    footer with no recirculation at all (2026-09-05 fix, see render_post()'s
    own comment). Full .wrap width (not .prose's 68ch) so it can run 3 real
    cards across, same visual language as the index's category-grid cards. */
+.blog-store-cta{max-width:68ch;margin:28px auto 8px;padding:16px 20px;border:1px solid var(--rule);
+                 border-radius:10px;display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}
+.blog-store-cta p{margin:0;font-size:.95rem;color:var(--ink-soft)}
+.blog-store-cta .picks-follow-cta{font-size:12px;padding:9px 18px;white-space:nowrap}
 .blog-related{max-width:1180px;margin:8px auto 40px}
 .blog-related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
 @media(max-width:860px){.blog-related-grid{grid-template-columns:1fr}}
