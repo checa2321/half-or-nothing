@@ -1,6 +1,9 @@
 User-agent: *
 Content-Signal: search=yes, ai-input=yes, ai-train=no
 Allow: /
+Disallow: /_scratch*
+Disallow: /_preview*
+Disallow: /_csp_test*
 
 Sitemap: https://halfornothing.com/sitemap.xml
 
