@@ -1358,17 +1358,32 @@ footer.site .disclosure{margin:14px 0}
    text wraps beside them instead of stacking. Text measure stays 68ch.
    Bookshelf layout keeps its own design. */
 @media(min-width:1180px){
-  .prose:not(.bookshelf){margin-left:max(0px,calc((100% - 68ch - 300px)/2))}
+  .prose:not(.bookshelf){margin-left:max(0px,calc((100% - 720px - 300px)/2))}
   .prose:not(.bookshelf) .callout.callout-toc{float:right;clear:right;position:sticky;top:84px;
     width:260px;margin:0 -300px 0 0;max-height:calc(100vh - 110px);overflow-y:auto}
   .prose:not(.bookshelf) figure.post-img{float:left;width:40%;margin:4px 24px 14px 0}
-  .prose:not(.bookshelf) .faq{clear:left}
+  .prose:not(.bookshelf) .faq,.prose:not(.bookshelf) h2,.prose:not(.bookshelf) h3{clear:left}
   .prose:not(.bookshelf) .toc-ask-ai{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 16px;padding:0 0 16px;border-bottom:1px solid var(--rule)}
   .prose:not(.bookshelf) .toc-ask-ai .callout-label{width:100%;margin:0 0 2px}
   .prose:not(.bookshelf) .toc-ask-ai a.post-share-btn{padding:5px 11px;font-size:.8rem}
   .prose:not(.bookshelf):has(.toc-ask-ai) .post-ask-ai{display:none}
 }
 .prose .toc-ask-ai{display:none}
+/* Type scale matched to ryrob.com (Che 2026-09-24): body 19.55px/1.85,
+   lists 20px/1.5, H2 44px (32px mobile), H3 38px (28px mobile). Column
+   capped at 720px (~68 characters at this size). Bookshelf keeps its own. */
+.prose:not(.bookshelf){max-width:720px}
+.prose:not(.bookshelf) p{font-size:19.55px;line-height:1.85}
+.prose:not(.bookshelf) li{font-size:20px;line-height:1.5}
+.prose:not(.bookshelf) h2{font-size:32px;line-height:1.1;font-weight:700;margin:48px 0 20px}
+.prose:not(.bookshelf) h3{font-size:28px;line-height:1.2;font-weight:700;margin:32px 0 14px}
+.prose:not(.bookshelf) .lede,.prose:not(.bookshelf) .callout-label,.prose:not(.bookshelf) figcaption,
+.prose:not(.bookshelf) .post-share-label,.prose:not(.bookshelf) .post-author-name{font-size:16px;line-height:1.5}
+.prose:not(.bookshelf) .post-author-bio{font-size:17px;line-height:1.6}
+@media(min-width:900px){
+  .prose:not(.bookshelf) h2{font-size:44px;line-height:1.2;margin:56px 0 35px}
+  .prose:not(.bookshelf) h3{font-size:38px;line-height:1.2;margin:40px 0 30px}
+}
 .prose .callout.toc-ai-only{display:none}
 @media(min-width:1180px){.prose:not(.bookshelf) .callout.toc-ai-only{display:block}
   .prose:not(.bookshelf) .toc-ai-only .toc-ask-ai{margin:0;padding:0;border:0}}
