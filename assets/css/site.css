@@ -490,6 +490,14 @@ footer.site .footer-social a:hover{border-color:var(--signal);color:var(--signal
                  color:#1a1a1a;background:linear-gradient(135deg,var(--picks-light),var(--picks));
                  border-radius:999px;padding:6px 14px;box-shadow:0 2px 6px rgba(232,137,12,.35)}
 @media(hover:hover){.picks-follow-cta:hover{background:linear-gradient(135deg,var(--picks),var(--picks-dark))}}
+.picks-trials{margin:16px 0 4px}
+.picks-trials-label{font:600 10.5px/1 var(--mono);letter-spacing:.05em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.picks-trials-row{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:8px}
+.picks-trial{display:block;text-decoration:none;background:var(--card);border:1px solid var(--rule);border-radius:10px;padding:10px 12px}
+.picks-trial b{display:block;font:700 13px/1.25 var(--display);color:var(--ink)}
+.picks-trial span{display:block;font-size:12px;line-height:1.4;color:var(--ink-soft);margin-top:3px}
+.picks-trial em{display:inline-block;font:700 10.5px/1 var(--display);font-style:normal;color:var(--picks-dark);margin-top:7px}
+@media(hover:hover){.picks-trial:hover{border-color:var(--picks)}}
 .picks-see-all{font:700 12.5px/1 var(--display);color:var(--signal);text-decoration:none;
                display:inline-block;padding:7px 0}
 .picks-see-all:hover{text-decoration:underline}
