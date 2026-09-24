@@ -1380,6 +1380,8 @@ footer.site .disclosure{margin:14px 0}
 .prose:not(.bookshelf) .lede,.prose:not(.bookshelf) .callout-label,.prose:not(.bookshelf) figcaption,
 .prose:not(.bookshelf) .post-share-label,.prose:not(.bookshelf) .post-author-name{font-size:16px;line-height:1.5}
 .prose:not(.bookshelf) .post-author-bio{font-size:17px;line-height:1.6}
+.prose:not(.bookshelf) table{font-size:16px;line-height:1.5}
+.prose:not(.bookshelf) th{font-size:12px}
 @media(min-width:900px){
   .prose:not(.bookshelf) h2{font-size:44px;line-height:1.2;margin:56px 0 35px}
   .prose:not(.bookshelf) h3{font-size:38px;line-height:1.2;margin:40px 0 30px}
