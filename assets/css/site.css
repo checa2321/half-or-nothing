@@ -1352,6 +1352,18 @@ footer.site .disclosure{margin:14px 0}
                        border:1px solid var(--rule);border-radius:var(--r-md);text-align:center}
 .prose figure.post-img img{max-width:600px;width:100%;height:auto;border-radius:var(--r-sm);display:block;margin:0 auto}
 .prose figure.post-img figcaption{margin-top:10px;font-size:.85rem;color:var(--ink-soft)}
+/* Wide screens (2026-09-24, Che: too much scrolling): the TOC leaves the
+   text column and rides sticky in the empty right gutter (negative margin
+   so it takes no text width), and product photos float left at ~40% so
+   text wraps beside them instead of stacking. Text measure stays 68ch.
+   Bookshelf layout keeps its own design. */
+@media(min-width:1180px){
+  .prose:not(.bookshelf){margin-left:max(0px,calc((100% - 68ch - 300px)/2))}
+  .prose:not(.bookshelf) .callout.callout-toc{float:right;clear:right;position:sticky;top:84px;
+    width:260px;margin:0 -300px 0 0;max-height:calc(100vh - 110px);overflow-y:auto}
+  .prose:not(.bookshelf) figure.post-img{float:left;width:40%;margin:4px 24px 14px 0}
+  .prose:not(.bookshelf) .faq{clear:left}
+}
 /* Full-width: the infographic is already a designed, self-contained dark
    card (own frame, own padding) -- the 280px product-photo cap and card
    wrapper above would just shrink it into a postage stamp. */
@@ -1603,6 +1615,19 @@ div.prose a.cta{color:#fff}
 
 /* ---- blog author profile ---- */
 .author-head{display:flex;gap:16px;align-items:center;margin:8px 0 20px}
+/* Post footer: share links + author box (2026-09-24). */
+.prose .post-share{clear:both;display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:36px 0 0;
+  padding-top:20px;border-top:1px solid var(--rule)}
+.prose .post-share.post-ask-ai{margin-top:14px;padding-top:0;border-top:0}
+.prose .post-share-label{margin:0 6px 0 0;font-weight:700;font-size:.9rem}
+.prose a.post-share-btn{display:inline-block;padding:7px 14px;border:1px solid var(--rule);border-radius:999px;
+  font-size:.85rem;font-weight:600;color:var(--ink);text-decoration:none;background:var(--card)}
+.prose a.post-share-btn:hover{border-color:var(--gate);color:var(--gate-dark)}
+.prose .post-author-box{display:flex;gap:16px;align-items:flex-start;margin:24px 0 0;padding:18px 20px;
+  background:var(--card);border:1px solid var(--rule);border-radius:var(--r-md)}
+.prose .post-author-box .author-avatar{width:56px;height:56px}
+.prose .post-author-name{margin:0 0 4px;font-weight:700}
+.prose .post-author-bio{margin:0;font-size:.92rem;color:var(--ink-soft)}
 .author-avatar{width:64px;height:64px;border-radius:50%;object-fit:cover;flex-shrink:0;
                 border:1px solid var(--rule)}
 .author-avatar-initials{display:flex;align-items:center;justify-content:center;
