@@ -1369,6 +1369,9 @@ footer.site .disclosure{margin:14px 0}
   .prose:not(.bookshelf):has(.toc-ask-ai) .post-ask-ai{display:none}
 }
 .prose .toc-ask-ai{display:none}
+.prose .callout.toc-ai-only{display:none}
+@media(min-width:1180px){.prose:not(.bookshelf) .callout.toc-ai-only{display:block}
+  .prose:not(.bookshelf) .toc-ai-only .toc-ask-ai{margin:0;padding:0;border:0}}
 /* Full-width: the infographic is already a designed, self-contained dark
    card (own frame, own padding) -- the 280px product-photo cap and card
    wrapper above would just shrink it into a postage stamp. */
