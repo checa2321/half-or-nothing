@@ -76,7 +76,12 @@
           was.className = "price-was";
           was.textContent = "$" + listPrice;
           var pill = document.createElement("span");
-          pill.className = "pct-pill";
+          // .pct-pill has no background of its own since the 2026-09-05
+          // tier refactor -- the pct-tN class paints it (same bands as
+          // _pct_tier_class() in html_output.py). Without it the white
+          // text sat on nothing: invisible until selected.
+          var n = parseFloat(pct);
+          pill.className = "pct-pill " + (n >= 90 ? "pct-t5 pct-pill-extreme" : n >= 80 ? "pct-t4" : n >= 70 ? "pct-t3" : n >= 60 ? "pct-t2" : "pct-t1");
           pill.textContent = pct + "% off";
           priceEl.appendChild(was);
           priceEl.appendChild(pill);
