@@ -1466,6 +1466,46 @@ footer.site .disclosure{margin:14px 0}
 div.prose a.cta{color:#fff}
 .compare-disclosure{grid-area:meta;font-size:10.5px;color:var(--muted);margin:2px 0 0}
 
+/* [[row:image|title|price|badge|url]] -- compact list row (52x52 thumb),
+   for a post with a long per-item list where a full-size .compare-card per
+   item would be too tall (animal-print-fall-2026, 2026-09-28: 17 items
+   across 6 sections). Reuses .price-was/.pct-pill (same markup as
+   .compare-price) and the shared .cta button class -- only the row shell
+   and thumb size are new. */
+.shop-row-list{display:flex;flex-direction:column;gap:10px;margin:0 0 26px}
+.shop-row{display:flex;align-items:center;gap:12px;padding:8px 10px;background:var(--card);
+          border:1px solid var(--rule);border-radius:var(--r-sm)}
+.shop-row img{width:52px;height:52px;object-fit:contain;border-radius:var(--r-sm);flex-shrink:0;
+              border:1px solid var(--rule);background:var(--paper-3)}
+.shop-row-info{flex:1 1 auto;min-width:0}
+.shop-row-name{display:block;font-size:13.5px;font-weight:600;color:var(--ink);text-decoration:none;
+               line-height:1.3}
+.shop-row-name:hover{color:var(--gate-dark)}
+:root:not([data-theme="light"]) .shop-row-name:hover{color:var(--gate)}
+.shop-row-price{margin:2px 0 0;font-size:15px;font-weight:800;color:var(--gate-dark);
+                font-variant-numeric:tabular-nums;display:flex;align-items:baseline;gap:6px;flex-wrap:wrap}
+:root:not([data-theme="light"]) .shop-row-price{color:var(--gate)}
+.shop-row-badge{font:600 11px/1 var(--mono);color:var(--muted)}
+.shop-row-cta{flex-shrink:0;padding:7px 14px;font-size:11.5px}
+
+/* "Know Your Animal Prints"-style reference grid: [[swatch:image|label|
+   description|tag]], a labeled swatch, not a shoppable card (no price, no
+   affiliate link) -- for illustrating print families a post talks about
+   even when only some of them have a qualifying deal. `tag` (any non-empty
+   text, e.g. "In this guide") renders a small pill marking the prints this
+   post actually has real inventory for. Added 2026-09-28. */
+.print-swatch-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:14px;
+                    margin:0 0 26px}
+.print-swatch{position:relative;text-align:center;padding:10px 8px;background:var(--card);
+              border:1px solid var(--rule);border-radius:var(--r-md)}
+.print-swatch img{width:96px;height:96px;object-fit:cover;border-radius:var(--r-sm);margin:0 auto 8px;
+                  display:block;border:1px solid var(--rule)}
+.print-swatch-label{margin:0;font-size:13px;font-weight:700;color:var(--ink)}
+.print-swatch-desc{margin:2px 0 0;font-size:11.5px;color:var(--muted);line-height:1.35}
+.print-swatch-featured{border-color:var(--signal)}
+.print-swatch-tag{display:inline-block;margin-top:6px;padding:2px 8px;border-radius:999px;
+                  background:var(--signal);color:#fff;font:700 9.5px/1.6 var(--mono);letter-spacing:.02em}
+
 /* ---- blog intro banner ---- */
 /* The blog's breadcrumb/H1/lede render INSIDE .mast's own wrap div (passed
    via page_shell()'s stats_html slot, same mechanism the deals index uses
