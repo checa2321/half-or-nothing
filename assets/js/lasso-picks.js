@@ -71,6 +71,14 @@
         priceEl.dataset.pkEnriched = "1";
         var listPrice = wrap.getAttribute("data-list-price");
         var pct = wrap.getAttribute("data-discount-pct");
+        // The pill must describe the price printed right next to it. Lasso
+        // fetches Amazon on its own and can show a different price than the
+        // one we verified, so the % comes from the shown price, and under
+        // 50% (or unreadable) there is no pill at all (Che, 2026-10-02).
+        var shown = parseFloat((priceEl.textContent || "").replace(/[^0-9.]/g, ""));
+        var lp = parseFloat(listPrice);
+        pct = shown > 0 && lp > shown ? String(Math.floor((1 - shown / lp) * 100)) : null;
+        if (pct && parseFloat(pct) < 50) pct = null;
         if (listPrice && pct) {
           var was = document.createElement("span");
           was.className = "price-was";
