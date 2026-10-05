@@ -187,12 +187,6 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://halfornothing.com/electronics-car-electronics.html</loc>
-    <lastmod>2026-10-05</lastmod>
-    <changefreq>hourly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
     <loc>https://halfornothing.com/electronics-tvs.html</loc>
     <lastmod>2026-10-05</lastmod>
     <changefreq>hourly</changefreq>
@@ -267,12 +261,6 @@
   <url>
     <loc>https://halfornothing.com/music-stands-mounts.html</loc>
     <lastmod>2026-10-03</lastmod>
-    <changefreq>hourly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://halfornothing.com/auto-parts.html</loc>
-    <lastmod>2026-10-05</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -3043,12 +3031,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://halfornothing.com/auxbeam.html</loc>
-    <lastmod>2026-10-05</lastmod>
-    <changefreq>hourly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://halfornothing.com/avec.html</loc>
     <lastmod>2026-10-05</lastmod>
     <changefreq>hourly</changefreq>
@@ -3194,12 +3176,6 @@
   </url>
   <url>
     <loc>https://halfornothing.com/bvlgari.html</loc>
-    <lastmod>2026-10-05</lastmod>
-    <changefreq>hourly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://halfornothing.com/callaway.html</loc>
     <lastmod>2026-10-05</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.7</priority>
@@ -3662,7 +3638,7 @@
   </url>
   <url>
     <loc>https://halfornothing.com/hermetica.html</loc>
-    <lastmod>2026-10-04</lastmod>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.7</priority>
   </url>
