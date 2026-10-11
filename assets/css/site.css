@@ -546,7 +546,9 @@ footer.site .footer-social a:hover{border-color:var(--signal);color:var(--signal
 .prose.bookshelf .bs-sec>*:last-child{margin-bottom:0}
 .prose.bookshelf .bs-sec>p:first-child>strong:first-child{color:var(--bar)}
 .prose.bookshelf .bs-sec strong{background:none;padding:0;box-shadow:none}
-.prose.bookshelf .bs-sec .pick-lasso-cat{display:none}
+.prose.bookshelf .bs-sec .bs-deal{background:transparent;border:0;padding:0;margin:0 0 8px}
+.prose.bookshelf .bs-sec .bs-deal>.bs-dtop .bs-lbl{display:none}
+@media (max-width:600px){.prose.bookshelf table{font-size:13.5px}.prose.bookshelf th,.prose.bookshelf td{padding:7px 6px;overflow-wrap:anywhere}}
 .prose.bookshelf .bs-sec.s-warn p,.prose.bookshelf .bs-sec.s-warn li{font-size:14.5px;line-height:1.5}
 .prose.bookshelf .bs-sec ul{margin:0 0 10px;padding-left:20px}
 .prose.bookshelf .bs-sec .picks-page-grid{margin:8px 0 10px!important;max-width:100%!important}
