@@ -2145,4 +2145,4 @@ body.curator-mode #curator-badge{display:flex}
 .prose.bookshelf .bs-sec .lasso-embed,.prose.bookshelf .bs-sec .embed-lasso-container{width:100%!important;max-width:100%!important;min-width:0!important;box-sizing:border-box}
 .prose.bookshelf .bs-sec .picks-page-grid-lasso:not(.picks-lasso-rail) .pick-lasso .embed-lasso-display{display:grid!important;grid-template-columns:minmax(0,1fr)!important;width:100%!important;max-width:100%!important;gap:8px;padding:0!important;justify-items:center;text-align:center}
 .prose.bookshelf .bs-sec [class*="embed-lasso-box-"]{width:100%!important;max-width:100%!important;min-width:0!important;box-sizing:border-box}
-.prose.bookshelf .bs-sec .picks-page-grid-lasso:not(.picks-lasso-rail) .pick-lasso .embed-lasso-image-no-lazy,.prose.bookshelf .bs-sec .lasso-embed img{width:auto!important;max-width:100%!important;height:auto!important;max-height:200px}
+.prose.bookshelf .bs-sec .picks-page-grid-lasso:not(.picks-lasso-rail) .pick-lasso .embed-lasso-image-no-lazy,.prose.bookshelf .bs-sec .lasso-embed img{display:block!important;width:100%!important;max-width:100%!important;height:200px!important;object-fit:contain!important}
