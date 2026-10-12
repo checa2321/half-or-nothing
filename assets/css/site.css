@@ -2146,3 +2146,15 @@ body.curator-mode #curator-badge{display:flex}
 .prose.bookshelf .bs-sec .picks-page-grid-lasso:not(.picks-lasso-rail) .pick-lasso .embed-lasso-display{display:grid!important;grid-template-columns:minmax(0,1fr)!important;width:100%!important;max-width:100%!important;gap:8px;padding:0!important;justify-items:center;text-align:center}
 .prose.bookshelf .bs-sec [class*="embed-lasso-box-"]{width:100%!important;max-width:100%!important;min-width:0!important;box-sizing:border-box}
 .prose.bookshelf .bs-sec .picks-page-grid-lasso:not(.picks-lasso-rail) .pick-lasso .embed-lasso-image-no-lazy,.prose.bookshelf .bs-sec .lasso-embed img{display:block!important;width:100%!important;max-width:100%!important;height:200px!important;object-fit:contain!important}
+
+/* Bookshelf post with `sidebar: yes`: same sticky "In This Article" + Ask AI box in the right gutter as regular posts (desktop only). */
+@media(min-width:1180px){
+  .prose.bookshelf.bs-side{margin-left:max(0px,calc((100% - 860px - 300px)/2));max-width:860px}
+  .prose.bookshelf.bs-side .callout.callout-toc{float:right;clear:right;position:sticky;top:84px;width:260px;margin:0 -300px 0 0;max-height:calc(100vh - 110px);overflow-y:auto;border:1px solid var(--bs-rule);background:var(--bs-surface);padding:16px 18px}
+  .prose.bookshelf.bs-side .toc-ask-ai{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 16px;padding:0 0 16px;border-bottom:1px solid var(--bs-rule)}
+  .prose.bookshelf.bs-side .toc-ask-ai .callout-label{width:100%;margin:0 0 2px}
+  .prose.bookshelf.bs-side .toc-ask-ai a.post-share-btn{padding:5px 11px;font-size:.8rem}
+  .prose.bookshelf.bs-side:has(.toc-ask-ai) .post-ask-ai{display:none}
+}
+.prose.bookshelf .post-share-btn{color:inherit}
+
