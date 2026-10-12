@@ -548,7 +548,6 @@ footer.site .footer-social a:hover{border-color:var(--signal);color:var(--signal
 .prose.bookshelf .bs-sec strong{background:none;padding:0;box-shadow:none}
 .prose.bookshelf .bs-sec .bs-deal{background:transparent;border:0;padding:0;margin:0 0 8px}
 .prose.bookshelf .bs-sec .bs-deal>.bs-dtop .bs-lbl{display:none}
-@media (max-width:600px){.prose.bookshelf table{font-size:13.5px}.prose.bookshelf th,.prose.bookshelf td{padding:7px 6px;overflow-wrap:anywhere}}
 .prose.bookshelf .bs-sec.s-warn p,.prose.bookshelf .bs-sec.s-warn li{font-size:14.5px;line-height:1.5}
 .prose.bookshelf .bs-sec ul{margin:0 0 10px;padding-left:20px}
 .prose.bookshelf .bs-sec .picks-page-grid{margin:8px 0 10px!important;max-width:100%!important}
@@ -2125,3 +2124,25 @@ body.curator-mode #curator-badge{display:flex}
 #curator-panel .curator-actions button{flex:1;padding:8px;border-radius:var(--r-sm);border:1px solid var(--rule);
                    background:var(--paper-2);cursor:pointer;font-size:12.5px;font-weight:600}
 #curator-panel .curator-actions button.primary{background:var(--signal);color:#fff;border-color:var(--signal)}
+
+/* Light blog tables (Dann, 2026-10-12): every table sits in .table-wrap so a wide one scrolls inside its box, never the page. */
+.table-wrap{overflow-x:auto;max-width:100%;margin:0 0 22px;-webkit-overflow-scrolling:touch}
+.table-wrap table{margin:0}
+.prose table,.prose.bookshelf table{background:#ffffff;border:1px solid #e4e1da}
+.prose thead th,.prose table th,.prose.bookshelf th{background:#f6f4f0;color:#5d5b55;border-bottom:1px solid #e4e1da}
+.prose td,.prose.bookshelf td{color:#1a1a1a;border-bottom:1px solid #e4e1da}
+.prose tbody tr:nth-child(even) td,.prose.bookshelf tbody tr:nth-child(even){background:#faf8f5}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .prose table{background:#17160f;border-color:#35332b}:root:not([data-theme="light"]) .prose thead th,:root:not([data-theme="light"]) .prose table th{background:#201f17;color:#9b998f;border-color:#35332b}:root:not([data-theme="light"]) .prose td{color:#ecEAE4;border-color:#35332b}:root:not([data-theme="light"]) .prose tbody tr:nth-child(even) td{background:#1b1a13}}
+:root[data-theme="dark"] .prose table{background:#17160f;border-color:#35332b}
+:root[data-theme="dark"] .prose thead th,:root[data-theme="dark"] .prose table th{background:#201f17;color:#9b998f;border-color:#35332b}
+:root[data-theme="dark"] .prose td{color:#ecEAE4;border-color:#35332b}
+:root[data-theme="dark"] .prose tbody tr:nth-child(even) td{background:#1b1a13}
+
+/* Visible Lasso card inside a book's find box: fit the narrow info column (phones included), no sideways scroll. */
+.prose.bookshelf .bs-sec .picks-page-grid-lasso{grid-template-columns:minmax(0,1fr)!important;margin:8px 0 10px!important;max-width:100%!important;width:100%}
+.prose.bookshelf .bs-sec .pick-lasso{width:100%!important;max-width:100%!important;min-width:0!important;flex:none!important;box-sizing:border-box;padding:10px!important}
+.prose.bookshelf .bs-sec .pick-lasso-cat{display:none}
+.prose.bookshelf .bs-sec .lasso-embed,.prose.bookshelf .bs-sec .embed-lasso-container{width:100%!important;max-width:100%!important;min-width:0!important;box-sizing:border-box}
+.prose.bookshelf .bs-sec .picks-page-grid-lasso:not(.picks-lasso-rail) .pick-lasso .embed-lasso-display{display:grid!important;grid-template-columns:minmax(0,1fr)!important;width:100%!important;max-width:100%!important;gap:8px;padding:0!important;justify-items:center;text-align:center}
+.prose.bookshelf .bs-sec [class*="embed-lasso-box-"]{width:100%!important;max-width:100%!important;min-width:0!important;box-sizing:border-box}
+.prose.bookshelf .bs-sec .picks-page-grid-lasso:not(.picks-lasso-rail) .pick-lasso .embed-lasso-image-no-lazy,.prose.bookshelf .bs-sec .lasso-embed img{width:auto!important;max-width:100%!important;height:auto!important;max-height:200px}
