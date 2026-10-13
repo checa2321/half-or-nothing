@@ -2252,3 +2252,21 @@ body.curator-mode #curator-badge{display:flex}
 @media(min-width:1180px){.prose.lay-trends,.prose.lay-compare,.prose.lay-deals{max-width:820px}}  /* keep the right-gutter TOC box inside the viewport */
 .prose.lay-review .callout{padding:14px 18px}
 .prose.lay-review .callout h2{border:0;margin:0 0 8px;padding:0;font-size:1.15rem}
+
+/* Books whose left column is the book's own Lasso card (AI-illustrated cover, no hosted image allowed) */
+.bs-lassocover{grid-template-columns:300px minmax(0,1fr)}
+.bs-cover-lasso{align-self:start;position:sticky;top:20px}
+.bs-cover-lasso .picks-page-grid{margin:0 0 12px!important;max-width:100%!important}
+@media (max-width:760px){.bs-lassocover{grid-template-columns:1fr}.bs-cover-lasso{position:static}}
+.prose .bs-book.bs-lassocover{grid-template-columns:330px minmax(0,1fr);gap:28px}
+.bs-cover-lasso .picks-page-grid-lasso,.bs-cover-lasso .pick-lasso,.bs-cover-lasso .lasso-embed,.bs-cover-lasso .embed-lasso-container{width:100%!important;max-width:100%!important;min-width:0!important;flex:none!important;box-sizing:border-box}
+@media (max-width:760px){.prose .bs-book.bs-lassocover{grid-template-columns:1fr}}
+/* Lasso card in the left column: same fit rules as the card inside a Find box */
+.prose.bookshelf .bs-cover-lasso .picks-page-grid-lasso{grid-template-columns:minmax(0,1fr)!important;margin:8px 0 10px!important;max-width:100%!important;width:100%}
+.prose.bookshelf .bs-cover-lasso .pick-lasso{width:100%!important;max-width:100%!important;min-width:0!important;flex:none!important;box-sizing:border-box;padding:10px!important}
+.prose.bookshelf .bs-cover-lasso .pick-lasso-cat{display:none}
+.prose.bookshelf .bs-cover-lasso .lasso-embed,.prose.bookshelf .bs-cover-lasso .embed-lasso-container{width:100%!important;max-width:100%!important;min-width:0!important;box-sizing:border-box}
+.prose.bookshelf .bs-cover-lasso .picks-page-grid-lasso:not(.picks-lasso-rail) .pick-lasso .embed-lasso-display{display:flex!important;flex-direction:column!important;align-items:center;grid-template-columns:none!important;grid-template-areas:none!important;width:100%!important;max-width:100%!important;gap:8px;padding:0!important;text-align:center}
+.prose.bookshelf .bs-cover-lasso [class*="embed-lasso-box-"],.prose.bookshelf .bs-cover-lasso [class*="embed-lasso-button-"]{width:100%!important;max-width:100%!important;min-width:0!important;box-sizing:border-box;grid-area:auto!important;order:0}
+.prose.bookshelf .bs-cover-lasso a.embed-lasso-image{display:flex!important;justify-content:center;width:100%!important}
+.prose.bookshelf .bs-cover-lasso .picks-page-grid-lasso:not(.picks-lasso-rail) .pick-lasso .embed-lasso-image-no-lazy,.prose.bookshelf .bs-cover-lasso .lasso-embed img{display:block!important;width:auto!important;max-width:100%!important;height:200px!important;object-fit:contain!important}
