@@ -2182,7 +2182,7 @@ body.curator-mode #curator-badge{display:flex}
 .prose.lay-guide ul,.prose.lay-guide ol{margin:0 0 18px}
 .prose.lay-guide li{margin:0 0 6px}
 
-.prose.lay-compare{max-width:min(980px,100%)}
+.prose.lay-compare{max-width:980px}
 .prose.lay-compare .prose-compare{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 @media (max-width:640px){.prose.lay-compare .prose-compare{grid-template-columns:1fr}}
 
@@ -2190,13 +2190,65 @@ body.curator-mode #curator-badge{display:flex}
 .prose.lay-review .callout{border-width:0 0 0 6px;border-left-color:var(--signal);border-radius:0;background:var(--paper-2)}
 .prose.lay-review h2{border-bottom:2px solid var(--ink);padding-bottom:6px}
 
-.prose.lay-trends{max-width:min(1000px,100%)}
+.prose.lay-trends{max-width:1000px}
 .prose.lay-trends h2{text-transform:uppercase;letter-spacing:.06em;font-size:1.15rem;text-align:center;margin-top:52px}
 .prose.lay-trends h2::after{content:"";display:block;width:48px;height:3px;background:var(--signal);margin:10px auto 0}
 .prose.lay-trends .shop-row-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px}
 .prose.lay-trends p{max-width:68ch;margin-inline:auto}
 .prose.lay-trends .picks-page-grid{margin-inline:auto}
 
-.prose.lay-deals{max-width:min(940px,100%)}
+.prose.lay-deals{max-width:940px}
 .prose.lay-deals .callout{border-color:var(--gate)}
 .prose.lay-deals .shop-row-list{display:grid;gap:10px}
+
+/* ---- Layout engine v2 (2026-10-13): real structures, see structure_body() in blog.py ---- */
+.prose .dek{font-family:Georgia,"Times New Roman",serif;font-size:1.3rem;font-style:italic;line-height:1.45;color:var(--ink-soft);margin:0 0 14px;max-width:34em}
+.prose.lay-editorial .post-hero img{max-height:460px;object-fit:cover;width:100%}
+.prose.lay-editorial p.dropcap::first-letter{float:left;font-family:Georgia,serif;font-size:4.2em;line-height:.8;padding:.06em .1em 0 0;font-weight:700}
+.prose.lay-editorial .bs-group,.prose.lay-trends .bs-group,.prose.lay-deals .bs-group{border-top:2px solid var(--ink);margin:18px 0 26px}
+.bs-group>.bs-book[hidden]{display:none}
+/* editorial: rail of 3:4 cards */
+.prose.lay-editorial .bs-group{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:22px;padding-top:20px}
+.prose.lay-editorial .bs-group .bs-book{display:block;border:0;padding:0;margin:0}
+.prose.lay-editorial .bs-group .bs-cover img{position:static;width:100%;aspect-ratio:3/4;object-fit:cover}
+.prose.lay-editorial .bs-group .bs-info{padding-top:8px;font-size:.93rem}
+.prose.lay-editorial .bs-group .bs-info p{margin:0 0 6px}
+/* trends: mosaic */
+.prose.lay-trends .bs-group{columns:3 210px;column-gap:14px;padding-top:16px}
+.prose.lay-trends .bs-group .bs-book{display:block;break-inside:avoid;border:0;padding:0;margin:0 0 16px;background:var(--card);box-shadow:0 1px 8px rgba(0,0,0,.14)}
+.prose.lay-trends .bs-group .bs-cover img{position:static;width:100%;aspect-ratio:auto;object-fit:cover;box-shadow:none}
+.prose.lay-trends .bs-group .bs-info{padding:10px 12px 12px;font-size:.9rem}
+.prose.lay-trends .bs-group .bs-info p{margin:0 0 4px}
+/* deals: first item is the hero, the rest dense rows, discount chips */
+.prose.lay-deals .bs-group .bs-book:first-child{grid-template-columns:240px minmax(0,1fr);border:3px solid var(--signal);padding:16px;margin-bottom:14px;gap:20px}
+.prose.lay-deals .bs-group .bs-book:first-child .bs-cover img{aspect-ratio:1/1}
+.prose.lay-deals .bs-group .bs-book:not(:first-child){grid-template-columns:72px minmax(0,1fr);gap:14px;padding-block:10px;align-items:center}
+.prose.lay-deals .bs-group .bs-book:not(:first-child) .bs-cover img{position:static;width:72px;height:72px}
+.tier-chips{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 0}
+.tier-chips button{font:inherit;font-size:.85rem;font-weight:700;padding:5px 14px;border:1px solid var(--rule);border-radius:99px;background:var(--card);color:var(--ink);cursor:pointer}
+.tier-chips button[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+/* guide: progress bar, tip/warning callouts */
+.read-progress{position:sticky;top:67px;z-index:5;height:4px;background:var(--rule);margin:0 0 14px}
+.read-progress i{display:block;height:100%;width:0;background:var(--signal)}
+.prose p.co{padding:10px 14px;margin:0 0 18px;border-left:5px solid;font-size:.97rem}
+.prose p.co-tip{background:rgba(47,93,138,.12);border-color:#2f5d8a}
+.prose p.co-warn{background:rgba(138,86,0,.14);border-color:#8a5600}
+/* comparison: scroll wrapper, winner row, sticky first column */
+.cmp-wrap{overflow-x:auto;margin:0 0 24px}
+.cmp-wrap table{margin:0;min-width:34rem}
+.prose.lay-compare tbody tr:first-child td{background:rgba(11,122,76,.12)}
+.prose.lay-compare tbody tr:first-child td:first-child{box-shadow:inset 4px 0 0 var(--gate-dark,#0b7a4c);font-weight:800}
+/* review blocks */
+.pc{display:inline-block;vertical-align:top;width:calc(50% - 8px);margin:0 12px 18px 0;padding:12px 16px;font-size:.95rem;border-left:5px solid}
+.pc+.pc{margin-right:0}.pc ul{margin:6px 0 0;padding-left:18px}
+.pc-pros{background:rgba(11,122,76,.12);border-color:#0b7a4c}.pc-cons{background:rgba(217,58,18,.12);border-color:#D93A12}
+@media (max-width:640px){.pc{display:block;width:auto;margin-right:0}}
+.score-card{border:2px solid var(--ink);padding:16px;margin:0 0 22px;max-width:360px}
+.score-card .sc-n{display:flex;gap:12px;align-items:center;margin:0 0 10px}.score-card .sc-n b{font-size:3.2rem;line-height:1;color:var(--signal)}
+.score-card .sc-n span{font-size:.85rem;color:var(--ink-soft)}
+.sc-row{margin:0 0 8px;font-size:.9rem}.sc-bar{height:8px;background:var(--rule);margin-top:3px}.sc-bar i{display:block;height:100%;background:var(--ink)}
+@media (prefers-reduced-motion:no-preference){.read-progress i{transition:width .1s linear}}
+
+@media(min-width:1180px){.prose.lay-trends,.prose.lay-compare,.prose.lay-deals{max-width:820px}}  /* keep the right-gutter TOC box inside the viewport */
+.prose.lay-review .callout{padding:14px 18px}
+.prose.lay-review .callout h2{border:0;margin:0 0 8px;padding:0;font-size:1.15rem}
