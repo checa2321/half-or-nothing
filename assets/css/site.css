@@ -2162,3 +2162,41 @@ body.curator-mode #curator-badge{display:flex}
 }
 .prose.bookshelf .post-share-btn{color:inherit}
 
+/* ---- Layout engine (Che, 2026-10-13): blog.py picks one per post (LAYOUTS / pick_layout).
+   Presentation only; shelf posts keep .bookshelf. Tokens from :root, so dark mode follows. ---- */
+.prose.lay-editorial{max-width:72ch}
+.prose.lay-editorial h1,.prose.lay-editorial h2,.prose.lay-editorial h3{font-family:Georgia,"Times New Roman",serif;font-weight:700;letter-spacing:0}
+.prose.lay-editorial h1{font-size:clamp(2.1rem,5.5vw,3.2rem);line-height:1.08}
+.prose.lay-editorial h2{border-top:1px solid var(--rule);padding-top:22px;margin-top:48px}
+.prose.lay-editorial p{font-size:1.06rem;line-height:1.78}
+.prose.lay-editorial .post-hero img{width:100%;height:auto;border-radius:0}
+.prose.lay-editorial .bs-book{grid-template-columns:240px minmax(0,1fr)}
+.prose.lay-editorial .bs-item .bs-cover img{aspect-ratio:3/4;object-fit:cover}
+
+.prose.lay-guide{max-width:66ch;counter-reset:lg}
+.prose.lay-guide p,.prose.lay-guide li{line-height:1.75}
+.prose.lay-guide h2{counter-increment:lg;display:flex;gap:12px;align-items:baseline}
+.prose.lay-guide h2::before{content:counter(lg);flex:none;min-width:1.7em;height:1.7em;display:inline-grid;place-items:center;border-radius:50%;background:var(--signal);color:#fff;font-size:.8em;font-weight:800}
+.prose.lay-guide .callout h2::before,.prose.lay-guide h2.faq::before{content:none}
+.prose.lay-guide .callout h2{counter-increment:none}
+.prose.lay-guide ul,.prose.lay-guide ol{margin:0 0 18px}
+.prose.lay-guide li{margin:0 0 6px}
+
+.prose.lay-compare{max-width:min(980px,100%)}
+.prose.lay-compare .prose-compare{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media (max-width:640px){.prose.lay-compare .prose-compare{grid-template-columns:1fr}}
+
+.prose.lay-review{max-width:70ch}
+.prose.lay-review .callout{border-width:0 0 0 6px;border-left-color:var(--signal);border-radius:0;background:var(--paper-2)}
+.prose.lay-review h2{border-bottom:2px solid var(--ink);padding-bottom:6px}
+
+.prose.lay-trends{max-width:min(1000px,100%)}
+.prose.lay-trends h2{text-transform:uppercase;letter-spacing:.06em;font-size:1.15rem;text-align:center;margin-top:52px}
+.prose.lay-trends h2::after{content:"";display:block;width:48px;height:3px;background:var(--signal);margin:10px auto 0}
+.prose.lay-trends .shop-row-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px}
+.prose.lay-trends p{max-width:68ch;margin-inline:auto}
+.prose.lay-trends .picks-page-grid{margin-inline:auto}
+
+.prose.lay-deals{max-width:min(940px,100%)}
+.prose.lay-deals .callout{border-color:var(--gate)}
+.prose.lay-deals .shop-row-list{display:grid;gap:10px}
