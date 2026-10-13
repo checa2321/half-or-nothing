@@ -28,9 +28,12 @@
     var grid = document.body;
     if (!grid) return;
     function retheme() {
-      grid.querySelectorAll(".embed-lasso-cactus").forEach(function (el) {
-        el.classList.remove("embed-lasso-cactus");
-        el.classList.add("embed-lasso-cutter");
+      // 2026-10-13: Flow is the theme Che picked. Lasso still serves each link
+      // as Cactus (theme saved on the link) and the site setting as Cutter, so
+      // the swap happens here, same as before, just to Flow now.
+      grid.querySelectorAll(".embed-lasso-cactus, .embed-lasso-cutter").forEach(function (el) {
+        el.classList.remove("embed-lasso-cactus", "embed-lasso-cutter");
+        el.classList.add("embed-lasso-flow");
       });
       // Some picks (the ones with a "Boosted" badge) bundle the button and
       // disclosure+date inside the same title/price box instead of their own
