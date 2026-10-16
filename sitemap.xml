@@ -61,6 +61,12 @@
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://halfornothing.com/pets.html</loc>
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://halfornothing.com/jewelry-watches.html</loc>
     <lastmod>2026-09-20</lastmod>
     <changefreq>hourly</changefreq>
@@ -242,7 +248,7 @@
   </url>
   <url>
     <loc>https://halfornothing.com/music-marine-audio.html</loc>
-    <lastmod>2026-10-10</lastmod>
+    <lastmod>2026-10-16</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -601,6 +607,12 @@
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://halfornothing.com/fashion-women-intimates.html</loc>
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://halfornothing.com/fashion-women-bags.html</loc>
     <lastmod>2026-10-16</lastmod>
     <changefreq>hourly</changefreq>
@@ -650,7 +662,7 @@
   </url>
   <url>
     <loc>https://halfornothing.com/watches-citizen.html</loc>
-    <lastmod>2026-10-15</lastmod>
+    <lastmod>2026-10-16</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -835,14 +847,14 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://halfornothing.com/fashion-women-dresses-trina-turk.html</loc>
-    <lastmod>2026-10-14</lastmod>
+    <loc>https://halfornothing.com/fashion-women-dresses-simkhai.html</loc>
+    <lastmod>2026-10-08</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://halfornothing.com/fashion-women-dresses-simkhai.html</loc>
-    <lastmod>2026-10-08</lastmod>
+    <loc>https://halfornothing.com/fashion-women-dresses-trina-turk.html</loc>
+    <lastmod>2026-10-14</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -871,8 +883,8 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://halfornothing.com/fashion-women-dresses-max-mara.html</loc>
-    <lastmod>2026-10-16</lastmod>
+    <loc>https://halfornothing.com/fashion-women-dresses-anne-klein.html</loc>
+    <lastmod>2026-10-15</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -883,8 +895,8 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://halfornothing.com/fashion-women-dresses-anne-klein.html</loc>
-    <lastmod>2026-10-15</lastmod>
+    <loc>https://halfornothing.com/fashion-women-dresses-max-mara.html</loc>
+    <lastmod>2026-10-16</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -896,7 +908,7 @@
   </url>
   <url>
     <loc>https://halfornothing.com/fashion-women-dresses-brc.html</loc>
-    <lastmod>2026-10-15</lastmod>
+    <lastmod>2026-10-16</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -907,14 +919,14 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://halfornothing.com/fashion-women-dresses-derek-lam.html</loc>
-    <lastmod>2026-10-10</lastmod>
+    <loc>https://halfornothing.com/fashion-women-dresses-rene-ruiz.html</loc>
+    <lastmod>2026-10-16</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://halfornothing.com/fashion-women-dresses-rene-ruiz.html</loc>
-    <lastmod>2026-10-16</lastmod>
+    <loc>https://halfornothing.com/fashion-women-dresses-derek-lam.html</loc>
+    <lastmod>2026-10-10</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -979,12 +991,6 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://halfornothing.com/fashion-women-dresses-johnny-was.html</loc>
-    <lastmod>2026-10-16</lastmod>
-    <changefreq>hourly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
     <loc>https://halfornothing.com/fashion-women-dresses-vince-camuto.html</loc>
     <lastmod>2026-10-07</lastmod>
     <changefreq>hourly</changefreq>
@@ -997,14 +1003,14 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://halfornothing.com/fashion-women-dresses-farm-rio.html</loc>
-    <lastmod>2026-10-11</lastmod>
+    <loc>https://halfornothing.com/fashion-women-dresses-johnny-was.html</loc>
+    <lastmod>2026-10-16</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://halfornothing.com/fashion-women-dresses-nanette-lepore.html</loc>
-    <lastmod>2026-10-15</lastmod>
+    <loc>https://halfornothing.com/fashion-women-dresses-farm-rio.html</loc>
+    <lastmod>2026-10-11</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -1029,6 +1035,12 @@
   <url>
     <loc>https://halfornothing.com/fashion-women-dresses-sandro.html</loc>
     <lastmod>2026-10-12</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://halfornothing.com/fashion-women-dresses-nanette-lepore.html</loc>
+    <lastmod>2026-10-15</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -1069,12 +1081,6 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://halfornothing.com/fashion-women-dresses-aidan.html</loc>
-    <lastmod>2026-10-15</lastmod>
-    <changefreq>hourly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
     <loc>https://halfornothing.com/fashion-women-dresses-misha.html</loc>
     <lastmod>2026-10-15</lastmod>
     <changefreq>hourly</changefreq>
@@ -1093,8 +1099,8 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://halfornothing.com/fashion-women-dresses-retrof-te.html</loc>
-    <lastmod>2026-10-16</lastmod>
+    <loc>https://halfornothing.com/fashion-women-dresses-aidan.html</loc>
+    <lastmod>2026-10-15</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -1111,6 +1117,12 @@
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://halfornothing.com/fashion-women-dresses-retrof-te.html</loc>
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://halfornothing.com/fashion-women-dresses-oleg-cassini.html</loc>
     <lastmod>2026-10-16</lastmod>
     <changefreq>hourly</changefreq>
@@ -1119,12 +1131,6 @@
   <url>
     <loc>https://halfornothing.com/fashion-women-dresses-kensie.html</loc>
     <lastmod>2026-10-16</lastmod>
-    <changefreq>hourly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://halfornothing.com/fashion-women-dresses-kenneth-cole.html</loc>
-    <lastmod>2026-10-15</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -1147,8 +1153,8 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://halfornothing.com/fashion-women-dresses-elie.html</loc>
-    <lastmod>2026-10-16</lastmod>
+    <loc>https://halfornothing.com/fashion-women-dresses-kenneth-cole.html</loc>
+    <lastmod>2026-10-15</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -1165,7 +1171,7 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://halfornothing.com/fashion-women-dresses-susana-monaco.html</loc>
+    <loc>https://halfornothing.com/fashion-women-dresses-elie.html</loc>
     <lastmod>2026-10-16</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.9</priority>
@@ -1177,13 +1183,13 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://halfornothing.com/fashion-women-dresses-proenza.html</loc>
+    <loc>https://halfornothing.com/fashion-women-dresses-susana-monaco.html</loc>
     <lastmod>2026-10-16</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://halfornothing.com/fashion-women-dresses-pascale.html</loc>
+    <loc>https://halfornothing.com/fashion-women-dresses-proenza.html</loc>
     <lastmod>2026-10-16</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.9</priority>
@@ -1213,13 +1219,19 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://halfornothing.com/fashion-women-dresses-draper.html</loc>
+    <loc>https://halfornothing.com/fashion-women-dresses-eileen-fisher.html</loc>
     <lastmod>2026-10-16</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://halfornothing.com/fashion-women-dresses-eileen-fisher.html</loc>
+    <loc>https://halfornothing.com/fashion-women-dresses-pascale.html</loc>
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://halfornothing.com/fashion-women-dresses-draper.html</loc>
     <lastmod>2026-10-16</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.9</priority>
@@ -1233,12 +1245,6 @@
   <url>
     <loc>https://halfornothing.com/fashion-women-dresses-french-connection.html</loc>
     <lastmod>2026-10-10</lastmod>
-    <changefreq>hourly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://halfornothing.com/fashion-women-dresses-linda-charm.html</loc>
-    <lastmod>2026-10-16</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -1257,6 +1263,12 @@
   <url>
     <loc>https://halfornothing.com/fashion-women-dresses-tyler-b-e.html</loc>
     <lastmod>2026-10-15</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://halfornothing.com/fashion-women-dresses-linda-charm.html</loc>
+    <lastmod>2026-10-16</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -1298,13 +1310,13 @@
   </url>
   <url>
     <loc>https://halfornothing.com/fashion-women-dresses-maxi.html</loc>
-    <lastmod>2026-10-14</lastmod>
+    <lastmod>2026-10-16</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://halfornothing.com/fashion-women-dresses-cocktail.html</loc>
-    <lastmod>2026-10-14</lastmod>
+    <lastmod>2026-10-16</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -2012,7 +2024,7 @@
   </url>
   <url>
     <loc>https://halfornothing.com/beauty-fragrances-men-cologne.html</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-16</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.9</priority>
   </url>
