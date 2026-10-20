@@ -2532,3 +2532,14 @@ html[data-theme="dark"] .blog-redesign .featured-image{background:#e8e1d5}
 @media(prefers-color-scheme:dark){
  :root:not([data-theme="light"]) .blog-redesign{--paper:#191a17;--ink:#eeeae2;--muted:#b4afa4;--line:#414139;--panel:#272820;--orange:#ff4f29}
 }
+
+/* Restore the original brand-color header rule on the two redesigned indexes. */
+.home-redesign .home-mast,.blog-redesign .intro{position:relative}
+.blog-redesign .intro{border-bottom:0}
+.home-redesign .home-mast::after,.blog-redesign .intro::after{
+ content:"";position:absolute;left:calc(50% - 50vw);bottom:0;width:100vw;height:3px;
+ background:linear-gradient(90deg,var(--signal),var(--picks) 42%,var(--picks-light) 62%,var(--gate));
+ pointer-events:none;
+}
+
+:root:has(>body.home-redesign),:root:has(>body.blog-redesign){overflow-x:clip}
