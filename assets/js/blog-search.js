@@ -64,6 +64,45 @@
     return true;
   }
 
+  if (document.getElementById("editArchive")) {
+    var topics = document.querySelectorAll("[data-edit-topic]");
+    var more = document.getElementById("editMore");
+    var reset = document.getElementById("editReset");
+    var topic = "all";
+    var limit = 9;
+    function renderEditorial() {
+      var q = input.value.trim().toLowerCase();
+      var words = q ? q.split(/\s+/) : [];
+      var count = 0;
+      candidates.forEach(function (card) {
+        var match = (topic === "all" || card.getAttribute("data-topic") === topic)
+          && matches(card.getAttribute("data-title"), words);
+        card.hidden = !match || count >= limit;
+        if (match) count++;
+      });
+      document.getElementById("editResults").textContent = "Showing " + Math.min(limit, count) + " of " + count + " stories";
+      emptyState.hidden = count > 0;
+      more.hidden = count <= limit;
+      reset.hidden = topic === "all" && !q;
+      topics.forEach(function (button) {
+        var active = button.getAttribute("data-edit-topic") === topic;
+        button.classList.toggle("active", active);
+        button.setAttribute("aria-pressed", String(active));
+      });
+    }
+    topics.forEach(function (button) {
+      button.addEventListener("click", function () {
+        topic = button.getAttribute("data-edit-topic"); limit = 9; renderEditorial();
+      });
+    });
+    input.addEventListener("input", function () { limit = 9; renderEditorial(); });
+    input.form.addEventListener("submit", function (event) { event.preventDefault(); renderEditorial(); });
+    more.addEventListener("click", function () { limit += 9; renderEditorial(); });
+    reset.addEventListener("click", function () { input.value = ""; topic = "all"; limit = 9; renderEditorial(); });
+    renderEditorial();
+    return;
+  }
+
   input.addEventListener("input", function () {
     var q = input.value.trim().toLowerCase();
     var queryWords = q ? q.split(/\s+/) : [];
