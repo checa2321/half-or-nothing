@@ -3571,6 +3571,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://halfornothing.com/foldable.html</loc>
+    <lastmod>2026-10-20</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://halfornothing.com/fossil.html</loc>
     <lastmod>2026-10-20</lastmod>
     <changefreq>hourly</changefreq>
@@ -3740,6 +3746,12 @@
   </url>
   <url>
     <loc>https://halfornothing.com/hugo-boss.html</loc>
+    <lastmod>2026-10-20</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://halfornothing.com/intex.html</loc>
     <lastmod>2026-10-20</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.7</priority>
