@@ -2273,7 +2273,7 @@ body.curator-mode #curator-badge{display:flex}
 
 /* Homepage offer-first / editorial redesign. Scoped to preserve all inner pages. */
 @font-face{font-family:"Home Display";src:url("/assets/fonts/big-shoulders-display-var-latin.woff2") format("woff2");font-display:swap;font-weight:100 900}
-.home-redesign{--home-paper:#faf8f4;--home-panel:#efe9dc;background:var(--home-paper)}
+.home-redesign{--home-paper:#faf8f4;--home-panel:#efe9dc;background:var(--home-paper);overflow-x:clip}
 .home-redesign .home-mast{padding-top:30px}
 .home-redesign .home-hero{display:grid;grid-template-columns:1fr 1fr;gap:35px;background:var(--home-panel);padding:38px 42px;align-items:center}
 .home-redesign .home-eyebrow{font:600 10px/1.6 var(--display);letter-spacing:.15em;text-transform:uppercase;color:var(--muted)}
