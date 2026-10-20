@@ -2528,3 +2528,7 @@ html[data-theme="dark"] .blog-redesign .featured-image{background:#e8e1d5}
  .blog-redesign .topnav #navBtn{width:36px;height:36px}
  .blog-redesign .topnav .theme-toggle{width:34px;height:34px}
 }
+
+@media(prefers-color-scheme:dark){
+ :root:not([data-theme="light"]) .blog-redesign{--paper:#191a17;--ink:#eeeae2;--muted:#b4afa4;--line:#414139;--panel:#272820;--orange:#ff4f29}
+}
