@@ -2534,12 +2534,18 @@ html[data-theme="dark"] .blog-redesign .featured-image{background:#e8e1d5}
 }
 
 /* Restore the original brand-color header rule on the two redesigned indexes. */
-.home-redesign .home-mast,.blog-redesign .intro{position:relative}
+.blog-redesign .intro{position:relative}
 .blog-redesign .intro{border-bottom:0}
-.home-redesign .home-mast::after,.blog-redesign .intro::after{
+.blog-redesign .intro::after{
  content:"";position:absolute;left:calc(50% - 50vw);bottom:0;width:100vw;height:3px;
  background:linear-gradient(90deg,var(--signal),var(--picks) 42%,var(--picks-light) 62%,var(--gate));
  pointer-events:none;
 }
 
 :root:has(>body.home-redesign),:root:has(>body.blog-redesign){overflow-x:clip}
+
+/* Editorial signature: a restrained color rule under the homepage headline. */
+.home-redesign .home-seo::before{
+ content:"";display:block;width:clamp(120px,18vw,210px);height:3px;margin-bottom:16px;
+ background:linear-gradient(90deg,var(--signal),var(--picks) 42%,var(--picks-light) 62%,var(--gate));
+}
