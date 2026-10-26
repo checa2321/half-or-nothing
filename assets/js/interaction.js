@@ -151,9 +151,25 @@
   // in-page search over its separate catalogue.
   var SEARCH_URL = '/search.html';
   var onSearchPage = location.pathname === SEARCH_URL;
-  var onPicksPage = !!document.getElementById('picksCatPanel');
+  var onPicksPage = location.pathname === '/amazon-picks.html';
   var searchGoesToPage = !onSearchPage && !onPicksPage;
   function goSearch(q){ location.href = SEARCH_URL + '?q=' + encodeURIComponent(q); }
+  // Brand pages, /d/ pick pages and the blog index ship without a nav search
+  // box; give every page with a top nav the same one so search works the same
+  // everywhere (plain GET form -> the submit handler below).
+  (function(){
+    var inner = document.querySelector('.topnav .inner');
+    if (!inner || inner.querySelector('.herosearch')) return;
+    var f = document.createElement('form');
+    f.className = 'herosearch';
+    f.setAttribute('role', 'search');
+    f.action = SEARCH_URL;
+    f.method = 'get';
+    f.innerHTML = "<svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' aria-hidden='true'><circle cx='11' cy='11' r='7'></circle><line x1='21' y1='21' x2='16.65' y2='16.65'></line></svg>"
+      + "<input type='search' name='q' aria-label='Search deals' placeholder='Search deals\u2026' autocomplete='off'>";
+    var logo = inner.querySelector('.logo');
+    inner.insertBefore(f, logo ? logo.nextSibling : inner.firstChild);
+  })();
   document.addEventListener('submit', function(e){
     var f = e.target;
     if (!searchGoesToPage || !f || !f.classList || !f.classList.contains('herosearch')) return;
@@ -939,6 +955,28 @@
     relaxedScore = null;
     return {cards: all, note: 'We don’t have anything for “' + state.search.join(' ') + '” yet — here are today’s best deals.'};
   }
+  // Amazon Picks live in their own catalogue (picks-search.json is titles only),
+  // so on the results page point to them when any title matches every word.
+  var picksLinkEl = null;
+  function showPicksLink(){
+    if (!onSearchPage || !state.search.length) return;
+    var words = state.search.slice();
+    loadPicksIndex().then(function(list){
+      var n = list.filter(function(t){
+        var tl = t.toLowerCase();
+        return words.every(function(w){ return tl.indexOf(w) !== -1; });
+      }).length;
+      if (!picksLinkEl && grid && grid.parentNode) {
+        picksLinkEl = document.createElement('div');
+        picksLinkEl.style.cssText = 'margin:0 0 12px;font-size:14px';
+        grid.parentNode.insertBefore(picksLinkEl, grid);
+      }
+      if (!picksLinkEl) return;
+      picksLinkEl.innerHTML = n
+        ? "<a href='/amazon-picks.html?q=" + encodeURIComponent(words.join(' ')) + "'>" + n + ' Amazon Pick' + (n === 1 ? '' : 's') + ' match \u201c' + esc(words.join(' ')) + '\u201d \u2192</a>'
+        : '';
+    });
+  }
   function loadConceptFeeds(){
     if (!state.search.length || !searchNoteEl || searchNoteEl.style.display === 'none') return;
     var cats = conceptFor(contentWords()).cats;
@@ -1139,8 +1177,14 @@
     function(text){
       state.search = text.toLowerCase().split(/\s+/).filter(Boolean);
       state.page = 1;
+      if (onSearchPage && history.replaceState) {
+        history.replaceState(null, '', SEARCH_URL + (text.trim() ? '?q=' + encodeURIComponent(text.trim()) : ''));
+        var h = document.getElementById('searchTitle');
+        if (h) h.textContent = text.trim() ? 'Results for \u201c' + text.trim() + '\u201d' : 'Search deals';
+      }
       render();
       loadConceptFeeds();
+      showPicksLink();
     },
     true
   );
@@ -1332,6 +1376,7 @@
     applyQueryParam();
     render();
     loadConceptFeeds();
+    showPicksLink();
   }
 
   // ---- the rest of the catalogue, from deals.json ----
