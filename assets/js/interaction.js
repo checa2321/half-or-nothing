@@ -145,6 +145,24 @@
 
   var grid = document.querySelector('.grid');
 
+  // Amazon/eBay-style search: typing only suggests, Enter (or picking a
+  // suggestion) goes to /search.html?q=... which shows results. Exceptions:
+  // that page itself filters in place, and the Amazon Picks page keeps its own
+  // in-page search over its separate catalogue.
+  var SEARCH_URL = '/search.html';
+  var onSearchPage = location.pathname === SEARCH_URL;
+  var onPicksPage = !!document.getElementById('picksCatPanel');
+  var searchGoesToPage = !onSearchPage && !onPicksPage;
+  function goSearch(q){ location.href = SEARCH_URL + '?q=' + encodeURIComponent(q); }
+  document.addEventListener('submit', function(e){
+    var f = e.target;
+    if (!searchGoesToPage || !f || !f.classList || !f.classList.contains('herosearch')) return;
+    var inp = f.querySelector('input[type=search]');
+    e.preventDefault();
+    var q = inp ? inp.value.trim() : '';
+    if (q) goSearch(q);
+  });
+
   // ---- top-nav Categories mega menu (all pages) ----
   var megaBtn = document.getElementById('megaBtn');
   var megaPanel = document.getElementById('megaPanel');
@@ -272,6 +290,7 @@
       }
       input.value = it.title;
       close();
+      if (searchGoesToPage) { goSearch(it.title); return; }
       onSelect(it.title);
     }
 
@@ -284,7 +303,7 @@
       clearTimeout(debounce);
       debounce = setTimeout(function(){
         var v = input.value.trim();
-        onSelect(v);
+        if (!searchGoesToPage) onSelect(v);
         render(v.toLowerCase());
       }, 150);
     });
@@ -863,7 +882,7 @@
     }
     if (!searchNoteEl) return;
     searchNoteEl.textContent = msg || '';
-    searchNoteEl.style.display = msg ? '' : 'none';
+    searchNoteEl.style.display = msg ? 'block' : 'none';
   }
   // Which categories/words does this query point at? Manual concepts first,
   // then any category/subcategory label in the filter panel (self-updating).
@@ -1303,6 +1322,8 @@
     if (!q || !searchEl) return false;
     searchEl.value = q;
     state.search = q.trim().toLowerCase().split(/\s+/).filter(Boolean);
+    var h = document.getElementById('searchTitle');
+    if (h) h.textContent = 'Results for \u201c' + q.trim() + '\u201d';
     return true;
   }
 
