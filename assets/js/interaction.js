@@ -852,40 +852,29 @@
   // finds nothing, relaxedSearch() widens it: [query regex, title words to
   // OR-match, category filter values (same cat / cat:sub values as the panel)].
   // Whatever it shows, the page says it is a related result, never an exact one.
-  var CONCEPTS = [
-    [/christmas|xmas|holiday|santa|advent|nativity|wreath|stocking|festive/, ['christmas','xmas','holiday','santa','ornament','wreath','snowman','elf','nutcracker','festive'], ['home:decor','home:party_supplies','home:lighting']],
-    [/halloween|spooky|pumpkin|costume/, ['halloween','pumpkin','skull','witch','costume','spooky'], ['home:party_supplies','home:decor']],
-    [/decor|decorat|ornament|furnish|living room|bedroom|apartment|dorm|wall|vase|candle|frame|mirror|rug|curtain|pillow|cozy/, ['decor','vase','candle','wall','frame','mirror','rug','curtain','pillow','lamp','art','figurine','statue','tapestry','shelf','basket'], ['home:decor','home:lighting','home:furniture','home:bedding']],
-    [/house|kitchen|cook|dining|appliance|pantry|bake/, ['kitchen','cook','pan','pot','knife','dish','plate','cup','mug','blender','air fryer'], ['home']],
-    [/furniture|sofa|couch|chair|table|desk|bed frame|shelf|cabinet/, ['sofa','couch','chair','table','desk','cabinet','shelf','stool'], ['home:furniture','office:furniture']],
-    [/bed|sheet|blanket|comforter|towel|bath|shower/, ['bed','sheet','blanket','comforter','towel','bath','shower'], ['home:bedding','home:bath']],
-    [/garden|yard|patio|lawn|plant|pool|backyard|grill/, ['garden','yard','patio','lawn','plant','pool','grill','planter'], ['home:yard_garden','home:pools']],
-    [/light|lamp|led|bulb/, ['light','lamp','led','bulb','lantern'], ['home:lighting']],
-    [/clean|vacuum|mop|laundry/, ['clean','vacuum','mop','wash','laundry'], ['home:cleaning']],
-    [/gift|present|mom|dad|mother|father|wife|husband|girlfriend|boyfriend|friend|teacher|grandma|grandpa|birthday|anniversary|mother|father|valentine|wedding|bride|stocking stuffer/, ['gift','set','charm','necklace','bracelet','earring','perfume','candle'], ['jewelry','beauty:fragrance_women','home:decor']],
-    [/cloth|outfit|wear|fashion|dress|shirt|top|blouse|jeans|pants|sweater|hoodie|skirt|apparel/, ['dress','shirt','top','pants','jeans','sweater','hoodie','skirt','jacket','coat','blouse'], ['fashion']],
-    [/jacket|coat|winter|cold|snow|warm|boots|gloves|scarf|beanie/, ['jacket','coat','parka','boot','glove','scarf','beanie','fleece','thermal'], ['fashion','outdoor:winter']],
-    [/shoe|sneaker|boot|sandal|heel|footwear|kicks/, ['shoe','sneaker','boot','sandal','heel','loafer','slipper'], ['fashion:sneakers','fashion']],
-    [/bag|purse|handbag|backpack|wallet|accessor/, ['bag','purse','handbag','backpack','wallet','belt','tote'], ['fashion','travel:luggage']],
-    [/sunglass|glasses|shades|eyewear/, ['sunglass','glasses','eyewear','frame'], ['fashion:sunglasses','beauty:eyewear']],
-    [/jewel|ring|necklace|bracelet|earring|diamond|gold|silver|pendant|chain/, ['ring','necklace','bracelet','earring','pendant','chain','gold','silver'], ['jewelry']],
-    [/watch|clock|timepiece/, ['watch','band','strap'], ['watches']],
-    [/makeup|beauty|cosmetic|skin|lipstick|mascara|face|hair|nail|salon|shampoo|lotion/, ['makeup','lipstick','mascara','serum','cream','lotion','hair','nail','shampoo','palette'], ['beauty']],
-    [/perfume|cologne|fragrance|scent|smell/, ['perfume','cologne','parfum','eau de','fragrance','spray'], ['beauty:fragrance_women','beauty:fragrance_men','beauty:fragrance_unisex']],
-    [/health|vitamin|supplement|wellness|massage|medical/, ['vitamin','supplement','massage','probiotic','protein','collagen'], ['beauty:supplements','beauty:health_care','beauty:massage']],
-    [/toy|kid|child|baby|infant|nursery|stroller|play|lego|doll|game/, ['toy','kid','baby','doll','lego','plush','stroller','crib','puzzle'], ['kids']],
-    [/pet|dog|puppy|cat|kitten|fish|bird|aquarium/, ['dog','cat','pet','puppy','kitten','bird','aquarium','leash','collar'], ['pets']],
-    [/electronic|tech|gadget|computer|laptop|tablet|phone|charger|cable|camera|tv|speaker|headphone|earbud|console|gaming/, ['phone','laptop','tablet','charger','cable','camera','tv','speaker','headphone','earbud','console','gaming','usb','bluetooth'], ['electronics']],
-    [/tool|drill|wrench|hardware|diy|repair|garage/, ['tool','drill','wrench','saw','plier','screwdriver','socket'], ['tools_auto:tools','home:home_improvement']],
-    [/car|auto|truck|motorcycle|vehicle|tire|engine/, ['car','auto','truck','motorcycle','tire','engine','brake','wiper'], ['tools_auto:car_parts','electronics:car_electronics']],
-    [/sport|gym|fitness|workout|exercise|yoga|run|golf|bike|bicycle|cycling|camp|hik|fish|hunt|outdoor/, ['fitness','yoga','golf','bike','camp','tent','hiking','dumbbell','weights','sport'], ['outdoor']],
-    [/office|school|desk|stationery|pen|notebook|supplies/, ['pen','notebook','desk','paper','printer','binder','folder'], ['office']],
-    [/book|read|novel|magazine|comic|movie|dvd|music|vinyl|cd/, ['book','novel','magazine','comic','dvd','blu-ray','vinyl','cd'], ['media']],
-    [/guitar|piano|keyboard|drum|instrument|dj|amp|audio|microphone/, ['guitar','piano','keyboard','drum','amp','microphone','mixer'], ['music_gear']],
-    [/art|craft|collect|vintage|antique|coin|stamp|card|memorabilia|retro/, ['vintage','antique','coin','stamp','card','art','craft','collectible'], ['collectibles']],
-    [/party|birthday party|balloon|confetti|banner/, ['party','balloon','banner','confetti','tableware'], ['home:party_supplies']],
-    [/travel|luggage|suitcase|trip|vacation/, ['luggage','suitcase','travel','passport','carry'], ['travel']]
-  ];
+  // Shopper vocabulary per category / subcategory lives in /search-concepts.json
+  // ({"home:decor": ["decorations", "christmas tree", ...], "home": [...]}),
+  // fetched on first need. Edit that file to teach the search new words.
+  var conceptIndex = null, conceptLoading = false;
+  function loadConceptIndex(){
+    if (conceptIndex || conceptLoading || !window.fetch) return;
+    conceptLoading = true;
+    fetch('/search-concepts.json').then(function(r){ return r.ok ? r.json() : {}; })
+      .catch(function(){ return {}; })
+      .then(function(raw){
+        conceptIndex = Object.keys(raw).map(function(k){
+          return {key: k, phrases: raw[k].map(function(ph){
+            return ph.split(/\s+/).map(stemWord).filter(function(w){ return !STOP[w]; });
+          }).filter(function(p){ return p.length; })};
+        });
+        render();
+        loadConceptFeeds();
+      });
+  }
+  // Same stem, or one a prefix of the other (>=5 chars): decoration / decorations / decorate.
+  function sameStem(a, b){
+    return a === b || (a.length >= 5 && b.length >= 5 && (a.indexOf(b) === 0 || b.indexOf(a) === 0));
+  }
   function stemWord(w){ return w.replace(/ies$/, 'y').replace(/([^s])s$/, '$1'); }
   var searchNoteEl = null;
   function showSearchNote(msg){
@@ -900,24 +889,27 @@
     searchNoteEl.textContent = msg || '';
     searchNoteEl.style.display = msg ? 'block' : 'none';
   }
-  // Which categories/words does this query point at? Manual concepts first,
-  // then any category/subcategory label in the filter panel (self-updating).
+  // Which categories does this query point at? Each phrase whose words are all
+  // in the query adds its word count to that category's score; keep the best.
   function conceptFor(words){
-    var q = words.join(' ');
-    var terms = [], cats = [];
-    CONCEPTS.forEach(function(c){
-      if (c[0].test(q)) { terms = terms.concat(c[1]); cats = cats.concat(c[2]); }
-    });
-    if (catPanel) {
-      Array.prototype.forEach.call(catPanel.querySelectorAll('input[type=checkbox]'), function(b){
-        var lab = (b.parentNode && b.parentNode.textContent || '').toLowerCase();
-        words.forEach(function(w){
-          var s = stemWord(w);
-          if (s.length >= 4 && new RegExp('\\b' + reEsc(s)).test(lab) && cats.indexOf(b.value) === -1) cats.push(b.value);
-        });
+    if (!conceptIndex) return {terms: [], cats: []};
+    var q = words.map(stemWord);
+    var scored = [], max = 0;
+    conceptIndex.forEach(function(e){
+      var sc = 0;
+      e.phrases.forEach(function(p){
+        if (p.every(function(w){ return q.some(function(x){ return sameStem(x, w); }); })) sc += p.length;
       });
-    }
-    return {terms: terms, cats: cats};
+      if (sc) { scored.push([e.key, sc]); if (sc > max) max = sc; }
+    });
+    var cats = scored.filter(function(x){ return x[1] >= max * 0.5; }).map(function(x){ return x[0]; });
+    // Empty subcategory (no party supplies in stock)? Its parent category still
+    // beats loose title-word hits like "balloon sleeve" dresses.
+    cats.slice().forEach(function(k){
+      var parent = k.split(':')[0];
+      if (cats.indexOf(parent) === -1) cats.push(parent);
+    });
+    return {terms: [], cats: cats};
   }
   // 3 for a subcategory hit, 1 for a whole-category hit: "home decorations"
   // must put Decor ahead of every other Home item, not tie with them.
@@ -940,6 +932,7 @@
   function relaxedSearch(){
     var words = contentWords();
     var stems = words.map(stemWord).filter(function(s){ return s.length >= 3; });
+    loadConceptIndex();
     var cpt = conceptFor(words);
     var scored = [], scores = new Map();
     allCards.forEach(function(card){
@@ -947,7 +940,7 @@
       var title = card.getAttribute('data-title') || '', s = 0;
       if (cpt.cats.length) s += catScore(card, cpt.cats);
       cpt.terms.forEach(function(t){ if (title.indexOf(t) !== -1) s += 2; });
-      stems.forEach(function(t){ if (title.indexOf(t) !== -1) s += 1; });
+      stems.forEach(function(t){ if (title.indexOf(t) !== -1) s += cpt.cats.length ? 0.5 : 1; });
       if (s) { scored.push(card); scores.set(card, s); }
     });
     if (scored.length) { relaxedScore = scores; return {cards: scored, note: 'No exact matches for “' + state.search.join(' ') + '” — showing related deals.'}; }
