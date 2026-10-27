@@ -1029,7 +1029,7 @@
     relaxedScore = null;
     if (state.search.length && (!filtered.length || (filtered.length < 5 && conceptFor(contentWords()).cats.length))) {
       var rx = relaxedSearch(filtered);
-      if (rx.cards.length) { filtered = rx.cards; note = rx.note; }
+      if (rx.cards.length || !filtered.length) { filtered = rx.cards; note = rx.note; }
     }
     showSearchNote(note);
 
