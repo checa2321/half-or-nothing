@@ -929,7 +929,7 @@
   // -> {cards, note}. Scores: category match 3, concept word in title 2,
   // raw query word in title 1; relevance sorts first (see sortCompare use).
   var relaxedScore = null;
-  function relaxedSearch(){
+  function relaxedSearch(literal){
     var words = contentWords();
     var stems = words.map(stemWord).filter(function(s){ return s.length >= 3; });
     loadConceptIndex();
@@ -941,9 +941,20 @@
       if (cpt.cats.length) s += catScore(card, cpt.cats);
       cpt.terms.forEach(function(t){ if (title.indexOf(t) !== -1) s += 2; });
       stems.forEach(function(t){ if (title.indexOf(t) !== -1) s += cpt.cats.length ? 0.5 : 1; });
+      if (literal && literal.indexOf(card) !== -1) s += 4;
+      // Concept recognised: a bare title-word hit ("bed" in "under bed storage") is noise.
+      if (cpt.cats.length && s < 3 && !(literal && literal.indexOf(card) !== -1)) s = 0;
       if (s) { scored.push(card); scores.set(card, s); }
     });
-    if (scored.length) { relaxedScore = scores; return {cards: scored, note: 'No exact matches for “' + state.search.join(' ') + '” — showing related deals.'}; }
+    if (!scored.length && cpt.cats.length) {
+      allCards.forEach(function(card){
+        if (!matches(card, true)) return;
+        var title = card.getAttribute('data-title') || '', s = 0;
+        stems.forEach(function(t){ if (title.indexOf(t) !== -1) s += 1; });
+        if (s) { scored.push(card); scores.set(card, s); }
+      });
+    }
+    if (scored.length) { relaxedScore = scores; return {cards: scored, note: (literal && literal.length ? 'Few exact matches for “' : 'No exact matches for “') + state.search.join(' ') + '” — showing related deals.'}; }
     var all = allCards.filter(function(c){ return matches(c, true); });
     relaxedScore = null;
     return {cards: all, note: 'We don’t have anything for “' + state.search.join(' ') + '” yet — here are today’s best deals.'};
@@ -1016,9 +1027,9 @@
     // leaving a dead end (see CONCEPTS above).
     var note = '';
     relaxedScore = null;
-    if (!filtered.length && state.search.length) {
-      var rx = relaxedSearch();
-      filtered = rx.cards; note = rx.note;
+    if (state.search.length && (!filtered.length || (filtered.length < 5 && conceptFor(contentWords()).cats.length))) {
+      var rx = relaxedSearch(filtered);
+      if (rx.cards.length) { filtered = rx.cards; note = rx.note; }
     }
     showSearchNote(note);
 
