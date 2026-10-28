@@ -2697,3 +2697,26 @@ html[data-theme="dark"] .blog-redesign .featured-image{background:#e8e1d5}
 @media(max-width:700px){.prose.lay-mag.lay .bs-group .bs-book:first-child{grid-template-columns:minmax(0,1fr)}.prose.lay-mag.lay .bs-group .bs-book:first-child .bs-cover img{width:100%;height:auto}}
 .blog-related .blog-card-cover img{object-fit:contain}
 .blog-related .blog-card-compact:hover .blog-card-cover img,.blog-related .blog-card-compact:active .blog-card-cover img{transform:none}
+
+/* Prada editorial presentation. */
+
+.prose.lay-mag.lay.prada-editorial .mg-head{grid-template-columns:minmax(0,1fr);align-items:start;gap:0;background:var(--mg-paper)}
+.prose.lay-mag.lay.prada-editorial .mg-head-copy{padding:clamp(32px,5vw,64px);gap:24px}
+.prose.lay-mag.lay.prada-editorial .mg-head h1,.prose.lay-mag.lay.prada-editorial .mg-head.mg-long h1{font-size:clamp(2.6rem,4.2vw,4rem);line-height:1.06;max-width:24ch}
+.prose.lay-mag.lay.prada-editorial .mg-head-img{padding:0 40px 40px;max-height:none}
+.prose.lay-mag.lay.prada-editorial .mg-head-img img{width:100%;height:auto;object-fit:contain}
+.prose.lay-mag.lay.prada-editorial .mg-stats{grid-template-columns:repeat(auto-fit,minmax(120px,1fr))}
+.prose.lay-mag.lay.prada-editorial>h2{font-size:clamp(2rem,4vw,3.1rem);margin-top:72px;padding-top:24px}
+.prose.lay-mag.lay.prada-editorial .mg-feature{background:var(--mg-plate);margin:36px 0 60px}
+.prose.lay-mag.lay.prada-editorial .mg-feature .mg-body{padding:clamp(28px,4vw,56px)}
+.prose.lay-mag.lay.prada-editorial .mg-track,.prose.lay-mag.lay.prada-editorial .mg-track:has(> .mg-card:nth-child(2):last-child){display:flex;gap:24px;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 0 16px;scrollbar-width:thin}
+.prose.lay-mag.lay.prada-editorial .mg-track .mg-card,.prose.lay-mag.lay.prada-editorial .mg-track:has(> .mg-card:nth-child(2):last-child) .mg-card{flex:0 0 55%;min-width:0;scroll-snap-align:start}
+.prose.lay-mag.lay.prada-editorial .mg-nav:not([hidden]){display:flex;justify-content:flex-end;gap:8px}
+.prose.lay-mag.lay.prada-editorial .mg-nav button{width:44px;height:44px}
+.prose.lay-mag.lay.prada-editorial .mg-track .mg-photo,.prose.lay-mag.lay.prada-editorial .mg-track:has(> .mg-card:nth-child(2):last-child) .mg-photo{aspect-ratio:1/1}
+.prose.lay-mag.lay.prada-editorial .mg-track .mg-photo img{object-fit:contain}
+.prose.lay-mag.lay.prada-editorial .mag-faq{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 48px;margin:24px 0 56px}
+.prose.lay-mag.lay.prada-editorial .mag-faq article{border-top:1px solid var(--mg-line);padding:24px 0}
+.prose.lay-mag.lay.prada-editorial .mag-faq h3{font-family:var(--mg-serif);font-size:1.45rem;line-height:1.25;margin:0 0 12px}
+.prose.lay-mag.lay.prada-editorial .mag-faq p{font-size:.95rem;line-height:1.7;margin:0}
+@media(max-width:700px){.prose.lay-mag.lay.prada-editorial .mg-head{grid-template-columns:1fr}.prose.lay-mag.lay.prada-editorial .mg-head-copy{padding:30px 24px 24px}.prose.lay-mag.lay.prada-editorial .mg-head h1,.prose.lay-mag.lay.prada-editorial .mg-head.mg-long h1{font-size:clamp(2.5rem,9vw,3.4rem);max-width:none}.prose.lay-mag.lay.prada-editorial .mg-head-img{padding:0 24px 24px;order:0}.prose.lay-mag.lay.prada-editorial .mg-track .mg-card,.prose.lay-mag.lay.prada-editorial .mg-track:has(> .mg-card:nth-child(2):last-child) .mg-card{flex-basis:86%}.prose.lay-mag.lay.prada-editorial .mag-faq{grid-template-columns:1fr}}
