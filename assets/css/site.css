@@ -2171,7 +2171,7 @@ body.curator-mode #curator-badge{display:flex}
 .prose.lay-editorial p{font-size:1.06rem;line-height:1.78}
 .prose.lay-editorial .post-hero img{width:100%;height:auto;border-radius:0}
 .prose.lay-editorial .bs-book{grid-template-columns:240px minmax(0,1fr)}
-.prose.lay-editorial .bs-item .bs-cover img{aspect-ratio:3/4;object-fit:cover}
+.prose.lay-editorial .bs-item .bs-cover img{aspect-ratio:3/4;object-fit:contain;background:#fff;padding:8px;box-sizing:border-box}
 
 .prose.lay-guide{max-width:66ch;counter-reset:lg}
 .prose.lay-guide p,.prose.lay-guide li{line-height:1.75}
@@ -2210,7 +2210,7 @@ body.curator-mode #curator-badge{display:flex}
 /* editorial: rail of 3:4 cards */
 .prose.lay-editorial .bs-group{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:22px;padding-top:20px}
 .prose.lay-editorial .bs-group .bs-book{display:block;border:0;padding:0;margin:0}
-.prose.lay-editorial .bs-group .bs-cover img{position:static;width:100%;aspect-ratio:3/4;object-fit:cover}
+.prose.lay-editorial .bs-group .bs-cover img{position:static;width:100%;aspect-ratio:3/4;object-fit:contain;background:#fff;padding:8px;box-sizing:border-box}
 .prose.lay-editorial .bs-group .bs-info{padding-top:8px;font-size:.93rem}
 .prose.lay-editorial .bs-group .bs-info p{margin:0 0 6px}
 /* trends: mosaic */
