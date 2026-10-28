@@ -2549,3 +2549,17 @@ html[data-theme="dark"] .blog-redesign .featured-image{background:#e8e1d5}
  content:"";display:block;width:clamp(120px,18vw,210px);height:3px;margin-bottom:16px;
  background:linear-gradient(90deg,var(--signal),var(--picks) 42%,var(--picks-light) 62%,var(--gate));
 }
+
+/* cards: grid -> Lasso cards side by side (blog.py _group_lasso_cards): photo on top, title, price, button, then the author's line. */
+.prose .lasso-group{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:22px;margin:18px 0 30px;align-items:start}
+.prose .lasso-cell{min-width:0}
+.prose .lasso-cell>p{font-size:.93rem;line-height:1.6;margin:8px 4px 0}
+.prose .lasso-cell .picks-page-grid-lasso{grid-template-columns:minmax(0,1fr)!important;margin:0!important;max-width:100%!important;width:100%}
+.prose .lasso-cell .pick-lasso{width:100%!important;max-width:100%!important;min-width:0!important;flex:none!important;box-sizing:border-box;padding:10px!important}
+.prose .lasso-cell .pick-lasso-cat{display:none}
+.prose .lasso-cell .lasso-embed,.prose .lasso-cell .embed-lasso-container{width:100%!important;max-width:100%!important;min-width:0!important;box-sizing:border-box}
+.prose .lasso-cell .picks-page-grid-lasso:not(.picks-lasso-rail) .pick-lasso .embed-lasso-display{display:flex!important;flex-direction:column!important;align-items:center;grid-template-columns:none!important;grid-template-areas:none!important;width:100%!important;max-width:100%!important;gap:8px;padding:0!important;text-align:center}
+.prose .lasso-cell [class*="embed-lasso-box-"],.prose .lasso-cell [class*="embed-lasso-button-"]{width:100%!important;max-width:100%!important;min-width:0!important;box-sizing:border-box;grid-area:auto!important;order:0}
+.prose .lasso-cell a.embed-lasso-image{display:flex!important;justify-content:center;width:100%!important}
+.prose .lasso-cell .picks-page-grid-lasso:not(.picks-lasso-rail) .pick-lasso .embed-lasso-image-no-lazy,.prose .lasso-cell .lasso-embed img{display:block!important;width:auto!important;max-width:100%!important;height:220px!important;object-fit:contain!important}
+@media (max-width:560px){.prose .lasso-group{grid-template-columns:1fr}}
