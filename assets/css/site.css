@@ -2747,3 +2747,22 @@ html[data-theme="dark"] .blog-redesign .featured-image{background:#e8e1d5}
 .prose.lay-mag.lay.magazine-v2.perfume-editorial .perfume-yara .compare-card img{position:static;max-width:180px;width:100%;height:auto;object-fit:contain}
 @media(max-width:700px){.prose.lay-mag.lay.magazine-v2.perfume-editorial .perfume-grid{grid-template-columns:minmax(0,1fr);gap:24px}.prose.lay-mag.lay.magazine-v2.perfume-editorial .perfume-card>.bs-info,.prose.lay-mag.lay.magazine-v2.perfume-editorial .perfume-info{padding:24px}}
 .prose.lay-mag.lay.magazine-v2.perfume-editorial .perfume-card>.bs-cover{position:static;align-self:stretch}
+
+/* Creators API pick card (source == "creators_api", html_output._api_card_html).
+   Same frame as .pick-lasso; photo pinned at 120px like .thumb. Price and
+   photo come straight from Amazon's API, date-stamped per the API licence. */
+.pick-api .api-card{position:relative;z-index:1;padding-top:22px;display:grid;grid-template-columns:120px 1fr;
+            grid-template-areas:"img main" "date date";gap:8px 14px;align-items:start}
+.pick-api .api-img{grid-area:img;display:block;width:120px;height:120px}
+.pick-api .api-img img{width:120px;height:120px;object-fit:contain;border-radius:var(--r-sm);background:#fff}
+.pick-api .api-main{grid-area:main;min-width:0;display:flex;flex-direction:column;gap:6px}
+.pick-api .api-title{font-size:14px;line-height:1.4;font-weight:600;color:inherit;text-decoration:none;
+            display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+.pick-api .api-price{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;font-size:13px}
+.pick-api .api-price b{font-size:20px;font-weight:800;color:var(--signal)}
+.pick-api .api-price s{color:var(--muted)}
+.pick-api .api-pct{font:700 11px/1 var(--mono);color:#fff;background:var(--signal);border-radius:999px;padding:4px 8px}
+.pick-api .api-btn{align-self:flex-start;padding:9px 14px;font-size:12px;font-weight:700;text-decoration:none;
+            border-radius:var(--r-sm);background:var(--signal);color:#fff}
+.pick-api .api-date{grid-area:date;font-size:10.5px;color:var(--muted)}
+.pick-api .api-coupon{font:600 11px/1.3 var(--mono);color:var(--gate);border:1px solid var(--gate);border-radius:10px;padding:3px 8px}
