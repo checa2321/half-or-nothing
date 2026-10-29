@@ -55,12 +55,6 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://halfornothing.com/pets.html</loc>
-    <lastmod>2026-10-29</lastmod>
-    <changefreq>hourly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
     <loc>https://halfornothing.com/jewelry-watches.html</loc>
     <lastmod>2026-09-20</lastmod>
     <changefreq>hourly</changefreq>
@@ -229,6 +223,12 @@
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://halfornothing.com/home-home-improvement.html</loc>
+    <lastmod>2026-10-29</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://halfornothing.com/collectibles-fan-gear.html</loc>
     <lastmod>2026-10-28</lastmod>
     <changefreq>hourly</changefreq>
@@ -272,7 +272,7 @@
   </url>
   <url>
     <loc>https://halfornothing.com/auto-manuals.html</loc>
-    <lastmod>2026-10-28</lastmod>
+    <lastmod>2026-10-29</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -363,12 +363,6 @@
   <url>
     <loc>https://halfornothing.com/outdoor-hunting.html</loc>
     <lastmod>2026-10-28</lastmod>
-    <changefreq>hourly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://halfornothing.com/pets-dog-supplies.html</loc>
-    <lastmod>2026-10-29</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -667,14 +661,14 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://halfornothing.com/watches-invicta.html</loc>
-    <lastmod>2026-10-29</lastmod>
+    <loc>https://halfornothing.com/watches-seiko.html</loc>
+    <lastmod>2026-10-27</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://halfornothing.com/watches-seiko.html</loc>
-    <lastmod>2026-10-27</lastmod>
+    <loc>https://halfornothing.com/watches-invicta.html</loc>
+    <lastmod>2026-10-29</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -692,19 +686,19 @@
   </url>
   <url>
     <loc>https://halfornothing.com/watches-movado.html</loc>
-    <lastmod>2026-10-28</lastmod>
-    <changefreq>hourly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://halfornothing.com/watches-tissot.html</loc>
-    <lastmod>2026-10-28</lastmod>
+    <lastmod>2026-10-29</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://halfornothing.com/watches-guess.html</loc>
     <lastmod>2026-10-27</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://halfornothing.com/watches-tissot.html</loc>
+    <lastmod>2026-10-29</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -877,14 +871,14 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://halfornothing.com/fashion-women-dresses-anne-klein.html</loc>
-    <lastmod>2026-10-23</lastmod>
+    <loc>https://halfornothing.com/fashion-women-dresses-halston.html</loc>
+    <lastmod>2026-10-24</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://halfornothing.com/fashion-women-dresses-halston.html</loc>
-    <lastmod>2026-10-24</lastmod>
+    <loc>https://halfornothing.com/fashion-women-dresses-anne-klein.html</loc>
+    <lastmod>2026-10-23</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -2372,7 +2366,7 @@
   </url>
   <url>
     <loc>https://halfornothing.com/fashion-sunglasses-prada.html</loc>
-    <lastmod>2026-10-28</lastmod>
+    <lastmod>2026-10-29</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -2425,6 +2419,12 @@
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://halfornothing.com/fashion-sunglasses-dior.html</loc>
+    <lastmod>2026-10-29</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://halfornothing.com/fashion-sunglasses-betsey-johnson.html</loc>
     <lastmod>2026-09-20</lastmod>
     <changefreq>hourly</changefreq>
@@ -2433,12 +2433,6 @@
   <url>
     <loc>https://halfornothing.com/fashion-sunglasses-garrett-leight.html</loc>
     <lastmod>2026-10-17</lastmod>
-    <changefreq>hourly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://halfornothing.com/fashion-sunglasses-dior.html</loc>
-    <lastmod>2026-10-29</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.9</priority>
   </url>
