@@ -2766,3 +2766,32 @@ html[data-theme="dark"] .blog-redesign .featured-image{background:#e8e1d5}
             border-radius:var(--r-sm);background:var(--signal);color:#fff}
 .pick-api .api-date{grid-area:date;font-size:10.5px;color:var(--muted)}
 .pick-api .api-coupon{font:600 11px/1.3 var(--mono);color:var(--gate);border:1px solid var(--gate);border-radius:10px;padding:3px 8px}
+
+/* Perfume reference: measured scene bands, aligned purchase panels and watch lists. */
+.prose.lay-mag.lay.magazine-v2.perfume-editorial .perfume-scene{padding:27px 0 28px!important;background:var(--mg-paper)}
+.prose.lay-mag.lay.magazine-v2.perfume-editorial .perfume-scene img{height:245px;object-fit:cover;object-position:center}
+.prose.lay-mag.lay.magazine-v2.perfume-editorial .perfume-card>.bs-cover,.prose.lay-mag.lay.magazine-v2.perfume-editorial .perfume-card>.perfume-purchase{height:579px;box-sizing:border-box;background:#eee9e0;padding:22px!important}
+.prose.lay-mag.lay.magazine-v2.perfume-editorial .perfume-card>.bs-cover .picks-page-grid{width:100%!important;max-width:308px!important}
+.prose.lay-mag.lay.magazine-v2.perfume-editorial .perfume-yara .compare-card{width:308px;max-width:100%;min-height:524px;justify-content:center}
+.prose.lay-mag.lay.magazine-v2.perfume-editorial .perfume-card>.bs-info,.prose.lay-mag.lay.magazine-v2.perfume-editorial .perfume-info{padding:62px 38px 30px}
+.prose.lay-mag.lay.magazine-v2.perfume-editorial .perfume-card h3,.prose.lay-mag.lay.magazine-v2.perfume-editorial .perfume-watch-grid h3{font:800 31px/27.9px 'Big Shoulders Display',sans-serif!important;letter-spacing:-1.86px!important;margin:0 0 17px!important;text-align:left}
+.prose.lay-mag.lay.magazine-v2.perfume-editorial .perfume-card p{font:400 16.32px/28.56px Inter,'Public Sans',sans-serif}
+.prose.lay-mag.lay.magazine-v2.perfume-editorial .perfume-card .bs-info>p:first-of-type,.prose.lay-mag.lay.magazine-v2.perfume-editorial .perfume-card .perfume-info>p:first-of-type{font:400 20px/25px Didot,Georgia,serif}
+.prose.lay-mag.lay.magazine-v2.perfume-editorial .perfume-watch-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;margin:26px 0 52px}
+.prose.lay-mag.lay.magazine-v2.perfume-editorial .perfume-watch-grid>.bs-book{display:flex;flex-direction:column;gap:0;min-width:0;margin:0;padding:0;border:1px solid var(--mg-line);background:var(--mg-paper)}
+.prose.lay-mag.lay.magazine-v2.perfume-editorial .perfume-watch-grid .bs-cover{position:relative;isolation:isolate;display:grid;place-items:center;min-height:260px;padding:22px;background:#ebe6dd}
+.prose.lay-mag.lay.magazine-v2.perfume-editorial .perfume-watch-grid .bs-cover:before{content:'';position:absolute;z-index:-1;width:220px;height:220px;top:50%;left:50%;transform:translate(-50%,-50%);border-radius:50%;background:rgba(255,255,255,.5)}
+.prose.lay-mag.lay.magazine-v2.perfume-editorial .perfume-watch-grid .bs-cover img{position:static;width:auto;max-width:100%;height:220px;object-fit:contain;box-shadow:none;background:transparent}
+.prose.lay-mag.lay.magazine-v2.perfume-editorial .perfume-watch-grid .bs-info{padding:26px;min-width:0}
+.prose.lay-mag.lay.magazine-v2.perfume-editorial .mag-faq{counter-reset:perfume-faq}
+.prose.lay-mag.lay.magazine-v2.perfume-editorial .mag-faq article{position:relative;padding:28px 0 28px 52px;counter-increment:perfume-faq}
+.prose.lay-mag.lay.magazine-v2.perfume-editorial .mag-faq article:before{content:counter(perfume-faq,decimal-leading-zero);position:absolute;left:0;top:32px;color:#d85b38;font:500 16px/1 'Public Sans',sans-serif;letter-spacing:.12em}
+.prose.lay-mag.lay.magazine-v2.perfume-editorial .toc-ask-ai{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 16px;padding:0 0 16px;border-bottom:1px solid var(--mg-line)}
+.prose.lay-mag.lay.magazine-v2.perfume-editorial .toc-ask-ai .callout-label{width:100%;margin:0 0 2px}
+@media(max-width:700px){.prose.lay-mag.lay.magazine-v2.perfume-editorial .perfume-watch-grid{grid-template-columns:1fr}.prose.lay-mag.lay.magazine-v2.perfume-editorial .perfume-card>.bs-info,.prose.lay-mag.lay.magazine-v2.perfume-editorial .perfume-info{padding:38px 24px 24px}.prose.lay-mag.lay.magazine-v2.perfume-editorial .perfume-card>.bs-cover,.prose.lay-mag.lay.magazine-v2.perfume-editorial .perfume-card>.perfume-purchase{height:auto;min-height:579px}.prose.lay-mag.lay.magazine-v2.perfume-editorial .perfume-yara .compare-card{width:286px}}
+.prose.lay-mag.lay.magazine-v2.perfume-editorial .mag-faq{display:block;max-width:980px;margin:26px auto 78px;border:0}
+.prose.lay-mag.lay.magazine-v2.perfume-editorial .mag-faq article{border-top:1px solid var(--mg-line);padding:34px 0 38px 60px}
+.prose.lay-mag.lay.magazine-v2.perfume-editorial .mag-faq article:before{top:35px}
+.prose.lay-mag.lay.magazine-v2.perfume-editorial .mag-faq h3{font:500 37px/.98 Didot,Georgia,serif!important;letter-spacing:-.045em;margin:0 0 15px!important}
+.prose.lay-mag.lay.magazine-v2.perfume-editorial .mag-faq p{max-width:690px;font:400 17px/1.62 Didot,Georgia,serif!important;margin:0!important}
+@media(max-width:700px){.prose.lay-mag.lay.magazine-v2.perfume-editorial .mag-faq article{padding:28px 0 30px 52px}.prose.lay-mag.lay.magazine-v2.perfume-editorial .mag-faq article:before{top:29px}.prose.lay-mag.lay.magazine-v2.perfume-editorial .mag-faq h3{font-size:29px!important}}
