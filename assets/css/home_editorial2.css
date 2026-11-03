@@ -328,3 +328,57 @@ header .search{flex:1 1 0;min-width:0;height:48px;max-width:none}
 .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 /* top category chips: active and hover are the brand orange, never black (design README section 5) */
 .rail button:hover,.rail button.on{background:var(--hon);border-color:var(--hon);color:#fff}
+
+/* Amazon Picks: curated/associate chips and the free-trial bounty cards (shown on the home and amazon-picks.html) */
+.picks-meta{display:flex;flex-wrap:wrap;gap:8px 10px;align-items:center;margin:0 0 16px}
+.picks-meta span{background:#fff;border:1px solid var(--line);border-radius:999px;padding:7px 14px;font:500 11px ui-monospace,"SF Mono",Menlo,monospace;letter-spacing:.1em;text-transform:uppercase}
+.picks-trials{margin:0 0 18px}
+.picks-trials-label{font:500 11px ui-monospace,"SF Mono",Menlo,monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--mute);margin:0 0 10px}
+.picks-trials-row{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
+.picks-trial{display:flex;flex-direction:column;gap:6px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px 18px;transition:transform .2s,box-shadow .2s}
+.picks-trial:hover{transform:translateY(-2px);box-shadow:0 8px 22px #342b1812}
+.picks-trial b{font:700 17px/1.2 var(--sans)}
+.picks-trial span{font:400 14.5px/1.4 var(--sans);color:#3b3b36}
+.picks-trial em{font:700 13.5px var(--sans);font-style:normal;color:#C97108;margin-top:auto;padding-top:4px}
+@media(max-width:1100px){.picks-trials-row{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:640px){.picks-trials-row{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.picks-trial{padding:14px}.picks-trial b{font-size:15px}.picks-trial span{font-size:13px}}
+:root[data-theme=dark] .picks-meta span,:root[data-theme=dark] .picks-trial{background:var(--card);border-color:var(--line);color:var(--ink)}
+:root[data-theme=dark] .picks-trial span{color:#c9c6bd}
+
+/* "The Blog / Our Editorial Stories" in the WEB 1 look, scoped so it cannot touch the rest of the page */
+@font-face{font-family:'DM Sans';font-style:normal;font-weight:400 700;font-display:swap;src:url(/assets/fonts/dm-sans-var-latin.woff2) format('woff2')}
+@font-face{font-family:'DM Mono';font-style:normal;font-weight:500;font-display:swap;src:url(/assets/fonts/dm-mono-500-latin.woff2) format('woff2')}
+.wb1{--red:#D93A12;--muted:#716b60;--panel:#eee9df;--line:rgba(45,43,35,.15);--ink:#201f1a;margin-top:56px;color:var(--ink);font-family:"DM Sans",sans-serif}
+.wb1 .eyebrow{font:500 10px "DM Mono",monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--red);margin:0}
+.wb1 .section-title{display:flex;align-items:end;gap:18px;margin-bottom:18px}
+.wb1 .section-title .eyebrow{margin-bottom:8px}
+.wb1 .section-title h2{margin:0;font:600 clamp(29px,3vw,43px)/1 "Playfair Display",serif;letter-spacing:-.045em}
+.wb1 .section-title p{margin:0 0 3px;color:var(--muted);font-size:12px}
+.wb1 .more{margin-left:auto;margin-bottom:3px;color:var(--red);font-size:12px;font-weight:700;border-bottom:1px solid var(--red);padding-bottom:3px}
+.wb1 .primary{display:inline-flex;align-items:center;gap:16px;width:max-content;margin-top:15px;padding:10px 14px;background:var(--red);color:#fff;font-size:10px;font-weight:700;transition:background .2s,transform .2s}
+.wb1 .primary:hover{background:#913820;transform:translateY(-2px)}
+.wb1 .story-band{display:grid;grid-template-columns:1.25fr 1fr;border-top:2px solid var(--red);background:#f1ece3;margin-bottom:26px}
+.wb1 .story-band-photo{display:block;aspect-ratio:1200/630;overflow:hidden;background:var(--panel)}
+.wb1 .story-band-photo img{display:block;width:100%;height:100%;object-fit:cover;object-position:center;transition:transform .35s}
+.wb1 .story-band:hover .story-band-photo img{transform:scale(1.03)}
+.wb1 .story-band-copy{display:flex;flex-direction:column;justify-content:center;align-items:flex-start;padding:34px 44px}
+.wb1 .story-band-copy h3{margin:12px 0 12px;font:600 clamp(28px,3vw,42px)/1.05 "Playfair Display",serif;letter-spacing:-.04em}
+.wb1 .story-band-copy p{max-width:380px;margin:0 0 6px;color:var(--muted);font-size:13px;line-height:1.55}
+.wb1 .story-carousel{position:relative;min-width:0}
+.wb1 .story-cards{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none}
+.wb1 .story-cards::-webkit-scrollbar{display:none}
+.wb1 .story-card{flex:0 0 calc((100% - 54px)/4);scroll-snap-align:start;min-width:0}
+.wb1 .story-card-photo{display:block;aspect-ratio:1200/630;overflow:hidden;background:var(--panel);margin-bottom:13px}
+.wb1 .story-card-photo img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .3s}
+.wb1 .story-card:hover .story-card-photo img{transform:scale(1.04)}
+.wb1 .story-card h3{margin:7px 0 0;font:600 21px/1.12 "Playfair Display",serif;letter-spacing:-.03em}
+.wb1 .story-card h3 a{color:inherit}
+.wb1 .cat-arrow{position:absolute;top:calc(50% - 40px);z-index:3;width:38px;height:38px;margin-top:-19px;display:grid;place-items:center;border:1px solid var(--line);border-radius:50%;background:rgba(255,253,249,.96);color:var(--ink);font:400 24px/1 "DM Sans",sans-serif;cursor:pointer;box-shadow:0 4px 14px rgba(47,38,25,.12);transition:background .2s,color .2s,opacity .2s}
+.wb1 .story-prev{left:-14px}.wb1 .story-next{right:-14px}
+.wb1 .cat-arrow:hover{background:var(--red);color:#fff;border-color:var(--red)}
+.wb1 .cat-arrow:disabled{opacity:0;pointer-events:none}
+@media(max-width:1000px){.wb1 .story-band-copy{padding:26px}.wb1 .story-card{flex-basis:calc((100% - 18px)/2)}}
+@media(max-width:700px){.wb1 .section-title{flex-wrap:wrap;align-items:flex-start}.wb1 .section-title p{width:100%}.wb1 .more{margin-left:0}.wb1 .story-band{grid-template-columns:1fr}.wb1 .story-band-copy{padding:22px 18px}.wb1 .story-band-copy h3{font-size:28px}.wb1 .story-card{flex-basis:calc((100% - 14px)/1.25)}.wb1 .story-card h3{font-size:19px}.wb1 .story-prev{left:-8px}.wb1 .story-next{right:-8px}}
+:root[data-theme=dark] .wb1{--ink:#f1efe9;--muted:#a4a198;--panel:#2a2926;--line:rgba(255,255,255,.16)}
+:root[data-theme=dark] .wb1 .story-band{background:#23211e}
+:root[data-theme=dark] .wb1 .cat-arrow{background:#1f1f1d}

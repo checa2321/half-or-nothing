@@ -74,4 +74,9 @@ if(grid){
  function upd(){prev.disabled=t.scrollLeft<4;next.disabled=t.scrollLeft+t.clientWidth>=t.scrollWidth-4}
  prev.onclick=function(){t.scrollBy({left:-step()})};next.onclick=function(){t.scrollBy({left:step()})};t.addEventListener('scroll',upd,{passive:true});addEventListener('resize',upd);
  btns.forEach(function(b){b.addEventListener('click',function(){var c=b.getAttribute('data-jtopic');cards.forEach(function(x){x.hidden=!(c==='all'||x.getAttribute('data-topic')===c)});setOn(btns,b);t.scrollTo({left:0,behavior:'auto'});upd()})});upd()})();
+/* ---- WEB 1 stories carousel ---- */
+(function(){var w=$('.wb1');if(!w)return;var t=$('.story-cards',w),p=$('.story-prev',w),n=$('.story-next',w);if(!t||!p||!n)return;
+ function upd(){p.disabled=t.scrollLeft<=2;n.disabled=t.scrollLeft+t.clientWidth>=t.scrollWidth-2}
+ p.addEventListener('click',function(){t.scrollBy({left:-(t.clientWidth+18)});setTimeout(upd,600)});n.addEventListener('click',function(){t.scrollBy({left:t.clientWidth+18});setTimeout(upd,600)});
+ t.addEventListener('scroll',upd,{passive:true});addEventListener('resize',upd);upd()})();
 })();
