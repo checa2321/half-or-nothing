@@ -180,3 +180,17 @@ footer{display:block;padding:34px 3vw 40px;font-size:11px}
 .category{background:#d9d2c4}.mosaic-photo{background:#d9d2c4}
 /* mobile menu: the MENU button toggles .open on .nav-links (it only existed as a visual in the demo) */
 @media(max-width:700px){.nav-links.open{display:flex;position:absolute;top:66px;left:0;right:0;z-index:30;flex-direction:column;align-items:flex-start;gap:0;padding:6px 16px 14px;background:var(--paper);border-bottom:1px solid var(--line);box-shadow:0 12px 24px rgba(47,38,25,.08)}.nav-links.open a{width:100%;padding:12px 0;font-size:14px;border-bottom:1px solid var(--line)}.nav-links.open a:last-child{border-bottom:0}}
+
+/* Amazon Picks: curated chips and the free-trial bounty cards (Amazon Associates bounty programs) */
+.picks-meta{display:flex;flex-wrap:wrap;gap:8px 10px;align-items:center;margin:0 0 16px}
+.picks-meta span{background:#fffdf9;border:1px solid var(--line);border-radius:999px;padding:7px 14px;font:500 10px "DM Mono",monospace;letter-spacing:.12em;text-transform:uppercase}
+.picks-trials{margin:0 0 18px}
+.picks-trials-label{font:500 10px "DM Mono",monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:0 0 10px}
+.picks-trials-row{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
+.picks-trial{display:flex;flex-direction:column;gap:6px;background:var(--white);border:1px solid var(--line);border-radius:3px;padding:15px 17px;transition:transform .2s,box-shadow .2s}
+.picks-trial:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(58,46,32,.1)}
+.picks-trial b{font:600 16px/1.2 "DM Sans",sans-serif}
+.picks-trial span{font:400 13.5px/1.45 "DM Sans",sans-serif;color:#514c44}
+.picks-trial em{font:700 12.5px "DM Sans",sans-serif;font-style:normal;color:#a66a00;margin-top:auto;padding-top:4px}
+@media(max-width:1000px){.picks-trials-row{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:700px){.picks-trials-row{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.picks-trial{padding:13px}.picks-trial b{font-size:14.5px}.picks-trial span{font-size:12.5px}}
