@@ -178,3 +178,5 @@ footer{display:block;padding:34px 3vw 40px;font-size:11px}
 .skip{position:absolute;left:-999px}.skip:focus{left:8px;top:8px;background:#fff;padding:8px;z-index:50}
 /* live-data version (2026-11-03): tiles without a product photo keep a neutral tone instead of a stand-in image */
 .category{background:#d9d2c4}.mosaic-photo{background:#d9d2c4}
+/* mobile menu: the MENU button toggles .open on .nav-links (it only existed as a visual in the demo) */
+@media(max-width:700px){.nav-links.open{display:flex;position:absolute;top:66px;left:0;right:0;z-index:30;flex-direction:column;align-items:flex-start;gap:0;padding:6px 16px 14px;background:var(--paper);border-bottom:1px solid var(--line);box-shadow:0 12px 24px rgba(47,38,25,.08)}.nav-links.open a{width:100%;padding:12px 0;font-size:14px;border-bottom:1px solid var(--line)}.nav-links.open a:last-child{border-bottom:0}}
