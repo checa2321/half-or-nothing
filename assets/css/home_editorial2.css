@@ -382,3 +382,8 @@ header .search{flex:1 1 0;min-width:0;height:48px;max-width:none}
 :root[data-theme=dark] .wb1{--ink:#f1efe9;--muted:#a4a198;--panel:#2a2926;--line:rgba(255,255,255,.16)}
 :root[data-theme=dark] .wb1 .story-band{background:#23211e}
 :root[data-theme=dark] .wb1 .cat-arrow{background:#1f1f1d}
+
+/* stories topic pills + empty message inside the WEB 1 stories section */
+.wb1 .j-cats{margin:-6px 0 18px}
+.wb1 .j-empty{padding:6px 0 18px}
+.wb1 .story-card[hidden]{display:none!important}
