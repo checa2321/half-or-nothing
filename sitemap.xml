@@ -152,7 +152,7 @@
   </url>
   <url>
     <loc>https://halfornothing.com/beauty-skincare.html</loc>
-    <lastmod>2026-11-06</lastmod>
+    <lastmod>2026-11-07</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -176,12 +176,6 @@
   </url>
   <url>
     <loc>https://halfornothing.com/electronics-audio.html</loc>
-    <lastmod>2026-11-07</lastmod>
-    <changefreq>hourly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://halfornothing.com/electronics-car-electronics.html</loc>
     <lastmod>2026-11-07</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.9</priority>
@@ -631,13 +625,13 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://halfornothing.com/watches-skagen.html</loc>
+    <loc>https://halfornothing.com/watches-invicta.html</loc>
     <lastmod>2026-11-07</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://halfornothing.com/watches-invicta.html</loc>
+    <loc>https://halfornothing.com/watches-skagen.html</loc>
     <lastmod>2026-11-07</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.9</priority>
@@ -775,13 +769,13 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://halfornothing.com/fashion-women-dresses-dkny.html</loc>
+    <loc>https://halfornothing.com/fashion-women-dresses-teri-jon.html</loc>
     <lastmod>2026-11-07</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://halfornothing.com/fashion-women-dresses-teri-jon.html</loc>
+    <loc>https://halfornothing.com/fashion-women-dresses-dkny.html</loc>
     <lastmod>2026-11-07</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.9</priority>
@@ -829,13 +823,13 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://halfornothing.com/fashion-women-dresses-hl-affair.html</loc>
+    <loc>https://halfornothing.com/fashion-women-dresses-amina-glam.html</loc>
     <lastmod>2026-11-07</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://halfornothing.com/fashion-women-dresses-amina-glam.html</loc>
+    <loc>https://halfornothing.com/fashion-women-dresses-hl-affair.html</loc>
     <lastmod>2026-11-07</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.9</priority>
@@ -895,13 +889,19 @@
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://halfornothing.com/fashion-women-dresses-johnny-was.html</loc>
+    <lastmod>2026-11-07</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://halfornothing.com/fashion-women-dresses-j-mclaughlin.html</loc>
     <lastmod>2026-11-07</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://halfornothing.com/fashion-women-dresses-johnny-was.html</loc>
+    <loc>https://halfornothing.com/fashion-women-dresses-sachin.html</loc>
     <lastmod>2026-11-07</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.9</priority>
@@ -909,12 +909,6 @@
   <url>
     <loc>https://halfornothing.com/fashion-women-dresses-ralph-lauren.html</loc>
     <lastmod>2026-11-06</lastmod>
-    <changefreq>hourly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://halfornothing.com/fashion-women-dresses-sachin.html</loc>
-    <lastmod>2026-11-07</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -997,19 +991,25 @@
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://halfornothing.com/fashion-women-dresses-oleg-cassini.html</loc>
+    <lastmod>2026-11-07</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://halfornothing.com/fashion-women-dresses-kenneth-cole.html</loc>
     <lastmod>2026-11-07</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://halfornothing.com/fashion-women-dresses-line-dot.html</loc>
+    <loc>https://halfornothing.com/fashion-women-dresses-santorelli.html</loc>
     <lastmod>2026-11-07</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://halfornothing.com/fashion-women-dresses-oleg-cassini.html</loc>
+    <loc>https://halfornothing.com/fashion-women-dresses-line-dot.html</loc>
     <lastmod>2026-11-07</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.9</priority>
@@ -1033,19 +1033,13 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://halfornothing.com/fashion-women-dresses-santorelli.html</loc>
+    <loc>https://halfornothing.com/fashion-women-dresses-lafayette-148.html</loc>
     <lastmod>2026-11-07</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://halfornothing.com/fashion-women-dresses-michael-kors.html</loc>
-    <lastmod>2026-11-07</lastmod>
-    <changefreq>hourly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://halfornothing.com/fashion-women-dresses-lafayette-148.html</loc>
     <lastmod>2026-11-07</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.9</priority>
@@ -1099,6 +1093,12 @@
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://halfornothing.com/fashion-women-dresses-tyler-b-e.html</loc>
+    <lastmod>2026-11-07</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://halfornothing.com/fashion-women-dresses-eileen-fisher.html</loc>
     <lastmod>2026-11-07</lastmod>
     <changefreq>hourly</changefreq>
@@ -1129,7 +1129,7 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://halfornothing.com/fashion-women-dresses-tyler-b-e.html</loc>
+    <loc>https://halfornothing.com/fashion-women-dresses-tanya-taylor.html</loc>
     <lastmod>2026-11-07</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.9</priority>
@@ -1154,12 +1154,6 @@
   </url>
   <url>
     <loc>https://halfornothing.com/fashion-women-dresses-herv-l-ger.html</loc>
-    <lastmod>2026-11-07</lastmod>
-    <changefreq>hourly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://halfornothing.com/fashion-women-dresses-tanya-taylor.html</loc>
     <lastmod>2026-11-07</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.9</priority>
@@ -1213,7 +1207,19 @@
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://halfornothing.com/fashion-women-dresses-elie.html</loc>
+    <lastmod>2026-11-07</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://halfornothing.com/fashion-women-dresses-paris-georgia.html</loc>
+    <lastmod>2026-11-07</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://halfornothing.com/fashion-women-dresses-jude-connally.html</loc>
     <lastmod>2026-11-07</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.9</priority>
@@ -1226,18 +1232,6 @@
   </url>
   <url>
     <loc>https://halfornothing.com/fashion-women-dresses-natori.html</loc>
-    <lastmod>2026-11-07</lastmod>
-    <changefreq>hourly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://halfornothing.com/fashion-women-dresses-elie.html</loc>
-    <lastmod>2026-11-07</lastmod>
-    <changefreq>hourly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://halfornothing.com/fashion-women-dresses-jude-connally.html</loc>
     <lastmod>2026-11-07</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.9</priority>
@@ -1753,13 +1747,13 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://halfornothing.com/beauty-fragrances-women-juicy-couture.html</loc>
+    <loc>https://halfornothing.com/beauty-fragrances-women-tous.html</loc>
     <lastmod>2026-11-07</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://halfornothing.com/beauty-fragrances-women-tous.html</loc>
+    <loc>https://halfornothing.com/beauty-fragrances-women-juicy-couture.html</loc>
     <lastmod>2026-11-07</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.9</priority>
@@ -1897,25 +1891,25 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://halfornothing.com/beauty-fragrances-men-mercedes-benz.html</loc>
-    <lastmod>2026-11-07</lastmod>
-    <changefreq>hourly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
     <loc>https://halfornothing.com/beauty-fragrances-men-tumi.html</loc>
     <lastmod>2026-11-07</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://halfornothing.com/beauty-fragrances-men-hugo-boss.html</loc>
+    <loc>https://halfornothing.com/beauty-fragrances-men-mercedes-benz.html</loc>
     <lastmod>2026-11-07</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://halfornothing.com/beauty-fragrances-men-montblanc.html</loc>
+    <lastmod>2026-11-07</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://halfornothing.com/beauty-fragrances-men-hugo-boss.html</loc>
     <lastmod>2026-11-07</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.9</priority>
@@ -2017,13 +2011,13 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://halfornothing.com/beauty-fragrances-unisex-paris-corner.html</loc>
+    <loc>https://halfornothing.com/beauty-fragrances-unisex-armaf.html</loc>
     <lastmod>2026-11-07</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://halfornothing.com/beauty-fragrances-unisex-armaf.html</loc>
+    <loc>https://halfornothing.com/beauty-fragrances-unisex-paris-corner.html</loc>
     <lastmod>2026-11-07</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.9</priority>
@@ -2059,13 +2053,13 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://halfornothing.com/beauty-fragrances-unisex-mancera.html</loc>
+    <loc>https://halfornothing.com/beauty-fragrances-unisex-v-canto.html</loc>
     <lastmod>2026-11-07</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://halfornothing.com/beauty-fragrances-unisex-v-canto.html</loc>
+    <loc>https://halfornothing.com/beauty-fragrances-unisex-mancera.html</loc>
     <lastmod>2026-11-07</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.9</priority>
@@ -3752,6 +3746,12 @@
   </url>
   <url>
     <loc>https://halfornothing.com/juicy-couture.html</loc>
+    <lastmod>2026-11-07</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://halfornothing.com/juliette-has-a-gun.html</loc>
     <lastmod>2026-11-07</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.7</priority>
