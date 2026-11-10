@@ -106,6 +106,26 @@ if(grid){
  if(qq&&search){search.value=qq;st.q=qq}
  if(st.brand!=='all'||st.gender!=='all'||st.q)draw()})();
 
+/* ---- Category pages: gender + sort + search, rest of the page's feed loaded on first use (data-feed + data-feed-* narrow it) ---- */
+(function(){var g=$('#cat-grid');if(!g||!g.getAttribute('data-feed'))return;
+ var url=g.getAttribute('data-feed'),wCat=g.getAttribute('data-feed-cat'),wSub=g.getAttribute('data-feed-subcat'),wType=g.getAttribute('data-feed-type'),wMin=g.getAttribute('data-feed-price-min'),wMax=g.getAttribute('data-feed-price-max'),
+  step=20,st={gender:'all',sort:'featured',q:'',n:g.querySelectorAll('.card').length+step},count=$('#result-count'),empty=$('#empty'),more=$('#catMore'),fg=$('#c-gender'),fs=$('#c-sort'),search=$('#search'),rows=null,loading=false,cbs=[],total=null;
+ function nrm(t){return t.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'')}
+ function ok(d){return d.image_url&&d.price&&d.original_price&&(!wCat||d.category===wCat)&&(!wSub||d.subcategory===wSub)&&(!wType||d.fashion_type===wType)&&(wMin===null||d.price>parseFloat(wMin))&&(wMax===null||d.price<=parseFloat(wMax))}
+ function load(cb){if(rows)return cb();cbs.push(cb);if(loading)return;loading=true;if(count)count.textContent='Loading all deals…';
+  fetch(url).then(function(r){return r.json()}).then(function(j){rows=(j.deals||[]).filter(ok);cbs.splice(0).forEach(function(f){f()})})
+   .catch(function(){loading=false;cbs.length=0;if(count)count.textContent='Could not load more deals. Refresh to try again.'})}
+ function draw(){load(function(){var q=nrm(st.q).split(/\s+/).filter(Boolean),
+  l=rows.filter(function(d){return (st.gender==='all'||d.gender===st.gender)&&q.every(function(w){return nrm(d.title).indexOf(w)>-1})});
+  if(st.sort==='price')l=l.slice().sort(function(a,b){return a.price-b.price});if(st.sort==='price-desc')l=l.slice().sort(function(a,b){return b.price-a.price});
+  g.innerHTML=l.slice(0,st.n).map(card).join('');count.textContent='Showing '+Math.min(st.n,l.length).toLocaleString('en-US')+' of '+l.length.toLocaleString('en-US')+' deals';
+  empty.hidden=l.length>0;more.hidden=st.n>=l.length})}
+ if(more)more.addEventListener('click',function(){st.n+=step;draw()});
+ fg.addEventListener('change',function(){st.gender=fg.value;st.n=step*2;draw()});
+ fs.addEventListener('change',function(){st.sort=fs.value;st.n=step*2;draw()});
+ if(search){var t;search.addEventListener('input',function(){clearTimeout(t);t=setTimeout(function(){st.q=search.value.trim();st.n=step*2;draw()},250)});
+  var u=new URLSearchParams(location.search).get('q');if(u){search.value=u;st.q=u;draw()}}})();
+
 /* ---- stories: topic chips + carousel ---- */
 (function(){var j=$('.journal');if(!j)return;var t=$('.stories',j),btns=$$('[data-jtopic]',j),cards=$$('.story',t),prev=$('.j-prev',j),next=$('.j-next',j);
  function step(){var c=cards.filter(function(x){return !x.hidden})[0];return c?c.getBoundingClientRect().width+14:300}
