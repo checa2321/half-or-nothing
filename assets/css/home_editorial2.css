@@ -388,3 +388,21 @@ header .search{flex:1 1 0;min-width:0;height:48px;max-width:none}
 .wb1 .j-cats{margin:-6px 0 18px}
 .wb1 .j-empty{padding:6px 0 18px}
 .wb1 .story-card[hidden]{display:none!important}
+
+/* inner pages in this design: Brands, Amazon Picks (2026-11-10) */
+.pg-tools{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;margin:0 0 18px;font-size:13px;color:var(--mute)}
+.pg-tools label,.filter-tools label{display:flex;align-items:center;gap:8px;font-weight:600}
+.pg-tools select{border:1px solid var(--line);border-radius:999px;background:#fff;padding:9px 14px;color:var(--ink);font:600 13px var(--sans);max-width:240px}
+.pg-count{margin-left:auto}
+#empty{padding:30px 0;text-align:center;color:var(--mute)}
+.picks-meta .follow{background:var(--hon);color:#fff;border-radius:999px;padding:7px 14px;font:700 12px var(--sans)}
+.picks-meta .follow:hover{background:var(--hon-d)}
+#brand-picks{margin-top:34px}
+.hubs{margin:40px 0 20px}.hubs .sec-h{margin-top:0}
+.hub-links{display:flex;flex-wrap:wrap;gap:8px}
+.hub-links a{background:#fff;border:1px solid var(--line);border-radius:999px;padding:7px 13px;font:600 12.5px var(--sans)}
+.hub-links a:hover{background:var(--hon);color:#fff;border-color:var(--hon)}
+:root[data-theme=dark] .pg-tools select,:root[data-theme=dark] .hub-links a{background:var(--card);color:var(--ink);border-color:var(--line)}
+@media(max-width:760px){.pg-count{margin-left:0;flex-basis:100%}.pg-tools select{max-width:100%}.pg-tools label{flex:1 1 140px}.pg-tools label select{flex:1;min-width:0}}
+.card .coupon{display:inline-block;align-self:flex-start;background:#e7f4ee;color:#0b6b4f;border-radius:999px;padding:3px 10px;font:700 11.5px var(--sans);margin-top:6px}
+:root[data-theme=dark] .card .coupon{background:#12352b;color:#7fd9b3}
