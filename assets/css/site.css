@@ -367,7 +367,7 @@ footer.site .footer-social a:hover{border-color:var(--signal);color:var(--signal
 .filterbar{margin:26px 0 12px;display:flex;flex-wrap:wrap;gap:10px;align-items:center}
 #dealSearch::placeholder{color:#AAA}
 #dealSearch::-webkit-search-cancel-button{-webkit-appearance:none;appearance:none}
-#dealSort,#picksSort,#genderFilter{font:500 13px/1 var(--display);color:var(--ink);background:var(--card);
+#dealSort,#picksSort{font:500 13px/1 var(--display);color:var(--ink);background:var(--card);
           border:1px solid var(--rule);border-radius:999px;padding:10px 16px;cursor:pointer}
 .no-results{padding:40px 12px;color:var(--muted);text-align:center;
             border:1px dashed var(--rule);border-radius:var(--r-md);display:none}
