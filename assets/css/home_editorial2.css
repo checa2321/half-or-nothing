@@ -431,3 +431,14 @@ body>header .search{flex:1 1 0;min-width:0;height:48px;max-width:none}
 :root[data-theme=dark] .cat-intro p,:root[data-theme=dark] .cat-intro-wrap p,:root[data-theme=dark] .seo p{color:#c9c6bd}
 @media(max-width:760px){.sub-row{flex-direction:column;align-items:stretch;gap:0;min-width:0}.sub-row .e-cats{width:100%;max-width:100%}.sub-label{padding:4px 0 6px}.cat-intro-wrap p{font-size:14px}}
 .srch-note{font:500 13.5px var(--sans);color:var(--mute);margin:0 0 12px}.srch-note a{color:var(--hon);font-weight:700}
+
+/* mobile menu button (2026-11-10): same ids as the old header (#navBtn / #navLinks), so interaction.js drives it on wrapped pages */
+.menu-btn{display:none;width:46px;height:46px;border-radius:50%;border:1px solid var(--line);background:#fff;color:var(--ink);place-items:center;flex:none;cursor:pointer}
+.menu-btn:hover{border-color:var(--ink)}
+@media(max-width:760px){.menu-btn{display:grid}
+ body>header .hnav{display:none;order:4;flex-basis:100%;flex-direction:column;align-items:stretch;gap:0;overflow:visible;background:#fff;border:1px solid var(--line);border-radius:16px;padding:4px 16px}
+ body>header .hnav.open{display:flex}
+ body>header .hnav>a{padding:14px 2px;border-top:1px solid var(--line);font-size:16px}
+ body>header .hnav>a:first-child{border-top:0}
+ body>header .hmono{display:flex;gap:20px;padding:13px 2px 11px;border-top:1px solid var(--line);margin:0}}
+:root[data-theme=dark] .menu-btn,:root[data-theme=dark] body>header .hnav{background:var(--card);color:var(--ink);border-color:var(--line)}

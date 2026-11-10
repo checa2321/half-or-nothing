@@ -164,6 +164,13 @@ if(grid){
  more.addEventListener('click',function(){st.n+=20;run()});
  var u=new URLSearchParams(location.search).get('q')||'';if(search)search.value=u;st.q=u.trim();run()})();
 
+/* mobile menu button: toggles #navLinks.open (same ids/classes as interaction.js, which handles it on wrapped pages) */
+(function(){var b=$('#navBtn'),n=$('#navLinks');if(!b||!n)return;
+ function close(){n.classList.remove('open');b.setAttribute('aria-expanded','false')}
+ b.addEventListener('click',function(e){e.stopPropagation();var o=n.classList.toggle('open');b.setAttribute('aria-expanded',String(o))});
+ document.addEventListener('click',function(e){if(!n.contains(e.target))close()});
+ document.addEventListener('keydown',function(e){if(e.key==='Escape')close()})})();
+
 /* ---- stories: topic chips + carousel ---- */
 (function(){var j=$('.journal');if(!j)return;var t=$('.stories',j),btns=$$('[data-jtopic]',j),cards=$$('.story',t),prev=$('.j-prev',j),next=$('.j-next',j);
  function step(){var c=cards.filter(function(x){return !x.hidden})[0];return c?c.getBoundingClientRect().width+14:300}
