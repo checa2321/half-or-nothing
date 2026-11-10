@@ -2955,3 +2955,325 @@ html[data-theme="dark"] .blog-redesign .featured-image{background:#e8e1d5}
 @media(max-width:700px){.prose.lay-mag.lay.magazine-v2.lay-fragedit .fe .brand.c .card,.prose.lay-mag.lay.magazine-v2.lay-fragedit .fe .brand.l .card{text-align:center}.prose.lay-mag.lay.magazine-v2.lay-fragedit .fe .brand.c .pr,.prose.lay-mag.lay.magazine-v2.lay-fragedit .fe .brand.c .chips,.prose.lay-mag.lay.magazine-v2.lay-fragedit .fe .brand.l .pr,.prose.lay-mag.lay.magazine-v2.lay-fragedit .fe .brand.l .chips{justify-content:center}.prose.lay-mag.lay.magazine-v2.lay-fragedit .fe .brand.l .chips{align-items:stretch}.prose.lay-mag.lay.magazine-v2.lay-fragedit .fe .brand.c .chips span,.prose.lay-mag.lay.magazine-v2.lay-fragedit .fe .brand.l .chips span{text-align:center}}
 /* Che, Nov 4: all three brands centered on every screen size, never flush-left */
 .prose.lay-mag.lay.magazine-v2.lay-fragedit .fe .brand.c .card,.prose.lay-mag.lay.magazine-v2.lay-fragedit .fe .brand.l .card{text-align:center}.prose.lay-mag.lay.magazine-v2.lay-fragedit .fe .brand.c .pr,.prose.lay-mag.lay.magazine-v2.lay-fragedit .fe .brand.c .chips,.prose.lay-mag.lay.magazine-v2.lay-fragedit .fe .brand.l .pr{justify-content:center}.prose.lay-mag.lay.magazine-v2.lay-fragedit .fe .brand.l .chips{align-items:stretch}.prose.lay-mag.lay.magazine-v2.lay-fragedit .fe .brand.c .chips span,.prose.lay-mag.lay.magazine-v2.lay-fragedit .fe .brand.l .chips span{text-align:center}
+
+/* The Hugo Boss Edit (Dann's preview, Nov 10 2026): mockup CSS scoped under .lay-hbedit .hb (generated, then hand-fixed below); site header/footer/related come from the site */
+@font-face{font-family:"Playfair HB";font-style:normal;font-weight:400 900;font-display:swap;src:url("/assets/fonts/playfair-display-var-latin.woff2") format("woff2")}
+@font-face{font-family:"Playfair HB";font-style:italic;font-weight:400 900;font-display:swap;src:url("/assets/fonts/playfair-display-italic-var-latin.woff2") format("woff2")}
+@font-face{font-family:"DM Sans HB";font-style:normal;font-weight:100 1000;font-display:swap;src:url("/assets/fonts/dm-sans-var-latin.woff2") format("woff2")}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb{--ink:#252620;--muted:#77766d;--paper:#f8f6f0;--stone:#e9e5da;--accent:#a85535}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb *{box-sizing:border-box}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb{margin:0;background:var(--paper);color:var(--ink);font-family:'DM Sans HB',Arial,sans-serif}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb a{color:inherit}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .hero{min-height:70vh;background:linear-gradient(90deg,rgba(19,19,19,.07),transparent),url('/blog/images/hugo-boss-edit/scenes/00-modelos-de-la-portada.webp') center/cover;display:flex;align-items:end;padding:6%;color:white}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .hero h1{font-family:Georgia,serif;font-size:clamp(46px,7vw,104px);line-height:.94;max-width:800px;margin:0;text-shadow:0 2px 15px #0007}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .hero p{font:italic 24px Georgia,serif}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .eyebrow{font-size:11px;letter-spacing:.25em;text-transform:uppercase;font-weight:600}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .intro{max-width:780px;margin:100px auto;padding:0 24px;font:20px/1.9 Georgia,serif}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .intro .eyebrow{font:600 11px 'DM Sans HB',sans-serif;color:var(--accent)}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .intro p{margin:26px 0}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .intro .last{font-style:italic;font-size:25px}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .chapter{padding:90px max(5%,calc((100% - 1380px)/2));overflow:hidden}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .chapter:nth-of-type(even){background:#efede6}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .chapter-head{display:grid;grid-template-columns:1fr 1fr;align-items:end;gap:25px;margin-bottom:50px}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .chapter h2{font:normal clamp(44px,5.5vw,84px)/1.08 'Playfair HB',Georgia,serif;margin:12px 0}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .chapter-head p{max-width:390px;color:#65645e;line-height:1.7}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .editorial-panel{min-height:370px;background:linear-gradient(120deg,#d3cabb,#f2ece0 48%,#b7b0a4);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;margin-bottom:48px}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .editorial-panel:before{content:'';position:absolute;inset:0;background:linear-gradient(115deg,transparent 49%,#fff5 50%,transparent 54%),linear-gradient(15deg,#0001,transparent 50%)}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .editorial-panel .panel-type{position:relative;font:italic clamp(36px,6vw,86px) 'Playfair HB',serif;text-align:center;max-width:90%;color:#373831}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .editorial-panel small{position:absolute;bottom:25px;left:35px;letter-spacing:.2em;font-size:10px}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .panel-navy{background:linear-gradient(120deg,#263c4b,#81929b 50%,#d7d4ca)}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .panel-navy .panel-type{color:white}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .panel-olive{background:linear-gradient(115deg,#d5d3c2,#8d9180 55%,#e5e1d6)}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .panel-amber{background:linear-gradient(120deg,#cab79e,#eee5d9 50%,#9d8367)}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .products{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:30px}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .products.asymmetric{grid-template-columns:1.25fr 1fr 1fr}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .product{min-width:0}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .product-image{background:#fff;min-height:260px;height:360px;display:flex;align-items:center;justify-content:center;padding:18px}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .product-image img{width:100%;height:100%;object-fit:contain}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .product .category{margin-top:18px;font-size:10px;color:#8b8175;letter-spacing:.18em;text-transform:uppercase}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .product h3{font:normal 22px/1.25 'Playfair HB',Georgia,serif;margin:9px 0}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .product .detail{font-size:12px;color:var(--muted);min-height:22px}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .price{margin-top:12px;font-size:13px}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .price del{color:#999;margin-right:10px}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .price b{font-size:17px}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .price em{font-style:normal;color:#796e62;margin-left:9px}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .product a.shop{display:inline-block;font-size:11px;letter-spacing:.15em;text-decoration:none;border-bottom:1px solid #444;padding:11px 0 5px;margin-top:9px;text-transform:uppercase}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .subheading{font:italic 40px 'Playfair HB',serif;margin:95px 0 32px}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .compare{display:grid;grid-template-columns:1fr 1fr;gap:30px}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .compare .products{grid-template-columns:1fr;gap:22px}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .compare .product{display:grid;grid-template-columns:160px 1fr;gap:20px;align-items:center;border-bottom:1px solid #d5d0c6;padding-bottom:20px}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .compare .product-image{height:160px;min-height:0}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .compare h3{font-size:18px}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .compare h4{font:italic 32px 'Playfair HB',serif}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .casual .product-image{height:200px;min-height:0;background:#e3ded3}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .placeholder{font:italic 17px Georgia,serif;text-align:center;color:#777}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .edit-selection{display:grid;grid-template-columns:repeat(3,1fr);gap:25px}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .edit-selection .product-image{height:280px;min-height:0}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .bottom{max-width:900px;margin:80px auto;padding:0 25px}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .bottom details{border-top:1px solid #ccc;padding:18px 0}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .bottom summary{cursor:pointer;font:20px Georgia,serif}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .bottom table{border-collapse:collapse;width:100%;font-size:12px}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .bottom td,.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .bottom th{padding:12px;border-bottom:1px solid #ddd;text-align:left}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .bottom .tablewrap{overflow:auto}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .bottom p{line-height:1.8}
+@media(max-width:800px){.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .hero{min-height:460px;background-position:62% center}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .hero h1{font-size:48px}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .intro{margin:55px auto;font-size:17px}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .chapter{padding:65px 5%}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .chapter-head{grid-template-columns:1fr}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .editorial-panel{min-height:250px}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .products,.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .products.asymmetric{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .product-image{height:240px;min-height:0}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .product h3{font-size:17px}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .compare{gap:12px}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .compare .product{display:block}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .compare .product-image{height:160px}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .compare h4{font-size:25px}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .edit-selection{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .products,.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .products.asymmetric{grid-template-columns:1fr}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .product-image{height:350px}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .compare .product-image{height:140px}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .compare .product h3{font-size:15px}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .compare .product .price{font-size:11px}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .edit-selection .product-image{height:180px}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .hero{min-height:400px}}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .cover{margin:0}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .cover img{display:block;width:100%;height:auto;max-width:1400px;margin:0 auto}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb section[id]{scroll-margin-top:76px}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .kt{font:italic 22px/1.6 Georgia,serif;color:#4a4a42;border-left:2px solid var(--accent);padding-left:18px;margin:22px 0}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .by{font:600 11px 'DM Sans HB',sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#8b8579;margin:0 0 30px}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .refnote{max-width:760px;margin:0 0 50px;font:italic 19px/1.7 Georgia,serif;color:#4a4a42}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .refnote a,.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .explore a,.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .bottom details p a{border-bottom:1px solid currentColor;text-decoration:none}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .explore{font:21px/1.7 Georgia,serif;margin:50px 0}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .chapter-intro{display:grid;grid-template-columns:minmax(0,300px) 1fr;gap:clamp(30px,6vw,90px);align-items:center;margin-bottom:60px}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .chapter-intro.rev{grid-template-columns:1fr minmax(0,300px)}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .chapter-intro.rev .scene{order:2}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .chapter-intro .chapter-head{grid-template-columns:1fr;margin:0;gap:18px}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .chapter-intro .chapter-head p{max-width:420px}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .scene{margin:0}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .scene img{display:block;width:100%;height:auto}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .scene figcaption{font:italic 15px Georgia,serif;color:#6a665c;margin-top:10px}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .casual-intro{margin:70px 0 50px;grid-template-columns:minmax(0,220px) 1fr}
+@media(max-width:800px){.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .kt{font-size:18px}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .chapter-intro,.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .chapter-intro.rev,.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .casual-intro{display:block;margin-bottom:40px}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .scene{max-width:260px;margin:0 auto 26px}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .casual-intro .scene{max-width:200px}}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .intro .deck{font:italic 22px/1.6 Georgia,serif;color:#4a4a42;margin:14px 0 22px}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .stats{display:flex;flex-wrap:wrap;gap:12px 36px;margin:0 0 26px;padding:18px 0;border-top:1px solid #d5d0c6;border-bottom:1px solid #d5d0c6}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .stats div{font:500 11px 'DM Sans HB',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#8b8579}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .stats b{display:block;font:500 24px Georgia,serif;letter-spacing:0;text-transform:none;color:#252620}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .toc{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;margin:0 0 30px;font:12px 'DM Sans HB',sans-serif}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .toc b{letter-spacing:.2em;text-transform:uppercase;font-size:10px;color:#8b8579;margin-right:6px}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .toc a{text-decoration:none;border:1px solid #cfc9bd;border-radius:20px;padding:5px 12px}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .ktbox{margin:0 0 34px;padding:22px 26px;background:#f1eee6}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .ktt{font:600 11px 'DM Sans HB',sans-serif;letter-spacing:.22em;text-transform:uppercase;color:#a85535;margin:0 0 10px}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .ktl{list-style:none;margin:0;padding:0;font:19px/1.6 Georgia,serif}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .ktl li{display:grid;grid-template-columns:44px 1fr;margin:8px 0}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .ktl li b{font:600 12px 'DM Sans HB',sans-serif;color:#a85535;padding-top:6px}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .fromdann{margin:34px 0 0!important}
+@media(max-width:800px){.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .stats{gap:10px 24px}}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .notes{padding:70px max(5%,calc((100% - 1380px)/2)) 20px}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .noteblock{max-width:720px;margin:10px 0 56px}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .noteblock h3{font:italic 34px/1.2 'Playfair HB',Georgia,serif;margin:0 0 18px;color:#252620}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .noteblock p{font:19px/1.85 Georgia,serif;color:#33332d;margin:0 0 18px}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .srcline{font:14px/1.7 'DM Sans HB',sans-serif!important;color:#6a665c!important}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .srcline a{border-bottom:1px solid currentColor;text-decoration:none}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .notesline{font:italic 14px/1.6 Georgia,serif;color:#5a564d;margin:6px 0 4px}
+@media(max-width:800px){.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .noteblock h3{font-size:26px}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .noteblock p{font-size:17px}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .notes{padding-top:50px}}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .editorial-panel{min-height:540px;justify-content:flex-start;align-items:flex-end;background-size:contain!important;background-position:center center!important;background-repeat:no-repeat!important;background-color:#e6dfd5!important;padding:40px 50px;isolation:isolate}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .editorial-panel:before{background:linear-gradient(0deg,rgba(19,17,15,.68),transparent 58%)!important;z-index:-1}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .editorial-panel .panel-type{font-size:clamp(32px,5vw,70px);color:white!important;text-align:left;max-width:680px;text-shadow:0 1px 12px #0005}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .editorial-panel small{top:24px;bottom:auto;color:white;text-shadow:0 1px 5px #0008}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .scene-women{background-image:url('/blog/images/hugo-boss-edit/scenes/01-womenswear.webp')!important}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .scene-men{background-image:url('/blog/images/hugo-boss-edit/scenes/02-menswear.webp')!important}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .scene-eyewear{background-image:url('/blog/images/hugo-boss-edit/scenes/03-eyewear.webp')!important}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .scene-fragrance{background-image:url('/blog/images/hugo-boss-edit/scenes/04-fragrance.webp')!important}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .scene-casual{background-image:url('/blog/images/hugo-boss-edit/scenes/05-beyond-the-suit.webp')!important;margin-top:30px;min-height:420px}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .product-image{background:#f0eee9;border:1px solid #e6e1d7}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .product-image img{mix-blend-mode:multiply}
+@media(max-width:800px){.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .editorial-panel{min-height:370px;padding:25px;background-position:center center!important}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .editorial-panel small{left:25px}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .scene-casual{min-height:300px}}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .intro + .notes{padding-bottom:34px;}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .intro + .notes .nb-boss{margin-bottom:0;}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .intro + .notes + #women{padding-top:52px;}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .intro + .notes + #women .chapter-head{margin-bottom:38px;}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .notes .noteblock:last-child{margin-bottom:0;}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .notes + .chapter{padding-top:clamp(52px,5.5vw,78px);}
+@media(max-width:800px){.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .intro + .notes{padding-bottom:22px;}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .intro + .notes + #women{padding-top:38px;}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .intro + .notes + #women .chapter-head{margin-bottom:28px;}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .notes + .chapter{padding-top:48px;}}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .scene-fragrance{aspect-ratio:2048/768;min-height:0!important;background-size:cover!important;background-position:center!important}
+@media(max-width:800px){.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .scene-fragrance{aspect-ratio:auto;min-height:230px!important;background-position:62% center!important}}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb{--s1:24px;--s2:48px;--s3:96px;--s4:150px;--gut:max(5%,calc((100% - 1380px)/2))}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .intro{max-width:none;margin:0;padding:var(--s3) var(--gut) var(--s2);display:grid;grid-template-columns:repeat(12,1fr);gap:0 24px;font:inherit;line-height:1.6}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .intro-left{grid-column:1/6;position:sticky;top:96px;align-self:start}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .intro-right{grid-column:7/13}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .intro-right p{font:21px/1.9 Georgia,serif;margin:0 0 1.15em}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .intro-right .fromdann{font:600 11px 'DM Sans HB',sans-serif;margin:0 0 22px!important}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .intro-right p.last{font-size:25px;margin-top:1.4em}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .intro .stats,.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .toc,.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .ktbox{margin-bottom:var(--s1)}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .by{margin:0}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .chapter{padding:var(--s3) var(--gut)}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .chapter-head{margin-bottom:var(--s2)}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .editorial-panel{margin-bottom:var(--s2)}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb #women{background:#f8f6f0}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb #men{background:#efede6}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb #eyewear{background:#f8f6f0}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb #fragrance{background:#efede6}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb #editor{background:#f8f6f0}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .notes{padding:var(--s3) var(--gut) var(--s2)}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .subheading{margin:var(--s3) 0 var(--s2)}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .scene-casual{margin-top:var(--s2)}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .noteblock{max-width:none;margin:0 0 var(--s3);display:grid;grid-template-columns:repeat(12,1fr);gap:0 24px;align-items:start}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .noteblock h2,.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .noteblock h3{font:italic 400 38px/1.15 'Playfair HB',Georgia,serif;margin:0;color:#252620}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .noteblock .nbody p{font:19px/1.85 Georgia,serif;margin:0 0 1.1em;color:#33332d}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .noteblock .nbody p:last-child{margin-bottom:0}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .nb-boss h2{grid-column:1/13;font-style:normal;font-size:clamp(40px,5vw,68px);margin-bottom:var(--s1)}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .nb-boss .nbody{grid-column:1/13;columns:2;column-gap:64px}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .nb-boss .nbody p:first-child::first-letter{float:left;font:68px/.8 'Playfair HB',serif;padding:6px 10px 0 0;color:#a85535}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .nb-women h3{grid-column:1/5}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .nb-women .nbody{grid-column:6/12}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .nb-men .nbody{grid-column:1/8;grid-row:1}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .nb-men h3{grid-column:9/13;grid-row:1;border-top:1px solid #252620;padding-top:14px}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .nb-fabric h3{grid-column:1/5;border-top:1px solid #252620;padding-top:14px}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .nb-fabric .nbody{grid-column:6/12}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .nb-casual{display:block;max-width:640px;margin:0 auto var(--s3);text-align:center}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .nb-casual h3{margin-bottom:var(--s1)}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .nb-eye h3{grid-column:1/6}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .nb-eye .nbody{grid-column:7/13}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .nb-frag{display:block;max-width:600px;margin:0 auto var(--s3);text-align:center}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .nb-frag h3{margin-bottom:var(--s1)}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .nb-frag .nbody p{font-style:italic}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .nb-keep h2{grid-column:1/13;text-align:center;font-style:normal;font-size:clamp(34px,4.4vw,56px);margin-bottom:var(--s1)}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .nb-keep .nbody{grid-column:3/11}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .nb-smart h2{grid-column:1/5;font-style:normal;border-top:1px solid #252620;padding-top:14px;font-size:clamp(30px,3.4vw,44px)}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .nb-smart .nbody{grid-column:6/13;columns:2;column-gap:48px}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .srcline{margin-top:var(--s1)!important}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .pull{margin:0 auto var(--s3);max-width:900px;text-align:center;padding:0 var(--s1)}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .pull::before{content:"";display:block;width:56px;height:1px;background:#a85535;margin:0 auto 22px}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .pull p{font:italic clamp(28px,3.4vw,46px)/1.25 'Playfair HB',Georgia,serif;margin:0;color:#252620}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .products{align-items:stretch}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .product{display:flex;flex-direction:column}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .product>div:last-child{display:flex;flex-direction:column;flex:1}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .product a.shop{margin-top:auto;align-self:flex-start}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .price{margin-bottom:6px}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .price em{border:1px solid #d3cdc1;border-radius:20px;padding:2px 10px;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#6a665c;margin-left:10px}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .product .detail{min-height:0}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb #women .chapter-head h2{font-size:clamp(56px,7.4vw,110px);line-height:1}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb #women .product h3{font-style:italic}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb #women .products.asymmetric{gap:40px}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb #men .chapter-head{border-top:1px solid #252620;padding-top:28px}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb #men .products{counter-reset:pc}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb #men .product{border-top:1px solid #252620;padding-top:18px}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb #men .product:not(.typo) h3::before{counter-increment:pc;content:"No. " counter(pc);display:block;font:600 10px 'DM Sans HB',sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#8b8579;margin-bottom:6px}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb #casual-products{gap:56px}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb #casual-products .product{border-top:0;padding-top:0}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .typo-card{border-top:1px solid #252620;border-bottom:1px solid #d5d0c6;padding:34px 0;min-height:200px;display:flex;flex-direction:column;justify-content:center;gap:10px}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .typo-card .tl{font:600 10px 'DM Sans HB',sans-serif;letter-spacing:.24em;text-transform:uppercase;color:#8b8579}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .typo-card strong{font:italic 400 34px/1.1 'Playfair HB',Georgia,serif;color:#252620}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .typo-card em{font:15px Georgia,serif;color:#5a564d}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .pbody{display:flex;flex-direction:column;flex:1}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .compare{position:relative;gap:0;grid-template-columns:1fr 1fr}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .compare::before{content:"";position:absolute;left:50%;top:0;bottom:0;width:1px;background:#d5d0c6}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .compare>div{padding:0 clamp(16px,3vw,48px)}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb h3.persp{font:600 11px 'DM Sans HB',sans-serif;letter-spacing:.3em;text-transform:uppercase;text-align:center;margin:0 0 var(--s2)}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb #fragrance .chapter-head{text-align:center;grid-template-columns:1fr}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb #fragrance .chapter-head p{margin:0 auto}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb #fragrance .products{max-width:1000px;margin:0 auto;gap:56px}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb #fragrance .product{text-align:center}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb #fragrance .product a.shop{align-self:center}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb #fragrance .price{justify-content:center}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .edit-selection{grid-template-columns:1.3fr 1fr 1fr;align-items:end;gap:var(--s1)}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .bottom{max-width:1100px}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .tnote{font:13px/1.6 'DM Sans HB',sans-serif;color:#6a665c;margin:0 0 20px}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .explore{margin:var(--s2) 0}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .bottom h2#faq{margin:var(--s3) 0 var(--s1)}
+@media(max-width:800px){.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb{--s1:20px;--s2:36px;--s3:64px;--s4:100px}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .intro{display:block}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .intro-left{position:static;margin-bottom:var(--s2)}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .intro-right p{font-size:18px}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .intro-right p.last{font-size:21px}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .noteblock{display:block}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .nb-boss .nbody,.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .nb-smart .nbody{columns:1}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .noteblock h2,.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .noteblock h3{margin-bottom:var(--s1)}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .noteblock h2,.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .noteblock h3{font-size:28px}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .nb-boss h2,.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .nb-keep h2{font-size:34px}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .noteblock .nbody p{font-size:17px}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .nb-men h3,.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .nb-fabric h3,.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .nb-smart h2{border-top:1px solid #252620;padding-top:12px}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .nb-men h3{margin-bottom:var(--s1)}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .nb-men{display:flex;flex-direction:column}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .nb-men h3{order:-1}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .compare>div{padding:0 6px}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .edit-selection{grid-template-columns:repeat(2,1fr)}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .pull p{font-size:26px}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb #women .chapter-head h2{font-size:48px}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb #casual-products{gap:var(--s1)}}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb{--editorial-rule:#d5cec1}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .chapter-head{gap:clamp(22px,4vw,64px)}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .chapter-head>p{font-size:clamp(15px,1.5vw,19px);line-height:1.7}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .chapter .noteblock{margin-bottom:clamp(40px,5vw,78px)}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .chapter .editorial-panel{border-radius:2px}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb #men .subheading{padding-top:20px;border-top:1px solid var(--editorial-rule)}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb #men .subheading+ .products{margin-top:12px}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb #men .scene-casual{margin-top:30px}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb #eyewear .compare{margin-top:58px}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb #eyewear .compare .product{min-width:0}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb #fragrance .noteblock{margin-inline:auto;max-width:1100px}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb #editor .product:first-child .product-image{height:380px}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .bottom details[open]{padding-bottom:28px}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .bottom summary{transition:color .2s ease}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .bottom summary:hover{color:var(--accent)}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .bottom th{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .bottom tr:hover td{background:rgba(233,229,218,.35)}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .product-image img{mix-blend-mode:normal}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .product .price{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .product .price em{white-space:nowrap}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .product .shop:focus-visible,.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .toc a:focus-visible,.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb summary:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+@media(max-width:900px){.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .intro{grid-template-columns:1fr 1fr;gap:38px}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .intro-left,.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .intro-right{grid-column:auto}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .intro-left{position:static}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .chapter-head{grid-template-columns:1fr 1fr}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .editorial-panel{background-size:contain!important}}
+@media(max-width:800px){.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .intro{display:block}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .chapter-head{grid-template-columns:1fr}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .chapter-head p{margin:0}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .chapter .noteblock{margin-bottom:42px}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .compare{display:block}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .compare::before{display:none}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .compare>div{padding:0}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .compare>div+div{margin-top:54px;border-top:1px solid var(--editorial-rule);padding-top:34px}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .compare .product{display:grid;grid-template-columns:minmax(110px,36%) 1fr;gap:18px}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .compare .product-image{height:160px}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .edit-selection{grid-template-columns:repeat(2,minmax(0,1fr))}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .editorial-panel{background-size:contain!important}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .product .price em{margin-left:0}}
+@media(max-width:480px){.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .chapter{padding-top:54px;padding-bottom:58px}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .intro{padding-top:50px}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .editorial-panel{min-height:240px;padding:22px}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .editorial-panel .panel-type{font-size:clamp(28px,8vw,44px)}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .compare .product{grid-template-columns:120px minmax(0,1fr)}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .compare .product-image{height:140px}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .edit-selection{grid-template-columns:1fr}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .edit-selection .product-image{height:300px}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb #editor .product:first-child .product-image{height:300px}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .product .price{gap:6px}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .bottom{margin-top:50px}}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit{max-width:none;padding:0;background:transparent;border:0;margin:0}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb{box-shadow:0 0 0 100vmax var(--paper);clip-path:inset(0 -100vmax)}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb>*{box-shadow:0 0 0 100vmax var(--bgx,transparent);clip-path:inset(0 -100vmax)}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .chapter:nth-of-type(even){--bgx:#efede6}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb :is(h1,h2,h3){border:0}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .apick{min-width:0}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .apick .picks-page-grid{margin:0}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb{line-height:normal}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb :is(h1,h2,h3,h4){letter-spacing:normal;color:var(--ink)}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .ktl li{padding:0;font-size:19px;line-height:1.6}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .apick .pick-lasso{flex:none;width:100%;max-width:100%;min-width:0;margin:0;box-sizing:border-box}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .apick .api-card{grid-template-columns:minmax(0,1fr);grid-template-areas:"img" "main" "date"}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .apick .api-img{width:100%;height:200px;background:#e3ded3;display:flex;align-items:center;justify-content:center}
+.prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .apick .api-img img{width:auto;max-width:100%;height:100%}
