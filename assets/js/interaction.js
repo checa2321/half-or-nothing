@@ -596,6 +596,7 @@
     el.id = d.id;
     el.setAttribute('data-cat', d.category || '');
     el.setAttribute('data-subcat', d.subcategory || '');
+    if (d.gender) el.setAttribute('data-gender', d.gender);
     el.setAttribute('data-title', String(d.title).toLowerCase());
     el.setAttribute('data-title-display', String(d.title));
     el.setAttribute('data-price', d.price);
@@ -837,7 +838,7 @@
   var catBtn = document.getElementById('catFilterBtn');
   var catPanel = document.getElementById('catFilterPanel');
 
-  var state = { search: [], cats: [], page: 1, sort: 'newest' };
+  var state = { search: [], cats: [], gender: '', page: 1, sort: 'newest' };
 
   // `missing` decides which end an unparseable attribute lands on. It used to
   // always be -Infinity, which is right for a descending sort (unknown goes
@@ -988,6 +989,7 @@
   }
 
   function matches(card, skipSearch){
+    if (state.gender && card.getAttribute('data-gender') !== state.gender) return false;
     if (state.cats.length) {
       var cat = card.getAttribute('data-cat');
       var sub = card.getAttribute('data-subcat');
@@ -1192,6 +1194,15 @@
     },
     true
   );
+
+  var genderEl = document.getElementById('genderFilter');
+  if (genderEl) {
+    genderEl.addEventListener('change', function(){
+      state.gender = genderEl.value;
+      state.page = 1;
+      render();
+    });
+  }
 
   if (sortEl) {
     sortEl.addEventListener('change', function(){
