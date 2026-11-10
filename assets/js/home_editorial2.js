@@ -126,6 +126,44 @@ if(grid){
  if(search){var t;search.addEventListener('input',function(){clearTimeout(t);t=setTimeout(function(){st.q=search.value.trim();st.n=step*2;draw()},250)});
   var u=new URLSearchParams(location.search).get('q');if(u){search.value=u;st.q=u;draw()}}})();
 
+/* ---- Search page: deals.json + (when few hits) the category feeds named by /search-concepts.json ---- */
+(function(){var g=$('#search-grid');if(!g)return;
+ var sec=$('#deals'),feeds={};try{feeds=JSON.parse(sec.getAttribute('data-cat-feeds')||'{}')}catch(e){}
+ var STOP={a:1,an:1,the:1,and:1,or:1,of:1,for:1,my:1,me:1,to:1,in:1,on:1,with:1,some:1,something:1,any:1,your:1,i:1,want:1,need:1,looking:1,find:1,cheap:1,best:1,good:1};
+ var search=$('#search'),count=$('#result-count'),note=$('#search-note'),pl=$('#picks-link'),empty=$('#empty'),more=$('#searchMore'),fg=$('#s-gender'),fs=$('#s-sort'),title=$('#searchTitle'),
+  st={q:'',gender:'all',sort:'featured',n:20},base=null,concept=null,loaded={},extra=[],seq=0;
+ function nrm(t){return t.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'')}
+ function stem(w){return w.replace(/ies$/,'y').replace(/([^s])s$/,'$1')}
+ function same(a,b){return a===b||(a.length>=5&&b.length>=5&&(a.indexOf(b)===0||b.indexOf(a)===0))}
+ function words(){var w=nrm(st.q).split(/\s+/).filter(Boolean),c=w.filter(function(x){return !STOP[x]});return c.length?c:w}
+ function ok(d){return d.image_url&&d.price&&d.original_price}
+ function loadBase(cb){if(base)return cb();fetch('/deals.json').then(function(r){return r.json()}).then(function(j){base=(j.deals||[]).filter(ok);cb()}).catch(function(){base=[];cb()})}
+ function loadConcept(cb){if(concept)return cb();fetch('/search-concepts.json').then(function(r){return r.json()}).then(function(raw){concept=Object.keys(raw).map(function(k){return {key:k,phrases:raw[k].map(function(p){return p.split(/\s+/).map(stem).filter(function(w){return !STOP[w]})}).filter(function(p){return p.length})}})}).catch(function(){concept=[]}).then(cb)}
+ function conceptKeys(ws){var q=ws.map(stem),sc=[],max=0;concept.forEach(function(e){var s=0;e.phrases.forEach(function(p){if(p.every(function(w){return q.some(function(x){return same(x,w)})}))s+=p.length});if(s){sc.push([e.key,s]);if(s>max)max=s}});return sc.filter(function(x){return x[1]>=max*.5}).map(function(x){return x[0]})}
+ function loadCats(keys,cb){var slugs=[];keys.forEach(function(k){var s=feeds[k.split(':')[0]];if(s&&!loaded[s]&&slugs.indexOf(s)<0)slugs.push(s)});if(!slugs.length)return cb();slugs.forEach(function(s){loaded[s]=1});
+  Promise.all(slugs.map(function(s){return fetch('/deals-'+s+'.json').then(function(r){return r.json()}).catch(function(){return {deals:[]}})})).then(function(fs){var have={};base.concat(extra).forEach(function(d){have[d.id]=1});fs.forEach(function(f){(f.deals||[]).forEach(function(d){if(!have[d.id]&&ok(d)){have[d.id]=1;extra.push(d)}})});cb()})}
+ function show(list,msg){var l=list;if(st.gender!=='all')l=l.filter(function(d){return d.gender===st.gender});
+  if(st.sort==='discount')l=l.slice().sort(function(a,b){return b.discount_pct-a.discount_pct});if(st.sort==='price')l=l.slice().sort(function(a,b){return a.price-b.price});
+  g.innerHTML=l.slice(0,st.n).map(card).join('');count.textContent='Showing '+Math.min(st.n,l.length).toLocaleString('en-US')+' of '+l.length.toLocaleString('en-US')+' deals';
+  note.hidden=!msg;note.textContent=msg||'';empty.hidden=l.length>0;more.hidden=st.n>=l.length}
+ function run(){var my=++seq;if(title)title.textContent=st.q?'Results for “'+st.q+'”':'Search deals';
+  if(!st.q){loadBase(function(){if(my!==seq)return;show(base.slice().sort(function(a,b){return b.discount_pct-a.discount_pct}),'')});return}
+  loadBase(function(){var ws=words(),pool=function(){return base.concat(extra)},hit=function(){return pool().filter(function(d){var t=nrm(d.title);return ws.every(function(w){return t.indexOf(w)>-1})})},lit=hit();
+   if(lit.length>=12){show(lit,'');pickLink();return}
+   loadConcept(function(){var keys=conceptKeys(ws);loadCats(keys,function(){if(my!==seq)return;var all=pool(),lit2=hit();
+    var rel=all.filter(function(d){if(lit2.indexOf(d)>-1)return false;var t=nrm(d.title),s=0;ws.forEach(function(w){if(t.indexOf(stem(w))>-1)s++});
+     var inCat=keys.some(function(k){var p=k.split(':');return d.category===p[0]&&(!p[1]||d.subcategory===p[1])});return inCat&&s>0||(!keys.length&&s>0)});
+    var list=lit2.concat(rel);
+    if(list.length)show(list,lit2.length?'Few exact matches for “'+st.q+'” — showing related deals too.':'No exact matches for “'+st.q+'” — showing related deals.');
+    else show(all.slice().sort(function(a,b){return b.discount_pct-a.discount_pct}),'We don’t have anything for “'+st.q+'” yet — here are today’s best deals.');pickLink()})})})}
+ var picks=null;function pickLink(){var ws=words();(picks?Promise.resolve(picks):fetch('/picks-search.json').then(function(r){return r.json()}).catch(function(){return []})).then(function(l){picks=l;
+  var n=l.filter(function(t){var x=nrm(t);return ws.every(function(w){return x.indexOf(w)>-1})}).length;pl.hidden=!n;if(n)pl.innerHTML="<a href='/amazon-picks.html?q="+encodeURIComponent(ws.join(' '))+"'>"+n+' Amazon Pick'+(n===1?'':'s')+' match “'+esc(ws.join(' '))+'” →</a>'})}
+ function set(q){st.q=q.trim();st.n=20;if(history.replaceState)history.replaceState(null,'','/search.html'+(st.q?'?q='+encodeURIComponent(st.q):''));run()}
+ var t;if(search)search.addEventListener('input',function(){clearTimeout(t);t=setTimeout(function(){set(search.value)},250)});
+ fg.addEventListener('change',function(){st.gender=fg.value;st.n=20;run()});fs.addEventListener('change',function(){st.sort=fs.value;st.n=20;run()});
+ more.addEventListener('click',function(){st.n+=20;run()});
+ var u=new URLSearchParams(location.search).get('q')||'';if(search)search.value=u;st.q=u.trim();run()})();
+
 /* ---- stories: topic chips + carousel ---- */
 (function(){var j=$('.journal');if(!j)return;var t=$('.stories',j),btns=$$('[data-jtopic]',j),cards=$$('.story',t),prev=$('.j-prev',j),next=$('.j-next',j);
  function step(){var c=cards.filter(function(x){return !x.hidden})[0];return c?c.getBoundingClientRect().width+14:300}
