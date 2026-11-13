@@ -55,12 +55,6 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://halfornothing.com/pets.html</loc>
-    <lastmod>2026-11-13</lastmod>
-    <changefreq>hourly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
     <loc>https://halfornothing.com/jewelry-watches.html</loc>
     <lastmod>2026-11-09</lastmod>
     <changefreq>hourly</changefreq>
@@ -170,6 +164,12 @@
   </url>
   <url>
     <loc>https://halfornothing.com/electronics-phones.html</loc>
+    <lastmod>2026-11-13</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://halfornothing.com/electronics-audio.html</loc>
     <lastmod>2026-11-13</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.9</priority>
@@ -349,12 +349,6 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://halfornothing.com/pets-dog-supplies.html</loc>
-    <lastmod>2026-11-13</lastmod>
-    <changefreq>hourly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
     <loc>https://halfornothing.com/watches-other-watches.html</loc>
     <lastmod>2026-11-12</lastmod>
     <changefreq>hourly</changefreq>
@@ -530,7 +524,7 @@
   </url>
   <url>
     <loc>https://halfornothing.com/fashion-women-heels.html</loc>
-    <lastmod>2026-11-12</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -554,7 +548,7 @@
   </url>
   <url>
     <loc>https://halfornothing.com/fashion-women-shoes.html</loc>
-    <lastmod>2026-11-11</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -1628,7 +1622,7 @@
   </url>
   <url>
     <loc>https://halfornothing.com/beauty-fragrances-women-lattafa.html</loc>
-    <lastmod>2026-11-12</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -1867,14 +1861,14 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://halfornothing.com/beauty-fragrances-men-dolce-gabbana.html</loc>
-    <lastmod>2026-11-12</lastmod>
+    <loc>https://halfornothing.com/beauty-fragrances-men-lattafa.html</loc>
+    <lastmod>2026-11-13</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://halfornothing.com/beauty-fragrances-men-lattafa.html</loc>
-    <lastmod>2026-11-13</lastmod>
+    <loc>https://halfornothing.com/beauty-fragrances-men-dolce-gabbana.html</loc>
+    <lastmod>2026-11-12</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -2041,13 +2035,13 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://halfornothing.com/beauty-fragrances-unisex-tiziana-terenzi.html</loc>
+    <loc>https://halfornothing.com/beauty-fragrances-unisex-zimaya.html</loc>
     <lastmod>2026-11-13</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://halfornothing.com/beauty-fragrances-unisex-zimaya.html</loc>
+    <loc>https://halfornothing.com/beauty-fragrances-unisex-tiziana-terenzi.html</loc>
     <lastmod>2026-11-13</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.9</priority>
@@ -3020,7 +3014,7 @@
   </url>
   <url>
     <loc>https://halfornothing.com/alexandre-j.html</loc>
-    <lastmod>2026-11-12</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -4207,12 +4201,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://halfornothing.com/motorola.html</loc>
-    <lastmod>2026-11-13</lastmod>
-    <changefreq>hourly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://halfornothing.com/movado.html</loc>
     <lastmod>2026-11-13</lastmod>
     <changefreq>hourly</changefreq>
@@ -4856,7 +4844,7 @@
   </url>
   <url>
     <loc>https://halfornothing.com/v-canto.html</loc>
-    <lastmod>2026-11-12</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.7</priority>
   </url>
