@@ -3690,3 +3690,119 @@ html[data-theme="dark"] .blog-redesign .featured-image{background:#e8e1d5}
 .prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .askai .toc-ask-ai{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:18px 0;padding:0;border:0}
 .prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .askai .toc-ask-ai .callout-label{width:auto;margin:0 8px 0 0;font:600 11px/1 'DM Sans HB',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:var(--accent)}
 .prose.lay-mag.lay.magazine-v2.lay-hbedit .hb .askai a.post-share-btn{display:inline-block;padding:7px 14px;border:1px solid #25262033;border-radius:999px;font-size:13px;font-weight:600;text-decoration:none;color:var(--ink);background:#fff}
+
+
+/* Dann's approved layout for "Beyond the Classics" (layout-reference/, Nov 15 2026). Scoped to .lay-dystopia, this one post only. */
+.prose.lay-mag.lay.magazine-v2.lay-dystopia{max-width:none;padding:0;background:transparent;border:0;margin:0}
+.prose.lay-mag.lay.magazine-v2.lay-dystopia .dy{--paper:#fcfaf6;--ink:#202e31;--accent:#994c34;--line:#c9c4b9;--serif:Georgia,'Times New Roman',serif;--sans:Arial,Helvetica,sans-serif;background:var(--paper);color:var(--ink);font:18px/1.75 var(--serif);padding-bottom:80px;box-shadow:0 0 0 100vmax var(--paper);clip-path:inset(0 -100vmax)}
+.prose.lay-mag.lay.magazine-v2.lay-dystopia .dy *{box-sizing:border-box}
+.prose.lay-mag.lay.magazine-v2.lay-dystopia .dy :is(h1,h2,h3,p,figure){margin:0;border:0;padding:0}
+.prose.lay-mag.lay.magazine-v2.lay-dystopia .dy :is(h1,h2,h3){font-family:var(--serif);font-weight:400;line-height:1.08;letter-spacing:-.045em;color:inherit;text-transform:none}
+.prose.lay-mag.lay.magazine-v2.lay-dystopia .dy :is(h2,h3)::before,.prose.lay-mag.lay.magazine-v2.lay-dystopia .dy :is(h2,h3)::after{content:none}
+.prose.lay-mag.lay.magazine-v2.lay-dystopia .dy a:not([class]){color:#85432f;text-underline-offset:4px;overflow-wrap:anywhere}
+.prose.lay-mag.lay.magazine-v2.lay-dystopia .dy p{margin-bottom:16px}
+.prose.lay-mag.lay.magazine-v2.lay-dystopia .dy .dy-head{display:block;padding-bottom:24px;border-bottom:1px solid var(--line)}
+.prose.lay-mag.lay.magazine-v2.lay-dystopia .dy .dy-cover{margin:0 0 30px}
+.prose.lay-mag.lay.magazine-v2.lay-dystopia .dy .dy-cover img{width:100%;height:auto;display:block;border:0;border-radius:0}
+.prose.lay-mag.lay.magazine-v2.lay-dystopia .dy .dy-sr{position:absolute;width:1px;height:1px;margin:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.prose.lay-mag.lay.magazine-v2.lay-dystopia .dy .dy-head>.dy-by{font:12px/1.5 var(--sans);margin:0 6vw 6px;color:#5a6366}
+.prose.lay-mag.lay.magazine-v2.lay-dystopia .dy .dy-head>p{font:12px/1.5 var(--sans);margin:6px 6vw 0}
+.prose.lay-mag.lay.magazine-v2.lay-dystopia .dy .dy-head>p:last-child{font:italic 24px/1.5 var(--serif);max-width:980px;margin:14px 6vw 0}
+.prose.lay-mag.lay.magazine-v2.lay-dystopia .dy .dy-index,.prose.lay-mag.lay.magazine-v2.lay-dystopia .dy .dy-take,.prose.lay-mag.lay.magazine-v2.lay-dystopia .dy .dy-personal,.prose.lay-mag.lay.magazine-v2.lay-dystopia .dy .dy-overview,.prose.lay-mag.lay.magazine-v2.lay-dystopia .dy .dy-closing,.prose.lay-mag.lay.magazine-v2.lay-dystopia .dy .dy-references,.prose.lay-mag.lay.magazine-v2.lay-dystopia .dy .dy-faq{margin:65px 6vw}
+.prose.lay-mag.lay.magazine-v2.lay-dystopia .dy h2{font-size:clamp(34px,4.8vw,68px);margin-bottom:28px}
+.prose.lay-mag.lay.magazine-v2.lay-dystopia .dy h3{font-size:clamp(32px,3.8vw,54px);margin-bottom:25px}
+.prose.lay-mag.lay.magazine-v2.lay-dystopia .dy .dy-index{margin-top:24px;margin-bottom:60px}
+.prose.lay-mag.lay.magazine-v2.lay-dystopia .dy .dy-tiles{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-bottom:1px solid var(--line);counter-reset:tile}
+.prose.lay-mag.lay.magazine-v2.lay-dystopia .dy .dy-tiles a{counter-increment:tile;display:flex;flex-direction:column;justify-content:space-between;min-height:155px;padding:17px 19px;text-decoration:none;font-size:24px;line-height:1.18;background:var(--panel);color:var(--deep);border-top:5px solid var(--deep);border-right:1px solid #fcfaf6}
+.prose.lay-mag.lay.magazine-v2.lay-dystopia .dy .dy-tiles a:before{content:'0' counter(tile) '  \2197';font:bold 12px var(--sans);letter-spacing:.15em;color:var(--deep)}
+.prose.lay-mag.lay.magazine-v2.lay-dystopia .dy .dy-tiles a:hover{background:var(--deep);color:#fff}
+.prose.lay-mag.lay.magazine-v2.lay-dystopia .dy .dy-tiles a:hover:before{color:#fff}
+.prose.lay-mag.lay.magazine-v2.lay-dystopia .dy .dy-tiles a:focus-visible{outline:2px solid var(--deep);outline-offset:-4px}
+.prose.lay-mag.lay.magazine-v2.lay-dystopia .dy .dy-t1{--panel:#dce4e3;--deep:#2f6656}
+.prose.lay-mag.lay.magazine-v2.lay-dystopia .dy .dy-t2{--panel:#e3e4d3;--deep:#5f7226}
+.prose.lay-mag.lay.magazine-v2.lay-dystopia .dy .dy-t3{--panel:#ead8c9;--deep:#a04b24}
+.prose.lay-mag.lay.magazine-v2.lay-dystopia .dy .dy-t4{--panel:#dce0e8;--deep:#2f5f7d}
+.prose.lay-mag.lay.magazine-v2.lay-dystopia .dy .dy-index-line{display:flex;flex-wrap:wrap;gap:10px 26px;padding-top:16px;font:12px/1.6 var(--sans)}
+.prose.lay-mag.lay.magazine-v2.lay-dystopia .dy .dy-take{display:grid;grid-template-columns:1fr 2fr;gap:30px;border-bottom:1px solid var(--line);padding-bottom:35px;margin-bottom:30px}
+.prose.lay-mag.lay.magazine-v2.lay-dystopia .dy .dy-take h2{font-size:44px;margin:0}
+.prose.lay-mag.lay.magazine-v2.lay-dystopia .dy .dy-take ul{margin:0;padding-left:20px;columns:2;column-gap:35px;font-size:16px;list-style:disc}
+.prose.lay-mag.lay.magazine-v2.lay-dystopia .dy .dy-take li{break-inside:avoid;margin-bottom:12px}
+.prose.lay-mag.lay.magazine-v2.lay-dystopia .dy .toc-ask-ai{display:flex;flex-wrap:wrap;gap:6px;margin:0 6vw 30px;padding:0;background:transparent;border:0;box-shadow:none;font-family:var(--sans)}
+.prose.lay-mag.lay.magazine-v2.lay-dystopia .dy .toc-ask-ai .callout-label{width:100%;margin:0 0 2px}
+.prose.lay-mag.lay.magazine-v2.lay-dystopia .dy li::before{content:none}
+.prose.lay-mag.lay.magazine-v2.lay-dystopia .dy li{list-style:disc;padding-left:0}
+.prose.lay-mag.lay.magazine-v2.lay-dystopia .dy .dy-personal{max-width:900px;margin:80px auto;padding:0 30px;columns:2;column-gap:55px;column-rule:1px solid var(--line)}
+.prose.lay-mag.lay.magazine-v2.lay-dystopia .dy .dy-personal p:first-child{font-size:35px;line-height:1.15;color:var(--accent)}
+.prose.lay-mag.lay.magazine-v2.lay-dystopia .dy .dy-personal p:nth-child(n+4):nth-child(-n+6){font-size:23px;font-style:italic}
+.prose.lay-mag.lay.magazine-v2.lay-dystopia .dy .dy-personal p:last-child{font-size:25px;font-style:italic}
+.prose.lay-mag.lay.magazine-v2.lay-dystopia .dy .dy-overview{border-top:3px double var(--line);padding-top:30px}
+.prose.lay-mag.lay.magazine-v2.lay-dystopia .dy .dy-overview h2{font-size:42px}
+.prose.lay-mag.lay.magazine-v2.lay-dystopia .dy .dy-overview .table-wrap{overflow-x:auto;margin:0;border:0;background:transparent;box-shadow:none}
+.prose.lay-mag.lay.magazine-v2.lay-dystopia .dy .dy-overview table{border-collapse:collapse;width:100%;min-width:560px;font:14px/1.5 var(--sans);background:transparent}
+.prose.lay-mag.lay.magazine-v2.lay-dystopia .dy .dy-overview :is(th,td){text-align:left;border:0;border-bottom:1px solid var(--line);padding:17px 12px;background:transparent}
+.prose.lay-mag.lay.magazine-v2.lay-dystopia .dy .dy-overview th{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--ink)}
+.prose.lay-mag.lay.magazine-v2.lay-dystopia .dy .dy-overview td:first-child{font-weight:bold}
+.prose.lay-mag.lay.magazine-v2.lay-dystopia .dy .dy-overview>p{font-size:14px;margin-top:15px}
+.prose.lay-mag.lay.magazine-v2.lay-dystopia .dy .dy-chapter,.prose.lay-mag.lay.magazine-v2.lay-dystopia .dy .dy-watch{margin:90px 0;--tone:#30474b}
+.prose.lay-mag.lay.magazine-v2.lay-dystopia .dy .dy-c1{--panel:#dce4e3;--deep:#2f6656;--mid:#8fae9f;--tone:#30474b}
+.prose.lay-mag.lay.magazine-v2.lay-dystopia .dy .dy-c2{--panel:#e3e4d3;--deep:#5f7226;--mid:#a2b06b;--tone:#445340}
+.prose.lay-mag.lay.magazine-v2.lay-dystopia .dy .dy-c3{--panel:#ead8c9;--deep:#a04b24;--mid:#d39a76;--tone:#704c39}
+.prose.lay-mag.lay.magazine-v2.lay-dystopia .dy .dy-c4{--panel:#dce0e8;--deep:#2f5f7d;--mid:#86abc2;--tone:#3e4d64}
+.prose.lay-mag.lay.magazine-v2.lay-dystopia .dy .dy-opener{background:var(--panel);color:var(--tone);padding:65px 6vw;display:grid;grid-template-columns:1.25fr 1fr;column-gap:70px;align-content:center;min-height:300px;border-block:1px solid var(--line);border-top:5px solid var(--deep)}
+.prose.lay-mag.lay.magazine-v2.lay-dystopia .dy .dy-opener h2{grid-column:1;grid-row:1/12;align-self:center;max-width:650px;font-size:clamp(44px,6vw,85px);margin:0}
+.prose.lay-mag.lay.magazine-v2.lay-dystopia .dy .dy-opener>p{grid-column:2;margin:0 0 9px;font-size:21px;line-height:1.45}
+.prose.lay-mag.lay.magazine-v2.lay-dystopia .dy .dy-book{margin:0 6vw;display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:7vw;padding:70px 0;border-bottom:1px solid var(--line);align-items:start;background:transparent;border-left:0;border-right:0;border-top:0}
+.prose.lay-mag.lay.magazine-v2.lay-dystopia .dy .dy-book-cover{position:sticky;top:24px;min-width:0;display:grid;place-items:center;padding:40px 20px 50px;background:radial-gradient(ellipse at 45% 40%,#fdfcf8 0%,var(--panel) 100%);aspect-ratio:4/5;border-bottom:5px solid var(--deep)}
+.prose.lay-mag.lay.magazine-v2.lay-dystopia .dy .dy-book-cover img{display:block;max-width:100%;max-height:430px;width:auto;height:auto;object-fit:contain;filter:drop-shadow(12px 18px 12px #202e312b);border:0;border-radius:0}
+.prose.lay-mag.lay.magazine-v2.lay-dystopia .dy .dy-book-info{min-width:0}
+.prose.lay-mag.lay.magazine-v2.lay-dystopia .dy .dy-book-info>p{max-width:66ch}
+.prose.lay-mag.lay.magazine-v2.lay-dystopia .dy .dy-book-info h3,.prose.lay-mag.lay.magazine-v2.lay-dystopia .dy .dy-book-info a:not([class]){color:var(--deep)}
+.prose.lay-mag.lay.magazine-v2.lay-dystopia .dy .dy-reading,.prose.lay-mag.lay.magazine-v2.lay-dystopia .dy .bs-ifl{border:0;border-left:4px solid var(--mid);padding:4px 0 4px 18px;margin:25px 0;background:transparent;border-radius:0}
+.prose.lay-mag.lay.magazine-v2.lay-dystopia .dy .dy-reading p:last-child{margin-bottom:0}
+.prose.lay-mag.lay.magazine-v2.lay-dystopia .dy :is(.dy-reading strong,.bs-ifl strong,.bs-lbl,.bs-sec strong){font:600 11px/1.5 var(--sans);letter-spacing:.13em;text-transform:uppercase;color:var(--deep)}
+.prose.lay-mag.lay.magazine-v2.lay-dystopia .dy .bs-rh{margin:35px 0;padding:25px 27px;background:var(--panel);border:0;border-left:6px solid var(--deep);color:var(--deep);border-radius:0}
+.prose.lay-mag.lay.magazine-v2.lay-dystopia .dy .bs-rh .bs-lbl{display:block;margin:0 0 8px}
+.prose.lay-mag.lay.magazine-v2.lay-dystopia .dy .bs-rh p:last-child{font-size:31px;line-height:1.25;font-style:italic;margin:0;color:var(--deep)}
+.prose.lay-mag.lay.magazine-v2.lay-dystopia .dy .bs-sec.s-deal{background:#fff;border:1px solid var(--mid);border-top:6px solid var(--deep);box-shadow:0 6px 16px -10px var(--deep);padding:25px;margin:28px 0 0;border-radius:0}
+.prose.lay-mag.lay.magazine-v2.lay-dystopia .dy .bs-sec.s-deal>p{font-size:13px}
+.prose.lay-mag.lay.magazine-v2.lay-dystopia .dy .bs-sec.s-deal .picks-page-grid{margin:14px 0 18px!important;max-width:100%!important}
+.prose.lay-mag.lay.magazine-v2.lay-dystopia .dy .dy-nodeal{background:#fff;border:2px dashed var(--deep);padding:22px 25px;margin:28px 0 0}
+.prose.lay-mag.lay.magazine-v2.lay-dystopia .dy .dy-nodeal .bs-nodeal{font-size:15px;margin:0 0 12px}
+.prose.lay-mag.lay.magazine-v2.lay-dystopia .dy .dy-nodeal p{margin-bottom:0}
+.prose.lay-mag.lay.magazine-v2.lay-dystopia .dy :is(.dy-nodeal,.bs-sec) a.bs-btn{display:inline-block;background:var(--deep);color:#fff;padding:11px 16px;text-decoration:none;font:13px var(--sans);margin:5px 0;border-radius:0}
+.prose.lay-mag.lay.magazine-v2.lay-dystopia .dy .dy-closing{padding:35px 0;border-block:1px solid var(--line)}
+.prose.lay-mag.lay.magazine-v2.lay-dystopia .dy .dy-references ul{columns:2;column-gap:45px;padding-left:20px;font-size:16px;list-style:disc}
+.prose.lay-mag.lay.magazine-v2.lay-dystopia .dy .dy-references li{break-inside:avoid;margin-bottom:12px}
+.prose.lay-mag.lay.magazine-v2.lay-dystopia .dy .dy-faq h3{font-size:26px;border-top:1px solid var(--line);padding-top:20px;margin:22px 0 10px}
+.prose.lay-mag.lay.magazine-v2.lay-dystopia .dy .dy-faq .mag-faq{display:block;border:0;background:transparent;box-shadow:none}
+.prose.lay-mag.lay.magazine-v2.lay-dystopia .dy .dy-faq .mag-faq article{border:0;background:transparent;box-shadow:none;padding:0}
+@media(max-width:700px){
+.prose.lay-mag.lay.magazine-v2.lay-dystopia .dy{font-size:17px;line-height:1.65;overflow-x:clip}
+.prose.lay-mag.lay.magazine-v2.lay-dystopia .dy .dy-head>.dy-by,.prose.lay-mag.lay.magazine-v2.lay-dystopia .dy .dy-head>p,.prose.lay-mag.lay.magazine-v2.lay-dystopia .dy .dy-head>p:last-child{margin-left:20px;margin-right:20px}
+.prose.lay-mag.lay.magazine-v2.lay-dystopia .dy .dy-head>p:last-child{font-size:19px}
+.prose.lay-mag.lay.magazine-v2.lay-dystopia .dy .dy-index,.prose.lay-mag.lay.magazine-v2.lay-dystopia .dy .dy-take,.prose.lay-mag.lay.magazine-v2.lay-dystopia .dy .dy-overview,.prose.lay-mag.lay.magazine-v2.lay-dystopia .dy .dy-closing,.prose.lay-mag.lay.magazine-v2.lay-dystopia .dy .dy-references,.prose.lay-mag.lay.magazine-v2.lay-dystopia .dy .dy-faq{margin:40px 20px}
+.prose.lay-mag.lay.magazine-v2.lay-dystopia .dy .dy-personal{margin:40px 20px;padding:0;columns:1;max-width:none}
+.prose.lay-mag.lay.magazine-v2.lay-dystopia .dy .dy-tiles{grid-template-columns:repeat(2,minmax(0,1fr))}
+.prose.lay-mag.lay.magazine-v2.lay-dystopia .dy .dy-tiles a{min-height:130px;font-size:20px;padding:12px;border-bottom:1px solid var(--line)}
+.prose.lay-mag.lay.magazine-v2.lay-dystopia .dy .dy-index-line a{padding:6px 0;display:inline-block}
+.prose.lay-mag.lay.magazine-v2.lay-dystopia .dy .dy-take{display:block}
+.prose.lay-mag.lay.magazine-v2.lay-dystopia .dy :is(.dy-take ul,.dy-references ul){columns:1}
+.prose.lay-mag.lay.magazine-v2.lay-dystopia .dy .toc-ask-ai{margin:0 20px 30px}
+.prose.lay-mag.lay.magazine-v2.lay-dystopia .dy .dy-chapter,.prose.lay-mag.lay.magazine-v2.lay-dystopia .dy .dy-watch{margin:50px 0}
+.prose.lay-mag.lay.magazine-v2.lay-dystopia .dy .dy-opener{display:block;padding:35px 24px;min-height:0}
+.prose.lay-mag.lay.magazine-v2.lay-dystopia .dy .dy-opener h2{font-size:46px;margin-bottom:20px}
+.prose.lay-mag.lay.magazine-v2.lay-dystopia .dy .dy-opener>p{font-size:19px}
+.prose.lay-mag.lay.magazine-v2.lay-dystopia .dy .dy-book{grid-template-columns:1fr;gap:26px;padding:35px 0;margin:0 20px}
+.prose.lay-mag.lay.magazine-v2.lay-dystopia .dy .dy-book-cover{position:static;aspect-ratio:auto;padding:30px;min-height:300px}
+.prose.lay-mag.lay.magazine-v2.lay-dystopia .dy .dy-book-cover img{max-height:320px}
+.prose.lay-mag.lay.magazine-v2.lay-dystopia .dy .bs-rh p:last-child{font-size:27px}
+.prose.lay-mag.lay.magazine-v2.lay-dystopia .dy .bs-sec.s-deal,.prose.lay-mag.lay.magazine-v2.lay-dystopia .dy .dy-nodeal{padding:18px}
+.prose.lay-mag.lay.magazine-v2.lay-dystopia .dy .dy-faq h3{font-size:23px}
+.prose.lay-mag.lay.magazine-v2.lay-dystopia .dy .dy-overview .table-wrap{overflow:visible}
+.prose.lay-mag.lay.magazine-v2.lay-dystopia .dy .dy-overview table{min-width:0;display:block}
+.prose.lay-mag.lay.magazine-v2.lay-dystopia .dy .dy-overview thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.prose.lay-mag.lay.magazine-v2.lay-dystopia .dy .dy-overview tbody{display:block}
+.prose.lay-mag.lay.magazine-v2.lay-dystopia .dy .dy-overview tr{display:grid;grid-template-columns:1fr;gap:3px;padding:16px 0;border-bottom:1px solid var(--line)}
+.prose.lay-mag.lay.magazine-v2.lay-dystopia .dy .dy-overview td{display:block;border:0;padding:0}
+.prose.lay-mag.lay.magazine-v2.lay-dystopia .dy .dy-overview td:first-child{font-size:16px}
+}
