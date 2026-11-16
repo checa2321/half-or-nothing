@@ -4023,10 +4023,6 @@ html[data-theme="dark"] .blog-redesign .featured-image{background:#e8e1d5}
 .prose.lay-mag.lay.magazine-v2.lay-offduty .od .prod .btn{min-height:48px;display:inline-flex;align-items:center;justify-content:center}
 /* card + site-block adjustments (the live card replaces Dann's placeholder photo and sits in her slot) */
 .prose.lay-mag.lay.magazine-v2.lay-offduty .od .prod .picks-page-grid{max-width:none!important;margin:0 0 14px!important;width:100%}
-.prose.lay-mag.lay.magazine-v2.lay-offduty .od :is(#adidas,#reebok,#champion) .star .pb{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:36px;align-items:start}
-.prose.lay-mag.lay.magazine-v2.lay-offduty .od :is(#adidas,#reebok,#champion) .star .pb>*{grid-column:1}
-.prose.lay-mag.lay.magazine-v2.lay-offduty .od :is(#adidas,#reebok,#champion) .star .pb>.picks-page-grid{grid-column:2;grid-row:1/span 6}
-@media(max-width:900px){.prose.lay-mag.lay.magazine-v2.lay-offduty .od :is(#adidas,#reebok,#champion) .star .pb{display:flex;flex-direction:column}}
 .prose.lay-offduty .post-share,.prose.lay-offduty .post-ask-ai{display:none}
 /* OFF/DUTY: live cards stacked to fit Dann's narrow product columns */
 .prose.lay-mag.lay.magazine-v2.lay-offduty .od .prod .picks-page-grid{max-width:none!important;margin:0 0 14px!important;width:100%}
@@ -4043,6 +4039,12 @@ html[data-theme="dark"] .blog-redesign .featured-image{background:#e8e1d5}
 .prose.lay-mag.lay.magazine-v2.lay-offduty .od .prod .pick{border-radius:0}
 .prose.lay-mag.lay.magazine-v2.lay-offduty .od .prod .picks-page-grid,.prose.lay-mag.lay.magazine-v2.lay-offduty .od .prod .picks-page-grid-lasso{display:block!important;grid-template-columns:none!important}
 .prose.lay-mag.lay.magazine-v2.lay-offduty .od .prod .pick-lasso,.prose.lay-mag.lay.magazine-v2.lay-offduty .od .prod .pick-api{flex:none!important;width:100%!important;max-width:100%!important}
-.prose.lay-mag.lay.magazine-v2.lay-offduty .od .star .pb{padding-top:44px}
-@media(max-width:580px){.prose.lay-mag.lay.magazine-v2.lay-offduty .od .star .pb{padding-top:36px}}
 .prose.lay-mag.lay.magazine-v2.lay-offduty .od .brand>h2{color:inherit}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od :is(p,li,small){font-weight:400;letter-spacing:normal}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .kt li{font-size:17px;line-height:1.65}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .prod .compare-card>img,.prose.lay-mag.lay.magazine-v2.lay-offduty .od .prod .pick-api .api-img{display:none}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .prod>img{display:block}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od section{font-weight:400;font-size:17px;line-height:1.65;letter-spacing:normal}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .dann p,.prose.lay-mag.lay.magazine-v2.lay-offduty .od #faq p,.prose.lay-mag.lay.magazine-v2.lay-offduty .od #outfits p,.prose.lay-mag.lay.magazine-v2.lay-offduty .od #sources li{font-size:17px;line-height:1.65}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .prod .compare-card .compare-text{align-self:stretch;width:100%}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .prod .compare-card .cta{align-self:flex-start}
