@@ -3806,3 +3806,243 @@ html[data-theme="dark"] .blog-redesign .featured-image{background:#e8e1d5}
 .prose.lay-mag.lay.magazine-v2.lay-dystopia .dy .dy-overview td{display:block;border:0;padding:0}
 .prose.lay-mag.lay.magazine-v2.lay-dystopia .dy .dy-overview td:first-child{font-size:16px}
 }
+
+/* OFF/DUTY: Dann's approved layout (her style.css, Nov 15 2026), scoped to .lay-offduty, this one post only. */
+@font-face{font-family:"Barlow Condensed";font-style:normal;font-weight:700;font-display:swap;src:url("/assets/fonts/barlow-condensed-700-latin.woff2") format("woff2")}
+@font-face{font-family:"Barlow Condensed";font-style:normal;font-weight:800;font-display:swap;src:url("/assets/fonts/barlow-condensed-800-latin.woff2") format("woff2")}
+@font-face{font-family:"Barlow Condensed";font-style:normal;font-weight:900;font-display:swap;src:url("/assets/fonts/barlow-condensed-900-latin.woff2") format("woff2")}
+@font-face{font-family:"IBM Plex Mono";font-style:normal;font-weight:400;font-display:swap;src:url("/assets/fonts/ibm-plex-mono-400-latin.woff2") format("woff2")}
+@font-face{font-family:"IBM Plex Mono";font-style:normal;font-weight:500;font-display:swap;src:url("/assets/fonts/ibm-plex-mono-500-latin.woff2") format("woff2")}
+@font-face{font-family:"IBM Plex Mono";font-style:normal;font-weight:600;font-display:swap;src:url("/assets/fonts/ibm-plex-mono-600-latin.woff2") format("woff2")}
+@font-face{font-family:"Space Grotesk";font-style:normal;font-weight:300 700;font-display:swap;src:url("/assets/fonts/space-grotesk-var-latin.woff2") format("woff2")}
+.prose.lay-mag.lay.magazine-v2.lay-offduty{max-width:none;padding:0;background:transparent;border:0;margin:0}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od{background:var(--paper);box-shadow:0 0 0 100vmax var(--paper);clip-path:inset(0 -100vmax)}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od{--blue:#243BFF;--lime:#D6FA38;--paper:#F5F5F5;--ink:#171717;--grey:#C5CBD3;--head:"Barlow Condensed","Arial Narrow",Impact,sans-serif;--mono:"IBM Plex Mono",monospace}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od *{box-sizing:border-box}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od{margin:0;background:var(--paper);color:var(--ink);font:17px/1.65 "Space Grotesk",Arial,sans-serif}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od a{color:inherit}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od a:focus-visible{outline:3px solid var(--blue);outline-offset:4px}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od img{display:block;max-width:100%}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .wrap{max-width:1440px;margin:auto;padding:0 36px 60px}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .cover{margin:0 -36px}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .cover img{width:100%;height:auto;display:block}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .idx{margin:0 -36px 64px;background:var(--blue);color:white;padding:14px 36px 0}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .tiles{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:2px}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .tile{min-height:128px;padding:12px 16px;display:flex;flex-direction:column;justify-content:flex-end;text-decoration:none;background:var(--lime);color:var(--ink);position:relative}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .tile:nth-child(even){background:white}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .tile:before{content:attr(data-no);font:12px var(--mono);position:absolute;top:12px}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .tile:hover{background:var(--grey)}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .tn{font:900 clamp(22px,3.2vw,48px)/.95 var(--head)}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .ts{font-size:12px;line-height:1.2;margin-top:7px}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .links{display:flex;gap:24px;overflow-x:auto;white-space:nowrap;padding:15px 0;font:12px var(--mono)}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .links a{text-decoration:none}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .links a:hover{text-decoration:underline}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od h1,.prose.lay-mag.lay.magazine-v2.lay-offduty .od h2,.prose.lay-mag.lay.magazine-v2.lay-offduty .od h3,.prose.lay-mag.lay.magazine-v2.lay-offduty .od p{margin-top:0}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od h1{font:900 clamp(54px,8vw,118px)/.88 var(--head);letter-spacing:-.015em;text-transform:uppercase;max-width:1050px;margin-bottom:18px;color:var(--blue)}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .by{font:13px var(--mono);border-top:2px solid var(--ink);padding-top:10px;margin-bottom:28px}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .wrap>p:not(.disc){font-size:clamp(20px,2.4vw,30px);line-height:1.4;max-width:950px}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .kt{display:grid;grid-template-columns:1fr 2fr;gap:28px;background:var(--lime);padding:35px;margin:45px 0}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .kt h2,.prose.lay-mag.lay.magazine-v2.lay-offduty .od .dann small{font:900 44px/.95 var(--head);text-transform:uppercase}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .kt ul{margin:0;padding-left:22px}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .kt li+li{margin-top:8px}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .dann{margin:50px 0 80px;padding:32px 0 24px 25%;border-top:3px solid var(--blue);border-bottom:1px solid var(--blue);position:relative}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .dann small{position:absolute;left:0;top:35px;color:var(--blue)}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .dann p{max-width:780px}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .brand{margin:0 -36px 72px;padding:32px 36px 44px;position:relative;scroll-margin-top:20px}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .brand:before{content:attr(data-issue);font:600 14px var(--mono);display:block;margin-bottom:12px}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .brand>h2{font:900 clamp(52px,8vw,110px)/.88 var(--head);text-transform:uppercase;letter-spacing:-.015em;margin:0 0 22px;max-width:1100px}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .brand>p{max-width:820px;font-size:19px;line-height:1.55;margin-bottom:30px}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .grid{display:grid;gap:2px;align-items:stretch}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .prod{display:flex;flex-direction:column;min-width:0;background:white;color:var(--ink);padding:18px;gap:12px}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .prod img{width:100%;height:220px;object-fit:contain;background:white}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .pb{display:flex;flex-direction:column;flex:1;min-width:0}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .prod h3{font:700 25px/1.05 var(--head);margin:0 0 8px}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .prod p{font-size:14px;line-height:1.55;margin:0 0 12px}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .prod .slot{margin-top:auto;font:11px/1.5 var(--mono);color:#505050;border-top:1px dashed #9ca1a7;padding:12px 0 8px}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .btn{background:var(--blue);color:white;text-decoration:none;padding:10px 14px;align-self:flex-start;font:600 13px var(--mono)}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .btn:hover{background:var(--ink)}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .star{position:relative}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .star:before{content:"★";background:var(--lime);color:var(--ink);font-size:24px;line-height:1;padding:10px;position:absolute;top:12px;left:12px;z-index:1}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .star h3{font-size:clamp(34px,4vw,58px)}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .star p{font-size:17px}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .star img{height:340px}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od #adidas{background:var(--blue);color:white}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .layout-adidas{grid-template-columns:repeat(4,minmax(0,1fr))}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .layout-adidas .star{grid-column:1/-1;display:grid;grid-template-columns:1.5fr 1fr;align-items:center;gap:36px;padding:32px}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .layout-adidas .star img{height:355px}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od #puma{background:var(--lime)}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .layout-puma{grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .layout-puma .star{grid-row:span 2;justify-content:center;padding:26px}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .layout-puma .star img{height:390px}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .layout-puma .prod:last-child{grid-column:2/-1;display:grid;grid-template-columns:1fr 1fr;align-items:center}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .layout-puma .prod:last-child img{height:150px}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od #reebok{border-block:3px solid var(--blue);background:white;color:var(--blue)}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .layout-reebok{grid-template-columns:1fr 1fr;gap:24px}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .layout-reebok .prod{border-top:1px solid var(--grey);padding:24px 0}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .layout-reebok .star{grid-column:1/-1;display:grid;grid-template-columns:1fr 1.3fr;align-items:center}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .layout-reebok .star img{height:400px}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .layout-reebok .prod:last-child{grid-column:1/-1;display:grid;grid-template-columns:1fr 2fr;align-items:center}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .layout-reebok .prod:last-child img{height:170px}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od #skechers{background:var(--grey)}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .layout-skechers{grid-template-columns:repeat(3,minmax(0,1fr));gap:3px}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .layout-skechers .star{grid-column:span 2;grid-row:span 2;background:white;justify-content:center;padding:28px}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .layout-skechers .star img{height:440px}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .layout-skechers .prod:nth-child(2),.prose.lay-mag.lay.magazine-v2.lay-offduty .od .layout-skechers .prod:nth-child(3){background:#eef0f2}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od #champion{background:var(--blue);color:white}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .layout-champion{grid-template-columns:repeat(5,minmax(0,1fr));gap:3px}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .layout-champion .star{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:26px;background:var(--lime)}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .layout-champion .star img{height:420px}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .layout-champion .prod:not(.star) img{height:180px}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od #faq,.prose.lay-mag.lay.magazine-v2.lay-offduty .od #sources{margin:55px 0;scroll-margin-top:20px}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od #faq h2,.prose.lay-mag.lay.magazine-v2.lay-offduty .od #sources h2{font:900 clamp(42px,6vw,80px)/.95 var(--head);text-transform:uppercase;color:var(--blue);margin-bottom:28px}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od #faq h3{font-size:21px;border-top:1px solid var(--grey);padding-top:18px;margin-bottom:8px}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od #faq p{max-width:900px;margin-bottom:25px}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od #sources ul{padding-left:20px}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od #sources a{color:var(--blue)}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .disc{font-size:13px;font-style:italic;border-top:2px solid var(--ink);padding-top:20px}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od [id]{scroll-margin-top:20px}
+@media(max-width:900px){.prose.lay-mag.lay.magazine-v2.lay-offduty .od .layout-adidas,.prose.lay-mag.lay.magazine-v2.lay-offduty .od .layout-champion{grid-template-columns:repeat(2,minmax(0,1fr))}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .layout-puma{grid-template-columns:repeat(2,minmax(0,1fr))}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .layout-puma .prod:last-child{grid-column:auto;display:flex}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .layout-puma .star{grid-row:auto;grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;align-items:center}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .tiles{grid-template-columns:repeat(5,minmax(145px,1fr));overflow:auto}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .layout-skechers{grid-template-columns:repeat(2,minmax(0,1fr))}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .layout-skechers .star{grid-row:auto;grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;align-items:center}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .dann{padding-left:0;padding-top:80px}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .dann small{top:20px}
+}
+@media(max-width:580px){.prose.lay-mag.lay.magazine-v2.lay-offduty .od{font-size:16px}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .wrap{padding:0 16px 32px}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .cover,.prose.lay-mag.lay.magazine-v2.lay-offduty .od .idx,.prose.lay-mag.lay.magazine-v2.lay-offduty .od .brand{margin-left:-16px;margin-right:-16px}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .idx{padding:10px 16px 0;margin-bottom:34px}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .tile{min-height:95px}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .brand{padding:24px 16px 30px;margin-bottom:36px}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .brand>p{font-size:16px}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .kt{grid-template-columns:1fr;padding:22px;gap:10px}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .grid{gap:8px!important}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .grid .star{display:flex!important;grid-column:1/-1!important;padding:16px!important}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .grid .star img{height:280px!important}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .grid .prod:not(.star){padding:10px}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .grid .prod:not(.star) img{height:145px!important}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .prod h3{font-size:22px}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .prod p{font-size:13px}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .prod .slot{font-size:10px}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .btn{font-size:12px;padding:8px}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .layout-reebok .prod:last-child{grid-column:auto;display:flex}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .layout-puma .prod:last-child{grid-column:auto}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .layout-reebok{gap:12px}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .brand>h2{font-size:56px}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .dann{margin-bottom:40px}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .disc{margin-bottom:0}
+}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .breadcrumbs{font:12px/1.5 var(--mono);padding:12px 0;color:#505050}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .brand>p+p{margin-top:-12px}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .prod .wear{border-left:4px solid var(--blue);padding:9px 12px;background:var(--paper);margin-bottom:18px}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .ask{padding:18px 0;border-bottom:1px solid var(--grey);font:13px/1.6 var(--mono)}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .ask a,.prose.lay-mag.lay.magazine-v2.lay-offduty .od .ask button,.prose.lay-mag.lay.magazine-v2.lay-offduty .od .ask span{display:inline-block;margin:4px 8px 4px 0;padding:6px 10px;border:1px solid var(--grey);background:white;color:var(--ink)}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od #outfits{margin:60px 0;padding:32px;background:var(--lime);color:var(--ink);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od #outfits h2{grid-column:1/-1;font:900 clamp(42px,6vw,80px)/.95 var(--head);text-transform:uppercase;color:var(--blue);margin:0}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od #outfits p{border-top:2px solid var(--blue);padding-top:18px;margin:0}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od #outfits b{display:block;font:800 32px/1 var(--head);text-transform:uppercase;margin-bottom:12px}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .authorbox{display:flex;gap:24px;padding:30px 0;border-block:1px solid var(--grey);align-items:flex-start}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .authorbox p{margin-bottom:8px}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .av{flex:none;display:grid;place-items:center;width:64px;height:64px;background:var(--blue);color:white;font:900 32px var(--head)}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .storecta{background:var(--lime);padding:30px;margin:28px 0}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .storecta p{font:800 clamp(28px,4vw,46px)/1.05 var(--head)}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .storecta a{display:inline-block;background:var(--ink);color:white;padding:10px 16px;text-decoration:none}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .relgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .relcard{background:white;padding:14px;min-width:0}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .relcard img{width:100%;aspect-ratio:16/9;object-fit:contain}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .relcard a{display:block;text-decoration:none}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .relcard p{font-size:14px}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .relcard h3{font:700 25px/1.1 var(--head)}
+@media(max-width:650px){.prose.lay-mag.lay.magazine-v2.lay-offduty .od #outfits,.prose.lay-mag.lay.magazine-v2.lay-offduty .od .relgrid{grid-template-columns:1fr}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od #outfits{padding:22px}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .authorbox{gap:12px}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .av{width:48px;height:48px}
+}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od #reebok{background:var(--lime);color:var(--ink);border:0}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od #reebok>h2,.prose.lay-mag.lay.magazine-v2.lay-offduty .od #skechers>h2{position:relative;isolation:isolate}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od #reebok>h2:after{content:"";position:absolute;z-index:-1;right:0;top:0;width:36%;height:100%;opacity:.16;background:linear-gradient(90deg,transparent 49%,#171717 49%,#171717 51%,transparent 51%),linear-gradient(transparent 49%,#171717 49%,#171717 51%,transparent 51%);border:2px solid #171717;pointer-events:none}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od #reebok .prod{border:0;padding:24px}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od #reebok .star{background:var(--ink);color:white;gap:30px}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od #reebok .star .wear{background:#292929;border-color:var(--lime)}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od #reebok .star .slot,.prose.lay-mag.lay.magazine-v2.lay-offduty .od #skechers .star .slot{color:#fff;border-color:#fff}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od #reebok .star .btn,.prose.lay-mag.lay.magazine-v2.lay-offduty .od #skechers .star .btn{background:var(--lime);color:var(--ink)}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od #skechers{background:var(--ink);color:white}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od #skechers>h2{color:white}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od #skechers>h2:after{content:"";position:absolute;z-index:-1;right:0;top:0;width:40%;height:100%;background:repeating-linear-gradient(125deg,transparent 0 19px,#243BFF 19px 26px);opacity:.56;pointer-events:none}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od #skechers .star{background:var(--blue);color:white}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od #skechers .star .wear{background:#1728bc;border-color:var(--lime)}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od #skechers .prod:nth-child(2),.prose.lay-mag.lay.magazine-v2.lay-offduty .od #skechers .prod:nth-child(3){background:white}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od #skechers:before{color:var(--lime)}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od #adidas{background:#243BFF;color:#fff}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od #puma{background:#D6FA38;color:#171717}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od #puma .btn{background:#171717;color:#fff}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od #puma .wear{border-color:#171717}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od #puma .star{border:3px solid #171717}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od #reebok{background:#F5F5F5;color:#171717;border-block:4px solid #171717}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od #reebok>h2{color:#171717}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od #reebok>h2:after{border-color:#171717}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od #reebok:before{color:#171717}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od #reebok .prod:not(.star){border-top:3px solid #D6FA38}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od #reebok .prod:not(.star) .btn{background:#171717;color:white}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od #skechers{background:#171717;color:white}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od #champion{background:#0B1A8C;color:white}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .brand{margin-bottom:72px}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .tiles .tile:nth-child(1){background:#243BFF;color:white;border:1px solid white}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .tiles .tile:nth-child(2){background:#D6FA38;color:#171717}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .tiles .tile:nth-child(3){background:#F5F5F5;color:#171717}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .tiles .tile:nth-child(4){background:#171717;color:white}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .tiles .tile:nth-child(5){background:#0B1A8C;color:#D6FA38;border:1px solid #D6FA38}
+@media(max-width:580px){.prose.lay-mag.lay.magazine-v2.lay-offduty .od .brand{margin-bottom:36px}
+}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od #skechers{background:#C5CBD3;color:#171717}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od #skechers>h2,.prose.lay-mag.lay.magazine-v2.lay-offduty .od #skechers:before{color:#171717}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od #skechers>h2:after{opacity:.36}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od #skechers .star .btn:hover{background:#F5F5F5;color:#171717}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .tiles .tile:nth-child(4){background:#C5CBD3;color:#171717}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od #reebok>h2:after{display:none}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od #reebok:after{content:"";position:absolute;right:36px;top:24px;width:70px;height:42px;opacity:.16;border:2px solid #171717;background:linear-gradient(90deg,transparent 49%,#171717 49%,#171717 51%,transparent 51%),linear-gradient(transparent 49%,#171717 49%,#171717 51%,transparent 51%);pointer-events:none;transform:translateY(-10px)}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od #reebok:before{min-height:44px}
+@media(max-width:580px){.prose.lay-mag.lay.magazine-v2.lay-offduty .od #reebok:after{right:16px;top:20px;width:48px;height:28px}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od #reebok:before{min-height:32px}
+}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od #reebok:after,.prose.lay-mag.lay.magazine-v2.lay-offduty .od #reebok>h2:after,.prose.lay-mag.lay.magazine-v2.lay-offduty .od #skechers>h2:after{content:none;display:none}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od #at-a-glance{margin:45px 0;scroll-margin-top:20px;min-width:0;max-width:100%}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od #at-a-glance h2{font:900 clamp(42px,6vw,72px)/.95 var(--head);text-transform:uppercase;color:var(--blue);margin:0 0 18px}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .glance-scroll{max-width:100%;overflow-x:auto;border:2px solid var(--blue)}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od #at-a-glance table{width:100%;min-width:660px;border-collapse:collapse;background:white;font-size:16px;line-height:1.45}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od #at-a-glance th{background:var(--blue);color:white;text-align:left;font:600 13px var(--mono);text-transform:uppercase}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od #at-a-glance th,.prose.lay-mag.lay.magazine-v2.lay-offduty .od #at-a-glance td{padding:14px 16px;border-bottom:1px solid var(--grey);vertical-align:top}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od #at-a-glance td:first-child{font-weight:700}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od #at-a-glance tbody tr:last-child td{border-bottom:0}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od #at-a-glance tbody tr:nth-child(even){background:var(--paper)}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od #outfits .outfit-more{grid-column:1/-1}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od #outfits .outfit-more a{color:var(--blue);font-weight:700;text-decoration:underline;text-underline-offset:3px}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .prod .btn{min-height:48px;display:inline-flex;align-items:center;justify-content:center}
+/* card + site-block adjustments (the live card replaces Dann's placeholder photo and sits in her slot) */
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .prod .picks-page-grid{max-width:none!important;margin:0 0 14px!important;width:100%}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od :is(#adidas,#reebok,#champion) .star .pb{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:36px;align-items:start}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od :is(#adidas,#reebok,#champion) .star .pb>*{grid-column:1}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od :is(#adidas,#reebok,#champion) .star .pb>.picks-page-grid{grid-column:2;grid-row:1/span 6}
+@media(max-width:900px){.prose.lay-mag.lay.magazine-v2.lay-offduty .od :is(#adidas,#reebok,#champion) .star .pb{display:flex;flex-direction:column}}
+.prose.lay-offduty .post-share,.prose.lay-offduty .post-ask-ai{display:none}
+/* OFF/DUTY: live cards stacked to fit Dann's narrow product columns */
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .prod .picks-page-grid{max-width:none!important;margin:0 0 14px!important;width:100%}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .prod .compare-card{display:flex;flex-direction:column;align-items:stretch;text-align:left;gap:10px;padding:10px!important;border:1px solid var(--grey)!important;width:100%}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .prod .compare-card img{position:static;width:100%;height:190px;max-height:none;object-fit:contain}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .prod .compare-card .cta{text-align:center}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .prod .compare-card .compare-disclosure{font-size:11px;line-height:1.4;margin:0}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .prod .pick-api{width:100%;max-width:100%;min-width:0;margin:0}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .prod .pick-api .api-card{grid-template-columns:1fr;grid-template-areas:"img" "main" "date"}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .prod .pick-api .api-img{width:100%;height:190px;margin:0 auto}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .prod .pick-api .api-img img{width:100%;height:190px;object-fit:contain}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .prod .pick-api .api-title{font-size:13px;line-height:1.35}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .prod .pick-api .api-date{font-size:10px}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .prod .pick{border-radius:0}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .prod .picks-page-grid,.prose.lay-mag.lay.magazine-v2.lay-offduty .od .prod .picks-page-grid-lasso{display:block!important;grid-template-columns:none!important}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .prod .pick-lasso,.prose.lay-mag.lay.magazine-v2.lay-offduty .od .prod .pick-api{flex:none!important;width:100%!important;max-width:100%!important}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .star .pb{padding-top:44px}
+@media(max-width:580px){.prose.lay-mag.lay.magazine-v2.lay-offduty .od .star .pb{padding-top:36px}}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .brand>h2{color:inherit}
