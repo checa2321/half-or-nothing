@@ -4048,3 +4048,8 @@ html[data-theme="dark"] .blog-redesign .featured-image{background:#e8e1d5}
 .prose.lay-mag.lay.magazine-v2.lay-offduty .od .dann p,.prose.lay-mag.lay.magazine-v2.lay-offduty .od #faq p,.prose.lay-mag.lay.magazine-v2.lay-offduty .od #outfits p,.prose.lay-mag.lay.magazine-v2.lay-offduty .od #sources li{font-size:17px;line-height:1.65}
 .prose.lay-mag.lay.magazine-v2.lay-offduty .od .prod .compare-card .compare-text{align-self:stretch;width:100%}
 .prose.lay-mag.lay.magazine-v2.lay-offduty .od .prod .compare-card .cta{align-self:flex-start}
+/* card slimmed to price + CTA + as-of line: the photo and the title already sit in Dann's layout above it */
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .prod .compare-card .compare-title,.prose.lay-mag.lay.magazine-v2.lay-offduty .od .prod .pick-api .api-title,.prose.lay-mag.lay.magazine-v2.lay-offduty .od .prod .pick-api .pick-lasso-cat,.prose.lay-mag.lay.magazine-v2.lay-offduty .od .prod .pick-api .over-menu{display:none}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .prod .compare-card,.prose.lay-mag.lay.magazine-v2.lay-offduty .od .prod .pick-api{border:0!important;box-shadow:none!important;background:transparent!important;padding:0!important;margin:0 0 12px!important}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .prod .pick-api .api-card{padding-top:0}
+.prose.lay-mag.lay.magazine-v2.lay-offduty .od .prod .compare-card .compare-price{margin:0}
