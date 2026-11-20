@@ -89,11 +89,15 @@ if(grid){
  function load(cb){if(rows)return cb();cbs.push(cb);if(loading)return;loading=true;if(count)count.textContent='Loading all brand deals…';
   fetch('/deals-brands.json').then(function(r){return r.json()}).then(function(j){rows=(j.deals||[]).filter(function(d){return d.image_url&&d.price&&d.original_price});cbs.splice(0).forEach(function(f){f()})})
    .catch(function(){loading=false;cbs.length=0;if(count)count.textContent='Could not load more deals. Refresh to try again.'})}
- function draw(){load(function(){var q=nrm(st.q).split(/\s+/).filter(Boolean),
+ var ps=$('#brand-picks'),pp=$$('#brand-picks .card.pick'),shown=ps?parseInt(ps.getAttribute('data-shown')||'24',10):0;
+ function drawPicks(){if(!ps)return;var q=nrm(st.q).split(/\s+/).filter(Boolean),on=st.brand!=='all'||st.gender!=='all'||q.length>0,k=0,m=0;
+  pp.forEach(function(c){var ok=(st.brand==='all'||c.getAttribute('data-brand')===st.brand)&&(st.gender==='all'||c.getAttribute('data-gender')===st.gender)&&q.every(function(w){return nrm(c.getAttribute('data-search')).indexOf(w)>-1}),
+   show=ok&&(on||k<shown);if(ok)k++;c.hidden=!show;if(show)m++});ps.hidden=!m}
+ function draw(){drawPicks();load(function(){var q=nrm(st.q).split(/\s+/).filter(Boolean),
   l=rows.filter(function(d){return (st.brand==='all'||d.brand_slug===st.brand)&&(st.gender==='all'||d.gender===st.gender)&&q.every(function(w){return nrm(d.title).indexOf(w)>-1})});
   if(st.sort==='price')l=l.slice().sort(function(a,b){return a.price-b.price});if(st.sort==='price-desc')l=l.slice().sort(function(a,b){return b.price-a.price});
   g.innerHTML=l.slice(0,st.n).map(card).join('');count.textContent='Showing '+Math.min(st.n,l.length).toLocaleString('en-US')+' of '+l.length.toLocaleString('en-US')+' deals';
-  empty.hidden=l.length>0;more.hidden=st.n>=l.length})}
+  empty.hidden=l.length>0||(ps&&!ps.hidden);more.hidden=st.n>=l.length})}
  fb.addEventListener('change',function(){st.brand=fb.value;st.n=20;draw()});
  fg.addEventListener('change',function(){st.gender=fg.value;st.n=20;draw()});
  fs.addEventListener('change',function(){st.sort=fs.value;st.n=20;draw()});
