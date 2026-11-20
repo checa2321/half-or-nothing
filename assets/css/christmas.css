@@ -1,0 +1,132 @@
+body#top {
+  --christmas-pine: #254735;
+  --christmas-wine: #70243c;
+  --christmas-gold: #c39a62;
+  --christmas-paper: #f5eee4;
+}
+
+:root[data-theme="dark"] body#top {
+  --christmas-pine: #a7c4ae;
+  --christmas-wine: #f0b2c4;
+  --christmas-gold: #dabd92;
+  --christmas-paper: #2c2327;
+}
+
+body#top > .bar {
+  background: #70243c;
+  color: #fff5e6;
+}
+
+body#top > header > .cline {
+  background: linear-gradient(90deg, #70243c, #bb935f 50%, #254735);
+}
+
+#top .intro {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  justify-items: center;
+  align-content: center;
+  gap: 12px;
+  min-height: clamp(290px, 29vw, 415px);
+  padding: 128px 12px 30px;
+  text-align: center;
+  color: #fff7ea;
+}
+
+#top .intro::before {
+  content: "";
+  position: absolute;
+  inset-block: 0;
+  inset-inline: calc((100% - 100vw) / 2);
+  z-index: -1;
+  background:
+    linear-gradient(180deg, transparent 23%, rgb(9 28 21 / .24) 53%, #0b231a 100%),
+    #0b231a url("christmas-banner.webp") center top / cover no-repeat;
+  pointer-events: none;
+}
+
+#top .intro .t-label {
+  color: #f0d2a4;
+}
+
+#top .intro h1 {
+  font-size: clamp(35px, 5.65vw, 82px);
+  text-shadow: 0 2px 14px #0a1c14;
+}
+
+#top .intro h1 em {
+  color: #f0d2a4;
+}
+
+#top .intro > p {
+  display: block;
+  color: #fff0d9;
+  padding: 0;
+}
+
+#top .intro + .rail {
+  margin-top: 16px;
+}
+
+#top :is(#ebay, #picks) .sec-h h3,
+#top :is(#ebay, #picks) .sec-h h3 .cline {
+  display: block;
+}
+
+#top :is(#ebay .sec-h h3, #picks .sec-h h3, #stories .section-title h2)::before {
+  content: "";
+  display: inline-block;
+  width: .55em;
+  height: .55em;
+  margin-inline-end: .32em;
+  background: var(--christmas-gold);
+  clip-path: polygon(50% 0, 62% 38%, 100% 50%, 62% 62%, 50% 100%, 38% 62%, 0 50%, 38% 38%);
+  vertical-align: .26em;
+}
+
+#top .christmas-story {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 4px 13px;
+  width: fit-content;
+  margin: 0 0 16px;
+  padding: 9px 14px;
+  border-inline-start: 2px solid var(--christmas-gold);
+  background: var(--christmas-paper);
+  color: var(--christmas-wine);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+#top .christmas-story span {
+  color: var(--christmas-pine);
+  font-size: 11px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+#top .christmas-story:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 760px) {
+  #top .intro {
+    min-height: 280px;
+    padding: 94px 8px 22px;
+  }
+
+  #top .intro::before {
+    background-size: auto, auto 100%;
+  }
+
+  #top .intro h1 {
+    font-size: clamp(36px, 10.5vw, 50px);
+  }
+
+  #top .intro .mobile-break {
+    display: initial;
+  }
+}
