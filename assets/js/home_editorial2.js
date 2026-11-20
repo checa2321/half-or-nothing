@@ -33,7 +33,7 @@ if(grid){
  function matchCat(d){if(st.gender!=='all'&&d.gender!==st.gender)return false;var c=st.cat;if(c==='all')return true;if(c==='budget')return d.price<20;if(c==='picks')return false;return keyOf(d)===c}
  function matchQ(t){if(!st.q)return true;var q=norm(st.q).split(/\s+/);var x=norm(t);return q.every(function(w){return x.indexOf(w)>-1})}
  function sorted(l){if(st.sort==='price')return l.slice().sort(function(a,b){return a.price-b.price});if(st.sort==='discount')return l.slice().sort(function(a,b){return b.discount_pct-a.discount_pct});return l}
- function pickCards(){if(!pickPool)pickPool=$$('#pick-grid .card').map(function(c){return c.cloneNode(true)});return pickPool}
+ function pickCards(){if(!pickPool)pickPool=$$('#pick-grid .card').map(function(c){var n=c.cloneNode(true);n.hidden=false;return n});return pickPool}
  function draw(){
   if(st.cat==='picks'){var pk=pickCards().filter(function(c){return matchQ(c.getAttribute('data-search'))});
    if(st.sort==='price')pk.sort(function(a,b){return a.getAttribute('data-price')-b.getAttribute('data-price')});
