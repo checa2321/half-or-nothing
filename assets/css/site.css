@@ -4053,3 +4053,103 @@ html[data-theme="dark"] .blog-redesign .featured-image{background:#e8e1d5}
 .prose.lay-mag.lay.magazine-v2.lay-offduty .od .prod .compare-card,.prose.lay-mag.lay.magazine-v2.lay-offduty .od .prod .pick-api{border:0!important;box-shadow:none!important;background:transparent!important;padding:0!important;margin:0 0 12px!important}
 .prose.lay-mag.lay.magazine-v2.lay-offduty .od .prod .pick-api .api-card{padding-top:0}
 .prose.lay-mag.lay.magazine-v2.lay-offduty .od .prod .compare-card .compare-price{margin:0}
+/* The Stay-In Edit (Dann's preview, Nov 20 2026): her layout CSS verbatim, already scoped under .si-root / .si-references; only the global html,body overflow rule is scoped with :has(.si-root). Shell pieces (kt-grid, check, faq2, hs-intro) use the site's lay-hotel rules above. */
+.si-root a{color:inherit}
+.si-root p{max-width:68ch}
+.si-root .si-section{padding:6vw 8vw;border-bottom:1px solid var(--line)}
+.si-root .si-section-kicker,.si-root .si-chapter-lead span,.si-root .si-tiny{font-size:11px;letter-spacing:.19em;text-transform:uppercase;font-weight:bold}
+.si-root .si-section h2{font-family:Georgia,serif;font-weight:400;font-size:clamp(32px,5vw,75px);line-height:1.05;letter-spacing:-.05em}
+.si-root .si-section h3{font-size:24px}
+.si-root .si-intro{display:block;max-width:1100px;margin:0 auto}
+.si-root .si-intro .si-section-kicker{margin-bottom:28px}
+.si-root .si-intro p{font-family:Georgia,serif;font-size:clamp(20px,2.1vw,28px);line-height:1.5;max-width:none;margin:0 0 1.2em}
+.si-root .si-intro p:first-of-type{font-size:clamp(26px,3.4vw,46px);line-height:1.22;letter-spacing:-.01em;margin-bottom:1.1em}
+.si-root .si-personal{background:#f6e9e6}
+.si-root .si-personal p{font-family:Georgia,serif;font-size:26px}
+.si-root .si-chapter{padding:6vw 4vw;border-bottom:1px solid var(--line)}
+.si-root .si-chapter-lead{display:grid;grid-template-columns:1fr 2fr;align-items:end;gap:3vw;margin-bottom:5vw}
+.si-root .si-chapter-lead h2{font-family:Georgia,serif;font-size:clamp(60px,10vw,160px);line-height:.85;letter-spacing:-.085em;font-weight:400;margin:0}
+.si-root .si-chapter-lead p{grid-column:2;font-family:Georgia,serif;font-style:italic;font-size:25px}
+.si-root .si-product-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:3vw;align-items:start}
+.si-root .si-product{grid-column:span 4;border-top:1px solid var(--ink);padding-top:12px}
+.si-root .si-product:nth-child(3n+2){margin-top:9vw}
+.si-root .si-product:nth-child(3n){margin-top:3vw}
+.si-root .si-product-art{min-height:270px;aspect-ratio:4/5;background:#f1dceb;padding:22px;display:flex;flex-direction:column;justify-content:space-between}
+.si-root .si-product:nth-child(3n+2) .si-product-art{background:#b8c5ac}
+.si-root .si-product:nth-child(3n) .si-product-art{background:#cad9ec}
+.si-root .si-product-art span,.si-root .si-product-art small{font-size:10px;text-transform:uppercase;letter-spacing:.15em}
+.si-root .si-product-art strong{font-family:Georgia,serif;font-size:clamp(25px,3vw,48px);line-height:1.02;font-weight:400;letter-spacing:-.04em}
+.si-root .si-uniform{background:#d9d0ed;color:#79516d}
+.si-root .si-fabric-opening{background:#f1dceb;padding:8vw 4vw 5vw}
+.si-root .si-fabric-opening .si-small{font-size:12px;letter-spacing:.2em}
+.si-root .si-fabric-opening{overflow:hidden}
+.si-root .si-fabric-opening h2{font-family:Georgia,serif;font-size:clamp(52px,10.5vw,150px);line-height:.92;letter-spacing:-.035em;font-weight:400;margin:5vw 0;max-width:100%}
+.si-root .si-fabric-opening p{font-size:clamp(20px,2.5vw,34px);line-height:1.2;max-width:740px}
+.si-root .si-material-wrap{background:#f6e9e6;color:#79516d;padding:5vw 4vw}
+.si-root .si-material-wrap>.si-hint{font-size:12px;text-transform:uppercase;letter-spacing:.2em;color:#79516d;margin-bottom:35px}
+.si-root .si-material{border-top:1px solid #c9b8c5}
+.si-root .si-material:last-child{border-bottom:1px solid #c9b8c5}
+.si-root .si-material summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:80px 1fr 50px;align-items:center;padding:22px 0;gap:10px}
+.si-root .si-material summary::-webkit-details-marker{display:none}
+.si-root .si-material-no{font-size:12px;color:#79516d}
+.si-root .si-material-name{font-family:Georgia,serif;font-size:clamp(48px,8vw,130px);letter-spacing:-.075em;line-height:1.05}
+.si-root .si-plus{font-size:38px;font-weight:200;color:#79516d;text-align:right}
+.si-root .si-material[open] .si-plus{transform:rotate(45deg)}
+.si-root .si-material-copy{padding:0 8vw 4vw 80px;max-width:940px;color:#79516d;font-size:18px;line-height:1.8}
+.si-root .si-fabric-support{padding:6vw 8vw;background:#f6e9e6}
+.si-root .si-fabric-support h3{font-family:Georgia,serif;font-size:clamp(30px,4vw,60px);font-weight:400;letter-spacing:-.04em}
+.si-root .si-fabric-support table,.si-root .si-section table{border-collapse:collapse;width:100%;font-size:13px}
+.si-root .si-fabric-support th,.si-root .si-fabric-support td,.si-root .si-section th,.si-root .si-section td{border-bottom:1px solid #aaa;padding:13px;text-align:left;vertical-align:top}
+.si-root .si-fabric-support .si-table-scroll{overflow-x:auto}
+.si-root .si-fabric-support p{max-width:850px}
+.si-root .si-product-art.si-photo{padding:0;background:#fff;aspect-ratio:1/1;min-height:0}
+.si-root .si-product-art.si-photo img{width:100%;height:100%;object-fit:contain;display:block}
+.si-root .si-chapter-intro{font-family:Georgia,serif;font-size:clamp(20px,2.2vw,30px);line-height:1.3;max-width:900px;margin:0 0 4vw}
+.si-root .si-product-art.si-tile strong{margin-top:auto}
+@media(max-width:780px){.si-root .si-intro,.si-root .si-chapter-lead{display:block}.si-root .si-chapter-lead h2{margin-top:30px}.si-root .si-product{grid-column:span 6}.si-root .si-product:nth-child(n){margin-top:0}.si-root .si-product:nth-child(even){margin-top:45px}.si-root .si-material summary{grid-template-columns:38px 1fr 25px}.si-root .si-material-name{font-size:clamp(40px,9vw,80px)}.si-root .si-material-copy{padding:0 0 30px 38px;font-size:16px}.si-root .si-section{padding:55px 5vw}.si-root .si-fabric-opening h2{font-size:12vw}}@media(max-width:480px){.si-root .si-product{grid-column:span 12}.si-root .si-product:nth-child(n){margin-top:0}.si-root .si-chapter-lead h2{font-size:16vw}.si-root .si-material-name{font-size:11vw}}
+.si-root{font-family:Arial,Helvetica,sans-serif;color:#79516d}
+.si-root a{color:inherit}
+.si-root .si-section,.si-root .si-chapter,.si-root .si-fabric-opening,.si-root .si-material-wrap,.si-root .si-fabric-support{width:100vw;margin-left:calc(50% - 50vw);box-sizing:border-box}
+.si-root .si-section{padding:5vw 8vw}
+.si-root .si-intro{display:block;max-width:none}
+.si-root .si-intro>*,.si-root .si-personal>*{max-width:900px!important;margin-left:auto!important;margin-right:auto!important}
+.si-root .si-intro p{font-family:Georgia,serif;font-size:clamp(20px,2.1vw,28px);line-height:1.5;margin:0 auto 1.2em}
+.si-root .si-intro p:first-of-type{font-size:clamp(26px,3.4vw,46px);line-height:1.22}
+.si-root .si-product-art.si-photo{padding:0;background:#fff;aspect-ratio:1/1;min-height:0}
+.si-root .si-product-art.si-photo img{width:100%;height:100%;object-fit:contain;display:block}
+.si-root .si-chapter-intro{font-family:Georgia,serif;font-size:clamp(20px,2.2vw,30px);line-height:1.3;max-width:900px;margin:0 0 4vw}
+.si-root .si-fabric-opening{overflow:hidden}
+.si-root .si-fabric-opening h2{font-family:Georgia,serif;font-size:clamp(36px,5vw,80px)!important;line-height:1;letter-spacing:-.02em;font-weight:400;margin:3vw 0;max-width:100%}
+.si-root .si-personal{background:#f6e9e6}
+.si-root .si-personal p{font-family:Georgia,serif;font-size:clamp(20px,2vw,26px);line-height:1.5;max-width:900px}
+.si-root h2,.si-root h3{margin-top:0}
+.si-root{background:#fff9f2}
+.si-root .si-chapter,.si-root .si-intro{background:#fff9f2}
+.si-root h2,.si-root h3,.si-root h2 em{color:#79516d!important}
+.si-root .si-chapter-lead h2{letter-spacing:-.02em!important;line-height:1!important;font-size:clamp(30px,4.2vw,66px)!important}
+.si-root .si-material-name{letter-spacing:-.01em!important;font-size:clamp(22px,2.6vw,40px)!important;line-height:1.15}
+.si-root .si-material summary{grid-template-columns:1fr 40px!important;padding:14px 0!important}
+.si-root .si-material-no{display:none}
+.si-root .si-material-copy{padding:0 0 26px 0!important;font-size:17px;line-height:1.7}
+.si-root .si-plus{font-size:26px}
+.si-root .si-product-body h3{color:#79516d!important;font-size:19px!important;line-height:1.2}
+.si-root .si-product-body p{max-width:none!important;margin:0 0 .6em!important}
+.si-root .si-chapter-lead p{max-width:none!important}
+.si-root strong,.si-root b{background:none!important;padding:0!important;box-shadow:none!important}
+.si-root .si-section-kicker{display:block;margin-bottom:22px}
+.si-root p a,.si-root .si-material-copy a{text-decoration:underline!important;text-underline-offset:3px;font-weight:600}
+.si-references{padding:2.5rem 0 1rem;border-top:1px solid #ddd}
+.si-references .si-ref-title{font-family:Georgia,serif;font-weight:400;font-size:clamp(28px,3.2vw,46px);letter-spacing:-.01em;margin:0 0 1.2rem;color:#79516d}
+.si-references ul{columns:2;column-gap:3rem;padding-left:1.2rem;margin:0}
+.si-references li{break-inside:avoid;margin:0 0 .85rem;font-family:Georgia,serif;font-weight:700;line-height:1.45}
+.si-references li a{color:#8a4f45;text-decoration:none}
+.si-references li a:hover{text-decoration:underline}
+@media(max-width:700px){.si-references ul{columns:1}}
+html:has(.si-root),html:has(.si-root) body{overflow-x:hidden}
+.si-hide-h1{position:absolute;left:-9999px}
+/* Stay-In Edit product cards: the site's live card under each piece (Creators API for Amazon, listing data for eBay), without the category pill and the dots menu, like the other Dann layouts */
+.si-root .si-product-body .pick-api .pick-lasso-cat,.si-root .si-product-body .pick-api .over-menu{display:none}
+.si-root .si-product-body .picks-page-grid{max-width:none!important;margin:14px 0 0!important}
+.si-root .si-product-body .si-sold{font-size:14px;margin:14px 0 0}
+@media(max-width:1000px){.si-root .si-product{min-width:0}.si-root .si-product-body .pick-api .api-card{grid-template-columns:minmax(0,1fr);grid-template-areas:"img" "main" "date"}.si-root .si-product-body .pick-api .api-img{margin:0 auto}.si-root .si-product-body .pick-api .api-main{min-width:0}}
+.si-root .si-product-body .picks-page-grid{display:block}
