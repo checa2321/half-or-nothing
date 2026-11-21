@@ -4386,3 +4386,107 @@ html:has(.si-root),html:has(.si-root) body{overflow-x:hidden}
 @media (max-width:900px){.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc .sqc-side>div:first-child{position:static}}
 
 .prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc .sqc-item .compare-card{border:1px solid var(--n200)!important;border-radius:14px!important;box-shadow:none!important}
+/* Half-price tech post (graphic design from Gemini's Cyber-Editorial Noir mockup, Nov 21 2026). Self-hosted Space Grotesk, Inter, JetBrains Mono. Scoped under .lay-electronoir .snr; site header/footer come from the site. */
+@font-face{font-family:"Inter";font-style:normal;font-weight:400 700;font-display:swap;src:url("/assets/fonts/inter-var-latin.woff2") format("woff2")}
+.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr{--ob:#090B10;--sl:#121620;--hl:#1F2636;--fr:#0D1018;--cy:#00E5FF;--vo:#C6FF00;--n300:#d4d4d4;--n400:#a3a3a3;--n500:#737373;--grot:"Space Grotesk",system-ui,sans-serif;--mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;position:relative;margin:0 auto;max-width:1120px;padding:0 0 40px;background:var(--ob);color:#fff;font:400 16px/1.6 "Inter",system-ui,sans-serif;border-radius:18px;overflow:clip}
+.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr *{box-sizing:border-box}
+.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr a{color:inherit}
+.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr ul,.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr ol{list-style:none;margin:0;padding:0}
+.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr li::before{content:none!important}
+.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr li{margin:0;padding:0}
+.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr h1,.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr h2,.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr h3,.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr p{margin:0}
+.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr strong{background:none!important;padding:0!important;box-shadow:none!important;color:inherit;font-weight:600}
+.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr .snr-progress{position:fixed;top:0;left:0;right:0;height:3px;background:var(--hl);z-index:70}
+.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr .snr-progress i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--cy),var(--vo))}
+.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr .snr-top{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;padding:18px 32px;border-bottom:1px solid var(--hl)}
+.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr .snr-brand{font:700 19px/1 var(--grot);letter-spacing:.18em;color:#fff}
+.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr .snr-top-r{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr .snr-chip{display:inline-flex;align-items:center;gap:7px;padding:5px 12px;border-radius:99px;background:var(--sl);border:1px solid var(--hl);color:var(--cy);font:500 11px/1.3 var(--mono)}
+.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr .snr-chip i{width:6px;height:6px;border-radius:50%;background:var(--vo);display:block}
+.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr .snr-copy{font:600 11px/1 var(--mono);padding:8px 12px;border-radius:9px;border:1px solid var(--hl);background:var(--sl);color:#fff;cursor:pointer}
+.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr .snr-copy:hover{border-color:var(--cy);color:var(--cy)}
+.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr .snr-hero{padding:46px 32px 38px;border-bottom:1px solid var(--hl);background-image:radial-gradient(rgba(0,229,255,.14) 1px,transparent 1px);background-size:24px 24px}
+.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr .snr-metarow{display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px;margin-bottom:18px;font:500 11px/1.3 var(--mono);text-transform:uppercase;letter-spacing:.08em;color:var(--n400)}
+.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr .snr-metarow span{padding:5px 10px;border-radius:6px}
+.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr .snr-m-volt{background:var(--vo);color:var(--ob);font-weight:700}
+.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr .snr-m-cyan{background:var(--sl);border:1px solid var(--hl);color:var(--cy)}
+.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr .snr-metarow span:last-child{padding-left:0}
+.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr .snr-hero h1{font:700 clamp(28px,4.6vw,50px)/1.08 var(--grot);letter-spacing:-.02em;color:#fff;max-width:900px;margin:0 0 18px}
+.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr .snr-hero h1 .c{color:var(--cy)}
+.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr .snr-hero h1 .v{color:var(--vo)}
+.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr .snr-sub{font-size:17px;line-height:1.6;color:var(--n300);max-width:760px;margin-bottom:14px}
+.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr .snr-meta{display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center;font:500 12px/1.4 var(--mono);color:var(--n400);margin-bottom:18px}
+.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr .snr-meta a{color:#fff;text-decoration:underline;text-underline-offset:3px}
+.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr .snr-disc{display:flex;gap:12px;align-items:flex-start;max-width:900px;background:rgba(18,22,32,.92);border:1px solid var(--hl);border-radius:16px;padding:14px 16px}
+.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr .snr-disc i{flex:none;width:8px;height:8px;margin-top:6px;border-radius:50%;background:var(--cy)}
+.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr .snr-disc p{font-size:12px;line-height:1.65;color:var(--n400)}
+.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr .snr-disc strong{color:#e5e5e5}
+.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr .snr-brief,.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr .snr-filter,.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr .snr-cards,.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr .snr-trials,.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr .snr-method,.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr .snr-faq{margin-left:32px;margin-right:32px}
+.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr .snr-brief{margin-top:34px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:26px;align-items:start}
+.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr .snr-take{background:var(--sl);border:1px solid var(--hl);border-radius:20px;padding:22px 24px}
+.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr .snr-label{font:700 11px/1.4 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--cy)}
+.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr .snr-label-v{color:var(--vo)}
+.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr .snr-take ul{display:grid;gap:12px;margin-top:12px}
+.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr .snr-take li{display:flex;gap:12px;align-items:flex-start;font-size:14px;line-height:1.6;color:var(--n300)}
+.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr .snr-take li b{flex:none;font:700 12px/1.9 var(--mono);color:var(--cy)}
+.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr .snr-intro p{font-size:16px;line-height:1.7;color:var(--n300);margin:0 0 14px}
+.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr .snr-intro a,.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr .snr-take a,.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr .snr-lead a,.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr .snr-desc a,.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr .snr-note a,.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr .snr-method a,.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr .snr-faq a{color:#fff;text-decoration:underline;text-decoration-color:var(--cy);text-underline-offset:3px}
+.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr .snr-filter{margin-top:32px;margin-bottom:26px;display:flex;flex-direction:column;gap:14px}
+.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr .snr-fbtns{display:flex;flex-wrap:wrap;gap:8px}
+.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr .snr-fbtn{font:600 12px/1 var(--mono);text-transform:uppercase;letter-spacing:.06em;padding:10px 15px;border-radius:99px;border:1px solid var(--hl);background:var(--sl);color:var(--n300);cursor:pointer;transition:all .15s}
+.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr .snr-fbtn:hover{border-color:var(--cy)}
+.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr .snr-fbtn[aria-pressed="true"]{background:var(--cy);border-color:var(--cy);color:var(--ob);font-weight:700}
+.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr .snr-count{font:500 12px/1.3 var(--mono);color:var(--n400)}
+.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr .snr-cards{display:grid;gap:30px}
+.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr .snr-card{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);border:1px solid var(--hl);border-radius:26px;background:var(--sl);overflow:clip;scroll-margin-top:92px;transition:border-color .15s}
+.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr .snr-card:hover{border-color:rgba(0,229,255,.6)}
+.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr .snr-card[hidden]{display:none}
+.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr .snr-frame{background:var(--fr);padding:28px;border-right:1px solid var(--hl);display:flex;flex-direction:column;justify-content:space-between;gap:18px;position:sticky;top:96px;align-self:start}
+.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr .snr-frame-top{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr .snr-drop{font:500 11px/1.3 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--n400)}
+.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr .snr-volt{padding:5px 12px;border-radius:99px;background:var(--vo);color:var(--ob);font:700 12px/1.2 var(--mono);text-transform:uppercase}
+.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr .snr-art{display:block;width:176px;height:176px;margin:14px auto}
+.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr .snr-meters{display:grid;gap:12px;padding-top:16px;border-top:1px solid var(--hl)}
+.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr .snr-mrow{display:flex;justify-content:space-between;gap:10px;font:500 11px/1.3 var(--mono);margin-bottom:5px;text-transform:uppercase}
+.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr .snr-mrow span{color:var(--n400)}
+.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr .snr-mrow b{font-weight:700;color:#fff}
+.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr .snr-mrow b.v{color:var(--vo)}
+.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr .snr-mrow b.c{color:var(--cy)}
+.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr .snr-src{margin:0}
+.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr .snr-bar{height:6px;border-radius:99px;background:var(--ob);overflow:hidden}
+.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr .snr-bar i{display:block;height:100%;border-radius:99px}
+.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr .snr-bar i.v{background:var(--vo)}
+.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr .snr-bar i.c{background:var(--cy)}
+.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr .snr-body{padding:28px;min-width:0}
+.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr .snr-body h2{font:700 clamp(22px,2.6vw,30px)/1.2 var(--grot);color:#fff;margin:0 0 12px;padding:0;border:0}
+.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr .snr-lead{font-size:15px;line-height:1.7;color:var(--n300);margin:0 0 14px}
+.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr .snr-feats{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,230px),1fr));gap:9px;margin:0 0 20px}
+.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr .snr-feat{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:12px;background:rgba(9,11,16,.8);border:1px solid var(--hl);font-size:12px;line-height:1.35;color:#e5e5e5;min-width:0}
+.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr .snr-feat b{flex:none;font:700 12px/1 var(--mono);color:var(--cy)}
+.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr .snr-feat span{flex:1;min-width:0;overflow-wrap:anywhere}
+.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr .snr-feat em{flex:none;font:700 11px/1 var(--mono);font-style:normal;color:var(--vo)}
+.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr .snr-stack{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:18px;border-top:1px solid var(--hl);padding-top:20px;align-items:start}
+.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr .snr-note{grid-column:1/-1;border-left:3px solid var(--vo);background:var(--ob);padding:11px 15px;border-radius:0 12px 12px 0}
+.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr .snr-note p{font-size:14px;line-height:1.65;color:var(--n300);margin:0}
+.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr .snr-item{min-width:0}
+.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr .snr-item *{min-width:0}
+.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr .snr-item .picks-page-grid{max-width:none!important;margin:0!important}
+.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr .snr-item .compare-card{border:1px solid var(--hl)!important;border-radius:14px!important;box-shadow:none!important}
+.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr .snr-desc{font:500 12px/1.55 var(--mono);color:var(--n400);margin-top:9px}
+.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr .snr-trials{margin-top:32px}
+.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr .snr-method{margin-top:32px;background:linear-gradient(90deg,var(--sl),#141C2B);border:1px solid rgba(0,229,255,.3);border-radius:24px;padding:28px}
+.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr .snr-method h2{font:700 24px/1.2 var(--grot);color:#fff;margin:4px 0 12px;padding:0;border:0}
+.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr .snr-method p{font-size:15px;line-height:1.7;color:var(--n300);margin:0 0 12px}
+.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr .snr-method p:last-child{margin-bottom:0}
+.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr .snr-faq{margin-top:32px}
+.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr .snr-faq h2{font:700 24px/1.2 var(--grot);color:#fff;margin:0 0 14px;padding:0;border:0}
+.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr .snr-faq details{border:1px solid var(--hl);border-radius:16px;margin-bottom:10px;background:var(--sl);padding:0 20px}
+.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr .snr-faq summary{cursor:pointer;list-style:none;padding:16px 0;font:600 16px/1.4 var(--grot);color:#fff;display:flex;justify-content:space-between;gap:12px}
+.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr .snr-faq summary::-webkit-details-marker{display:none}
+.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr .snr-faq summary::after{content:"+";font:700 18px/1 var(--mono);color:var(--cy)}
+.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr .snr-faq details[open] summary::after{content:"\2212"}
+.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr .snr-faq details p{padding:0 0 16px;font-size:15px;line-height:1.7;color:var(--n300)}
+.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr .snr-toast{position:fixed;right:24px;bottom:24px;z-index:80;padding:11px 18px;background:var(--sl);color:#fff;border:1px solid var(--cy);border-radius:12px;font:500 12px/1.3 var(--mono);opacity:0;transform:translateY(10px);transition:all .2s;pointer-events:none}
+.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr .snr-toast.on{opacity:1;transform:none}
+@media (max-width:900px){.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr .snr-brief{grid-template-columns:minmax(0,1fr)}.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr .snr-card{grid-template-columns:minmax(0,1fr)}.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr .snr-frame{position:static;border-right:0;border-bottom:1px solid var(--hl)}}
+@media (max-width:640px){.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr .snr-top{padding:14px 18px}.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr .snr-hero{padding:30px 18px 28px}.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr .snr-brief,.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr .snr-filter,.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr .snr-cards,.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr .snr-trials,.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr .snr-method,.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr .snr-faq{margin-left:14px;margin-right:14px}.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr .snr-body,.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr .snr-frame{padding:20px 16px}.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr .snr-method{padding:20px 18px}.prose.lay-mag.lay.magazine-v2.lay-electronoir .snr .snr-stack{grid-template-columns:minmax(0,1fr)}}
