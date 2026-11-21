@@ -4159,3 +4159,6 @@ html:has(.si-root),html:has(.si-root) body{overflow-x:hidden}
 .si-root .si-tile .pick-api .pick-lasso-cat,.si-root .si-tile .pick-api .over-menu{display:none}
 .si-root .si-tile .picks-page-grid{display:block}
 @media(max-width:1000px){.si-root .si-tile .pick-api .api-card{grid-template-columns:minmax(0,1fr);grid-template-areas:"img" "main" "date"}.si-root .si-tile .pick-api .api-img{margin:0 auto}.si-root .si-tile .pick-api .api-main{min-width:0}}
+/* Stay-In Edit (Che, Nov 20, replaces the in-tile card): Amazon photos fill the tile like the eBay photos; the card stays below the text */
+.si-root .si-product-art.si-photo a{display:block;width:100%;height:100%}
+.si-root .si-product:nth-child(n) .si-product-art.si-photo{background:#fff}
