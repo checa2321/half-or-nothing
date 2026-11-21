@@ -4162,3 +4162,7 @@ html:has(.si-root),html:has(.si-root) body{overflow-x:hidden}
 /* Stay-In Edit (Che, Nov 20, replaces the in-tile card): Amazon photos fill the tile like the eBay photos; the card stays below the text */
 .si-root .si-product-art.si-photo a{display:block;width:100%;height:100%}
 .si-root .si-product:nth-child(n) .si-product-art.si-photo{background:#fff}
+.deal-context{margin:0 0 40px;max-width:760px}
+.deal-context h2{font-size:1.1rem;margin:18px 0 8px}
+.deal-related{margin:0;padding-left:20px}
+.deal-related li{margin:4px 0}
