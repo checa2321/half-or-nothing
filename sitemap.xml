@@ -3541,12 +3541,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://halfornothing.com/derek-lam.html</loc>
-    <lastmod>2026-11-21</lastmod>
-    <changefreq>hourly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://halfornothing.com/diesel.html</loc>
     <lastmod>2026-11-21</lastmod>
     <changefreq>hourly</changefreq>
@@ -4003,12 +3997,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://halfornothing.com/lanvin.html</loc>
-    <lastmod>2026-11-21</lastmod>
-    <changefreq>hourly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://halfornothing.com/lattafa.html</loc>
     <lastmod>2026-11-21</lastmod>
     <changefreq>hourly</changefreq>
@@ -4375,12 +4363,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://halfornothing.com/proenza.html</loc>
-    <lastmod>2026-11-21</lastmod>
-    <changefreq>hourly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://halfornothing.com/prox.html</loc>
     <lastmod>2026-11-21</lastmod>
     <changefreq>hourly</changefreq>
@@ -4591,12 +4573,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://halfornothing.com/st-john.html</loc>
-    <lastmod>2026-11-21</lastmod>
-    <changefreq>hourly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://halfornothing.com/stella-mccartney.html</loc>
     <lastmod>2026-11-21</lastmod>
     <changefreq>hourly</changefreq>
@@ -4718,12 +4694,6 @@
   </url>
   <url>
     <loc>https://halfornothing.com/tous.html</loc>
-    <lastmod>2026-11-21</lastmod>
-    <changefreq>hourly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://halfornothing.com/trina-turk.html</loc>
     <lastmod>2026-11-21</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.7</priority>
@@ -4862,8 +4832,20 @@
   </url>
   <url>
     <loc>https://halfornothing.com/blog.html</loc>
-    <lastmod>2026-11-20</lastmod>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://halfornothing.com/blog/black-friday-beauty-deals-50-percent-off-2026.html</loc>
+    <lastmod>2026-11-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://halfornothing.com/blog/stanley-quencher-50-percent-off-home-gifts-2026.html</loc>
+    <lastmod>2026-11-21</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
@@ -5282,7 +5264,7 @@
   </url>
   <url>
     <loc>https://halfornothing.com/blog/author/checarlos-cruz.html</loc>
-    <lastmod>2026-11-19</lastmod>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
@@ -5294,7 +5276,7 @@
   </url>
   <url>
     <loc>https://halfornothing.com/blog/category/gift-guides.html</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.4</priority>
   </url>
@@ -5306,7 +5288,7 @@
   </url>
   <url>
     <loc>https://halfornothing.com/blog/category/skincare-beauty.html</loc>
-    <lastmod>2026-09-24</lastmod>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.4</priority>
   </url>
