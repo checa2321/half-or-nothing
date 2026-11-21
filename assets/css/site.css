@@ -4277,3 +4277,112 @@ html:has(.si-root),html:has(.si-root) body{overflow-x:hidden}
 .prose.lay-mag.lay.magazine-v2.lay-bfbeauty .bfb .bfb-frame{overflow:hidden}
 .prose.lay-mag.lay.magazine-v2.lay-bfbeauty .bfb .bfb-item .api-card{max-width:100%}
 @media(max-width:900px){.prose.lay-mag.lay.magazine-v2.lay-bfbeauty .bfb .bfb-spread{grid-template-columns:minmax(0,1fr)}.prose.lay-mag.lay.magazine-v2.lay-bfbeauty .bfb .bfb-hero,.prose.lay-mag.lay.magazine-v2.lay-bfbeauty .bfb .bfb-intro,.prose.lay-mag.lay.magazine-v2.lay-bfbeauty .bfb .bfb-glance,.prose.lay-mag.lay.magazine-v2.lay-bfbeauty .bfb .bfb-spreads,.prose.lay-mag.lay.magazine-v2.lay-bfbeauty .bfb .bfb-jump{padding-left:16px;padding-right:16px}.prose.lay-mag.lay.magazine-v2.lay-bfbeauty .bfb .bfb-jump{margin-left:0;margin-right:0}}
+/* Stanley / home gifts post (graphic design from Gemini's Deal Hunter Command mockup, Nov 21 2026). Self-hosted JetBrains Mono + Plus Jakarta Sans. Scoped under .lay-stanleycmd .sqc; site header/footer come from the site. */
+@font-face{font-family:"JetBrains Mono";font-style:normal;font-weight:400 800;font-display:swap;src:url("/assets/fonts/jetbrains-mono-var-latin.woff2") format("woff2")}
+.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc{--dk:#111827;--dk2:#171f2e;--amber:#D97706;--emer:#059669;--emer-l:#34d399;--n50:#fafafa;--n100:#f5f5f5;--n200:#e5e5e5;--n300:#d4d4d4;--n500:#737373;--n600:#525252;--n700:#404040;--mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;margin:0 auto;max-width:1120px;padding:0 0 40px;background:#fff;color:var(--dk);font:400 16px/1.6 "Plus Jakarta Sans",system-ui,sans-serif;border-radius:18px;overflow:clip}
+.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc *{box-sizing:border-box}
+.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc a{color:inherit}
+.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc ul,.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc ol{list-style:none;margin:0;padding:0}
+.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc li::before{content:none!important}
+.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc li{margin:0;padding:0}
+.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc h1,.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc h2,.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc h3,.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc p{margin:0}
+.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc .sqc-hero-h{background:var(--dk);color:#fff;padding:26px 32px 38px;border-bottom:1px solid #262626}
+.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc .sqc-hero-top{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;padding-bottom:22px;margin-bottom:26px;border-bottom:1px solid rgba(255,255,255,.1)}
+.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc .sqc-brand{font-weight:800;font-size:19px;letter-spacing:.16em;color:#fff}
+.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc .sqc-live{display:inline-flex;align-items:center;gap:7px;padding:5px 12px;border-radius:99px;background:rgba(5,150,105,.2);border:1px solid rgba(5,150,105,.4);color:#6ee7b7;font:600 11px/1.3 var(--mono);text-transform:uppercase}
+.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc .sqc-live i{width:6px;height:6px;border-radius:50%;background:var(--emer-l);display:block}
+.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc .sqc-kicker{font:700 12px/1.4 var(--mono);letter-spacing:.18em;text-transform:uppercase;color:#f59e0b;margin-bottom:10px}
+.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc .sqc-hero-h h1{font:800 clamp(28px,4.4vw,46px)/1.12 "Plus Jakarta Sans",system-ui,sans-serif;letter-spacing:-.02em;color:#fff;margin:0 0 16px;max-width:880px}
+.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc .sqc-sub{font-size:16px;line-height:1.6;color:#d4d4d4;max-width:760px;margin-bottom:16px}
+.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc .sqc-meta{display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center;font:500 12px/1.4 var(--mono);color:#a3a3a3;margin-bottom:18px}
+.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc .sqc-meta a{color:#fff;text-decoration:underline;text-underline-offset:3px}
+.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc .sqc-disc{border-radius:12px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);padding:12px 16px;font-size:12px;line-height:1.6;color:#d4d4d4;max-width:880px}
+.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc .sqc-disc strong{color:#fff;font-weight:600}
+.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc .sqc-radar,.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc .sqc-brief,.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc .sqc-filter,.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc .sqc-cards,.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc .sqc-trials,.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc .sqc-checked,.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc .sqc-faq{margin-left:32px;margin-right:32px}
+.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc .sqc-radar{margin-top:34px}
+.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc .sqc-sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin-bottom:14px;flex-wrap:wrap}
+.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc .sqc-label{font:700 11px/1.4 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--amber)}
+.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc .sqc-sec-head h2{font:800 25px/1.2 "Plus Jakarta Sans",system-ui,sans-serif;color:var(--dk);margin:2px 0 0;padding:0;border:0}
+.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc .sqc-copy{font:600 12px/1 var(--mono);padding:9px 14px;border-radius:9px;border:1px solid var(--n200);background:#fff;color:var(--n700);cursor:pointer}
+.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc .sqc-copy:hover{border-color:var(--dk);color:var(--dk)}
+.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc .sqc-table{overflow-x:auto;border:1px solid var(--n200);border-radius:16px;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc .sqc-table table{width:100%;min-width:640px;border-collapse:collapse;text-align:left;margin:0}
+.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc .sqc-table th{padding:13px 20px;background:var(--n50);border-bottom:1px solid var(--n200);font:600 11px/1.3 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--n500);white-space:nowrap}
+.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc .sqc-table td{padding:13px 20px;border-bottom:1px solid var(--n200);font-size:14px;color:var(--dk);vertical-align:middle}
+.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc .sqc-table tr:last-child td{border-bottom:0}
+.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc .sqc-table tbody tr:hover{background:rgba(250,250,250,.8)}
+.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc .sqc-td-name a{font-weight:700;text-decoration:underline;text-decoration-color:var(--n300);text-underline-offset:4px;color:var(--dk)}
+.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc .sqc-td-name a:hover{color:var(--amber)}
+.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc .sqc-td-name span{display:block;margin-top:2px;font:500 11px/1.3 var(--mono);color:var(--n500)}
+.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc .sqc-tier{display:inline-block;font:700 12px/1 var(--mono);color:var(--emer);background:#ecfdf5;padding:6px 10px;border-radius:7px;white-space:nowrap}
+.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc .sqc-td-path{font:400 12px/1.4 var(--mono);color:var(--n600)}
+.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc .sqc-td-act{text-align:right;white-space:nowrap}
+.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc .sqc-go{display:inline-block;padding:7px 13px;border-radius:9px;background:var(--dk);color:#fff!important;font-size:12px;font-weight:700;text-decoration:none}
+.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc .sqc-go:hover{background:var(--amber)}
+.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc .sqc-brief{margin-top:30px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:26px;align-items:start}
+.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc .sqc-brief-in{background:var(--n50);border:1px solid var(--n200);border-radius:16px;padding:20px 22px}
+.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc .sqc-take{display:grid;gap:10px;margin-top:10px}
+.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc .sqc-take li,.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc .sqc-facts li{display:flex;gap:9px;align-items:flex-start;font-size:14px;line-height:1.55;color:var(--n700)}
+.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc .sqc-take li>span:first-child,.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc .sqc-facts li>span:first-child{color:var(--emer);font-weight:800;flex:none}
+.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc .sqc-intro p{font-size:16px;line-height:1.7;color:var(--n700);margin:0 0 14px}
+.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc .sqc-intro a,.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc .sqc-take a,.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc .sqc-facts a,.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc .sqc-lead a,.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc .sqc-desc a,.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc .sqc-note a,.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc .sqc-checked a,.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc .sqc-faq a{color:var(--dk);text-decoration:underline;text-decoration-color:var(--amber);text-underline-offset:3px}
+.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc .sqc-filter{margin-top:30px;margin-bottom:22px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;background:var(--n50);border:1px solid var(--n200);border-radius:16px;padding:13px 16px}
+.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc .sqc-fbtns{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc .sqc-filter .sqc-label{color:var(--n500);margin-right:4px}
+.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc .sqc-fbtn{font:700 12px/1 "Plus Jakarta Sans",system-ui,sans-serif;padding:9px 14px;border-radius:9px;border:1px solid var(--n200);background:#fff;color:var(--n700);cursor:pointer}
+.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc .sqc-fbtn:hover{border-color:var(--dk)}
+.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc .sqc-fbtn[aria-pressed="true"]{background:var(--dk);border-color:var(--dk);color:#fff}
+.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc .sqc-count{font:500 12px/1.3 var(--mono);color:var(--n500)}
+.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc .sqc-cards{display:grid;gap:22px}
+.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc .sqc-card{display:grid;grid-template-columns:minmax(0,250px) minmax(0,1fr);border:1px solid var(--n200);border-radius:18px;overflow:clip;background:#fff;scroll-margin-top:92px;transition:border-color .15s}
+.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc .sqc-card:hover{border-color:var(--dk)}
+.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc .sqc-card[hidden]{display:none}
+.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc .sqc-hero{border-width:2px}
+.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc .sqc-side{background:var(--dk);color:#fff;padding:24px;display:flex;flex-direction:column;justify-content:space-between;gap:20px}
+.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc .sqc-tag{display:inline-block;font:700 10px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;padding:5px 8px;border-radius:5px;background:rgba(255,255,255,.1);color:#e5e5e5;margin-bottom:14px}
+.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc .sqc-tag-hero{background:var(--amber);color:#fff}
+.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc .sqc-big{font:700 clamp(40px,4.4vw,52px)/1 var(--mono);letter-spacing:-.02em;color:var(--emer-l)}
+.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc .sqc-big-sm{font-size:clamp(28px,3.2vw,36px)}
+.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc .sqc-off{font:700 12px/1.3 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:#fff;margin-top:6px}
+.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc .sqc-paths{border-top:1px solid rgba(255,255,255,.1);padding-top:14px;display:grid;gap:6px}
+.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc .sqc-paths span{font:500 11px/1.4 var(--mono)}
+.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc .sqc-path-a{color:#6ee7b7}
+.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc .sqc-path-b{color:#fcd34d}
+.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc .sqc-main{padding:24px 26px;min-width:0}
+.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc .sqc-badges{display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px;margin-bottom:10px}
+.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc .sqc-ok{font:700 12px/1 var(--mono);color:var(--emer);background:#ecfdf5;border:1px solid #a7f3d0;padding:5px 9px;border-radius:7px}
+.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc .sqc-cat{font:500 12px/1.3 var(--mono);color:var(--n500)}
+.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc .sqc-main h2{font:800 clamp(22px,2.6vw,27px)/1.2 "Plus Jakarta Sans",system-ui,sans-serif;color:var(--dk);margin:0 0 12px;padding:0;border:0}
+.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc .sqc-lead{font-size:15px;line-height:1.65;color:var(--n700);margin:0 0 12px}
+.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc .sqc-facts{display:grid;gap:7px;margin:0 0 18px}
+.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc .sqc-stack{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,320px),1fr));gap:18px;border-top:1px solid var(--n100);padding-top:18px;align-items:start}
+.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc .sqc-note{grid-column:1/-1;border-left:3px solid var(--amber);background:#fffbeb;padding:10px 14px;border-radius:0 10px 10px 0}
+.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc .sqc-note p{font-size:14px;line-height:1.6;color:var(--n700);margin:0}
+.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc .sqc-item{min-width:0}
+.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc .sqc-item *{min-width:0}
+.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc .sqc-item .picks-page-grid{max-width:none!important;margin:0!important}
+.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc .sqc-desc{font:500 12px/1.5 var(--mono);color:var(--n600);margin-top:8px}
+.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc .sqc-trials{margin-top:30px}
+.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc .sqc-checked{margin-top:30px;background:var(--dk);color:#d4d4d4;border-radius:18px;padding:26px 28px}
+.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc .sqc-checked .sqc-label{color:#f59e0b}
+.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc .sqc-checked h2{font:800 25px/1.2 "Plus Jakarta Sans",system-ui,sans-serif;color:#fff;margin:2px 0 12px;padding:0;border:0}
+.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc .sqc-checked p{font-size:15px;line-height:1.7;color:#d4d4d4;margin:0 0 12px}
+.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc .sqc-checked p:last-child{margin-bottom:0}
+.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc .sqc-checked a{color:#fff}
+.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc .sqc-faq{margin-top:30px}
+.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc .sqc-faq h2{font:800 25px/1.2 "Plus Jakarta Sans",system-ui,sans-serif;color:var(--dk);margin:0 0 14px;padding:0;border:0}
+.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc .sqc-faq details{border:1px solid var(--n200);border-radius:14px;margin-bottom:10px;background:#fff;padding:0 18px}
+.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc .sqc-faq summary{cursor:pointer;list-style:none;padding:15px 0;font-weight:700;font-size:15px;color:var(--dk);display:flex;justify-content:space-between;gap:12px}
+.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc .sqc-faq summary::-webkit-details-marker{display:none}
+.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc .sqc-faq summary::after{content:"+";font:700 18px/1 var(--mono);color:var(--amber)}
+.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc .sqc-faq details[open] summary::after{content:"\2212"}
+.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc .sqc-faq details p{padding:0 0 16px;font-size:15px;line-height:1.7;color:var(--n700)}
+.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc .sqc-toast{position:fixed;right:24px;bottom:24px;z-index:60;padding:11px 18px;background:#171717;color:#fff;border:1px solid rgba(255,255,255,.1);border-radius:12px;font:500 12px/1.3 var(--mono);opacity:0;transform:translateY(10px);transition:all .2s;pointer-events:none}
+.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc .sqc-toast.on{opacity:1;transform:none}
+@media (max-width:900px){.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc .sqc-brief{grid-template-columns:minmax(0,1fr)}.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc .sqc-card{grid-template-columns:minmax(0,1fr)}.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc .sqc-side{flex-direction:row;align-items:flex-end;flex-wrap:wrap}}
+@media (max-width:640px){.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc .sqc-hero-h{padding:20px 18px 28px}.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc .sqc-radar,.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc .sqc-brief,.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc .sqc-filter,.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc .sqc-cards,.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc .sqc-trials,.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc .sqc-checked,.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc .sqc-faq{margin-left:14px;margin-right:14px}.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc .sqc-main{padding:18px 16px}.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc .sqc-checked{padding:20px 18px}.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc .sqc-table th,.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc .sqc-table td{padding:11px 14px}.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc .sqc-stack{grid-template-columns:minmax(0,1fr)}}
+.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc strong{background:none!important;padding:0!important;box-shadow:none!important;color:inherit;font-weight:700}
+.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc .sqc-side>div:first-child{position:sticky;top:96px}
+@media (max-width:900px){.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc .sqc-side>div:first-child{position:static}}
+
+.prose.lay-mag.lay.magazine-v2.lay-stanleycmd .sqc .sqc-item .compare-card{border:1px solid var(--n200)!important;border-radius:14px!important;box-shadow:none!important}
