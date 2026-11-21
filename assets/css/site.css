@@ -4153,3 +4153,9 @@ html:has(.si-root),html:has(.si-root) body{overflow-x:hidden}
 .si-root .si-product-body .si-sold{font-size:14px;margin:14px 0 0}
 @media(max-width:1000px){.si-root .si-product{min-width:0}.si-root .si-product-body .pick-api .api-card{grid-template-columns:minmax(0,1fr);grid-template-areas:"img" "main" "date"}.si-root .si-product-body .pick-api .api-img{margin:0 auto}.si-root .si-product-body .pick-api .api-main{min-width:0}}
 .si-root .si-product-body .picks-page-grid{display:block}
+/* Stay-In Edit (Che, Nov 20): the live card sits inside the coloured tile, in the place where the preview prints the brand name */
+.si-root .si-tile.si-has-card{justify-content:center;padding:18px}
+.si-root .si-tile.si-has-card .picks-page-grid{margin:0!important;width:100%}
+.si-root .si-tile .pick-api .pick-lasso-cat,.si-root .si-tile .pick-api .over-menu{display:none}
+.si-root .si-tile .picks-page-grid{display:block}
+@media(max-width:1000px){.si-root .si-tile .pick-api .api-card{grid-template-columns:minmax(0,1fr);grid-template-areas:"img" "main" "date"}.si-root .si-tile .pick-api .api-img{margin:0 auto}.si-root .si-tile .pick-api .api-main{min-width:0}}
