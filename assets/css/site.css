@@ -682,7 +682,7 @@ footer.site .footer-social a:hover{border-color:var(--signal);color:var(--signal
 .pick-lasso-num{position:absolute;top:2px;right:14px;font:800 54px/1 var(--display);
             letter-spacing:-.03em;color:var(--pk-a,var(--rule));opacity:.16;
             pointer-events:none;font-variant-numeric:tabular-nums;z-index:0}
-.pick-lasso-cat{position:absolute;top:14px;right:14px;z-index:2;max-width:150px;
+.pick-lasso-cat{position:absolute;top:14px;right:48px;z-index:2;max-width:150px;
             font:700 9px/1.2 var(--mono);letter-spacing:.06em;text-transform:uppercase;
             color:#fff;background:linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),
             linear-gradient(135deg,var(--pk-a,#52525B),var(--pk-b,#27272A));
