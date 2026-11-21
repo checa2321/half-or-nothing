@@ -6,6 +6,10 @@ Disallow: /_preview*
 Disallow: /_csp_test*
 
 Sitemap: https://halfornothing.com/sitemap.xml
+Sitemap: https://halfornothing.com/sitemap-blog.xml
+Sitemap: https://halfornothing.com/sitemap-brands.xml
+Sitemap: https://halfornothing.com/sitemap-facets.xml
+Sitemap: https://halfornothing.com/sitemap-categories.xml
 
 # AI agents: see /llms.txt for what this site does, when to use it, and
 # where the real machine-readable data feeds are (deals.json and friends).
