@@ -385,12 +385,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://halfornothing.com/costa.html</loc>
-    <lastmod>2026-11-22</lastmod>
-    <changefreq>hourly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://halfornothing.com/davidoff.html</loc>
     <lastmod>2026-11-22</lastmod>
     <changefreq>hourly</changefreq>
@@ -398,6 +392,18 @@
   </url>
   <url>
     <loc>https://halfornothing.com/derek-lam.html</loc>
+    <lastmod>2026-11-22</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://halfornothing.com/diesel.html</loc>
+    <lastmod>2026-11-22</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://halfornothing.com/dilireba.html</loc>
     <lastmod>2026-11-22</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.7</priority>
@@ -649,12 +655,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://halfornothing.com/homeyee.html</loc>
-    <lastmod>2026-11-21</lastmod>
-    <changefreq>hourly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://halfornothing.com/hugo-boss.html</loc>
     <lastmod>2026-11-22</lastmod>
     <changefreq>hourly</changefreq>
@@ -847,6 +847,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://halfornothing.com/lela-rose.html</loc>
+    <lastmod>2026-11-22</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://halfornothing.com/lenox.html</loc>
     <lastmod>2026-11-22</lastmod>
     <changefreq>hourly</changefreq>
@@ -1010,12 +1016,6 @@
   </url>
   <url>
     <loc>https://halfornothing.com/moncler.html</loc>
-    <lastmod>2026-11-22</lastmod>
-    <changefreq>hourly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://halfornothing.com/monique-lagarde.html</loc>
     <lastmod>2026-11-22</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.7</priority>
@@ -1346,6 +1346,12 @@
   </url>
   <url>
     <loc>https://halfornothing.com/samsung.html</loc>
+    <lastmod>2026-11-22</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://halfornothing.com/santorelli.html</loc>
     <lastmod>2026-11-22</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.7</priority>
