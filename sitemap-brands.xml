@@ -115,12 +115,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://halfornothing.com/apple.html</loc>
-    <lastmod>2026-11-23</lastmod>
-    <changefreq>hourly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://halfornothing.com/arabiyat-prestige.html</loc>
     <lastmod>2026-11-23</lastmod>
     <changefreq>hourly</changefreq>
@@ -349,12 +343,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://halfornothing.com/christian-louboutin.html</loc>
-    <lastmod>2026-11-23</lastmod>
-    <changefreq>hourly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://halfornothing.com/clarks.html</loc>
     <lastmod>2026-11-23</lastmod>
     <changefreq>hourly</changefreq>
@@ -565,12 +553,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://halfornothing.com/ganni.html</loc>
-    <lastmod>2026-11-23</lastmod>
-    <changefreq>hourly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://halfornothing.com/giorgio-armani.html</loc>
     <lastmod>2026-11-23</lastmod>
     <changefreq>hourly</changefreq>
@@ -643,6 +625,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://halfornothing.com/hl-affair.html</loc>
+    <lastmod>2026-11-23</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://halfornothing.com/hugo-boss.html</loc>
     <lastmod>2026-11-23</lastmod>
     <changefreq>hourly</changefreq>
@@ -650,12 +638,6 @@
   </url>
   <url>
     <loc>https://halfornothing.com/intex.html</loc>
-    <lastmod>2026-11-23</lastmod>
-    <changefreq>hourly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://halfornothing.com/invicta.html</loc>
     <lastmod>2026-11-23</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.7</priority>
@@ -1370,6 +1352,12 @@
   </url>
   <url>
     <loc>https://halfornothing.com/sebago.html</loc>
+    <lastmod>2026-11-23</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://halfornothing.com/sharagano.html</loc>
     <lastmod>2026-11-23</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.7</priority>
