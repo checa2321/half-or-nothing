@@ -85,14 +85,8 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://halfornothing.com/amanda-royal.html</loc>
-    <lastmod>2026-11-23</lastmod>
-    <changefreq>hourly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://halfornothing.com/amouroud.html</loc>
-    <lastmod>2026-11-22</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -386,6 +380,12 @@
   </url>
   <url>
     <loc>https://halfornothing.com/davidoff.html</loc>
+    <lastmod>2026-11-23</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://halfornothing.com/derek-lam.html</loc>
     <lastmod>2026-11-23</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.7</priority>
@@ -1467,12 +1467,6 @@
   <url>
     <loc>https://halfornothing.com/titleist.html</loc>
     <lastmod>2026-11-23</lastmod>
-    <changefreq>hourly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://halfornothing.com/tiziana-terenzi.html</loc>
-    <lastmod>2026-11-22</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.7</priority>
   </url>
