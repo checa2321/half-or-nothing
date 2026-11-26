@@ -61,12 +61,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://halfornothing.com/alexander-mcqueen.html</loc>
-    <lastmod>2026-11-26</lastmod>
-    <changefreq>hourly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://halfornothing.com/alexandre-j.html</loc>
     <lastmod>2026-11-26</lastmod>
     <changefreq>hourly</changefreq>
@@ -355,7 +349,19 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://halfornothing.com/costa.html</loc>
+    <lastmod>2026-11-26</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://halfornothing.com/davidoff.html</loc>
+    <lastmod>2026-11-26</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://halfornothing.com/dior.html</loc>
     <lastmod>2026-11-26</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.7</priority>
@@ -398,12 +404,6 @@
   </url>
   <url>
     <loc>https://halfornothing.com/dumont.html</loc>
-    <lastmod>2026-11-26</lastmod>
-    <changefreq>hourly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://halfornothing.com/eileen-fisher.html</loc>
     <lastmod>2026-11-26</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.7</priority>
@@ -470,12 +470,6 @@
   </url>
   <url>
     <loc>https://halfornothing.com/everbilt.html</loc>
-    <lastmod>2026-11-26</lastmod>
-    <changefreq>hourly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://halfornothing.com/farm-rio.html</loc>
     <lastmod>2026-11-26</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.7</priority>
@@ -733,6 +727,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://halfornothing.com/kensie.html</loc>
+    <lastmod>2026-11-26</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://halfornothing.com/kenzo.html</loc>
     <lastmod>2026-11-26</lastmod>
     <changefreq>hourly</changefreq>
@@ -914,12 +914,6 @@
   </url>
   <url>
     <loc>https://halfornothing.com/mira-richi.html</loc>
-    <lastmod>2026-11-26</lastmod>
-    <changefreq>hourly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://halfornothing.com/misha.html</loc>
     <lastmod>2026-11-26</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.7</priority>
@@ -1117,12 +1111,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://halfornothing.com/proenza.html</loc>
-    <lastmod>2026-11-26</lastmod>
-    <changefreq>hourly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://halfornothing.com/prox.html</loc>
     <lastmod>2026-11-26</lastmod>
     <changefreq>hourly</changefreq>
@@ -1160,6 +1148,12 @@
   </url>
   <url>
     <loc>https://halfornothing.com/retrofete.html</loc>
+    <lastmod>2026-11-26</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://halfornothing.com/retrof-te.html</loc>
     <lastmod>2026-11-26</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.7</priority>
@@ -1207,6 +1201,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://halfornothing.com/sabina-musayev.html</loc>
+    <lastmod>2026-11-26</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://halfornothing.com/salvador-dali.html</loc>
     <lastmod>2026-11-26</lastmod>
     <changefreq>hourly</changefreq>
@@ -1249,7 +1249,19 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://halfornothing.com/sharagano.html</loc>
+    <lastmod>2026-11-26</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://halfornothing.com/shark.html</loc>
+    <lastmod>2026-11-26</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://halfornothing.com/simkhai.html</loc>
     <lastmod>2026-11-26</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.7</priority>
@@ -1297,12 +1309,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://halfornothing.com/susana-monaco.html</loc>
-    <lastmod>2026-11-26</lastmod>
-    <changefreq>hourly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://halfornothing.com/swarovski.html</loc>
     <lastmod>2026-11-26</lastmod>
     <changefreq>hourly</changefreq>
@@ -1328,12 +1334,6 @@
   </url>
   <url>
     <loc>https://halfornothing.com/tallia.html</loc>
-    <lastmod>2026-11-26</lastmod>
-    <changefreq>hourly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://halfornothing.com/tanya-taylor.html</loc>
     <lastmod>2026-11-26</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.7</priority>
@@ -1448,6 +1448,12 @@
   </url>
   <url>
     <loc>https://halfornothing.com/under-armour.html</loc>
+    <lastmod>2026-11-26</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://halfornothing.com/v-canto.html</loc>
     <lastmod>2026-11-26</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.7</priority>
