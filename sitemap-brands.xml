@@ -823,6 +823,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://halfornothing.com/liquides.html</loc>
+    <lastmod>2026-11-26</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://halfornothing.com/lolita-lempicka.html</loc>
     <lastmod>2026-11-26</lastmod>
     <changefreq>hourly</changefreq>
@@ -1135,6 +1141,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://halfornothing.com/persol.html</loc>
+    <lastmod>2026-11-26</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://halfornothing.com/pfister.html</loc>
     <lastmod>2026-11-26</lastmod>
     <changefreq>hourly</changefreq>
@@ -1429,7 +1441,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://halfornothing.com/thomas-kosmala.html</loc>
+    <loc>https://halfornothing.com/thierry.html</loc>
     <lastmod>2026-11-26</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.7</priority>
