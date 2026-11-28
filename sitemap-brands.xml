@@ -115,12 +115,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://halfornothing.com/apple.html</loc>
-    <lastmod>2026-11-28</lastmod>
-    <changefreq>hourly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://halfornothing.com/arabiyat-prestige.html</loc>
     <lastmod>2026-11-28</lastmod>
     <changefreq>hourly</changefreq>
@@ -230,7 +224,7 @@
   </url>
   <url>
     <loc>https://halfornothing.com/bottega-veneta.html</loc>
-    <lastmod>2026-11-27</lastmod>
+    <lastmod>2026-11-28</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -266,7 +260,7 @@
   </url>
   <url>
     <loc>https://halfornothing.com/bvlgari.html</loc>
-    <lastmod>2026-11-27</lastmod>
+    <lastmod>2026-11-28</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -428,6 +422,12 @@
   </url>
   <url>
     <loc>https://halfornothing.com/elie.html</loc>
+    <lastmod>2026-11-28</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://halfornothing.com/elizabeth-arden.html</loc>
     <lastmod>2026-11-28</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.7</priority>
@@ -914,6 +914,12 @@
   </url>
   <url>
     <loc>https://halfornothing.com/mcm.html</loc>
+    <lastmod>2026-11-28</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://halfornothing.com/melly.html</loc>
     <lastmod>2026-11-28</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.7</priority>
@@ -1435,6 +1441,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://halfornothing.com/thomas-kosmala.html</loc>
+    <lastmod>2026-11-28</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://halfornothing.com/titleist.html</loc>
     <lastmod>2026-11-28</lastmod>
     <changefreq>hourly</changefreq>
@@ -1580,6 +1592,12 @@
   </url>
   <url>
     <loc>https://halfornothing.com/wrangler.html</loc>
+    <lastmod>2026-11-28</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://halfornothing.com/xerjoff.html</loc>
     <lastmod>2026-11-28</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.7</priority>
